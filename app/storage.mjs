@@ -57,8 +57,10 @@ export function loadVotes(storage, deck) {
   try { data = JSON.parse(raw); } catch (e) { data = null; }
   if (typeof raw !== "string" || data === null || typeof data !== "object" || data.version !== STORE_VERSION || !Array.isArray(data.votes)) {
     const text = typeof raw === "string" ? raw.slice(0, MAX_RECOVERY_CHARS) : "";
-    try { storage.setItem(RECOVERY_KEY, text); } catch (e) { /* keep going: the text is still returned */ }
-    return { status: "corrupt", votes: new Map(), ignored: 0, raw: text };
+    // recoverySaved is true only when the copy really reached storage; the text is returned either way.
+    let recoverySaved = true;
+    try { storage.setItem(RECOVERY_KEY, text); } catch (e) { recoverySaved = false; }
+    return { status: "corrupt", votes: new Map(), ignored: 0, raw: text, recoverySaved };
   }
   const { valid, ignored, truncated } = normalizeVotes(data.votes, deck);
   return { status: "ok", votes: inOrder(valid, data.votes), ignored: ignored.length + truncated, raw: null };
@@ -110,5 +112,8 @@ export function parseBackup(text, deck) {
   if (data.votes.length > MAX_VOTE_ENTRIES) return { ok: false, error: "too-many" };
   const { valid, ignored } = normalizeVotes(data.votes, deck);
   if (data.votes.length > 0 && valid.length === 0) return { ok: false, error: "no-valid-votes" };
-  return { ok: true, votes: inOrder(valid, data.votes), ignored: ignored.length, deckHash: data.deck && typeof data.deck.hash === "string" ? data.deck.hash.slice(0, 64) : null };
+  const deckHash = data.deck && typeof data.deck.hash === "string" ? data.deck.hash.slice(0, 64) : null;
+  // The votes are still used. This only lets the page warn that the backup came from a different deck.
+  const deckMismatch = deckHash !== null && deck && typeof deck.hash === "string" && deckHash !== deck.hash;
+  return { ok: true, votes: inOrder(valid, data.votes), ignored: ignored.length, deckHash, deckMismatch };
 }

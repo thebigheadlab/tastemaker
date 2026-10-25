@@ -157,6 +157,29 @@ test("corrupt storage: starts fresh, offers the unreadable data, can be dismisse
   await ctx.close();
 });
 
+test("a leftover recovery copy is offered on a later visit and can be dismissed", { skip: SKIP }, async () => {
+  const { ctx, page } = await open({ init: () => { if (window !== window.top) return; if (!sessionStorage.getItem("seeded")) { sessionStorage.setItem("seeded", "1"); localStorage.setItem("tastemaker.recovery.v1", "old-broken-data"); } } });
+  assert.match(await page.textContent("#notice"), /earlier visit/);
+  const [dl] = await Promise.all([page.waitForEvent("download"), page.click("#notice button:first-of-type")]);
+  assert.equal(readFileSync(await dl.path(), "utf8"), "old-broken-data");
+  await page.click("#notice button:nth-of-type(2)");
+  assert.equal(await page.isVisible("#notice"), false);
+  await page.reload(); await page.waitForSelector(".card");
+  assert.equal(await page.isVisible("#notice"), false);
+  await ctx.close();
+});
+
+test("restoring a backup from another deck warns in the confirmation, and still restores", { skip: SKIP }, async () => {
+  const { ctx, page, seen } = await open();
+  const id = await page.evaluate(() => document.querySelector(".card").dataset.id);
+  const buf = Buffer.from(JSON.stringify({ format: "tastemaker-backup", version: 1, deck: { version: 1, hash: "ffffffffffffffff" }, votes: [{ id, verdict: "love" }] }));
+  await page.click("#tab-export");
+  await page.setInputFiles("#restorefile", { name: "other.json", mimeType: "application/json", buffer: buf });
+  await page.waitForFunction(() => /^1 \/ 128/.test(document.getElementById("count").textContent));
+  assert.ok(seen.dialogs.some((d) => /different version of the deck/.test(d)));
+  await ctx.close();
+});
+
 test("your taste tab fits inside 390px after many swipes", { skip: SKIP }, async () => {
   const { ctx, page } = await open();
   await rate(page, "love", 4); await rate(page, "nope", 4); await rate(page, "like", 6);
