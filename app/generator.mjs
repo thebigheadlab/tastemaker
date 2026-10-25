@@ -141,9 +141,8 @@ export function normalizeVotes(raw, deck) {
   if (raw instanceof Map) entries = [...raw.entries()].map(([id, verdict]) => ({ id, verdict }));
   else if (Array.isArray(raw)) entries = raw;
   const ignored = [];
-  const truncated = 0;
   // Too many entries is refused whole. Keeping the first N would make the result depend on arrival order.
-  if (entries.length > MAX_VOTE_ENTRIES) return { valid: [], ignored: [{ id: null, reason: "too-many-entries" }], truncated };
+  if (entries.length > MAX_VOTE_ENTRIES) return { valid: [], ignored: [{ id: null, reason: "too-many-entries" }] };
   const seen = new Map(); // id -> verdict, or null once the id has conflicting entries
   for (const e of entries) {
     if (!isPlainObject(e)) { ignored.push({ id: null, reason: "malformed-entry" }); continue; }
@@ -163,7 +162,7 @@ export function normalizeVotes(raw, deck) {
     else valid.push({ id, verdict, weight: WEIGHTS[verdict] });
   }
   ignored.sort((a, b) => cmp(a.reason, b.reason) || cmp(a.id ?? "", b.id ?? ""));
-  return { valid, ignored, truncated };
+  return { valid, ignored };
 }
 
 // The votes a person has made, with undo. Re-rating a card and then undoing restores the earlier verdict.
@@ -267,7 +266,7 @@ export function fontEvidence(valid, deck) {
 // Everything the four files say, as plain data. The renderers below only format it.
 export function buildPlan(rawVotes, deck, taxonomy) {
   const byId = deckIndex(deck);
-  const { valid, ignored, truncated } = normalizeVotes(rawVotes, deck);
+  const { valid, ignored } = normalizeVotes(rawVotes, deck);
   const counts = tally(valid);
   const traits = decideTraits(traitStats(valid, deck, taxonomy));
   const t = Object.fromEntries(traits.map((x) => [x.dimension, x]));
@@ -345,7 +344,7 @@ export function buildPlan(rawVotes, deck, taxonomy) {
     preferredMode: { value: pick("colorMode"), source: src("colorMode") },
     fontTie: fe.tied,
     votes: voteList,
-    ignored: { total: ignored.length + truncated, truncated, listed: ignored.slice(0, MAX_IGNORED_LISTED) },
+    ignored: { total: ignored.length, listed: ignored.slice(0, MAX_IGNORED_LISTED) },
   };
 }
 
@@ -394,7 +393,7 @@ export function renderSwipes(plan) {
     counts: { valid: plan.votes.length, ...plan.counts, ignored: plan.ignored.total },
     weights: WEIGHTS,
     votes: plan.votes,
-    ignored: { total: plan.ignored.total, truncated: plan.ignored.truncated, listed: plan.ignored.listed },
+    ignored: { total: plan.ignored.total, listed: plan.ignored.listed },
     traits: plan.traits.map((t) => ({ dimension: t.dimension, value: t.value, source: t.source, status: t.status, tied: t.tied, avoid: t.avoid, counts: t.counts })),
   });
 }
