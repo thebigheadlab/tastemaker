@@ -43,7 +43,7 @@ test("inlined storage and io modules behave like the Node imports", async () => 
   const votes = new Map(deck.cards.slice(0, 6).map((c, i) => [c.id, ["love", "like", "nope"][i % 3]]));
   const text = S.makeBackup(votes, deck);
   assert.equal(TM.storage.makeBackup(votes, deck), text);
-  assert.deepEqual([...TM.storage.parseBackup(text, deck).votes], [...votes]);
+  assert.equal(JSON.stringify([...TM.storage.parseBackup(text, deck).votes]), JSON.stringify([...votes]));
   assert.equal(TM.storage.parseBackup("{", deck).error, "not-json");
   assert.equal(TM.io.safeFilename("../x y.json"), IO.safeFilename("../x y.json"));
 });
