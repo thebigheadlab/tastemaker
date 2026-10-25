@@ -11,3 +11,8 @@ Words this repo uses on purpose. Use the same word in code, docs and UI.
 - **Generator**: `app/generator.mjs`. Pure functions that turn votes, the deck and the taxonomy into `DESIGN.md`, `STYLE.md`, `tokens.json` and `swipes.json`. Same votes, same bytes.
 - **Backup**: a JSON file of votes you download and can restore later, on this or another device.
 - **This device only**: votes live in the browser's `localStorage`. Nothing is sent anywhere.
+- **Pin**: the upstream commit and version the agent workflow is read at. It is written in `AGENTS.md`.
+- **Playbook**: a step list in the agent workflow for one kind of task, such as a feature or opening a PR.
+- **Stage evidence**: the recorded result for one playbook step: `done` with evidence, `skip: <reason>`, or `n/a: <reason>`.
+- **Entry file**: the first upstream file an agent reads. It routes the task to a playbook.
+- **Bootstrap file**: a private file outside the repo that names the upstream source. The Coordinator passes its path in the task input.
