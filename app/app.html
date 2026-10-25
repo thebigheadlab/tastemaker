@@ -504,9 +504,15 @@ $("saveall").onclick = () => {
 
 // ---------- Your data: notices, backup, restore, clear ----------
 const dataNote = () => store
-  ? "Your swipes are saved in this browser on this device only. Nothing is sent anywhere and there is no account. Clearing site data, or opening the page in another browser or on another device, starts you fresh. Download a backup to keep or move them."
-  : "Your browser is blocking storage for this page, so swipes are kept only until you close or reload it. Download a backup to keep them. Nothing is sent anywhere.";
-let recoveryShown = loaded.status === "corrupt";
+  ? "Your swipes are saved in this browser on this device only. Your swipes never leave this device, and there is no account. Clearing site data, or opening the page in another browser or on another device, starts you fresh. Download a backup to keep or move them."
+  : "Your browser is blocking storage for this page, so swipes are kept only until you close or reload it. Download a backup to keep them. Your swipes never leave this device.";
+// Unreadable data from this visit, or a recovery copy left over from an earlier one.
+let recoveryText = loaded.status === "corrupt" ? loaded.raw : readRecovery(store);
+let recoveryKept = loaded.status === "corrupt" ? loaded.recoverySaved : recoveryText !== null;
+let recoveryShown = recoveryText !== null && recoveryText !== undefined;
+const recoveryMsg = () => loaded.status !== "corrupt"
+  ? "A copy of unreadable swipe data from an earlier visit is still on this device. You can download it or dismiss it."
+  : "Your saved swipes could not be read, so you are starting fresh." + (recoveryKept ? " A copy of the unreadable data was kept on this device." : " A copy could not be kept on this device, but you can download it now.");
 function renderNotice() {
   const n = $("notice"); n.innerHTML = ""; n.hidden = true;
   const add = (text, buttons) => {
@@ -514,9 +520,9 @@ function renderNotice() {
     buttons.forEach(([label, fn]) => { const b = document.createElement("button"); b.className = "btn ghost"; b.textContent = label; b.onclick = fn; n.appendChild(b); });
     n.hidden = false;
   };
-  if (recoveryShown) add("Your saved swipes could not be read, so you are starting fresh. A copy of the unreadable data was kept on this device.", [
-    ["Download the copy", () => saveOne("tastemaker-unreadable-data.txt", readRecovery(store) ?? loaded.raw ?? "")],
-    ["Dismiss", () => { dismissRecovery(store); recoveryShown = false; renderNotice(); }],
+  if (recoveryShown) add(recoveryMsg(), [
+    ["Download the copy", () => saveOne("tastemaker-unreadable-data.txt", recoveryText)],
+    ["Dismiss", () => { dismissRecovery(store); recoveryText = null; recoveryShown = false; renderNotice(); }],
   ]);
   else if (!store) add("Your browser is blocking storage, so swipes will be lost when you close or reload this page. Download a backup to keep them.", [["Download backup", downloadBackup]]);
   else if (!saveOk) add("Your swipes could not be saved on this device (storage may be full). Download a backup to keep them.", [["Download backup", downloadBackup]]);
@@ -535,9 +541,9 @@ $("restorefile").addEventListener("change", async () => {
   const r = parseBackup(text, DECK);
   if (!r.ok) return toast(BACKUP_ERRORS[r.error] || "Couldn't use that file.");
   const have = log.votes.size;
-  const msg = `Replace your ${have} swipes with the ${r.votes.size} in this backup?` + (r.ignored ? ` ${r.ignored} entries do not match cards in this deck and will be left out.` : "") + " Your current swipes are not kept.";
+  const msg = `Replace your ${have} swipes with the ${r.votes.size} in this backup?` + (r.ignored ? ` ${r.ignored} entries do not match cards in this deck and will be left out.` : "") + (r.deckMismatch ? " This backup was made with a different version of the deck, so some swipes may not line up." : "") + " Your current swipes are not kept.";
   if (!confirm(msg)) return toast("Nothing changed.");
-  replaceVotes(r.votes); recoveryShown = false; renderNotice(); renderStack(true); showDoc(activeDoc);
+  replaceVotes(r.votes); renderNotice(); renderStack(true); showDoc(activeDoc);
   toast(`Restored ${r.votes.size} swipes.`);
 });
 $("clearall").onclick = () => {

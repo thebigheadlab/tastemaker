@@ -141,8 +141,9 @@ export function normalizeVotes(raw, deck) {
   if (raw instanceof Map) entries = [...raw.entries()].map(([id, verdict]) => ({ id, verdict }));
   else if (Array.isArray(raw)) entries = raw;
   const ignored = [];
-  let truncated = 0;
-  if (entries.length > MAX_VOTE_ENTRIES) { truncated = entries.length - MAX_VOTE_ENTRIES; entries = entries.slice(0, MAX_VOTE_ENTRIES); }
+  const truncated = 0;
+  // Too many entries is refused whole. Keeping the first N would make the result depend on arrival order.
+  if (entries.length > MAX_VOTE_ENTRIES) return { valid: [], ignored: [{ id: null, reason: "too-many-entries" }], truncated };
   const seen = new Map(); // id -> verdict, or null once the id has conflicting entries
   for (const e of entries) {
     if (!isPlainObject(e)) { ignored.push({ id: null, reason: "malformed-entry" }); continue; }

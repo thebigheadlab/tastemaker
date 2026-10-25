@@ -203,3 +203,33 @@ test("copy: clipboard, then selection fallback, then failure", async () => {
   assert.equal(await IO.copyText(refuse, "x"), "failed");
   assert.equal(await IO.copyText({ navigator: {} }, "x", () => { throw new Error("no selection"); }), "failed");
 });
+
+test("recoverySaved is false when the recovery copy could not be written", () => {
+  const st = memory({ [S.VOTES_KEY]: "{broken" });
+  const noWrite = { getItem: st.getItem, setItem() { throw new Error("full"); }, removeItem: st.removeItem };
+  const r = S.loadVotes(noWrite, deck);
+  assert.equal(r.status, "corrupt");
+  assert.equal(r.recoverySaved, false);
+  assert.equal(r.raw, "{broken", "the text is still handed back so it can be downloaded");
+  assert.equal(S.readRecovery(noWrite), null);
+  assert.equal(S.loadVotes(memory({ [S.VOTES_KEY]: "{broken" }), deck).recoverySaved, true);
+});
+
+test("a leftover recovery copy can be read again on a later visit", () => {
+  const st = memory({ [S.VOTES_KEY]: "{broken" });
+  S.loadVotes(st, deck);
+  S.saveVotes(st, votesOf(["a-dark-round", "love"])); // user started fresh
+  const later = S.loadVotes(st, deck);
+  assert.equal(later.status, "ok");
+  assert.equal(S.readRecovery(st), "{broken");
+});
+
+test("backup from a different deck still imports but is flagged", () => {
+  const mk = (hash) => JSON.stringify({ format: "tastemaker-backup", version: 1, deck: { version: 2, hash }, votes: [{ id: "a-dark-round", verdict: "love" }] });
+  const same = S.parseBackup(mk("0123456789abcdef"), deck);
+  assert.equal(same.ok, true); assert.equal(same.deckMismatch, false);
+  const other = S.parseBackup(mk("ffffffffffffffff"), deck);
+  assert.equal(other.ok, true); assert.equal(other.deckMismatch, true); assert.equal(other.votes.size, 1);
+  const none = S.parseBackup(JSON.stringify({ format: "tastemaker-backup", version: 1, votes: [] }), deck);
+  assert.equal(none.deckMismatch, false);
+});
