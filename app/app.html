@@ -19,6 +19,8 @@
 :root[data-theme="dark"]{
   --bg:#141416; --panel:#1d1d20; --ink:#ececef; --soft:#9a99a1; --rule:#2d2d32;
   --like:#3ccf7b; --nope:#ff6b61; --love:#9a82ff; --focus:#9a82ff; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+body,h1,h2,h3,p,pre{margin:0}
 html,body{height:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:15px;line-height:1.45;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
