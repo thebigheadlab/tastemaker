@@ -61,3 +61,9 @@ test("scripts and tests contain no machine-specific paths", () => {
   assert.ok(files.length > 8);
   for (const f of files) assert.doesNotMatch(read(f), /\/home\/|\/Users\/|\/opt\/|C:\\\\/, f);
 });
+
+test("the toast sits at the top so it cannot cover the controls at the bottom", () => {
+  const css = read("app/app.html").match(/\.toast\{[^}]*\}/)[0];
+  assert.match(css, /top:/);
+  assert.doesNotMatch(css, /bottom:/);
+});

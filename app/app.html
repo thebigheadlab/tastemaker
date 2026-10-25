@@ -122,7 +122,7 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
 .notice[hidden]{display:none}
 .notice p{flex:1 1 220px;margin:0}
 .notice .btn{padding:5px 12px;font-size:13px}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top,0px));z-index:30;max-width:calc(100vw - 32px);text-align:center;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.on{opacity:1}
 @media (max-width:520px){.ctl{width:50px;height:50px}.ctl.big{width:58px;height:58px}.stage{height:56vh}.row{grid-template-columns:76px 1fr 36px}}
 @media (prefers-reduced-motion:reduce){.card,.meter .bar b{transition:none}}

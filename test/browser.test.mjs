@@ -189,3 +189,19 @@ test("your taste tab fits inside 390px after many swipes", { skip: SKIP }, async
   assert.ok((await page.locator(".dim").count()) >= 13);
   await ctx.close();
 });
+
+test("the toast does not overlap the Your data buttons at 390px", { skip: SKIP }, async () => {
+  const { ctx, page } = await open();
+  await rate(page, "love", 2);
+  await page.click("#tab-export");
+  await page.click("#copy");
+  await page.waitForSelector("#toast.on");
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  const t = await page.locator("#toast").boundingBox();
+  for (const id of ["#backup", "#restore", "#clearall"]) {
+    const b = await page.locator(id).boundingBox();
+    const overlap = !(t.y + t.height <= b.y || b.y + b.height <= t.y || t.x + t.width <= b.x || b.x + b.width <= t.x);
+    assert.equal(overlap, false, id);
+  }
+  await ctx.close();
+});

@@ -43,7 +43,8 @@ Browser tests run when `playwright-core` is installed and a Chromium is on `PATH
 
 ## Known limits
 
-- Card pages load their fonts from Google Fonts when the device is online. The app itself loads nothing from outside, and cards still render with fallback fonts offline.
+- The app page itself loads nothing from outside, and cards still render with fallback fonts offline.
+- Card pages request fonts from Google Fonts (`fonts.googleapis.com`) when the device is online, so that provider can see the request. Your swipes are never part of it. A follow-up issue covers bundling or dropping those fonts.
 - Votes saved in one browser are not visible in another. Use a backup to move them.
 
 MIT license, see LICENSE.
