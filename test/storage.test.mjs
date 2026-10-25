@@ -233,3 +233,16 @@ test("backup from a different deck still imports but is flagged", () => {
   const none = S.parseBackup(JSON.stringify({ format: "tastemaker-backup", version: 1, votes: [] }), deck);
   assert.equal(none.deckMismatch, false);
 });
+
+test("a saved list over the vote cap is treated as corrupt, kept for recovery, and not silently replaced", () => {
+  const raw = JSON.stringify({ version: 1, votes: Array.from({ length: G.MAX_VOTE_ENTRIES + 1 }, () => ({ id: "a-dark-round", verdict: "love" })) });
+  const st = memory({ [S.VOTES_KEY]: raw });
+  const r = S.loadVotes(st, deck);
+  assert.equal(r.status, "corrupt");
+  assert.equal(r.votes.size, 0);
+  assert.equal(r.recoverySaved, true);
+  assert.equal(S.readRecovery(st), raw);
+  assert.equal(st.getItem(S.VOTES_KEY), raw, "loading does not overwrite it");
+  const atCap = JSON.stringify({ version: 1, votes: Array.from({ length: G.MAX_VOTE_ENTRIES }, () => ({ id: "a-dark-round", verdict: "love" })) });
+  assert.equal(S.loadVotes(memory({ [S.VOTES_KEY]: atCap }), deck).status, "ok");
+});

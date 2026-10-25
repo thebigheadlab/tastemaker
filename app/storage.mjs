@@ -55,15 +55,15 @@ export function loadVotes(storage, deck) {
   if (raw === null || raw === undefined) return { status: "empty", votes: new Map(), ignored: 0, raw: null };
   let data = null;
   try { data = JSON.parse(raw); } catch (e) { data = null; }
-  if (typeof raw !== "string" || data === null || typeof data !== "object" || data.version !== STORE_VERSION || !Array.isArray(data.votes)) {
+  if (typeof raw !== "string" || data === null || typeof data !== "object" || data.version !== STORE_VERSION || !Array.isArray(data.votes) || data.votes.length > MAX_VOTE_ENTRIES) {
     const text = typeof raw === "string" ? raw.slice(0, MAX_RECOVERY_CHARS) : "";
     // recoverySaved is true only when the copy really reached storage; the text is returned either way.
     let recoverySaved = true;
     try { storage.setItem(RECOVERY_KEY, text); } catch (e) { recoverySaved = false; }
     return { status: "corrupt", votes: new Map(), ignored: 0, raw: text, recoverySaved };
   }
-  const { valid, ignored, truncated } = normalizeVotes(data.votes, deck);
-  return { status: "ok", votes: inOrder(valid, data.votes), ignored: ignored.length + truncated, raw: null };
+  const { valid, ignored } = normalizeVotes(data.votes, deck);
+  return { status: "ok", votes: inOrder(valid, data.votes), ignored: ignored.length, raw: null };
 }
 export function readRecovery(storage) {
   try { return storage ? storage.getItem(RECOVERY_KEY) : null; } catch (e) { return null; }
