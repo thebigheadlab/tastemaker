@@ -116,6 +116,10 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
 .zoombar span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .zoomscroll{flex:1;overflow:auto;display:flex;align-items:flex-start;justify-content:safe center;border-radius:12px}
 .zoomscroll iframe{border:0;flex:none;background:#fff;border-radius:12px;box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
+.notice{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:12px;padding:10px 12px;border:1px solid var(--rule);border-left:4px solid var(--nope);border-radius:10px;background:var(--panel);font-size:14px}
+.notice[hidden]{display:none}
+.notice p{flex:1 1 220px;margin:0}
+.notice .btn{padding:5px 12px;font-size:13px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.on{opacity:1}
 @media (max-width:520px){.ctl{width:50px;height:50px}.ctl.big{width:58px;height:58px}.stage{height:56vh}.row{grid-template-columns:76px 1fr 36px}}
@@ -134,6 +138,7 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
     </nav>
   </header>
 
+  <div class="notice" id="notice" role="status" hidden></div>
   <main>
     <section class="view" id="view-swipe">
       <div class="filters" id="filters"></div>
@@ -147,6 +152,7 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
         <button class="ctl small" id="skip" title="Skip (↓)" aria-label="Skip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l7 7-7 7M13 5l7 7-7 7"/></svg></button>
       </div>
       <div class="hint">tap to see full size · ← nope · ↑ love · → like · ↓ skip · ⌫ undo</div>
+      <div class="hint" id="savehint">Swipes are saved on this device only.</div>
     </section>
 
     <section class="view" id="view-taste" hidden>
@@ -166,6 +172,14 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
         <div class="docbar"><span class="status" id="docmeta"></span><button class="btn ghost" id="copy">Copy</button><button class="btn ghost" id="save">Save file</button><button class="btn ghost" id="saveall">Save all</button></div>
         <pre class="doc" id="doc" tabindex="0"></pre>
       </div>
+      <div class="section-h" style="margin-top:28px"><h2>Your data</h2><p>Saved on this device only</p></div>
+      <p class="note" id="storagenote"></p>
+      <div class="gen" style="margin-top:12px">
+        <button class="btn ghost" id="backup">Download backup</button>
+        <button class="btn ghost" id="restore">Restore from backup</button>
+        <button class="btn ghost" id="clearall">Clear my swipes</button>
+        <input type="file" id="restorefile" accept="application/json,.json" hidden>
+      </div>
     </section>
   </main>
 </div>
@@ -182,9 +196,11 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
 (() => {
 const DECK = JSON.parse(document.getElementById("deck-data").textContent);
 const TAX = JSON.parse(document.getElementById("taxonomy-data").textContent);
-const { generate, traitStats, decideTraits, normalizeVotes, GENERATOR_VERSION } = TM.generator;
+const { generate, traitStats, decideTraits, normalizeVotes, createVoteLog, GENERATOR_VERSION } = TM.generator;
+const { getStorage, loadVotes, saveVotes, clearVotes, readRecovery, dismissRecovery, makeBackup, parseBackup, checkBackupFile, BACKUP_ERRORS } = TM.storage;
+const { downloadText, copyText } = TM.io;
 const CARDS = DECK.cards;
-const BY_ID = Object.fromEntries(CARDS.map((c) => [c.id, c]));
+const BY_ID = Object.assign(Object.create(null), Object.fromEntries(CARDS.map((c) => [c.id, c])));
 const WEIGHT = { like: 1, love: 2, nope: -1, skip: 0 };
 const $ = (id) => document.getElementById(id);
 
@@ -193,45 +209,31 @@ let s = 7;
 const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
 const ORDER = CARDS.map((c) => c.id).map((id) => [rnd(), id]).sort((a, b) => a[0] - b[0]).map((x) => x[1]);
 
-// ---------- Swipe store: db when available, localStorage as a cache/fallback ----------
-const LS_KEY = "taste-deck-swipes-v1";
-let swipes = {}; // cardId -> { verdict, at }
-const history = []; // card ids in swipe order this session, for undo
-try { swipes = JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch (e) {}
-let db = null;
-const persistLocal = () => { try { localStorage.setItem(LS_KEY, JSON.stringify(swipes)); } catch (e) {} };
-
-async function connectDb() {
-  try { db = await window.claude?.use?.("db"); } catch (e) { db = null; }
-  if (!db) return;
-  db.collection("swipes").onSnapshot((snap) => {
-    const remote = {};
-    snap.docs.forEach((d) => { const v = d.data(); if (v && v.verdict) remote[d.id] = { verdict: v.verdict, at: v.at }; });
-    // Push anything only this browser knows (swiped before the db answered).
-    for (const [id, v] of Object.entries(swipes)) if (!remote[id]) writeRemote(id, v);
-    swipes = { ...swipes, ...remote }; outputs = null;
-    persistLocal(); refresh();
-  }, () => {});
+// ---------- Swipe store: this browser's localStorage, nothing else ----------
+const store = getStorage(window); // null when the browser blocks storage
+const loaded = loadVotes(store, DECK);
+let log = createVoteLog(loaded.votes);
+const toSwipes = (m) => { const o = Object.create(null); for (const [id, verdict] of m) o[id] = { verdict }; return o; };
+let swipes = toSwipes(log.votes); // cardId -> { verdict }, newest last
+let saveOk = loaded.status !== "blocked";
+function persist() {
+  outputs = null;
+  const r = saveVotes(store, log.votes);
+  if (r.ok !== saveOk) { saveOk = r.ok; renderNotice(); }
 }
-function writeRemote(id, v) {
-  if (!db) return;
-  const c = BY_ID[id];
-  db.collection("swipes").doc(id).set({ verdict: v.verdict, at: v.at, kind: c.kind, subtype: c.subtype, title: c.title, inspiredBy: c.inspiredBy || null, tags: c.tags }).catch(() => toast("Couldn't save that swipe online. It's kept on this device."));
+function record(id, verdict) { log.rate(id, verdict); swipes[id] = { verdict }; persist(); }
+function undoVote() {
+  const id = log.undo(); if (!id) return null;
+  if (log.votes.has(id)) swipes[id] = { verdict: log.votes.get(id) }; else delete swipes[id];
+  persist(); return id;
 }
-function record(id, verdict) {
-  const v = { verdict, at: new Date().toISOString() };
-  swipes[id] = v; history.push(id); outputs = null; persistLocal(); writeRemote(id, v);
-}
-function unrecord(id) {
-  delete swipes[id]; outputs = null; persistLocal();
-  if (db) db.collection("swipes").doc(id).delete().catch(() => {});
-}
+function replaceVotes(votes) { log = createVoteLog(votes); swipes = toSwipes(log.votes); persist(); }
 
 // ---------- Swipe view ----------
 const KINDS = [["all", "All"], ["screen", "Screens"], ["component", "Components"], ["mobile", "Mobile"], ["web", "Web"]];
 const inPile = (id, k) => k === "all" || BY_ID[id].kind === k || BY_ID[id].platform === k;
 let filter = "all";
-try { filter = localStorage.getItem("taste-deck-filter") || "all"; } catch (e) {}
+try { filter = (store && store.getItem("tastemaker.filter")) || "all"; } catch (e) {}
 if (!KINDS.some(([k]) => k === filter)) filter = "all";
 
 function queue() { return ORDER.filter((id) => !swipes[id] && inPile(id, filter)); }
@@ -244,7 +246,7 @@ function renderFilters() {
 }
 $("filters").addEventListener("click", (e) => {
   const b = e.target.closest("button"); if (!b) return;
-  filter = b.dataset.k; try { localStorage.setItem("taste-deck-filter", filter); } catch (er) {}
+  filter = b.dataset.k; try { store && store.setItem("tastemaker.filter", filter); } catch (er) {}
   renderStack(true);
 });
 
@@ -302,7 +304,7 @@ $("stage").addEventListener("click", (e) => { const g = e.target.closest("[data-
 
 function updateButtons() {
   ["nope", "like", "love", "skip"].forEach((k) => ($(k).disabled = !current));
-  $("undo").disabled = !history.length;
+  $("undo").disabled = !log.canUndo();
   const done = Object.keys(swipes).filter((id) => BY_ID[id]).length;
   $("count").textContent = `${done} / ${CARDS.length} swiped`;
   $("countbar").style.width = (100 * done / CARDS.length) + "%";
@@ -321,8 +323,7 @@ function fly(verdict) {
   renderStack(false);
 }
 function undo() {
-  const id = history.pop(); if (!id) return;
-  unrecord(id);
+  const id = undoVote(); if (!id) return;
   if (!inPile(id, filter)) filter = "all";
   // Put the restored card on top.
   $("stage").querySelectorAll(".card").forEach((el) => el.remove());
@@ -411,7 +412,7 @@ function renderTaste() {
     return `<div class="dim"><h3>${d.label}<span>${lean[dim] ? "votes pick " + lean[dim].prefer : "no pick yet"}</span></h3>${rows || `<div class="note">Not seen yet.</div>`}</div>`;
   }).join("");
   const liked = Object.entries(swipes).filter(([id, v]) => BY_ID[id] && (v.verdict === "love" || v.verdict === "like"))
-    .sort((a, b) => (b[1].verdict === "love") - (a[1].verdict === "love") || (b[1].at > a[1].at ? 1 : -1));
+    .map((e, i) => [...e, i]).sort((a, b) => (b[1].verdict === "love") - (a[1].verdict === "love") || b[2] - a[2]);
   renderProducts();
   $("liked-sub").textContent = liked.length ? `${liked.length} cards` : "";
   const box = $("liked"); box.innerHTML = liked.length ? "" : `<p class="note">Cards you like or love collect here.</p>`;
@@ -466,7 +467,6 @@ const DOCS = [
   { key: "swipes.json", note: "Raw swipe data and profile." },
 ];
 let activeDoc = "DESIGN.md";
-let downloads = null;
 let outputs = null; // { files, plan } for the current swipes
 const getOutputs = () => (outputs ||= generate(voteList(), DECK, TAX));
 const docText = new Proxy({}, { get: (_, k) => getOutputs().files[k] });
@@ -481,26 +481,16 @@ function showDoc(key) {
 }
 $("doctabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) showDoc(b.dataset.k); });
 const currentText = () => getOutputs().files[activeDoc];
+const env = { document, URL, Blob, navigator, setTimeout: (f, ms) => setTimeout(f, ms) };
 $("copy").onclick = async () => {
-  const t = currentText(); if (!t) return;
-  try { await navigator.clipboard.writeText(t); toast(`Copied ${activeDoc}`); }
-  catch (e) { const r = document.createRange(); r.selectNodeContents($("doc")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selected. Press Ctrl+C or ⌘C to copy."); }
+  const r = await copyText(env, currentText(), () => { const rg = document.createRange(); rg.selectNodeContents($("doc")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(rg); });
+  toast(r === "copied" ? `Copied ${activeDoc}` : r === "selected" ? "Selected. Press Ctrl+C or ⌘C to copy." : "Couldn't copy here. Select the text and copy it by hand.");
 };
-const SAVE_ERR = {
-  declined: "Save cancelled.",
-  rate_limited: "A save prompt is already open. Finish that one first.",
-  too_large: "That file is too big to save here. Use Copy instead.",
-};
-async function saveOne(name, text) {
-  if (!downloads) { toast("Saving files isn't available in this view. Use Copy, or open the page in a browser."); return false; }
+function saveOne(name, text) {
   try {
-    await downloads.save({ filename: name, data: text });
-    toast(/iPhone|iPad/.test(navigator.userAgent) ? `${name} ready. Pick "Save to Files" in the share sheet.` : `Saved ${name}`);
-    return true;
-  } catch (e) {
-    toast(SAVE_ERR[e?.code] || "Couldn't save the file here. Use Copy instead.");
-    return false;
-  }
+    const { name: saved } = downloadText(env, name, text);
+    toast(/iPhone|iPad/.test(navigator.userAgent) ? `${saved} ready. Pick "Save to Files" in the share sheet.` : `Saved ${saved}`);
+  } catch (e) { toast("Couldn't save the file here. Use Copy instead."); }
 }
 $("save").onclick = () => saveOne(activeDoc, currentText());
 // One file holding every doc, so a phone only needs one save prompt.
@@ -508,6 +498,51 @@ $("saveall").onclick = () => {
   const parts = ["DESIGN.md", "STYLE.md", "tokens.json", "swipes.json"];
   const body = parts.map((k) => `<!-- ===== ${k} ===== -->\n\n${k.endsWith(".json") ? "```json\n" + docText[k] + "```" : docText[k]}`).join("\n\n");
   saveOne("tastemaker-docs.md", body);
+};
+
+// ---------- Your data: notices, backup, restore, clear ----------
+const dataNote = () => store
+  ? "Your swipes are saved in this browser on this device only. Nothing is sent anywhere and there is no account. Clearing site data, or opening the page in another browser or on another device, starts you fresh. Download a backup to keep or move them."
+  : "Your browser is blocking storage for this page, so swipes are kept only until you close or reload it. Download a backup to keep them. Nothing is sent anywhere.";
+let recoveryShown = loaded.status === "corrupt";
+function renderNotice() {
+  const n = $("notice"); n.innerHTML = ""; n.hidden = true;
+  const add = (text, buttons) => {
+    const p = document.createElement("p"); p.textContent = text; n.appendChild(p);
+    buttons.forEach(([label, fn]) => { const b = document.createElement("button"); b.className = "btn ghost"; b.textContent = label; b.onclick = fn; n.appendChild(b); });
+    n.hidden = false;
+  };
+  if (recoveryShown) add("Your saved swipes could not be read, so you are starting fresh. A copy of the unreadable data was kept on this device.", [
+    ["Download the copy", () => saveOne("tastemaker-unreadable-data.txt", readRecovery(store) ?? loaded.raw ?? "")],
+    ["Dismiss", () => { dismissRecovery(store); recoveryShown = false; renderNotice(); }],
+  ]);
+  else if (!store) add("Your browser is blocking storage, so swipes will be lost when you close or reload this page. Download a backup to keep them.", [["Download backup", downloadBackup]]);
+  else if (!saveOk) add("Your swipes could not be saved on this device (storage may be full). Download a backup to keep them.", [["Download backup", downloadBackup]]);
+  const note = $("storagenote"); if (note) note.textContent = dataNote();
+  $("savehint").textContent = store ? "Swipes are saved on this device only." : "Storage is blocked, so swipes are not saved.";
+}
+function downloadBackup() { saveOne("tastemaker-backup.json", makeBackup(log.votes, DECK)); }
+$("backup").onclick = downloadBackup;
+$("restore").onclick = () => { $("restorefile").value = ""; $("restorefile").click(); };
+$("restorefile").addEventListener("change", async () => {
+  const file = $("restorefile").files && $("restorefile").files[0]; if (!file) return;
+  const size = checkBackupFile(file);
+  if (!size.ok) return toast(BACKUP_ERRORS[size.error]);
+  let text;
+  try { text = await file.text(); } catch (e) { return toast("Couldn't read that file."); }
+  const r = parseBackup(text, DECK);
+  if (!r.ok) return toast(BACKUP_ERRORS[r.error] || "Couldn't use that file.");
+  const have = log.votes.size;
+  const msg = `Replace your ${have} swipes with the ${r.votes.size} in this backup?` + (r.ignored ? ` ${r.ignored} entries do not match cards in this deck and will be left out.` : "") + " Your current swipes are not kept.";
+  if (!confirm(msg)) return toast("Nothing changed.");
+  replaceVotes(r.votes); recoveryShown = false; renderNotice(); renderStack(true); showDoc(activeDoc);
+  toast(`Restored ${r.votes.size} swipes.`);
+});
+$("clearall").onclick = () => {
+  if (!log.votes.size) return toast("There is nothing to clear.");
+  if (!confirm(`Clear all ${log.votes.size} swipes on this device? Download a backup first if you want to keep them.`)) return;
+  replaceVotes(new Map()); clearVotes(store); renderStack(true); showDoc(activeDoc);
+  toast("Cleared.");
 };
 
 // ---------- Views, toast, boot ----------
@@ -529,8 +564,7 @@ function refresh() {
 
 const start = location.hash.slice(1);
 showView(["taste", "export"].includes(start) ? start : "swipe");
-connectDb();
-(async () => { try { downloads = await window.claude?.use?.("downloads"); } catch (e) {} })();
+renderNotice();
 })();
 </script>
 </body>

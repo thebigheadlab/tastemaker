@@ -177,7 +177,7 @@ const COMPONENTS = {
     <div style="display:flex;gap:8px"><button class="btn btn-primary" style="flex:1;opacity:.45">Disabled</button><button class="btn btn-secondary" style="width:var(--ctl);padding:0">${ICON.search}</button></div></div>`),
 
   input: () => center(`<div style="display:flex;flex-direction:column;gap:var(--gap);width:300px">
-    <div class="field"><span class="label">Email</span><input class="input" value="ada@lovelace.dev"></div>
+    <div class="field"><span class="label">Email</span><input class="input" value="ada@example.com"></div>
     <div class="field"><span class="label">Password</span><input class="input focus" type="password" value="hunter22"></div>
     <div class="field"><span class="label">Search</span><div style="position:relative"><span class="muted" style="position:absolute;left:var(--pad);top:50%;transform:translateY(-50%)">${ICON.search}</span><input class="input" placeholder="Search anything" style="padding-left:calc(var(--pad) + 24px)"></div></div>
     <div class="field"><span class="label">Username</span><input class="input" value="ada!" style="border-color:#e5484d"><span style="font-size:var(--fs-0);color:#e5484d">Only letters and numbers</span></div></div>`),
@@ -308,7 +308,7 @@ const SCREENS = {
       <div style="width:56px;height:56px;border-radius:var(--r-lg);background:var(--accent);margin-bottom:24px"></div>
       <h1 style="font-size:min(var(--fs-5), 44px);font-weight:700">Welcome back</h1>
       <p class="muted" style="margin-bottom:12px">Sign in to pick up where you left off.</p>
-      <div class="field"><span class="label">Email</span><input class="input" value="ada@lovelace.dev"></div>
+      <div class="field"><span class="label">Email</span><input class="input" value="ada@example.com"></div>
       <div class="field"><span class="label">Password</span><input class="input focus" type="password" value="secretpass"></div>
       <span style="color:var(--accent);font-size:var(--fs-0);font-weight:600;align-self:flex-end">Forgot password?</span>
       <button class="btn btn-primary" style="width:100%;margin-top:8px">Sign in</button>
@@ -331,7 +331,7 @@ const SCREENS = {
   settings: { viewport: { w: 390, h: 780 }, html: (t) => `
     <div style="padding:48px 20px 24px;display:flex;flex-direction:column;gap:var(--gap)">
       <h1 style="font-size:var(--fs-4);font-weight:700">Settings</h1>
-      <div class="panel" style="padding:var(--pad);display:flex;gap:14px;align-items:center"><span style="width:52px;height:52px;border-radius:999px;background:var(--accent)"></span><div style="flex:1"><b>Ada Lovelace</b><div class="muted" style="font-size:var(--fs-0)">ada@lovelace.dev</div></div><span class="muted">›</span></div>
+      <div class="panel" style="padding:var(--pad);display:flex;gap:14px;align-items:center"><span style="width:52px;height:52px;border-radius:999px;background:var(--accent)"></span><div style="flex:1"><b>Ada Lovelace</b><div class="muted" style="font-size:var(--fs-0)">ada@example.com</div></div><span class="muted">›</span></div>
       ${[["Account", ["Profile", "Password", "Linked accounts"]], ["Preferences", ["Notifications", "Appearance", "Language"]], ["Support", ["Help center", "Send feedback"]]].map(([h, items]) => `
       <div class="label" style="margin-top:8px;text-transform:uppercase;letter-spacing:.08em">${h}</div>
       <div class="panel" style="padding:0 var(--pad)">${items.map((x, i) => `<div style="display:flex;justify-content:space-between;padding:calc(var(--pad)*.9) 0;${i ? "border-top:1px solid var(--line)" : ""}"><span>${x}</span><span class="muted">›</span></div>`).join("")}</div>`).join("")}</div>` },

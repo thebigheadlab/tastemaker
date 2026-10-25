@@ -33,3 +33,17 @@ test("dist/index.html embeds the same deck hash the generator will record", () =
   const m = html.match(/<script type="application\/json" id="deck-data">([\s\S]*?)<\/script>/);
   assert.equal(JSON.parse(m[1]).hash, deck.hash);
 });
+
+test("inlined storage and io modules behave like the Node imports", async () => {
+  const S = await import("../app/storage.mjs");
+  const IO = await import("../app/io.mjs");
+  const html = ensureDist();
+  const deck = ensureDeck();
+  const TM = inlinedModules(html);
+  const votes = new Map(deck.cards.slice(0, 6).map((c, i) => [c.id, ["love", "like", "nope"][i % 3]]));
+  const text = S.makeBackup(votes, deck);
+  assert.equal(TM.storage.makeBackup(votes, deck), text);
+  assert.deepEqual([...TM.storage.parseBackup(text, deck).votes], [...votes]);
+  assert.equal(TM.storage.parseBackup("{", deck).error, "not-json");
+  assert.equal(TM.io.safeFilename("../x y.json"), IO.safeFilename("../x y.json"));
+});
