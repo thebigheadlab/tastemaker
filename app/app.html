@@ -28,7 +28,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;min-height:100%}
 
-header{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:16px 12px}
+/* Sticky, so the toast (fixed over the brand row) never lands on a control: the tabs and everything else sit below it. */
+header{position:sticky;top:0;z-index:10;background:var(--bg);display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-block:16px 12px}
 .brand{font-weight:800;font-size:20px;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
 .brand i{width:18px;height:22px;border-radius:4px;background:var(--ink);transform:rotate(-8deg);box-shadow:5px 1px 0 -1px var(--love)}
 .meter{flex:1;min-width:140px;display:flex;align-items:center;gap:10px;font:12px var(--mono);color:var(--soft)}
@@ -122,8 +123,9 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
 .notice[hidden]{display:none}
 .notice p{flex:1 1 220px;margin:0}
 .notice .btn{padding:5px 12px;font-size:13px}
-.toast{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top,0px));z-index:30;max-width:calc(100vw - 32px);text-align:center;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
-.toast.on{opacity:1}
+/* The toast lives inside the sticky header, below the tabs. It pushes content down instead of floating over it, so it can never cover a control. */
+.toast{display:none;flex-basis:100%;background:var(--ink);color:var(--bg);padding:8px 12px;border-radius:10px;font-size:13px}
+.toast.on{display:block}
 @media (max-width:520px){.ctl{width:50px;height:50px}.ctl.big{width:58px;height:58px}.stage{height:56vh}.row{grid-template-columns:76px 1fr 36px}}
 @media (prefers-reduced-motion:reduce){.card,.meter .bar b{transition:none}}
 </style>
@@ -138,6 +140,7 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
       <button role="tab" id="tab-taste" aria-selected="false" data-view="taste">Your taste</button>
       <button role="tab" id="tab-export" aria-selected="false" data-view="export">Export</button>
     </nav>
+    <div class="toast" id="toast" role="status"></div>
   </header>
 
   <div class="notice" id="notice" role="status" hidden></div>
@@ -185,7 +188,6 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
     </section>
   </main>
 </div>
-<div class="toast" id="toast" role="status"></div>
 <div class="zoom" id="zoom" hidden role="dialog" aria-modal="true" aria-label="Card at full size">
   <div class="zoombar"><span id="zoomtitle"></span><button class="btn ghost" id="zoomclose">Close</button></div>
   <div class="zoomscroll" id="zoomscroll"></div>

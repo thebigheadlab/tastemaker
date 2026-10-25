@@ -62,8 +62,9 @@ test("scripts and tests contain no machine-specific paths", () => {
   for (const f of files) assert.doesNotMatch(read(f), /\/home\/|\/Users\/|\/opt\/|C:\\\\/, f);
 });
 
-test("the toast sits at the top so it cannot cover the controls at the bottom", () => {
-  const css = read("app/app.html").match(/\.toast\{[^}]*\}/)[0];
-  assert.match(css, /top:/);
-  assert.doesNotMatch(css, /bottom:/);
+test("the toast is part of the sticky header, not a floating layer", () => {
+  const html = read("app/app.html");
+  assert.match(html, /header\{position:sticky/);
+  assert.match(html, /<div class="toast" id="toast"[^>]*><\/div>\n  <\/header>/);
+  assert.doesNotMatch(html.match(/\.toast\{[^}]*\}/)[0], /position:\s*fixed/);
 });
