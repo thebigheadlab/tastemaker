@@ -234,17 +234,20 @@ test("hostile card text and ids cannot inject markup or pollute prototypes", () 
   assert.doesNotThrow(() => G.generate([], deck, null));
 });
 
-test("huge input is capped and still deterministic", () => {
-  const big = [];
-  for (let i = 0; i < 200000; i++) big.push(vote("a-dark-round", "love"));
+test("input over the cap is refused whole, so shuffling cannot change the result", () => {
+  const over = [];
+  for (let i = 0; i < 6000; i++) over.push(vote(ids[i % ids.length], ["love", "like", "nope", "skip"][i % 4]));
+  const shuffled = over.slice().sort((a, b) => ((a.verdict + a.id + (a.id.length * 7) % 5) < (b.verdict + b.id) ? 1 : -1));
+  const rotated = over.slice(2500).concat(over.slice(0, 2500));
+  const a = G.generate(over, deck, taxonomy);
+  assert.deepEqual(G.generate(shuffled, deck, taxonomy).files, a.files);
+  assert.deepEqual(G.generate(rotated, deck, taxonomy).files, a.files);
+  assert.equal(a.plan.votes.length, 0);
+  assert.deepEqual(a.plan.ignored.listed, [{ id: null, reason: "too-many-entries" }]);
+  assert.equal(G.normalizeVotes(over.slice(0, G.MAX_VOTE_ENTRIES), deck).valid.length, ids.length);
   const t0 = Date.now();
-  const a = G.generate(big, deck, taxonomy);
+  G.generate(Array.from({ length: 200000 }, () => vote("a-dark-round", "love")), deck, taxonomy);
   assert.ok(Date.now() - t0 < 5000);
-  const plan = a.plan;
-  assert.equal(plan.ignored.truncated, 200000 - G.MAX_VOTE_ENTRIES);
-  assert.ok(plan.ignored.listed.length <= G.MAX_IGNORED_LISTED);
-  assert.equal(plan.votes.length, 1);
-  assert.deepEqual(G.generate(big, deck, taxonomy).files, a.files);
 });
 
 test("the checked-in profile of a past user is gone", () => {
