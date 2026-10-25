@@ -189,3 +189,36 @@ test("your taste tab fits inside 390px after many swipes", { skip: SKIP }, async
   assert.ok((await page.locator(".dim").count()) >= 13);
   await ctx.close();
 });
+
+// A control that can be tapped before the toast shows must still be tappable after it, unless the toast pushed it off screen.
+test("the toast never covers a tappable control on any tab, at the top, middle or bottom", { skip: SKIP }, async () => {
+  const { ctx, page } = await open();
+  await rate(page, "love", 2);
+  const tappable = () => page.evaluate(() => [...document.querySelectorAll("button, a, input, [role=tab]")].filter((el) => {
+    const r = el.getBoundingClientRect();
+    if (!r.width || !r.height || el.closest("[hidden]") || r.bottom <= 0 || r.top >= innerHeight) return false;
+    const hit = document.elementFromPoint(r.left + r.width / 2, Math.min(Math.max(r.top + r.height / 2, 1), innerHeight - 1));
+    return hit === el || el.contains(hit);
+  }).map((el) => el.id || el.dataset.k || el.textContent.trim().slice(0, 24)));
+  for (const tab of ["tab-swipe", "tab-taste", "tab-export"]) {
+    await page.click("#" + tab);
+    for (const where of ["top", "middle", "bottom"]) {
+      await page.evaluate((w) => window.scrollTo(0, w === "top" ? 0 : w === "bottom" ? document.body.scrollHeight : document.body.scrollHeight / 2), where);
+      const before = await tappable();
+      await page.evaluate(() => { const t = document.getElementById("toast"); t.textContent = "Couldn't copy here. Select the text and copy it by hand. More words so it wraps."; t.classList.add("on"); });
+      const rect = await page.locator("#toast").boundingBox();
+      const after = await page.evaluate(() => [...document.querySelectorAll("button, a, input, [role=tab]")].map((el) => { const r = el.getBoundingClientRect(); return [el.id || el.dataset.k || el.textContent.trim().slice(0, 24), r.top, r.bottom, r.left + r.width / 2]; }));
+      const covered = [];
+      for (const [name, top, bottom, cx] of after) {
+        if (!before.includes(name) || bottom <= 0 || top >= 844) continue;
+        const cy = Math.min(Math.max((top + bottom) / 2, 1), 843);
+        if (cy >= rect.y && cy <= rect.y + rect.height && cx >= rect.x && cx <= rect.x + rect.width) covered.push(name);
+      }
+      assert.deepEqual(covered, [], `${tab} at ${where}`);
+      await page.evaluate(() => document.getElementById("toast").classList.remove("on"));
+    }
+  }
+  assert.ok((await overflow(page)) <= W);
+  await ctx.close();
+});
+
