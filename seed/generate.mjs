@@ -367,7 +367,7 @@ function tokensFor(t) {
 const cards = [];
 function emit(card, t, html, viewport) {
   writeFileSync(join(OUT, "cards", `${card.id}.html`), page(t, html, viewport));
-  cards.push({ ...card, tokens: tokensFor(t), source: { type: "generated", generator: "claude-code/seed-v1" }, viewport, file: `cards/${card.id}.html` });
+  cards.push({ ...card, tokens: tokensFor(t), source: { type: "generated", generator: "tastemaker/seed-v1" }, viewport, file: `cards/${card.id}.html` });
 }
 
 rmSync(OUT, { recursive: true, force: true });
