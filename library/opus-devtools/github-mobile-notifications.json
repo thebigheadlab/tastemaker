@@ -1,0 +1,28 @@
+{
+  "id": "github-mobile-notifications",
+  "kind": "screen",
+  "subtype": "notifications",
+  "title": "Mobile notifications",
+  "inspiredBy": "GitHub",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "GitHub mobile inbox: repo-grouped notifications with PR/issue state icons, filter pills and swipe actions."
+}

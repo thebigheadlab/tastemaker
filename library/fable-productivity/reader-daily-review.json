@@ -1,0 +1,25 @@
+{
+  "id": "reader-daily-review",
+  "kind": "component",
+  "subtype": "flashcard review",
+  "title": "Daily review card",
+  "inspiredBy": "Readwise Reader",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "serif",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "editorial"
+  },
+  "notes": "A stacked deck of highlight cards resurfacing an old passage in large serif, with the book cover, your note, tags and a round action row of Skip / Keep / Favorite with keyboard hints."
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Now playing</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#121212;font-family:Figtree,"Circular Std",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#fff;overflow:hidden;-webkit-font-smoothing:antialiased;width:390px;height:844px;position:relative}
+.bg{position:absolute;inset:0;background:linear-gradient(180deg,#7a2a1f 0%,#5a1f17 38%,#2a1310 70%,#121212 100%)}
+.wrap{position:relative;padding:0 24px}
+.status{height:50px;display:flex;justify-content:space-between;align-items:center;padding:4px 6px 0 10px;font-weight:600;font-size:16px}
+.sicons{display:flex;gap:6px;align-items:center}
+.top{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.top .c{text-align:center;font-size:12px;line-height:15px}
+.top .c small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.top .c b{font-weight:700;font-size:13px}
+.art{margin-top:38px;width:342px;height:342px;border-radius:6px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.45);position:relative;background:#e3572f}
+.ti{margin-top:40px;display:flex;justify-content:space-between;align-items:center}
+.ti b{display:block;font-size:22px;font-weight:700;letter-spacing:-.01em}
+.ti span{font-size:16px;color:rgba(255,255,255,.7);font-weight:500}
+.pr{margin-top:22px;height:4px;border-radius:2px;background:rgba(255,255,255,.3);position:relative}
+.pr i{position:absolute;left:0;top:0;bottom:0;width:38%;background:#fff;border-radius:2px}
+.pr u{position:absolute;left:38%;top:-4px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#fff}
+.tm{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.7);margin-top:8px;font-weight:500}
+.ctl{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.play{width:66px;height:66px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.dot{position:relative}
+.dot:after{content:"";position:absolute;left:50%;bottom:-8px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#1ed760}
+.bot{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+.dev{display:flex;align-items:center;gap:8px;color:#1ed760;font-size:12px;font-weight:700;letter-spacing:.01em}
+.ly{position:absolute;left:12px;right:12px;bottom:0;height:56px;border-radius:12px 12px 0 0;background:#c2452c;padding:16px 16px 0;display:flex;justify-content:space-between;font-weight:700;font-size:16px}
+</style></head><body>
+<div class="bg"></div>
+<div class="wrap">
+  <div class="status">9:41<span class="sicons"><svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="#fff"><path d="M8 2.5c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .7C5.2.7 2.7 1.8.8 3.6L2 4.9a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.3-1.3A6.6 6.6 0 0 0 8 4.3c-1.8 0-3.4.7-4.7 1.8l1.3 1.3c.9-.8 2.1-1.3 3.4-1.3zM8 9.6l2-2a2.8 2.8 0 0 0-4 0z"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#fff" opacity=".5"/><rect x="2" y="2" width="16" height="9" rx="2" fill="#fff"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" fill="#fff" opacity=".5"/></svg></span></div>
+  <div class="top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="m5 9 7 7 7-7"/></svg>
+    <div class="c"><small>Playing from album</small><b>Low Tide Radio</b></div>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg>
+  </div>
+  <div class="art">
+    <svg width="342" height="342" viewBox="0 0 342 342">
+      <rect width="342" height="342" fill="#e8613a"/>
+      <circle cx="171" cy="150" r="92" fill="#f6c453"/>
+      <g fill="#c2452c"><rect x="0" y="196" width="342" height="12"/><rect x="0" y="220" width="342" height="10"/><rect x="0" y="242" width="342" height="8"/><rect x="0" y="262" width="342" height="6"/></g>
+      <path d="M0 280c60-14 110 8 171-6s110 6 171-4v72H0z" fill="#1f3c5a"/>
+      <path d="M0 305c60-10 120 6 171-4s120 8 171 0" stroke="#3d6a8c" stroke-width="3" fill="none"/>
+      <text x="22" y="44" font-family="Figtree,sans-serif" font-weight="900" font-size="26" fill="#1f1210" letter-spacing="-.5">MARISOL</text>
+      <text x="22" y="66" font-family="Figtree,sans-serif" font-weight="600" font-size="13" fill="#1f1210" letter-spacing="2">LOW TIDE RADIO</text>
+    </svg>
+  </div>
+  <div class="ti"><div><b>Sundial</b><span>Marisol, The Paper Kites</span></div>
+    <svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#1ed760"/><path d="m7 12.3 3.3 3.2L17 9" fill="none" stroke="#000" stroke-width="2.2"/></svg></div>
+  <div class="pr"><i></i><u></u></div>
+  <div class="tm"><span>1:24</span><span>-2:19</span></div>
+  <div class="ctl">
+    <span class="dot"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1ed760" stroke-width="2"><path d="M3 6h3.5c4 0 6 12 10 12H21M3 18h3.5c1.6 0 2.8-2 3.8-4M14 8.3C14.9 7 15.8 6 17 6h4M18.5 3.5 21 6l-2.5 2.5M18.5 15.5 21 18l-2.5 2.5"/></svg></span>
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="#fff"><path d="M6 4h2.4v16H6zM20 4.6v14.8L9.6 12z"/></svg>
+    <div class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#000"><rect x="5" y="3" width="4.6" height="18" rx="1"/><rect x="14.4" y="3" width="4.6" height="18" rx="1"/></svg></div>
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="#fff"><path d="M15.6 4H18v16h-2.4zM4 4.6v14.8L14.4 12z"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 11V9a3 3 0 0 1 3-3h13M17 3l3 3-3 3M20 13v2a3 3 0 0 1-3 3H4M7 21l-3-3 3-3"/></svg>
+  </div>
+  <div class="bot">
+    <span class="dev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1ed760" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="14" r="3.5"/><circle cx="12" cy="6.5" r="1" fill="#1ed760"/></svg>KITCHEN SPEAKER</span>
+    <span style="display:flex;gap:26px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6M12 3v13M7 8l5-5 5 5"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 5h18M3 12h10M3 19h10M16 13v8l5-4z"/></svg></span>
+  </div>
+</div>
+<div class="ly"><span>Lyrics</span><span style="display:flex;gap:10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6M12 3v13M7 8l5-5 5 5"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span></div>
+</body></html>

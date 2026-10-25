@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Settings list</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#f2f2f7;font-family:Inter,-apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:#000;overflow:hidden;-webkit-font-smoothing:antialiased;width:480px;height:600px;padding:20px 20px 0;letter-spacing:-.01em}
+.search{height:36px;border-radius:10px;background:rgba(118,118,128,.12);display:flex;align-items:center;gap:6px;padding:0 8px;color:#8e8e93;font-size:17px;margin-bottom:22px}
+.search .mic{margin-left:auto}
+.grp{background:#fff;border-radius:10px;overflow:hidden;margin-bottom:22px}
+.row{display:flex;align-items:center;height:44px;padding-left:16px}
+.ic{width:29px;height:29px;border-radius:7px;display:grid;place-items:center;flex:none;margin-right:14px}
+.in{flex:1;display:flex;align-items:center;height:100%;border-bottom:.5px solid #c6c6c8;padding-right:16px;font-size:17px}
+.row:last-child .in{border-bottom:0}
+.in .v{margin-left:auto;color:#8e8e93;display:flex;align-items:center;gap:10px;font-size:17px}
+.chev{display:block}
+.tg{margin-left:auto;width:51px;height:31px;border-radius:16px;background:#34c759;position:relative}
+.tg:after{content:"";position:absolute;right:2px;top:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.15),0 1px 1px rgba(0,0,0,.16)}
+.tg.off{background:rgba(120,120,128,.16)}.tg.off:after{right:auto;left:2px}
+.badge{background:#ff3b30;color:#fff;font-size:15px;border-radius:12px;min-width:23px;height:23px;display:grid;place-items:center;padding:0 7px}
+.prof{display:flex;align-items:center;padding:12px 16px;gap:14px}
+.pav{width:60px;height:60px;border-radius:50%;background:linear-gradient(160deg,#9fa6b6,#686f82);color:#fff;font-size:24px;font-weight:600;display:grid;place-items:center;letter-spacing:0}
+.prof b{display:block;font-size:22px;font-weight:500;letter-spacing:-.01em}
+.prof small{font-size:13px;color:#000;opacity:.85}
+</style></head><body>
+<div class="search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8e8e93" stroke-width="1.8"><circle cx="6.8" cy="6.8" r="5.3"/><path d="m11 11 4 4"/></svg>Search<svg class="mic" width="12" height="18" viewBox="0 0 12 18" fill="#8e8e93"><rect x="3" y="0" width="6" height="11" rx="3"/><path d="M1 8a5 5 0 0 0 10 0" fill="none" stroke="#8e8e93" stroke-width="1.5"/><path d="M5.3 13h1.4v4H5.3z"/></svg></div>
+<div class="grp"><div class="prof"><div class="pav">JL</div><div style="flex:1"><b>Jordan Lee</b><small>Account, Cloud+, Media &amp; Purchases</small></div><svg width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#c4c4c7" stroke-width="2.2"><path d="m1 1 6 6-6 6"/></svg></div></div>
+<div class="grp">
+  <div class="row"><div class="ic" style="background:#ff9500"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div><div class="in">Airplane Mode<span class="tg off"></span></div></div>
+  <div class="row"><div class="ic" style="background:#007aff"><svg width="18" height="14" viewBox="0 0 16 12" fill="#fff"><path d="M8 2.5c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .7C5.2.7 2.7 1.8.8 3.6L2 4.9a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.3-1.3A6.6 6.6 0 0 0 8 4.3c-1.8 0-3.4.7-4.7 1.8l1.3 1.3c.9-.8 2.1-1.3 3.4-1.3zM8 9.6l2-2a2.8 2.8 0 0 0-4 0z"/></svg></div><div class="in">Wi-Fi<span class="v">Larkspur-5G<svg class="chev" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#c4c4c7" stroke-width="2.2"><path d="m1 1 6 6-6 6"/></svg></span></div></div>
+  <div class="row"><div class="ic" style="background:#007aff"><svg width="12" height="18" viewBox="0 0 12 18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M1 5.5 10.5 13 6 17V1l4.5 4L1 12.5"/></svg></div><div class="in">Bluetooth<span class="v">On<svg class="chev" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#c4c4c7" stroke-width="2.2"><path d="m1 1 6 6-6 6"/></svg></span></div></div>
+  <div class="row"><div class="ic" style="background:#34c759"><svg width="18" height="16" viewBox="0 0 18 16" fill="#fff"><rect x="1" y="10" width="3" height="5" rx="1"/><rect x="5.5" y="7" width="3" height="8" rx="1"/><rect x="10" y="4" width="3" height="11" rx="1"/><rect x="14.5" y="1" width="3" height="14" rx="1"/></svg></div><div class="in">Cellular<svg class="chev" style="margin-left:auto" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#c4c4c7" stroke-width="2.2"><path d="m1 1 6 6-6 6"/></svg></div></div>
+  <div class="row"><div class="ic" style="background:#34c759"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.8"><path d="M7 11a3 3 0 0 1 0-4l2-2a3 3 0 0 1 4 4l-1 1M11 7a3 3 0 0 1 0 4l-2 2a3 3 0 0 1-4-4l1-1"/></svg></div><div class="in">Personal Hotspot<span class="v">Off<svg class="chev" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#c4c4c7" stroke-width="2.2"><path d="m1 1 6 6-6 6"/></svg></span></div></div>
+</div>
+<div class="grp">
+  <div class="row"><div class="ic" style="background:#ff3b30"><svg width="16" height="18" viewBox="0 0 16 18" fill="#fff"><path d="M8 1a5 5 0 0 1 5 5v4l2 3H1l2-3V6a5 5 0 0 1 5-5zM6 15h4a2 2 0 0 1-4 0z"/></svg></div><div class="in">Notifications<svg class="chev" style="margin-left:auto" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#c4c4c7" stroke-width="2.2"><path d="m1 1 6 6-6 6"/></svg></div></div>
+  <div class="row"><div class="ic" style="background:#5856d6"><svg width="16" height="16" viewBox="0 0 16 16" fill="#fff"><path d="M10 1a7 7 0 1 0 5 11.5A6 6 0 0 1 10 1z"/></svg></div><div class="in">Focus<span class="v">Reading<svg class="chev" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#c4c4c7" stroke-width="2.2"><path d="m1 1 6 6-6 6"/></svg></span></div></div>
+  <div class="row"><div class="ic" style="background:#8e8e93"><svg width="18" height="18" viewBox="0 0 18 18" fill="#fff"><path d="M7.6 1h2.8l.4 2.2 1.4.6 1.9-1.3 2 2-1.3 1.9.6 1.4L17 8.2v2.8l-2.2.4-.6 1.4 1.3 1.9-2 2-1.9-1.3-1.4.6-.4 2.2H7.6l-.4-2.2-1.4-.6-1.9 1.3-2-2 1.3-1.9-.6-1.4L1 10.4V7.6l2.2-.4.6-1.4-1.3-1.9 2-2 1.9 1.3 1.4-.6zM9 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></div><div class="in">General<span class="v"><span class="badge">1</span><svg class="chev" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="#c4c4c7" stroke-width="2.2"><path d="m1 1 6 6-6 6"/></svg></span></div></div>
+</div>
+</body></html>

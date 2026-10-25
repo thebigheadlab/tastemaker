@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shortcuts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:480px;height:600px;overflow:hidden;background:#111322;font-family:Inter,-apple-system,system-ui,sans-serif;color:#e7e8ef;-webkit-font-smoothing:antialiased;font-size:13px;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(500px 400px at 100% 0%,rgba(93,78,190,.35),transparent 60%),radial-gradient(400px 400px at -10% 100%,rgba(32,120,170,.25),transparent 60%),linear-gradient(170deg,#181b2f 0%,#11131f 55%,#0e1019 100%)}
+.panel{position:absolute;left:24px;top:24px;right:24px;bottom:24px;background:#171a2c;border-radius:12px;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 30px 70px rgba(0,0,0,.6);display:flex;flex-direction:column;overflow:hidden}
+.hd{display:flex;align-items:center;gap:12px;padding:16px 20px 12px;border-bottom:1px solid rgba(255,255,255,.07)}
+.hd h2{margin:0;font-size:15px;font-weight:600;color:#fff}
+.hd .srch{margin-left:auto;display:flex;align-items:center;gap:7px;color:#6c6f86;font-size:12px;border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:4px 9px;background:rgba(255,255,255,.03)}
+.tabs{display:flex;gap:18px;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.07);font-size:12px;color:#8b8ea3}
+.tabs span{padding:10px 0;position:relative}
+.tabs span.on{color:#fff;font-weight:500}
+.tabs span.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#aab4ff}
+.body{flex:1;padding:6px 20px 0;overflow:hidden;columns:2;column-gap:28px}
+.grp{break-inside:avoid;margin-bottom:12px}
+.grp h3{margin:10px 0 4px;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:#5e6178;font-weight:600}
+.sc{display:flex;align-items:center;justify-content:space-between;padding:4px 0;font-size:12.5px;color:#c9cbd8}
+.sc .k{display:flex;gap:3px}
+.sc .k span{min-width:14px;height:19px;line-height:19px;padding:0 5px;border-radius:4px;border:1px solid rgba(255,255,255,.14);border-bottom-color:rgba(255,255,255,.22);background:rgba(255,255,255,.04);font-size:11px;color:#dfe2ff;text-align:center;font-family:Inter,system-ui,sans-serif}
+.sc .k span.m{color:#9a9db3}
+.sc .k i{font-style:normal;color:#5e6178;font-size:10px;line-height:19px;padding:0 2px}
+.foot{display:flex;align-items:center;gap:14px;padding:10px 20px;border-top:1px solid rgba(255,255,255,.07);font-size:11px;color:#5e6178}
+.foot b{font-weight:500;color:#9a9db3;border:1px solid rgba(255,255,255,.12);border-radius:3px;padding:0 4px;margin-right:4px}
+.streak{margin-left:auto;display:flex;align-items:center;gap:6px;color:#86efac}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="panel">
+  <div class="hd"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="2" stroke="#aab4ff" stroke-width="1.4"/><path d="M4 7h1M6.5 7h1M9 7h1M11.5 7h1M5 9.5h6" stroke="#aab4ff" stroke-width="1.3" stroke-linecap="round"/></svg><h2>Keyboard shortcuts</h2><span class="srch"><svg width="11" height="11" viewBox="0 0 11 11" fill="none"><circle cx="4.8" cy="4.8" r="3.4" stroke="currentColor" stroke-width="1.3"/><path d="m7.5 7.5 2.3 2.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Search shortcuts</span></div>
+  <div class="tabs"><span class="on">Essentials</span><span>Navigation</span><span>Actions</span><span>Compose</span><span>Calendar</span></div>
+  <div class="body">
+    <div class="grp"><h3>Triage</h3>
+      <div class="sc">Mark done<span class="k"><span>E</span></span></div>
+      <div class="sc">Remind me<span class="k"><span>H</span></span></div>
+      <div class="sc">Mark done &amp; next<span class="k"><span class="m">⇧</span><span>E</span></span></div>
+      <div class="sc">Trash<span class="k"><span>#</span></span></div>
+      <div class="sc">Mark as spam<span class="k"><span>!</span></span></div>
+      <div class="sc">Unsubscribe<span class="k"><span class="m">⌘</span><span>U</span></span></div>
+    </div>
+    <div class="grp"><h3>Reply</h3>
+      <div class="sc">Reply<span class="k"><span>R</span></span></div>
+      <div class="sc">Reply all<span class="k"><span class="m">⇧</span><span>R</span></span></div>
+      <div class="sc">Forward<span class="k"><span>F</span></span></div>
+      <div class="sc">Send<span class="k"><span class="m">⌘</span><span>↵</span></span></div>
+      <div class="sc">Send later<span class="k"><span class="m">⌘⇧</span><span>L</span></span></div>
+      <div class="sc">Insert snippet<span class="k"><span>;</span></span></div>
+    </div>
+    <div class="grp"><h3>Move</h3>
+      <div class="sc">Next / previous<span class="k"><span>J</span><i>/</i><span>K</span></span></div>
+      <div class="sc">Open<span class="k"><span>↵</span></span></div>
+      <div class="sc">Back to list<span class="k"><span>esc</span></span></div>
+      <div class="sc">Next split<span class="k"><span class="m">⇧</span><span>J</span></span></div>
+      <div class="sc">Go to Inbox<span class="k"><span>G</span><i>then</i><span>I</span></span></div>
+      <div class="sc">Go to Starred<span class="k"><span>G</span><i>then</i><span>S</span></span></div>
+    </div>
+    <div class="grp"><h3>Everything else</h3>
+      <div class="sc">Command bar<span class="k"><span class="m">⌘</span><span>K</span></span></div>
+      <div class="sc">Search<span class="k"><span>/</span></span></div>
+      <div class="sc">Compose<span class="k"><span>C</span></span></div>
+      <div class="sc">Star<span class="k"><span>S</span></span></div>
+      <div class="sc">Add label<span class="k"><span>L</span></span></div>
+      <div class="sc">This sheet<span class="k"><span>?</span></span></div>
+    </div>
+  </div>
+  <div class="foot"><span><b>esc</b>Close</span><span><b>tab</b>Next section</span><span class="streak"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1.5c.6 2 2.7 2.6 2.7 5a2.7 2.7 0 0 1-5.4 0c0-1 .4-1.6.9-2.2.1.9.6 1.3 1.1 1.3.5 0 .9-.5.7-1.5C5.8 3.3 6 2.3 6 1.5Z" fill="#86efac"/></svg>12-day keyboard streak</span></div>
+</div>
+</body>
+</html>

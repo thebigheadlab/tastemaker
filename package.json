@@ -1,0 +1,16 @@
+{
+  "name": "tastemaker",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Swipe through design cards and export your taste as DESIGN.md, STYLE.md, tokens.json and swipes.json. Runs in the browser, no AI calls.",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node library/build-deck.mjs && node app/build.mjs",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "devDependencies": {
+    "playwright-core": "^1.50.0"
+  }
+}

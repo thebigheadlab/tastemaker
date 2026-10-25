@@ -1,0 +1,28 @@
+{
+  "id": "vercel-projects",
+  "kind": "screen",
+  "subtype": "project overview",
+  "title": "Projects overview",
+  "inspiredBy": "Vercel",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Light dashboard grid of project cards with commit messages, branch names and a usage sidebar."
+}

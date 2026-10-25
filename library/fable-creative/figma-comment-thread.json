@@ -1,0 +1,25 @@
+{
+  "id": "figma-comment-thread",
+  "kind": "component",
+  "subtype": "comment thread",
+  "title": "Canvas comment thread",
+  "inspiredBy": "Figma",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Teardrop avatar pins anchored on a wireframe, with a floating white thread popover: numbered header, resolve/close icons, @mention in blue, pill reaction and a round send button."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "raycast-clipboard",
+  "kind": "component",
+  "subtype": "list detail",
+  "title": "Clipboard history",
+  "inspiredBy": "Raycast",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "red",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Split list/detail view: clipboard entries on the left, preview and metadata on the right."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "duolingo-exercise-card",
+  "kind": "component",
+  "subtype": "exercise",
+  "title": "Translate exercise",
+  "inspiredBy": "Duolingo",
+  "platform": "mobile",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "bold",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Word-bank tiles with thick bottom borders that leave grey ghost slots when used, a speech bubble from the mascot, dotted hint underlines and a green CHECK button."
+}

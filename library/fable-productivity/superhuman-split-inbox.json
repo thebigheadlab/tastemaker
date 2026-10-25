@@ -1,0 +1,25 @@
+{
+  "id": "superhuman-split-inbox",
+  "kind": "screen",
+  "subtype": "email inbox",
+  "title": "Split inbox",
+  "inspiredBy": "Superhuman",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Dark gradient canvas, split-inbox tabs with counts, a dense single-line message list and a reading pane whose chrome is nothing but keyboard hints."
+}

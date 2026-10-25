@@ -1,0 +1,28 @@
+{
+  "id": "apple-health-summary",
+  "kind": "screen",
+  "subtype": "health dashboard",
+  "title": "Health summary",
+  "inspiredBy": "Apple",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "vivid",
+    "contrast": "medium",
+    "accentHue": "red",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "iOS large-title Summary with inset white cards on system gray, each tinted by its metric color, with Activity rings on black."
+}

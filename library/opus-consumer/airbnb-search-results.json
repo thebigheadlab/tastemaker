@@ -1,0 +1,28 @@
+{
+  "id": "airbnb-search-results",
+  "kind": "screen",
+  "subtype": "search results with map",
+  "title": "Search results + map",
+  "inspiredBy": "Airbnb",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "pink",
+    "typeStyle": "humanist",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Pill search bar, icon category rail and photo-first listing grid split against a price-pin map, all on white with a single coral accent."
+}

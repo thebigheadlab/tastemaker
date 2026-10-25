@@ -1,0 +1,28 @@
+{
+  "id": "apple-wallet-stack",
+  "kind": "component",
+  "subtype": "card stack",
+  "title": "Wallet pass stack",
+  "inspiredBy": "Apple",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "luxurious"
+  },
+  "notes": "Overlapping card tops peeking from a black stack, with a full boarding pass expanded at the front showing airport codes and a QR code."
+}

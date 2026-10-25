@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Streak celebration</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:390px;height:844px;overflow:hidden;background:#ff9600;font-family:"Nunito","Nunito Sans",system-ui,sans-serif;color:#fff;position:relative}
+  *{box-sizing:border-box}
+  body:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,#ffb020 0,#ff9600 46%,#f28000 100%)}
+  .status{position:relative;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-weight:800;font-size:15px}
+  .spark{position:absolute;border-radius:50%;background:#ffd166;opacity:.8;animation:tw 1.8s ease-in-out infinite}
+  @keyframes tw{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(.4);opacity:.3}}
+  .flame{position:absolute;left:50%;top:120px;transform:translateX(-50%)}
+  .num{position:absolute;top:356px;left:0;right:0;text-align:center;font-size:124px;font-weight:900;line-height:1;letter-spacing:-4px;text-shadow:0 6px 0 rgba(0,0,0,.12)}
+  .label{position:absolute;top:492px;left:0;right:0;text-align:center;font-size:28px;font-weight:900}
+  .week{position:absolute;top:556px;left:24px;right:24px;background:rgba(0,0,0,.14);border-radius:20px;padding:16px 18px 18px}
+  .days{display:flex;justify-content:space-between}
+  .d{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:14px;font-weight:800;opacity:.95}
+  .dot{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center}
+  .dot.on{background:#fff}
+  .dot.on svg{width:18px;height:18px}
+  .dot.today{outline:3px solid #fff;outline-offset:2px}
+  .caption{text-align:center;font-size:15px;font-weight:800;margin-top:14px;opacity:.95}
+  .btn{position:absolute;left:24px;right:24px;bottom:40px;height:54px;border-radius:16px;background:#fff;color:#ff9600;font-weight:900;font-size:16px;letter-spacing:.8px;text-transform:uppercase;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 0 #e0e0e0}
+  .homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#fff;opacity:.9}
+</style>
+</head>
+<body>
+  <div class="status"><span>9:41</span><span style="display:flex;gap:6px">
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+    <svg width="26" height="12" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#fff"/><rect x="2" y="2" width="19" height="8" rx="2" fill="#fff"/><rect x="24" y="4" width="2" height="4" rx="1" fill="#fff"/></svg></span></div>
+
+  <span class="spark" style="width:10px;height:10px;left:60px;top:150px"></span>
+  <span class="spark" style="width:6px;height:6px;left:320px;top:120px;animation-delay:.4s"></span>
+  <span class="spark" style="width:14px;height:14px;left:330px;top:300px;animation-delay:.9s"></span>
+  <span class="spark" style="width:8px;height:8px;left:40px;top:330px;animation-delay:1.2s"></span>
+  <span class="spark" style="width:6px;height:6px;left:110px;top:90px;animation-delay:.6s"></span>
+  <span class="spark" style="width:9px;height:9px;left:270px;top:400px;animation-delay:.2s"></span>
+
+  <div class="flame">
+    <svg width="220" height="236" viewBox="0 0 220 236">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc800"/><stop offset="1" stop-color="#ff9600"/></linearGradient>
+        <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff3b0"/><stop offset="1" stop-color="#ffd43b"/></linearGradient>
+      </defs>
+      <path d="M110 4c10 40 54 62 70 108 14 40 2 90-40 110-28 14-72 10-96-18-24-30-20-74 6-100-2 24 6 40 20 46-6-42 10-84 40-146z" fill="#ff7a00" stroke="#fff" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M110 24c8 34 44 54 58 92 12 34 2 76-34 92-24 12-60 8-80-16-20-26-16-62 6-84-2 20 4 34 16 38-4-36 8-72 34-122z" fill="url(#g1)"/>
+      <path d="M112 112c6 20 26 30 30 54 3 20-6 40-24 46-16 6-36 2-46-12-10-16-6-36 6-48 0 12 4 20 12 22-4-20 6-40 22-62z" fill="url(#g2)"/>
+      <ellipse cx="88" cy="182" rx="8" ry="10" fill="#4b4b4b"/><ellipse cx="128" cy="182" rx="8" ry="10" fill="#4b4b4b"/>
+      <circle cx="91" cy="179" r="2.6" fill="#fff"/><circle cx="131" cy="179" r="2.6" fill="#fff"/>
+      <path d="M94 200c8 8 20 8 28 0" fill="none" stroke="#4b4b4b" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="num">7</div>
+  <div class="label">day streak!</div>
+
+  <div class="week">
+    <div class="days">
+      <div class="d"><span>Mo</span><span class="dot on"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9600" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5L20 7"/></svg></span></div>
+      <div class="d"><span>Tu</span><span class="dot on"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9600" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5L20 7"/></svg></span></div>
+      <div class="d"><span>We</span><span class="dot on"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9600" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5L20 7"/></svg></span></div>
+      <div class="d"><span>Th</span><span class="dot on"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9600" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5L20 7"/></svg></span></div>
+      <div class="d"><span>Fr</span><span class="dot on"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9600" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5L20 7"/></svg></span></div>
+      <div class="d"><span>Sa</span><span class="dot on"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9600" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5L20 7"/></svg></span></div>
+      <div class="d"><span>Su</span><span class="dot on today"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9600" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5L20 7"/></svg></span></div>
+    </div>
+    <div class="caption">A full week! You’re on fire, Priya.</div>
+  </div>
+
+  <div class="btn">Continue</div>
+  <div class="homebar"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "id": "resend-email-events",
+  "kind": "component",
+  "subtype": "event timeline",
+  "title": "Email events",
+  "inspiredBy": "Resend",
+  "platform": "web",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Email detail with a Sent, Delivered, Opened, Clicked event timeline and metadata."
+}

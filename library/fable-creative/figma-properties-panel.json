@@ -1,0 +1,25 @@
+{
+  "id": "figma-properties-panel",
+  "kind": "component",
+  "subtype": "inspector panel",
+  "title": "Design properties",
+  "inspiredBy": "Figma",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "sharp",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Right-hand inspector at 11px with grey inset fields, letter-prefixed numeric inputs, an auto-layout alignment grid, variable tokens for fill and effect, and a selected card with blue handles beside it."
+}

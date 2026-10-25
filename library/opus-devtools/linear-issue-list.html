@@ -1,0 +1,232 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Issue list</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{background:#08090a;color:#e3e4e6;font:13px/1.4 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;display:flex;overflow:hidden}
+*{box-sizing:border-box}
+svg{display:block;flex:none}
+.side{width:236px;padding:10px 8px;display:flex;flex-direction:column;gap:1px}
+.ws{display:flex;align-items:center;gap:8px;padding:6px 8px;margin-bottom:6px}
+.ws .logo{width:20px;height:20px;border-radius:5px;background:linear-gradient(135deg,#f4774b,#d84a8a);display:grid;place-items:center;font-size:11px;font-weight:600;color:#fff}
+.ws b{font-weight:500;font-size:13px;flex:1}
+.ws .ic{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;color:#9a9ca3}
+.ws .ic.new{background:#1b1c1f;border:1px solid #26272b}
+.nav{display:flex;align-items:center;gap:9px;height:28px;padding:0 8px;border-radius:6px;color:#d0d1d4;font-weight:500}
+.nav svg{color:#8a8c93}
+.nav.on{background:#1c1d21;color:#f7f8f8}
+.nav .ct{margin-left:auto;font-size:11.5px;color:#7d7f86}
+.sec{font-size:12px;color:#7d7f86;font-weight:500;padding:16px 8px 4px;display:flex;align-items:center;gap:4px}
+.team{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-size:10px;font-weight:600}
+.sub{padding-left:35px}
+.main{flex:1;margin:8px 8px 8px 0;background:#0f1012;border:1px solid #1e1f23;border-radius:10px;display:flex;flex-direction:column;overflow:hidden}
+.top{height:46px;display:flex;align-items:center;padding:0 14px 0 18px;gap:8px;border-bottom:1px solid #1d1e22}
+.crumb{display:flex;align-items:center;gap:7px;font-weight:500;color:#f2f3f4}
+.tabs{display:flex;gap:4px;margin-left:12px}
+.tab{height:26px;padding:0 10px;border-radius:6px;border:1px solid #26272b;display:flex;align-items:center;font-size:12.5px;color:#a3a5ab;font-weight:500}
+.tab.on{background:#1d1e22;color:#f2f3f4;border-color:#2c2d32}
+.top .r{margin-left:auto;display:flex;gap:6px;align-items:center}
+.btn{height:26px;padding:0 9px;border-radius:6px;display:flex;align-items:center;gap:6px;color:#a3a5ab;font-size:12.5px;font-weight:500}
+.btn.b{border:1px solid #26272b}
+.filter{height:40px;display:flex;align-items:center;padding:0 18px;gap:8px;border-bottom:1px solid #1d1e22}
+.chip{height:24px;border:1px solid #2a2b30;border-radius:6px;display:flex;align-items:center;font-size:12px;color:#c9cace;overflow:hidden}
+.chip span{padding:0 7px;display:flex;align-items:center;gap:5px;height:100%}
+.chip span+span{border-left:1px solid #2a2b30}
+.chip .m{color:#7d7f86}
+.list{flex:1;overflow:hidden}
+.grp{height:36px;background:#16171a;display:flex;align-items:center;gap:9px;padding:0 18px 0 22px;font-weight:500;color:#e8e9ea;border-bottom:1px solid #1d1e22}
+.grp .n{color:#7d7f86;font-weight:400}
+.grp .plus{margin-left:auto;color:#7d7f86}
+.row{height:39px;display:flex;align-items:center;gap:10px;padding:0 18px 0 22px;border-bottom:1px solid #18191c}
+.row.sel{background:#15161a}
+.id{width:58px;color:#7d7f86;font-size:12.5px;font-variant-numeric:tabular-nums}
+.t{flex:1;color:#ecedee;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.t i{font-style:normal;color:#7d7f86;font-weight:400;margin-left:4px}
+.lab{height:22px;border:1px solid #2a2b30;border-radius:11px;padding:0 8px;display:flex;align-items:center;gap:6px;font-size:12px;color:#b7b9be;white-space:nowrap}
+.lab:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
+.proj{display:flex;align-items:center;gap:6px;font-size:12px;color:#b7b9be;height:22px;border:1px solid #2a2b30;border-radius:11px;padding:0 8px 0 6px;white-space:nowrap}
+.av{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:9px;font-weight:600;color:#fff;flex:none}
+.date{width:46px;text-align:right;color:#7d7f86;font-size:12px}
+.est{font-size:11.5px;color:#7d7f86;display:flex;align-items:center;gap:3px}
+</style></head><body>
+<aside class="side">
+  <div class="ws"><div class="logo">A</div><b>Arcline</b>
+    <div class="ic"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3" stroke-linecap="round"/></svg></div>
+    <div class="ic new"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#d0d1d4" stroke-width="1.5" stroke-linecap="round"><path d="M9.5 2.5H4A1.5 1.5 0 0 0 2.5 4v8A1.5 1.5 0 0 0 4 13.5h8a1.5 1.5 0 0 0 1.5-1.5V6.5"/><path d="m7 9 6.5-6.5"/></svg></div>
+  </div>
+  <div class="nav"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 9.5h3l1 1.5h3l1-1.5h3"/><rect x="2.5" y="3" width="11" height="10" rx="2"/></svg>Inbox<span class="ct">4</span></div>
+  <div class="nav"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="5.5"/><circle cx="8" cy="8" r="2"/></svg>My issues</div>
+  <div class="sec">Workspace</div>
+  <div class="nav"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3h4v4H3zM9 3h4v4H9zM3 9h4v4H3zM9 9h4v4H9z"/></svg>Projects</div>
+  <div class="nav"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 4h10M3 8h10M3 12h6"/></svg>Views</div>
+  <div class="sec">Your teams <svg width="9" height="9" viewBox="0 0 10 10"><path d="m2 3.5 3 3 3-3" fill="none" stroke="#7d7f86" stroke-width="1.4"/></svg></div>
+  <div class="nav"><div class="team" style="background:#2b2350;color:#a99cf5">P</div>Platform<svg style="margin-left:auto" width="9" height="9" viewBox="0 0 10 10"><path d="m2 3.5 3 3 3-3" fill="none" stroke="#7d7f86" stroke-width="1.4"/></svg></div>
+  <div class="nav sub on"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5v11" /></svg>Issues</div>
+  <div class="nav sub"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2.5a5.5 5.5 0 1 0 5.5 5.5"/><path d="M11 2.5h2.5V5"/></svg>Cycles</div>
+  <div class="nav sub"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3h4v4H3zM9 3h4v4H9zM3 9h4v4H3zM9 9h4v4H9z"/></svg>Projects</div>
+  <div class="nav"><div class="team" style="background:#123a33;color:#4cc9a6">M</div>Mobile</div>
+  <div class="nav"><div class="team" style="background:#3d2617;color:#f1a26b">G</div>Growth</div>
+  <div class="sec">Try</div>
+  <div class="nav"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 3v10M3 8h10"/></svg>Invite people</div>
+  <div class="nav"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 4a4 4 0 1 0 4 4"/><path d="M10 2v4h4"/></svg>Link GitHub</div>
+</aside>
+<main class="main">
+  <div class="top">
+    <div class="crumb"><div class="team" style="background:#2b2350;color:#a99cf5">P</div>Platform</div>
+    <div class="tabs"><div class="tab on">All issues</div><div class="tab">Active</div><div class="tab">Backlog</div></div>
+    <div class="r">
+      <div class="btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2.5 9.6 6l3.9.4-2.9 2.6.8 3.8L8 10.9l-3.4 1.9.8-3.8L2.5 6.4 6.4 6z"/></svg></div>
+      <div class="btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div>
+    </div>
+  </div>
+  <div class="filter">
+    <div class="btn b" style="height:24px"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2.5 4h11M4.5 8h7M6.5 12h3"/></svg>Filter</div>
+    <div class="chip"><span><svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#7d7f86" stroke-width="1.6"/><path d="M8 2a6 6 0 0 1 0 12z" fill="#7d7f86"/></svg>Status</span><span class="m">is not</span><span>Done, Canceled</span><span class="m">×</span></div>
+    <div class="chip"><span><svg width="12" height="12" viewBox="0 0 16 16" fill="#7d7f86"><circle cx="8" cy="5.5" r="2.8"/><path d="M2.5 14c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5z"/></svg>Assignee</span><span class="m">is</span><span>Me, Kenji</span><span class="m">×</span></div>
+    <div style="margin-left:auto" class="btn b" ><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 5h10M3 11h10"/><circle cx="6" cy="5" r="1.6" fill="#0f1012"/><circle cx="10" cy="11" r="1.6" fill="#0f1012"/></svg>Display</div>
+  </div>
+  <div class="list">
+    <div class="grp"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#f0bf00" stroke-width="1.6"/><path d="M8 4.5a3.5 3.5 0 0 1 0 7z" fill="#f0bf00"/></svg>In Progress <span class="n">4</span><svg class="plus" width="14" height="14" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></div>
+
+    <div class="row sel">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" rx="3" fill="#f2683c"/><path d="M8 4.5v4.3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="11.2" r="1" fill="#fff"/></svg>
+      <span class="id">PLA-412</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#f0bf00" stroke-width="1.6"/><path d="M8 4.5a3.5 3.5 0 0 1 0 7z" fill="#f0bf00"/></svg>
+      <span class="t">Webhook retries stall after 3rd attempt when signing secret rotates</span>
+      <span class="lab" style="--c:#eb5757">Bug</span>
+      <span class="proj"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 1.5 14 5v6l-6 3.5L2 11V5z" fill="#4ea7fc"/></svg>Event Bus v2</span>
+      <span class="est"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 13 8 3l5 10z"/></svg>3</span>
+      <div class="av" style="background:#7c5cd6">KM</div>
+      <span class="date">Oct 21</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#c9cace"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#c9cace"/></svg>
+      <span class="id">PLA-398</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#f0bf00" stroke-width="1.6"/><path d="M8 4.5a3.5 3.5 0 0 1 0 7z" fill="#f0bf00"/></svg>
+      <span class="t">Migrate rate limiter to sliding-window counters in Redis</span>
+      <span class="lab" style="--c:#5e6ad2">Performance</span>
+      <span class="proj"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 1.5 14 5v6l-6 3.5L2 11V5z" fill="#4ea7fc"/></svg>Event Bus v2</span>
+      <span class="est"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 13 8 3l5 10z"/></svg>5</span>
+      <div class="av" style="background:#d9822b">SR</div>
+      <span class="date">Oct 18</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#c9cace"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-377</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#f0bf00" stroke-width="1.6"/><path d="M8 4.5a3.5 3.5 0 0 1 0 7z" fill="#f0bf00"/></svg>
+      <span class="t">Add idempotency keys to POST /v1/transfers <i>· 2 sub-issues</i></span>
+      <span class="lab" style="--c:#4cb782">API</span>
+      <div class="av" style="background:#7c5cd6">KM</div>
+      <span class="date">Oct 16</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#3a3b40"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-361</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#f0bf00" stroke-width="1.6"/><path d="M8 4.5a3.5 3.5 0 0 1 0 7z" fill="#f0bf00"/></svg>
+      <span class="t">Document retry semantics in public API reference</span>
+      <span class="lab" style="--c:#bb87fc">Docs</span>
+      <div class="av" style="background:#2f9e8f">AL</div>
+      <span class="date">Oct 12</span>
+    </div>
+
+    <div class="grp"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#4cb782" stroke-width="1.6"/><path d="M8 4.5a3.5 3.5 0 1 1-3.5 3.5H8z" fill="#4cb782"/></svg>In Review <span class="n">2</span><svg class="plus" width="14" height="14" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#c9cace"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#c9cace"/></svg>
+      <span class="id">PLA-405</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#4cb782" stroke-width="1.6"/><path d="M8 4.5a3.5 3.5 0 1 1-3.5 3.5H8z" fill="#4cb782"/></svg>
+      <span class="t">Dead-letter queue dashboard shows stale counts after replay</span>
+      <span class="lab" style="--c:#eb5757">Bug</span>
+      <span class="proj"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 1.5 14 5v6l-6 3.5L2 11V5z" fill="#4ea7fc"/></svg>Event Bus v2</span>
+      <div class="av" style="background:#d9822b">SR</div>
+      <span class="date">Oct 20</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#c9cace"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-388</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#4cb782" stroke-width="1.6"/><path d="M8 4.5a3.5 3.5 0 1 1-3.5 3.5H8z" fill="#4cb782"/></svg>
+      <span class="t">Expose p95 delivery latency per endpoint in metrics API</span>
+      <span class="lab" style="--c:#5e6ad2">Performance</span>
+      <span class="lab" style="--c:#4cb782">API</span>
+      <div class="av" style="background:#c2417a">JT</div>
+      <span class="date">Oct 19</span>
+    </div>
+
+    <div class="grp"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#c9cace" stroke-width="1.6"/></svg>Todo <span class="n">6</span><svg class="plus" width="14" height="14" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#c9cace"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-419</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#c9cace" stroke-width="1.6"/></svg>
+      <span class="t">Batch publish endpoint for up to 500 events per request</span>
+      <span class="lab" style="--c:#4ea7fc">Feature</span>
+      <span class="proj"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 1.5 14 5v6l-6 3.5L2 11V5z" fill="#4ea7fc"/></svg>Event Bus v2</span>
+      <div class="av" style="background:#7c5cd6">KM</div>
+      <span class="date">Oct 23</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#3a3b40"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-417</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#c9cace" stroke-width="1.6"/></svg>
+      <span class="t">Remove legacy v0 consumer SDK from monorepo</span>
+      <span class="lab" style="--c:#8a8f98">Chore</span>
+      <div class="av" style="background:#2f9e8f">AL</div>
+      <span class="date">Oct 22</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="#7d7f86"><rect x="2" y="7" width="3" height="2" rx="1"/><rect x="6.5" y="7" width="3" height="2" rx="1"/><rect x="11" y="7" width="3" height="2" rx="1"/></svg>
+      <span class="id">PLA-414</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#c9cace" stroke-width="1.6"/></svg>
+      <span class="t">Spike: evaluate NATS JetStream for regional fan-out</span>
+      <span class="lab" style="--c:#f2c94c">Research</span>
+      <div class="av" style="background:#3b3c42;color:#aaa">–</div>
+      <span class="date">Oct 21</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#c9cace"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-409</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#c9cace" stroke-width="1.6"/></svg>
+      <span class="t">Signing secret rotation should keep old secret valid for 24h</span>
+      <span class="lab" style="--c:#4ea7fc">Feature</span>
+      <span class="lab" style="--c:#e2a35b">Security</span>
+      <div class="av" style="background:#c2417a">JT</div>
+      <span class="date">Oct 20</span>
+    </div>
+    <div class="grp"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#7d7f86" stroke-width="1.6" stroke-dasharray="2.2 2"/></svg>Backlog <span class="n">23</span><svg class="plus" width="14" height="14" viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#3a3b40"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-402</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#7d7f86" stroke-width="1.6" stroke-dasharray="2.2 2"/></svg>
+      <span class="t">Replay events from an arbitrary cursor in the CLI</span>
+      <span class="lab" style="--c:#4ea7fc">Feature</span>
+      <div class="av" style="background:#3b3c42;color:#aaa">–</div>
+      <span class="date">Oct 19</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#c9cace"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-396</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#7d7f86" stroke-width="1.6" stroke-dasharray="2.2 2"/></svg>
+      <span class="t">Consumer lag alert fires twice on partition rebalance</span>
+      <span class="lab" style="--c:#eb5757">Bug</span>
+      <div class="av" style="background:#2f9e8f">AL</div>
+      <span class="date">Oct 17</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#3a3b40"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-384</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#7d7f86" stroke-width="1.6" stroke-dasharray="2.2 2"/></svg>
+      <span class="t">Schema registry: reject events with unknown required fields</span>
+      <span class="lab" style="--c:#4cb782">API</span><span class="lab" style="--c:#e2a35b">Security</span>
+      <div class="av" style="background:#d9822b">SR</div>
+      <span class="date">Oct 14</span>
+    </div>
+    <div class="row">
+      <svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" rx="1" fill="#c9cace"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1" fill="#3a3b40"/><rect x="11" y="2" width="3" height="12" rx="1" fill="#3a3b40"/></svg>
+      <span class="id">PLA-371</span>
+      <svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#7d7f86" stroke-width="1.6" stroke-dasharray="2.2 2"/></svg>
+      <span class="t">Explore per-tenant encryption keys for payload storage</span>
+      <span class="lab" style="--c:#f2c94c">Research</span>
+      <div class="av" style="background:#3b3c42;color:#aaa">–</div>
+      <span class="date">Oct 9</span>
+    </div>
+  </div>
+</main>
+</body></html>

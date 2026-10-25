@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mood check-in</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:480px;height:600px;overflow:hidden;background:#ffe9d6;font-family:"Figtree","Plus Jakarta Sans",system-ui,sans-serif;color:#2d2b27;display:flex;align-items:center;justify-content:center}
+  *{box-sizing:border-box}
+  .sheet{width:400px;background:#fff;border-radius:32px;padding:26px 26px 24px;box-shadow:0 20px 50px rgba(120,70,20,.12);position:relative}
+  .grab{width:40px;height:5px;border-radius:3px;background:#e6ded3;margin:0 auto 18px}
+  h2{margin:0;font-size:26px;font-weight:800;letter-spacing:-.4px;text-align:center;line-height:1.15}
+  p{margin:8px 0 0;text-align:center;color:#7a746b;font-size:14px;font-weight:500}
+  .moods{display:flex;justify-content:space-between;margin:26px 2px 0}
+  .m{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#7a746b;width:62px}
+  .m svg{width:56px;height:56px;transition:transform .2s}
+  .m.sel{color:#2d2b27}
+  .m.sel svg{transform:scale(1.18)}
+  .m.sel .ring{position:absolute}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:26px}
+  .chip{border:1.5px solid #e6ded3;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:700;color:#4b453d}
+  .chip.on{background:#2d2b27;border-color:#2d2b27;color:#fff}
+  .btn{margin-top:24px;height:52px;border-radius:999px;background:#f47d31;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .skip{text-align:center;margin-top:14px;font-size:13px;font-weight:700;color:#9a9388}
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="grab"></div>
+    <h2>How are you feeling<br>right now?</h2>
+    <p>Checking in helps us tailor your day.</p>
+    <div class="moods">
+      <div class="m"><svg viewBox="0 0 56 56"><path d="M28 4c15 0 24 11 24 24 0 14-10 24-24 24S4 42 4 28 13 4 28 4z" fill="#b8c4e6"/><circle cx="20" cy="26" r="2.5" fill="#2d2b27"/><circle cx="36" cy="26" r="2.5" fill="#2d2b27"/><path d="M21 38c4-4 10-4 14 0" fill="none" stroke="#2d2b27" stroke-width="2.6" stroke-linecap="round"/></svg>Awful</div>
+      <div class="m"><svg viewBox="0 0 56 56"><path d="M27 5c14-2 25 8 25 22 0 15-10 25-24 25S4 42 4 27C4 15 13 7 27 5z" fill="#cbd3ec"/><circle cx="20" cy="26" r="2.5" fill="#2d2b27"/><circle cx="36" cy="26" r="2.5" fill="#2d2b27"/><path d="M21 37c4-2 10-2 14 0" fill="none" stroke="#2d2b27" stroke-width="2.6" stroke-linecap="round"/></svg>Low</div>
+      <div class="m"><svg viewBox="0 0 56 56"><path d="M28 4c13 0 24 10 24 24S41 52 28 52 4 42 4 28 15 4 28 4z" fill="#ffe08a"/><circle cx="20" cy="26" r="2.5" fill="#2d2b27"/><circle cx="36" cy="26" r="2.5" fill="#2d2b27"/><path d="M21 37h14" fill="none" stroke="#2d2b27" stroke-width="2.6" stroke-linecap="round"/></svg>Okay</div>
+      <div class="m sel"><svg viewBox="0 0 56 56"><path d="M28 4c15 0 24 10 24 24 0 15-9 24-24 24S4 43 4 28 13 4 28 4z" fill="#ffb169"/><circle cx="20" cy="26" r="2.5" fill="#2d2b27"/><circle cx="36" cy="26" r="2.5" fill="#2d2b27"/><path d="M20 35c4 5 12 5 16 0" fill="none" stroke="#2d2b27" stroke-width="2.6" stroke-linecap="round"/><circle cx="14" cy="33" r="3" fill="#f47d31" opacity=".5"/><circle cx="42" cy="33" r="3" fill="#f47d31" opacity=".5"/></svg>Good</div>
+      <div class="m"><svg viewBox="0 0 56 56"><path d="M26 4c16-2 26 10 26 24S42 54 28 52 2 42 4 28 12 6 26 4z" fill="#f47d31"/><path d="M16 26c2-3 6-3 8 0M32 26c2-3 6-3 8 0" fill="none" stroke="#2d2b27" stroke-width="2.6" stroke-linecap="round"/><path d="M18 34c5 8 15 8 20 0z" fill="#2d2b27"/></svg>Great</div>
+    </div>
+    <div class="chips">
+      <span class="chip">Rested</span><span class="chip on">Hopeful</span><span class="chip">Anxious</span><span class="chip on">Focused</span><span class="chip">Tired</span><span class="chip">Grateful</span><span class="chip">Restless</span>
+    </div>
+    <div class="btn">Log mood</div>
+    <div class="skip">Skip for now</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pocket synth app</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:390px;height:844px;overflow:hidden;background:#d9d9d9;font-family:"IBM Plex Mono",Menlo,monospace;font-size:11px;color:#1a1a1a;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .status{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-weight:600;font-size:14px;font-family:"Inter",sans-serif}
+  .hd{display:flex;justify-content:space-between;align-items:center;padding:4px 20px 0;font-size:11px;letter-spacing:.4px}
+  .hd b{font-weight:600}
+  .scope{margin:14px 20px 0;height:120px;background:#1a1a1a;position:relative;overflow:hidden}
+  .scope .lbl{position:absolute;left:10px;top:8px;color:#9f9f9f;font-size:9px;letter-spacing:.5px}
+  .scope .bpm{position:absolute;right:10px;top:8px;color:#ff5b1f;font-size:9px}
+  .scope .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:20px 20px}
+  .row{display:flex;justify-content:space-between;padding:0 20px;margin-top:16px}
+  .knob{width:78px;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .knob .k{width:56px;height:56px;border-radius:50%;background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a,0 1px 0 #fff;position:relative}
+  .knob .k:after{content:"";position:absolute;left:50%;top:5px;width:2px;height:14px;background:#1a1a1a;transform-origin:50% 23px;margin-left:-1px;transform:rotate(var(--r,0deg))}
+  .knob .k i{position:absolute;left:50%;top:50%;width:14px;height:14px;border-radius:50%;transform:translate(-50%,-50%);display:block}
+  .knob span{font-size:9px;letter-spacing:.5px;text-transform:uppercase}
+  .knob em{font-style:normal;font-size:10px;font-weight:600}
+  .seq{margin:18px 20px 0;display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+  .step{height:38px;background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:8px;position:relative}
+  .step.on{background:#1a1a1a;color:#fff}
+  .step.cur:before{content:"";position:absolute;top:4px;left:50%;width:6px;height:6px;border-radius:50%;background:#ff5b1f;transform:translateX(-50%)}
+  .toggles{margin:18px 20px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .tg{height:30px;box-shadow:inset 0 0 0 1px #1a1a1a;display:flex;align-items:center;justify-content:center;font-size:9px;letter-spacing:.5px;background:#f4f4f4}
+  .tg.on{background:#2f6bff;color:#fff;box-shadow:none}
+  .transport{position:absolute;left:20px;right:20px;bottom:40px;display:flex;gap:6px}
+  .tb{flex:1;height:60px;background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a;display:flex;align-items:center;justify-content:center}
+  .tb.rec{background:#ff5b1f;box-shadow:none}
+  .tb.play{background:#1a1a1a}
+  .meta{position:absolute;left:20px;right:20px;bottom:112px;display:flex;justify-content:space-between;font-size:9px;color:#555;letter-spacing:.4px}
+  .homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#1a1a1a}
+</style>
+</head>
+<body>
+  <div class="status"><span>9:41</span><span style="display:flex;gap:6px">
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="#1a1a1a"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+    <svg width="26" height="12" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#1a1a1a"/><rect x="2" y="2" width="19" height="8" rx="2" fill="#1a1a1a"/><rect x="24" y="4" width="2" height="4" rx="1" fill="#1a1a1a"/></svg></span></div>
+  <div class="hd"><span><b>PO–140</b> · remote</span><span>PATCH 07 · <b>DUNE BASS</b></span></div>
+
+  <div class="scope">
+    <div class="grid"></div>
+    <span class="lbl">OSC A · SAW → LPF</span><span class="bpm">● 118.0 BPM</span>
+    <svg width="350" height="120" viewBox="0 0 350 120" style="position:absolute;left:0;top:0">
+      <polyline points="0,70 20,30 40,90 60,40 80,96 100,36 120,88 140,44 160,80 180,50 200,84 220,46 240,90 260,38 280,92 300,40 320,86 340,48 350,70" fill="none" stroke="#2bb673" stroke-width="1.5"/>
+      <polyline points="0,60 350,60" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="row">
+    <div class="knob"><div class="k" style="--r:-60deg"><i style="background:#2f6bff"></i></div><span>cutoff</span><em>1.8k</em></div>
+    <div class="knob"><div class="k" style="--r:30deg"><i style="background:#2bb673"></i></div><span>reso</span><em>0.42</em></div>
+    <div class="knob"><div class="k" style="--r:110deg"><i style="background:#fff;box-shadow:inset 0 0 0 1px #1a1a1a"></i></div><span>drive</span><em>+6 dB</em></div>
+    <div class="knob"><div class="k" style="--r:-120deg"><i style="background:#ff5b1f"></i></div><span>decay</span><em>340 ms</em></div>
+  </div>
+  <div class="row" style="margin-top:14px">
+    <div class="knob"><div class="k" style="--r:0deg"></div><span>attack</span><em>2 ms</em></div>
+    <div class="knob"><div class="k" style="--r:75deg"></div><span>detune</span><em>+7 ct</em></div>
+    <div class="knob"><div class="k" style="--r:-30deg"></div><span>lfo rate</span><em>1/8</em></div>
+    <div class="knob"><div class="k" style="--r:140deg"></div><span>space</span><em>62%</em></div>
+  </div>
+
+  <div class="seq">
+    <div class="step on">1</div><div class="step">2</div><div class="step on">3</div><div class="step">4</div><div class="step on cur">5</div><div class="step on">6</div><div class="step">7</div><div class="step on">8</div>
+    <div class="step">9</div><div class="step on">10</div><div class="step">11</div><div class="step on">12</div><div class="step">13</div><div class="step on">14</div><div class="step on">15</div><div class="step">16</div>
+  </div>
+
+  <div class="toggles"><div class="tg on">ARP</div><div class="tg">HOLD</div><div class="tg">SWING</div><div class="tg on">SYNC</div></div>
+
+  <div class="toggles" style="grid-template-columns:repeat(8,1fr);margin-top:12px">
+    <div class="tg on" style="background:#1a1a1a">A1</div><div class="tg">A2</div><div class="tg">A3</div><div class="tg">A4</div><div class="tg">B1</div><div class="tg">B2</div><div class="tg">B3</div><div class="tg">B4</div>
+  </div>
+  <div class="toggles" style="margin-top:12px">
+    <div class="tg"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="#1a1a1a" stroke-width="1.4"><path d="M1 6c3-7 6-7 9 0s6 7 10 0"/></svg></div>
+    <div class="tg on" style="background:#2bb673"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="#fff" stroke-width="1.4"><path d="M1 11L6 1l5 10 5-10 4 8"/></svg></div>
+    <div class="tg"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="#1a1a1a" stroke-width="1.4"><path d="M1 11V1h7v10h7V1h6"/></svg></div>
+    <div class="tg"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="#1a1a1a" stroke-width="1.4"><path d="M1 11L8 1v10l7-10v10l6-8"/></svg></div>
+  </div>
+  <div class="meta"><span>CPU 31%</span><span>LATENCY 4 ms</span><span>BLE ●●●○</span><span>BAT 86%</span></div>
+
+  <div class="transport">
+    <div class="tb rec"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#fff"/></svg></div>
+    <div class="tb play"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 2l11 6-11 6z" fill="#fff"/></svg></div>
+    <div class="tb"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="3" y="3" width="10" height="10" fill="#1a1a1a"/></svg></div>
+    <div class="tb"><svg width="18" height="16" viewBox="0 0 18 16"><path d="M2 8l6-5v10zM10 8l6-5v10z" fill="#1a1a1a"/></svg></div>
+  </div>
+  <div class="homebar"></div>
+</body>
+</html>

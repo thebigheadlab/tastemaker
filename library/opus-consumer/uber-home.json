@@ -1,0 +1,28 @@
+{
+  "id": "uber-home",
+  "kind": "screen",
+  "subtype": "service home",
+  "title": "Ride home",
+  "inspiredBy": "Uber",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Huge gray 'Where to?' pill with a Now chip, saved places list, gray suggestion tiles with spot illustrations and a deep green promo card."
+}

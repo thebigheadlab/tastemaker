@@ -1,0 +1,28 @@
+{
+  "id": "vercel-deployment",
+  "kind": "screen",
+  "subtype": "deployment detail",
+  "title": "Deployment",
+  "inspiredBy": "Vercel",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Black Geist deployment page: preview thumbnail, Ready status dot, domains, and a monospace build log."
+}

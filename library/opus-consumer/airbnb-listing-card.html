@@ -1,0 +1,53 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Listing card</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#fff;font-family:"Nunito Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#222;overflow:hidden;-webkit-font-smoothing:antialiased;width:480px;height:600px;padding:28px 32px}
+.card .ph{height:330px;border-radius:14px;position:relative;overflow:hidden}
+.badge{position:absolute;left:14px;top:14px;background:#fff;border-radius:16px;padding:6px 12px;font-size:13px;font-weight:700;box-shadow:0 1px 4px rgba(0,0,0,.16)}
+.heart{position:absolute;right:14px;top:14px}
+.arr{position:absolute;top:50%;margin-top:-16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.dots{position:absolute;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:5px;align-items:center}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.6)}.dots i.on{background:#fff}.dots i.sm{width:4px;height:4px}
+.row{display:flex;justify-content:space-between;margin-top:12px;font-size:16px;font-weight:700}
+.row span{font-weight:500;display:flex;align-items:center;gap:4px;font-size:15px}
+.sub{font-size:15px;color:#6a6a6a;line-height:21px}
+.price{margin-top:6px;font-size:15px}
+.price s{color:#6a6a6a}
+.price b{font-weight:700;text-decoration:underline}
+.toast{margin-top:22px;display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.14);background:#fff}
+.th{width:44px;height:44px;border-radius:8px;background:linear-gradient(160deg,#cfe3ec,#5d8ea8)}
+.toast b{font-size:14px;font-weight:700;display:block}
+.toast small{font-size:13px;color:#6a6a6a}
+.toast u{margin-left:auto;font-weight:700;font-size:14px}
+</style></head><body>
+<div class="card">
+  <div class="ph" style="background:linear-gradient(180deg,#bfe0ef 0%,#9cc9de 45%,#3f7c98 100%)">
+    <svg width="416" height="330" viewBox="0 0 416 330" style="position:absolute;inset:0">
+      <circle cx="320" cy="70" r="26" fill="#fff6dc" opacity=".9"/>
+      <path d="M0 200C70 185 120 205 200 190s150-20 216-10v150H0z" fill="#2d6c88"/>
+      <path d="M0 230c60-8 120 4 200-6s150-6 216 0" stroke="#bfe0ef" stroke-width="2" fill="none" opacity=".6"/>
+      <rect x="40" y="110" width="210" height="110" fill="#f6f2ea"/>
+      <rect x="40" y="104" width="210" height="10" fill="#d9cfbf"/>
+      <rect x="60" y="134" width="70" height="60" fill="#2f5466"/><rect x="146" y="134" width="84" height="60" fill="#2f5466"/>
+      <path d="M95 134v60M188 134v60" stroke="#f6f2ea" stroke-width="3"/>
+      <rect x="20" y="220" width="250" height="16" fill="#c9b79c"/>
+      <rect x="40" y="236" width="230" height="40" fill="#5fb9d6"/>
+      <path d="M300 230c0-50 10-80 30-110M330 120c-20-6-36 0-46 10M330 120c20-10 36-4 44 6M330 120c-6-16-20-24-34-22M330 120c10-14 26-16 36-10" stroke="#2f5a3a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <rect x="0" y="276" width="416" height="54" fill="#e2d2b5"/>
+      <rect x="70" y="290" width="70" height="10" rx="5" fill="#fff" opacity=".8"/><rect x="170" y="290" width="70" height="10" rx="5" fill="#fff" opacity=".8"/>
+    </svg>
+    <div class="badge">Guest favorite</div>
+    <svg class="heart" width="28" height="28" viewBox="0 0 32 32"><path d="M16 28c7-4.7 14-10 14-17a7 7 0 0 0-14-2.6A7 7 0 0 0 2 11c0 7 7 12.3 14 17z" fill="#ff385c" stroke="#fff" stroke-width="2"/></svg>
+    <div class="arr" style="right:14px"><svg width="10" height="10" viewBox="0 0 32 32" fill="none" stroke="#222" stroke-width="5"><path d="m12 4 12 12-12 12"/></svg></div>
+    <div class="dots"><i class="on"></i><i></i><i></i><i></i><i class="sm"></i></div>
+  </div>
+  <div class="row">Villa in Paros, Greece<span><svg width="12" height="12" viewBox="0 0 32 32" fill="#222"><path d="M16 1l4.6 9.6 10.4 1.4-7.6 7.3 1.9 10.4L16 24.6l-9.3 5.1 1.9-10.4L1 12l10.4-1.4z"/></svg>4.98 (126)</span></div>
+  <div class="sub">Infinity pool, steps to Kolymbithres</div>
+  <div class="sub">Jun 8 – 13</div>
+  <div class="price"><s>€2,310</s> <b>€1,965</b> total</div>
+  <div class="toast"><div class="th"></div><div><b>Saved to Summer ’26</b><small>3 homes</small></div><u>Change</u></div>
+</div>
+</body></html>

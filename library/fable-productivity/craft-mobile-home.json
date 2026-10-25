@@ -1,0 +1,25 @@
+{
+  "id": "craft-mobile-home",
+  "kind": "screen",
+  "subtype": "workspace home",
+  "title": "Mobile home",
+  "inspiredBy": "Craft",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "airy",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Documents as gradient-cover cards with a floating emoji badge, a Daily note card, pill folders, and a big indigo plus button nested in the tab bar."
+}

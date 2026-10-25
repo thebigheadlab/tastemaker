@@ -1,0 +1,25 @@
+{
+  "id": "bear-mobile-notes",
+  "kind": "screen",
+  "subtype": "notes list",
+  "title": "Mobile notes list",
+  "inspiredBy": "Bear",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "red",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "A warm charcoal theme: notes filtered by a tag, each row with bold title, two-line preview, terracotta hashtag pills, inline to-do dots and a pencil compose icon in the bottom bar."
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:390px;height:844px;overflow:hidden;background:#f2f2f6;font-family:Inter,-apple-system,"SF Pro Text",system-ui,sans-serif;color:#1c1c1e;-webkit-font-smoothing:antialiased;font-size:14px;position:relative}
+.status{height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 8px 34px;font-size:15px;font-weight:600}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:8px 20px 0}
+.hd .sp{display:flex;align-items:center;gap:10px}
+.hd .av{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7c6cff,#5aa9ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+.hd h1{font-size:22px;font-weight:800;letter-spacing:-.5px;margin:0;line-height:1.1}
+.hd small{font-size:12px;color:#8a8a8f;font-weight:500}
+.hd .r{display:flex;gap:10px}
+.hd .r span{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.search{margin:16px 20px 0;background:#e4e4e9;border-radius:12px;height:38px;display:flex;align-items:center;gap:8px;padding:0 12px;color:#8a8a8f;font-size:15px}
+.daily{margin:16px 20px 0;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.05),0 6px 20px rgba(0,0,0,.05);display:flex;align-items:center;gap:14px}
+.daily .cal{width:46px;height:46px;border-radius:12px;background:#fff1e6;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#f0883e;font-weight:700;font-size:18px;line-height:1}
+.daily .cal small{font-size:9px;font-weight:700;letter-spacing:.6px;margin-bottom:2px}
+.daily b{display:block;font-size:15px;font-weight:700}
+.daily span{font-size:12.5px;color:#8a8a8f}
+.daily .chev{margin-left:auto;color:#c7c7cc}
+.sec{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 10px}
+.sec b{font-size:17px;font-weight:700;letter-spacing:-.3px}
+.sec span{font-size:13px;color:#5b57f5;font-weight:500}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px}
+.doc{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05),0 6px 20px rgba(0,0,0,.05)}
+.doc .cv{height:74px;position:relative}
+.doc .cv .em{position:absolute;left:12px;bottom:-14px;width:34px;height:34px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.doc .t{padding:20px 12px 12px;font-size:14px;font-weight:700;letter-spacing:-.2px;line-height:1.25}
+.doc .t small{display:block;font-weight:400;color:#8a8a8f;font-size:11.5px;margin-top:4px}
+.folders{display:flex;gap:8px;padding:6px 20px 0;overflow:hidden}
+.fold{background:#fff;border-radius:999px;padding:7px 12px;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:6px;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.fold i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(255,255,255,.92);border-top:1px solid #e5e5ea;display:flex;justify-content:space-around;align-items:flex-start;padding:10px 10px 0;box-sizing:border-box}
+.tabbar .t{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:#8a8a8f;font-weight:500;width:64px}
+.tabbar .t.on{color:#5b57f5}
+.fab{position:absolute;left:50%;bottom:52px;transform:translateX(-50%);width:58px;height:58px;border-radius:50%;background:#5b57f5;box-shadow:0 10px 26px rgba(91,87,245,.45);display:flex;align-items:center;justify-content:center}
+.home{position:absolute;left:50%;bottom:8px;width:134px;height:5px;background:#1c1c1e;border-radius:3px;transform:translateX(-50%)}
+.fade{position:absolute;left:0;right:0;bottom:84px;height:26px;background:linear-gradient(180deg,rgba(242,242,246,0),#f2f2f6)}
+</style>
+</head>
+<body>
+<div class="status"><span>9:41</span><span style="display:flex;gap:6px;align-items:center">
+<svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx=".6" fill="#1c1c1e"/><rect x="4.5" y="5" width="3" height="6" rx=".6" fill="#1c1c1e"/><rect x="9" y="2.5" width="3" height="8.5" rx=".6" fill="#1c1c1e"/><rect x="13.5" y="0" width="3" height="11" rx=".6" fill="#1c1c1e"/></svg>
+<svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="#1c1c1e" opacity=".4" fill="none"/><rect x="2" y="2" width="18" height="8" rx="1.8" fill="#1c1c1e"/><path d="M23 4v4c.8-.3 1.3-1 1.3-2S23.8 4.3 23 4Z" fill="#1c1c1e" opacity=".4"/></svg></span></div>
+<div class="hd"><span class="sp"><span class="av">N</span><span><h1>Northwind</h1><small>Team space</small></span></span><span class="r"><span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2.5v8M5 7.5l3 3 3-3" stroke="#1c1c1e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 11.5v2h10v-2" stroke="#1c1c1e" stroke-width="1.6" stroke-linecap="round"/></svg></span><span><svg width="16" height="4" viewBox="0 0 16 4"><circle cx="2" cy="2" r="1.7" fill="#1c1c1e"/><circle cx="8" cy="2" r="1.7" fill="#1c1c1e"/><circle cx="14" cy="2" r="1.7" fill="#1c1c1e"/></svg></span></span></div>
+<div class="search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.8" stroke="#8a8a8f" stroke-width="1.6"/><path d="m10.8 10.8 3 3" stroke="#8a8a8f" stroke-width="1.6" stroke-linecap="round"/></svg>Search Northwind</div>
+<div class="daily"><span class="cal"><small>OCT</small>24</span><div><b>Daily note</b><span>Design sync 10:30 · 3 open tasks</span></div><span class="chev">›</span></div>
+<div class="sec"><b>Recent</b><span>See all</span></div>
+<div class="grid">
+  <div class="doc"><div class="cv" style="background:linear-gradient(135deg,#7c6cff,#c084fc)"><span class="em">🚀</span></div><div class="t">Lumen 2.0 launch plan<small>Edited 12 min ago</small></div></div>
+  <div class="doc"><div class="cv" style="background:linear-gradient(135deg,#f59e0b,#fb7185)"><span class="em">💳</span></div><div class="t">Pricing &amp; billing<small>Priya · yesterday</small></div></div>
+  <div class="doc"><div class="cv" style="background:linear-gradient(135deg,#22c1c3,#5aa9ff)"><span class="em">📣</span></div><div class="t">Launch comms<small>Lena · Tue</small></div></div>
+  <div class="doc"><div class="cv" style="background:linear-gradient(135deg,#2bb673,#a3e635)"><span class="em">🧭</span></div><div class="t">Design principles<small>Edited last week</small></div></div>
+</div>
+<div class="sec"><b>Folders</b><span>Edit</span></div>
+<div class="folders"><span class="fold"><i style="background:#5b57f5"></i>Specs · 14</span><span class="fold"><i style="background:#f0883e"></i>Decks · 6</span><span class="fold"><i style="background:#2bb673"></i>Research · 22</span><span class="fold"><i style="background:#e2567a"></i>Meeting notes</span></div>
+<div class="fade"></div>
+<div class="tabbar">
+  <div class="t on"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 10l8-7 8 7v8H3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Home</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3.5" y="4" width="15" height="14" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 9h15M8 2.5v3M14 2.5v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Daily</div>
+  <div class="t" style="opacity:0">+</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="10" cy="10" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15 15 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Search</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3.5" y="3.5" width="15" height="15" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M7 8h8M7 11.5h8M7 15h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Docs</div>
+</div>
+<div class="fab"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+<div class="home"></div>
+</body>
+</html>

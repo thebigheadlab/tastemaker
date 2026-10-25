@@ -1,0 +1,25 @@
+{
+  "id": "cron-command-menu",
+  "kind": "component",
+  "subtype": "command palette",
+  "title": "Command menu",
+  "inspiredBy": "Notion Calendar (Cron)",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Cmd+K over a dimmed calendar grid: typing a city adds a time zone, with event and command matches below and live clocks in the footer."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "framer-hero",
+  "kind": "screen",
+  "subtype": "landing hero",
+  "title": "Dark launch hero",
+  "inspiredBy": "Framer",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "dramatic",
+    "density": "airy",
+    "radius": "pill",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "expressive",
+    "mood": "editorial"
+  },
+  "notes": "Pure black page with an 84px tightly-tracked headline, gradient-filled keyword, blue-violet radial glow, faint grid, pill buttons and an app window peeking from the fold."
+}

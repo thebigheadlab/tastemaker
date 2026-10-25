@@ -1,0 +1,28 @@
+{
+  "id": "nike-app-home",
+  "kind": "screen",
+  "subtype": "editorial app home",
+  "title": "App home",
+  "inspiredBy": "Nike",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "display",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "sharp",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "expressive",
+    "mood": "editorial"
+  },
+  "notes": "Greeting header over a full-bleed athlete hero with uppercase condensed headline and white pill CTA, then gray-tile product shelf."
+}

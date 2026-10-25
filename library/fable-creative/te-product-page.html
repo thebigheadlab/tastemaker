@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Product manual page</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:1280px;height:800px;overflow:hidden;background:#e6e6e6;font-family:"Inter",Helvetica,Arial,sans-serif;font-size:13px;color:#1a1a1a;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .mono{font-family:"IBM Plex Mono",Menlo,monospace}
+  .top{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid #cfcfcf;font-size:12px;letter-spacing:.2px}
+  .top .l{display:flex;gap:28px;align-items:center}
+  .top .l b{font-weight:600;letter-spacing:.6px;font-size:12px}
+  .top .r{display:flex;gap:22px;color:#444}
+  .crumbs{padding:22px 32px 0;color:#777;font-size:12px}
+  .crumbs b{color:#1a1a1a;font-weight:500}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:12px 32px 0;height:600px}
+  .left{position:relative}
+  .left h1{margin:0;font-size:44px;font-weight:500;letter-spacing:-1.2px;line-height:1}
+  .left .sub{margin-top:10px;font-size:15px;color:#555;max-width:440px;line-height:1.5}
+  .price{margin-top:26px;display:flex;align-items:baseline;gap:14px}
+  .price b{font-size:22px;font-weight:500}
+  .price span{color:#777;font-size:12px}
+  .cta{margin-top:18px;display:flex;gap:10px}
+  .btn{height:44px;padding:0 22px;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:13px;letter-spacing:.3px;border:1px solid #1a1a1a}
+  .btn.p{background:#1a1a1a;color:#fff}
+  .btn.o{background:#ff5b1f;border-color:#ff5b1f;color:#fff}
+  .colors{margin-top:26px;display:flex;align-items:center;gap:10px;font-size:12px;color:#555}
+  .colors i{width:22px;height:22px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.15)}
+  .colors i.on{outline:1px solid #1a1a1a;outline-offset:3px}
+  .specs{margin-top:40px;border-top:1px solid #1a1a1a;max-width:520px}
+  .specs div{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #cfcfcf;font-size:12px}
+  .specs div span:first-child{color:#777}
+  .right{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;position:relative;padding:40px 0 0 24px}
+  .fig{position:absolute;left:0;top:0;font-size:11px;color:#777}
+  .fig b{color:#1a1a1a;font-weight:500}
+  .callout{position:absolute;font-size:11px;color:#1a1a1a;display:flex;align-items:center;gap:8px}
+  .callout i{width:40px;height:1px;background:#1a1a1a;display:block}
+  .foot{position:absolute;left:32px;right:32px;bottom:18px;display:flex;justify-content:space-between;font-size:11px;color:#777;border-top:1px solid #cfcfcf;padding-top:10px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="l"><b>TONEWORKS</b><span>products</span><span>store</span><span>guides</span><span>downloads</span><span>now</span></div>
+    <div class="r mono"><span>SE / EN</span><span>cart (0)</span><span>account</span></div>
+  </div>
+  <div class="crumbs mono">store / synthesizers / <b>PO–140 field</b></div>
+
+  <div class="grid">
+    <div class="left">
+      <h1>PO–140 field</h1>
+      <div class="sub">portable 8-voice synthesizer, sequencer and sampler in a machined aluminium chassis. 24-bit stereo, 40 hour battery, built-in speaker and FM radio.</div>
+      <div class="price"><b>$1,999</b><span class="mono">incl. VAT · ships in 3–5 days</span></div>
+      <div class="cta"><span class="btn o">add to cart</span><span class="btn">notify me</span></div>
+      <div class="colors">colour <i class="on" style="background:#d9d9d9"></i><i style="background:#1a1a1a"></i><i style="background:#ff5b1f"></i></div>
+      <div class="specs mono">
+        <div><span>voices</span><span>8 (4 engines)</span></div>
+        <div><span>audio</span><span>24-bit / 96 kHz</span></div>
+        <div><span>battery</span><span>40 h, USB-C</span></div>
+        <div><span>dimensions</span><span>288 × 102 × 29 mm</span></div>
+        <div><span>weight</span><span>660 g</span></div>
+        <div><span>connectivity</span><span>MIDI, BLE, line in/out</span></div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="fig mono" style="left:24px;top:52px">fig. 1 — <b>top view</b>, 1:1</div>
+      <svg width="590" height="316" viewBox="0 0 560 300" style="margin-top:70px">
+        <defs><pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r=".6" fill="#555"/></pattern></defs>
+        <!-- body -->
+        <rect x="20" y="60" width="520" height="190" rx="10" fill="#f4f4f4" stroke="#1a1a1a" stroke-width="1.5"/>
+        <rect x="20" y="60" width="520" height="190" rx="10" fill="none" stroke="#fff" stroke-width=".5"/>
+        <!-- display -->
+        <rect x="42" y="80" width="150" height="70" rx="3" fill="#1a1a1a"/>
+        <rect x="48" y="86" width="138" height="58" fill="#2b2b2b"/>
+        <polyline points="52,124 70,110 88,128 106,100 124,122 142,96 160,118 180,106" fill="none" stroke="#ff5b1f" stroke-width="1.5"/>
+        <text x="52" y="98" font-family="IBM Plex Mono,monospace" font-size="8" fill="#9f9f9f">SYNTH 01   120 BPM</text>
+        <!-- knobs -->
+        <g fill="#fff" stroke="#1a1a1a" stroke-width="1.5">
+          <circle cx="232" cy="98" r="16"/><circle cx="282" cy="98" r="16"/><circle cx="332" cy="98" r="16"/><circle cx="382" cy="98" r="16"/>
+        </g>
+        <g stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"><path d="M232 98l-7-11"/><path d="M282 98l0-13"/><path d="M332 98l9-9"/><path d="M382 98l-10-5"/></g>
+        <!-- colored encoder caps -->
+        <circle cx="232" cy="98" r="5" fill="#2f6bff"/><circle cx="282" cy="98" r="5" fill="#2bb673"/><circle cx="332" cy="98" r="5" fill="#fff"/><circle cx="382" cy="98" r="5" fill="#ff5b1f"/>
+        <text x="222" y="130" font-family="IBM Plex Mono,monospace" font-size="7" fill="#1a1a1a">BLUE</text><text x="270" y="130" font-family="IBM Plex Mono,monospace" font-size="7" fill="#1a1a1a">GREEN</text><text x="320" y="130" font-family="IBM Plex Mono,monospace" font-size="7" fill="#1a1a1a">WHITE</text><text x="366" y="130" font-family="IBM Plex Mono,monospace" font-size="7" fill="#1a1a1a">ORANGE</text>
+        <!-- speaker grille -->
+        <rect x="420" y="78" width="100" height="52" fill="url(#dots)"/>
+        <!-- keys -->
+        <g fill="#fff" stroke="#1a1a1a" stroke-width="1.2">
+          <rect x="42" y="160" width="26" height="70" rx="2"/><rect x="72" y="160" width="26" height="70" rx="2"/><rect x="102" y="160" width="26" height="70" rx="2"/><rect x="132" y="160" width="26" height="70" rx="2"/><rect x="162" y="160" width="26" height="70" rx="2"/><rect x="192" y="160" width="26" height="70" rx="2"/><rect x="222" y="160" width="26" height="70" rx="2"/><rect x="252" y="160" width="26" height="70" rx="2"/><rect x="282" y="160" width="26" height="70" rx="2"/><rect x="312" y="160" width="26" height="70" rx="2"/><rect x="342" y="160" width="26" height="70" rx="2"/><rect x="372" y="160" width="26" height="70" rx="2"/><rect x="402" y="160" width="26" height="70" rx="2"/><rect x="432" y="160" width="26" height="70" rx="2"/><rect x="462" y="160" width="26" height="70" rx="2"/><rect x="492" y="160" width="26" height="70" rx="2"/>
+        </g>
+        <g fill="#1a1a1a"><rect x="60" y="160" width="20" height="40" rx="2"/><rect x="90" y="160" width="20" height="40" rx="2"/><rect x="150" y="160" width="20" height="40" rx="2"/><rect x="180" y="160" width="20" height="40" rx="2"/><rect x="210" y="160" width="20" height="40" rx="2"/><rect x="270" y="160" width="20" height="40" rx="2"/><rect x="300" y="160" width="20" height="40" rx="2"/><rect x="360" y="160" width="20" height="40" rx="2"/><rect x="390" y="160" width="20" height="40" rx="2"/><rect x="420" y="160" width="20" height="40" rx="2"/><rect x="480" y="160" width="20" height="40" rx="2"/></g>
+        <!-- dimension lines -->
+        <path d="M20 268h520" stroke="#777" stroke-width=".8"/><path d="M20 263v10M540 263v10" stroke="#777" stroke-width=".8"/>
+        <text x="280" y="284" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#777">288 mm</text>
+        <path d="M552 60v190" stroke="#777" stroke-width=".8"/><path d="M547 60h10M547 250h10" stroke="#777" stroke-width=".8"/><text x="556" y="42" font-family="IBM Plex Mono,monospace" font-size="9" fill="#777" text-anchor="end">↕ 102 mm</text>
+        
+        <!-- callout numbers -->
+        <g font-family="IBM Plex Mono,monospace" font-size="8" fill="#1a1a1a"><circle cx="117" cy="52" r="7" fill="none" stroke="#1a1a1a"/><text x="117" y="55" text-anchor="middle">1</text><circle cx="307" cy="52" r="7" fill="none" stroke="#1a1a1a"/><text x="307" y="55" text-anchor="middle">2</text><circle cx="470" cy="52" r="7" fill="none" stroke="#1a1a1a"/><text x="470" y="55" text-anchor="middle">3</text></g>
+      </svg>
+      <div class="mono" style="margin-top:28px;font-size:11px;color:#555;line-height:1.7">1 — 2.4" display &nbsp; 2 — four colour-coded encoders &nbsp; 3 — speaker</div>
+    </div>
+  </div>
+  <div class="foot mono"><span>© toneworks ab, stockholm</span><span>privacy · terms · press · careers</span></div>
+</body>
+</html>

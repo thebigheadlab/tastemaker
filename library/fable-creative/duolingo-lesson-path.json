@@ -1,0 +1,25 @@
+{
+  "id": "duolingo-lesson-path",
+  "kind": "screen",
+  "subtype": "learning path",
+  "title": "Lesson path",
+  "inspiredBy": "Duolingo",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "bold",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Winding path of chunky 3D-shadowed nodes, a bobbing START tooltip, bold rounded type and a mascot cheering from the side."
+}

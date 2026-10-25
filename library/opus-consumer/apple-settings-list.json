@@ -1,0 +1,28 @@
+{
+  "id": "apple-settings-list",
+  "kind": "component",
+  "subtype": "grouped settings list",
+  "title": "Inset grouped settings",
+  "inspiredBy": "Apple",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "iOS inset-grouped table: colored rounded-square glyphs, hairline separators indented past the icon, gray value text, chevrons and green switches."
+}

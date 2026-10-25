@@ -1,0 +1,28 @@
+{
+  "id": "spotify-connect-sheet",
+  "kind": "component",
+  "subtype": "device picker sheet",
+  "title": "Connect device picker",
+  "inspiredBy": "Spotify",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "geometric",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Charcoal bottom sheet listing speakers, TVs and earbuds with the active device in green, over an album-tinted mini player."
+}

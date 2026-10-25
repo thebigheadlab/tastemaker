@@ -1,0 +1,25 @@
+{
+  "id": "nothing-media-player",
+  "kind": "component",
+  "subtype": "media player",
+  "title": "Monochrome now playing",
+  "inspiredBy": "Nothing",
+  "platform": "mobile",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "red",
+    "typeStyle": "display",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "textured",
+    "mood": "brutalist"
+  },
+  "notes": "Black-and-white player with a halftone-dot artwork field, a spinning outlined record with a red label, a segmented LED progress bar, dot-matrix timecodes and uppercase tracked status lines."
+}

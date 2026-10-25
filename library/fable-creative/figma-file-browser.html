@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>File browser</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:1280px;height:800px;overflow:hidden;background:#fff;font-family:"Inter",system-ui,sans-serif;font-size:12px;color:#1e1e1e;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .side{position:absolute;left:0;top:0;bottom:0;width:240px;background:#fbfbfb;border-right:1px solid #e6e6e6;padding:12px}
+  .acct{display:flex;align-items:center;gap:8px;padding:6px 8px;font-weight:600}
+  .acct .av{width:24px;height:24px;border-radius:50%;background:#8638e5;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px}
+  .search{margin:10px 0;height:32px;border:1px solid #e6e6e6;border-radius:6px;background:#fff;display:flex;align-items:center;gap:8px;padding:0 10px;color:#999}
+  .nav a{display:flex;align-items:center;gap:8px;height:32px;padding:0 8px;border-radius:6px;color:#1e1e1e}
+  .nav a.on{background:#e8e8e8;font-weight:600}
+  .nav h5{margin:16px 8px 4px;font-size:11px;color:#999;font-weight:500}
+  .team{display:flex;align-items:center;gap:8px;height:32px;padding:0 8px}
+  .team .sq{width:16px;height:16px;border-radius:4px}
+  .main{position:absolute;left:240px;right:0;top:0;bottom:0}
+  .hdr{height:56px;display:flex;align-items:center;padding:0 32px;justify-content:space-between;border-bottom:1px solid #e6e6e6}
+  .hdr h1{margin:0;font-size:16px;font-weight:600}
+  .hdr .btns{display:flex;gap:8px}
+  .btn{height:32px;border:1px solid #e6e6e6;border-radius:6px;padding:0 12px;display:flex;align-items:center;gap:6px;font-weight:500}
+  .btn.p{background:#0d99ff;border-color:#0d99ff;color:#fff}
+  .filters{display:flex;gap:20px;padding:16px 32px 8px;align-items:center}
+  .filters span{color:#999}.filters span.on{color:#1e1e1e;font-weight:600}
+  .filters .r{margin-left:auto;display:flex;gap:12px;color:#1e1e1e}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 20px;padding:12px 32px}
+  .file{display:flex;flex-direction:column;gap:10px}
+  .thumb{height:176px;border:1px solid #e6e6e6;border-radius:4px;background:#f5f5f5;position:relative;overflow:hidden}
+  .thumb.sel{box-shadow:0 0 0 2px #0d99ff}
+  .fi{display:flex;gap:10px;align-items:flex-start}
+  .fi .ic{width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+  .fi b{display:block;font-weight:500;font-size:12px}
+  .fi span{display:block;color:#999;margin-top:3px;font-size:11px}
+  .badge{position:absolute;right:8px;top:8px;background:#fff;border:1px solid #e6e6e6;border-radius:4px;padding:2px 6px;font-size:10px;font-weight:600;color:#555}
+  /* mini-mockups */
+  .mk{position:absolute;background:#fff;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .lh{display:flex;align-items:center;padding:14px 32px 4px;font-weight:600;font-size:12px}
+  .lrow{display:flex;align-items:center;gap:12px;height:40px;margin:0 32px;border-top:1px solid #f0f0f0;color:#1e1e1e}
+  .lrow .ic{width:20px;display:flex;justify-content:center}
+  .lrow .n{flex:1;font-weight:500}
+  .lrow .c{width:160px;color:#999}
+  .lrow .avs{display:flex}.lrow .avs i{width:20px;height:20px;border-radius:50%;border:2px solid #fff;margin-left:-6px;display:block}
+</style>
+</head>
+<body>
+  <div class="side">
+    <div class="acct"><span class="av">AS</span>Arcline Studio <span style="color:#999;margin-left:auto">▾</span></div>
+    <div class="search"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#999" stroke-width="1.4"><circle cx="6" cy="6" r="4.5"/><path d="M9.5 9.5L13 13"/></svg>Search</div>
+    <div class="nav">
+      <a class="on"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1e1e1e" stroke-width="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5"/></svg>Recents</a>
+      <a><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1e1e1e" stroke-width="1.3"><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M5 3v10"/></svg>Drafts</a>
+      <a><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1e1e1e" stroke-width="1.3"><path d="M8 2l1.8 3.8 4.2.6-3 3 .7 4.1L8 11.5l-3.7 2 .7-4.1-3-3 4.2-.6z"/></svg>Starred</a>
+      <a><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1e1e1e" stroke-width="1.3"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg>Community</a>
+      <h5>Teams</h5>
+      <div class="team"><span class="sq" style="background:#ff5c35"></span>Orbit Mobile</div>
+      <div class="team"><span class="sq" style="background:#1bc47d"></span>Design System</div>
+      <div class="team"><span class="sq" style="background:#8638e5"></span>Marketing</div>
+      <div class="team"><span class="sq" style="background:#0d99ff"></span>Research</div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="hdr"><h1>Recents</h1>
+      <div class="btns"><span class="btn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#1e1e1e" stroke-width="1.3"><path d="M7 2v10M2 7h10"/></svg>Import</span><span class="btn p">+ Design file</span><span class="btn p" style="background:#8638e5;border-color:#8638e5">+ Whiteboard</span></div>
+    </div>
+    <div class="filters"><span class="on">All files</span><span>Design files</span><span>Whiteboards</span><span>Prototypes</span>
+      <div class="r"><span>Last viewed ▾</span><svg width="16" height="16" viewBox="0 0 16 16" fill="#1e1e1e"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg></div>
+    </div>
+
+    <div class="grid">
+      <div class="file">
+        <div class="thumb sel" style="background:#e5e5e5">
+          <div class="mk" style="left:20px;top:22px;width:62px;height:116px;background:linear-gradient(160deg,#ffd7a8,#ff8a5c)"></div>
+          <div class="mk" style="left:94px;top:22px;width:62px;height:116px"></div>
+          <div class="mk" style="left:168px;top:22px;width:62px;height:116px"></div>
+          <span class="badge">Editing</span>
+        </div>
+        <div class="fi"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#0d99ff"/><path d="M6 12l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span><div><b>Orbit Mobile — Onboarding</b><span>Edited 4 minutes ago · Orbit Mobile</span></div></div>
+      </div>
+      <div class="file">
+        <div class="thumb" style="background:#fff">
+          <div style="position:absolute;left:16px;top:16px;right:16px;display:grid;grid-template-columns:repeat(6,1fr);gap:6px">
+            <i style="height:18px;border-radius:9px;background:#1e1e1e"></i><i style="height:18px;border-radius:9px;background:#ff5c35"></i><i style="height:18px;border-radius:9px;background:#0d99ff"></i><i style="height:18px;border-radius:9px;border:1px solid #ccc"></i><i style="height:18px;border-radius:9px;background:#1bc47d"></i><i style="height:18px;border-radius:9px;background:#8638e5"></i>
+            <i style="height:18px;border-radius:3px;background:#1e1e1e"></i><i style="height:18px;border-radius:3px;background:#ff5c35"></i><i style="height:18px;border-radius:3px;background:#0d99ff"></i><i style="height:18px;border-radius:3px;border:1px solid #ccc"></i><i style="height:18px;border-radius:3px;background:#1bc47d"></i><i style="height:18px;border-radius:3px;background:#8638e5"></i>
+          </div>
+          <div style="position:absolute;left:16px;top:76px;right:16px;display:flex;flex-wrap:wrap;gap:8px"><i style="width:36px;height:36px;border-radius:50%;background:#ffd7a8"></i><i style="width:36px;height:36px;border-radius:50%;background:#b8c4e6"></i><i style="width:36px;height:36px;border-radius:50%;background:#f3b8c6"></i><i style="width:36px;height:36px;border-radius:50%;background:#c8f0d8"></i><i style="width:36px;height:36px;border-radius:8px;border:1px solid #ddd"></i></div>
+        </div>
+        <div class="fi"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#0d99ff"/><path d="M6 12l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span><div><b>Arcline DS · Components v3</b><span>Edited yesterday · Design System</span></div></div>
+      </div>
+      <div class="file">
+        <div class="thumb" style="background:#f0f0f0">
+          <div class="mk" style="left:14px;top:18px;width:58px;height:40px;background:#fff7a8;box-shadow:none"></div>
+          <div class="mk" style="left:84px;top:30px;width:58px;height:40px;background:#c8f0d8;box-shadow:none"></div>
+          <div class="mk" style="left:154px;top:14px;width:58px;height:40px;background:#ffd7a8;box-shadow:none"></div>
+          <div class="mk" style="left:40px;top:84px;width:58px;height:40px;background:#dcd3ff;box-shadow:none"></div>
+          <div class="mk" style="left:120px;top:96px;width:58px;height:40px;background:#fff7a8;box-shadow:none"></div>
+          <svg style="position:absolute;left:0;top:0" width="240" height="160"><path d="M72 38 L84 50" stroke="#555" stroke-width="1"/><path d="M142 50 L154 36" stroke="#555" stroke-width="1"/><path d="M98 104 L120 110" stroke="#555" stroke-width="1"/></svg>
+        </div>
+        <div class="fi"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#8638e5"/><circle cx="7" cy="7" r="2" fill="#fff"/><circle cx="11.5" cy="11" r="2" fill="#fff"/></svg></span><div><b>Q4 roadmap jam</b><span>Edited 2 days ago · Orbit Mobile</span></div></div>
+      </div>
+      <div class="file">
+        <div class="thumb" style="background:#1e1e1e">
+          <div style="position:absolute;left:20px;top:30px;width:200px;height:14px;background:#fff;border-radius:2px"></div>
+          <div style="position:absolute;left:20px;top:50px;width:140px;height:14px;background:#fff;border-radius:2px"></div>
+          <div style="position:absolute;left:20px;top:78px;width:90px;height:6px;background:#777;border-radius:2px"></div>
+          <div style="position:absolute;left:20px;top:110px;width:70px;height:24px;background:#0d99ff;border-radius:12px"></div>
+          <div style="position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#8638e5,transparent 70%)"></div>
+        </div>
+        <div class="fi"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#0d99ff"/><path d="M6 12l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span><div><b>Launch landing — dark</b><span>Edited 3 days ago · Marketing</span></div></div>
+      </div>
+      <div class="file">
+        <div class="thumb" style="background:#fff">
+          <div style="position:absolute;left:16px;top:16px;right:16px;bottom:16px;border:1px solid #e6e6e6;border-radius:4px">
+            <div style="height:18px;border-bottom:1px solid #e6e6e6;display:flex;gap:4px;align-items:center;padding:0 6px"><i style="width:30px;height:4px;background:#ccc;border-radius:2px"></i><i style="width:30px;height:4px;background:#ccc;border-radius:2px"></i></div>
+            <div style="padding:8px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px"><i style="height:30px;background:#f0f0f0;border-radius:3px"></i><i style="height:30px;background:#f0f0f0;border-radius:3px"></i><i style="height:30px;background:#f0f0f0;border-radius:3px"></i><i style="height:50px;background:#f0f0f0;border-radius:3px;grid-column:1/3"></i><i style="height:50px;background:#f0f0f0;border-radius:3px"></i></div>
+          </div>
+        </div>
+        <div class="fi"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#0d99ff"/><path d="M6 12l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span><div><b>Admin dashboard explorations</b><span>Edited last week · Orbit Mobile</span></div></div>
+      </div>
+      <div class="file">
+        <div class="thumb" style="background:#f5f5f5">
+          <div style="position:absolute;left:30px;top:20px;width:60px;height:120px;background:#fff;border-radius:10px;border:1px solid #e6e6e6"></div>
+          <div style="position:absolute;left:150px;top:20px;width:60px;height:120px;background:#fff;border-radius:10px;border:1px solid #e6e6e6"></div>
+          <svg style="position:absolute;left:0;top:0" width="240" height="160"><path d="M90 60 C120 60 120 80 150 80" fill="none" stroke="#0d99ff" stroke-width="1.5"/><circle cx="150" cy="80" r="3" fill="#0d99ff"/></svg>
+        </div>
+        <div class="fi"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#0d99ff"/><path d="M6 12l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span><div><b>Checkout prototype — usability</b><span>Edited last week · Research</span></div></div>
+      </div>
+      <div class="file">
+        <div class="thumb" style="background:#f0f0f0">
+          <div class="mk" style="left:20px;top:20px;width:200px;height:120px;background:#fff;box-shadow:none;padding:10px">
+            <div style="width:90px;height:8px;background:#1e1e1e;border-radius:2px"></div>
+            <div style="margin-top:10px;display:flex;gap:6px"><i style="width:40px;height:50px;background:#ffd7a8;border-radius:3px"></i><i style="width:40px;height:50px;background:#c8f0d8;border-radius:3px"></i><i style="width:40px;height:50px;background:#dcd3ff;border-radius:3px"></i><i style="width:40px;height:50px;background:#f3b8c6;border-radius:3px"></i></div>
+          </div>
+        </div>
+        <div class="fi"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#8638e5"/><circle cx="7" cy="7" r="2" fill="#fff"/><circle cx="11.5" cy="11" r="2" fill="#fff"/></svg></span><div><b>Brand moodboard</b><span>Edited 2 weeks ago · Marketing</span></div></div>
+      </div>
+      <div class="file">
+        <div class="thumb" style="background:#fff">
+          <div style="position:absolute;left:20px;top:20px;right:20px;bottom:20px;display:grid;grid-template-columns:repeat(8,1fr);grid-auto-rows:1fr;gap:4px">
+            <i style="background:#1e1e1e;border-radius:3px"></i><i style="background:#333;border-radius:3px"></i><i style="background:#555;border-radius:3px"></i><i style="background:#777;border-radius:3px"></i><i style="background:#999;border-radius:3px"></i><i style="background:#bbb;border-radius:3px"></i><i style="background:#ddd;border-radius:3px"></i><i style="background:#f0f0f0;border-radius:3px"></i>
+            <i style="background:#7a1f00;border-radius:3px"></i><i style="background:#a33000;border-radius:3px"></i><i style="background:#d44a1e;border-radius:3px"></i><i style="background:#ff5c35;border-radius:3px"></i><i style="background:#ff8a5c;border-radius:3px"></i><i style="background:#ffb08a;border-radius:3px"></i><i style="background:#ffd7c2;border-radius:3px"></i><i style="background:#fff0e8;border-radius:3px"></i>
+            <i style="background:#003a66;border-radius:3px"></i><i style="background:#005ca3;border-radius:3px"></i><i style="background:#007be0;border-radius:3px"></i><i style="background:#0d99ff;border-radius:3px"></i><i style="background:#4db3ff;border-radius:3px"></i><i style="background:#8ccdff;border-radius:3px"></i><i style="background:#c2e4ff;border-radius:3px"></i><i style="background:#e8f4ff;border-radius:3px"></i>
+            <i style="background:#0a4d2e;border-radius:3px"></i><i style="background:#0f7a48;border-radius:3px"></i><i style="background:#14a060;border-radius:3px"></i><i style="background:#1bc47d;border-radius:3px"></i><i style="background:#5ad69e;border-radius:3px"></i><i style="background:#95e5c0;border-radius:3px"></i><i style="background:#c8f0d8;border-radius:3px"></i><i style="background:#e8faf0;border-radius:3px"></i>
+          </div>
+        </div>
+        <div class="fi"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#0d99ff"/><path d="M6 12l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span><div><b>Color tokens 2.0</b><span>Edited 3 weeks ago · Design System</span></div></div>
+      </div>
+    </div>
+    <div class="lh">Shared with you</div>
+    <div class="lrow"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#0d99ff"/><path d="M6 12l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span><span class="n">iOS 18 kit — widgets &amp; live activities</span><span class="c">Design System</span><span class="c">Shared by Mila · 1h</span><span class="avs"><i style="background:#ff7262"></i><i style="background:#1bc47d"></i></span></div>
+    <div class="lrow"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#8638e5"/><circle cx="7" cy="7" r="2" fill="#fff"/><circle cx="11.5" cy="11" r="2" fill="#fff"/></svg></span><span class="n">Retro — Sprint 42</span><span class="c">Orbit Mobile</span><span class="c">Shared by Theo · yesterday</span><span class="avs"><i style="background:#8638e5"></i><i style="background:#0d99ff"></i><i style="background:#ffc700"></i></span></div>
+    <div class="lrow"><span class="ic"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="3" fill="#0d99ff"/><path d="M6 12l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span><span class="n">Pricing page — v2 copy pass</span><span class="c">Marketing</span><span class="c">Shared by Ana · 3 days ago</span><span class="avs"><i style="background:#1bc47d"></i></span></div>
+  </div>
+</body>
+</html>

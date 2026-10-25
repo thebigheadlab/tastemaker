@@ -1,0 +1,25 @@
+{
+  "id": "cron-mobile-day",
+  "kind": "screen",
+  "subtype": "calendar day",
+  "title": "Mobile day view",
+  "inspiredBy": "Notion Calendar (Cron)",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "A week strip with a filled blue today, left-bordered pastel event blocks in a single lane, a red now-line and a floating dark 'Join' bar for the next meeting."
+}

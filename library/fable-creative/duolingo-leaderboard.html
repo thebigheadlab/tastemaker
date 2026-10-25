@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>League leaderboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:480px;height:600px;overflow:hidden;background:#fff;font-family:"Nunito","Nunito Sans",system-ui,sans-serif;color:#4b4b4b;position:relative}
+  *{box-sizing:border-box}
+  .head{text-align:center;padding:18px 24px 0}
+  .shields{display:flex;justify-content:center;gap:10px;align-items:flex-end;margin-bottom:10px}
+  .shield{width:34px;height:40px;opacity:.35}
+  .shield.big{width:56px;height:64px;opacity:1;filter:drop-shadow(0 4px 0 rgba(0,0,0,.1))}
+  h1{margin:0;font-size:22px;font-weight:900;color:#3c3c3c}
+  .sub{font-size:15px;font-weight:700;color:#777;margin-top:4px}
+  .timer{font-size:14px;font-weight:800;color:#ff9600;margin-top:4px}
+  .list{margin-top:14px;border-top:2px solid #e5e5e5}
+  .row{display:flex;align-items:center;gap:14px;height:62px;padding:0 20px;border-bottom:2px solid #f0f0f0}
+  .row.me{background:#ddf4ff}
+  .rank{width:24px;text-align:center;font-weight:900;font-size:17px;color:#58cc02}
+  .rank.m{color:#ffc800}.rank.s{color:#afafaf}.rank.b{color:#cd7f32}
+  .av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:15px;flex-shrink:0}
+  .name{flex:1;font-weight:800;font-size:16px;color:#3c3c3c}
+  .xp{font-weight:800;font-size:15px;color:#777}
+  .zone{display:flex;align-items:center;gap:12px;padding:8px 20px;font-size:13px;font-weight:900;letter-spacing:1px;color:#58cc02;text-transform:uppercase}
+  .zone:before,.zone:after{content:"";flex:1;height:2px;background:#e5e5e5}
+  .zone.red{color:#ff4b4b}
+</style>
+</head>
+<body>
+  <div class="head">
+    <div class="shields">
+      <svg class="shield" viewBox="0 0 56 64"><path d="M28 2l24 8v22c0 14-10 24-24 30C14 56 4 46 4 32V10z" fill="#cd7f32"/></svg>
+      <svg class="shield" viewBox="0 0 56 64"><path d="M28 2l24 8v22c0 14-10 24-24 30C14 56 4 46 4 32V10z" fill="#c0c0c0"/></svg>
+      <svg class="shield big" viewBox="0 0 56 64"><path d="M28 2l24 8v22c0 14-10 24-24 30C14 56 4 46 4 32V10z" fill="#ffc800"/><path d="M28 10l16 5v16c0 10-7 17-16 21-9-4-16-11-16-21V15z" fill="#ffd94d"/><path d="M28 20l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" fill="#fff"/></svg>
+      <svg class="shield" viewBox="0 0 56 64"><path d="M28 2l24 8v22c0 14-10 24-24 30C14 56 4 46 4 32V10z" fill="#1cb0f6"/></svg>
+      <svg class="shield" viewBox="0 0 56 64"><path d="M28 2l24 8v22c0 14-10 24-24 30C14 56 4 46 4 32V10z" fill="#ce82ff"/></svg>
+    </div>
+    <h1>Gold League</h1>
+    <div class="sub">Top 7 advance to the next league</div>
+    <div class="timer">2 days</div>
+  </div>
+
+  <div class="list">
+    <div class="row"><span class="rank m">1</span><span class="av" style="background:#ff9600">MK</span><span class="name">Mateo K.</span><span class="xp">1,842 XP</span></div>
+    <div class="row"><span class="rank s">2</span><span class="av" style="background:#ce82ff">LT</span><span class="name">Lena T.</span><span class="xp">1,610 XP</span></div>
+    <div class="row"><span class="rank b">3</span><span class="av" style="background:#1cb0f6">YO</span><span class="name">Yuki O.</span><span class="xp">1,375 XP</span></div>
+    <div class="row me"><span class="rank">4</span><span class="av" style="background:#58cc02">PS</span><span class="name">Priya S.</span><span class="xp">1,240 XP</span></div>
+    <div class="row"><span class="rank">5</span><span class="av" style="background:#ff4b4b">DB</span><span class="name">Daniel B.</span><span class="xp">1,122 XP</span></div>
+    <div class="zone">Promotion zone</div>
+    <div class="row"><span class="rank" style="color:#777">8</span><span class="av" style="background:#ffc800;color:#4b4b4b">AR</span><span class="name">Amara R.</span><span class="xp">980 XP</span></div>
+  </div>
+</body>
+</html>

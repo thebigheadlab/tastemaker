@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Week view</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:1280px;height:800px;overflow:hidden;background:#191919;font-family:Inter,-apple-system,system-ui,sans-serif;color:#e6e6e6;-webkit-font-smoothing:antialiased;font-size:12px;display:flex;flex-direction:column}
+.top{height:48px;display:flex;align-items:center;padding:0 16px;gap:10px;border-bottom:1px solid #2a2a2a;flex:none}
+.top .month{font-size:15px;font-weight:600;color:#fff;margin-right:4px}
+.top .wk{color:#8a8a8a;font-size:12px;border:1px solid #333;border-radius:4px;padding:1px 6px}
+.btn{border:1px solid #333;border-radius:5px;padding:4px 9px;color:#d0d0d0;font-size:12px;background:#202020;display:inline-flex;align-items:center;gap:6px}
+.btn .k{color:#777;font-size:11px}
+.top .r{margin-left:auto;display:flex;gap:8px;align-items:center}
+.body{flex:1;display:flex;min-height:0}
+.side{width:230px;border-right:1px solid #2a2a2a;padding:14px 14px;box-sizing:border-box;flex:none;display:flex;flex-direction:column;gap:14px}
+.mini{font-size:11px}
+.mini .hd{display:flex;justify-content:space-between;color:#d0d0d0;font-weight:500;margin-bottom:8px;font-size:12px}
+.mini .g{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;text-align:center}
+.mini .g span{height:24px;line-height:24px;color:#bdbdbd;border-radius:4px}
+.mini .g .dn{color:#666;font-weight:500}
+.mini .g .o{color:#555}
+.mini .g .td{background:#3b82f6;color:#fff;font-weight:600}
+.mini .g .wkr{background:#262626}
+.cals h4{margin:4px 0 6px;font-size:11px;font-weight:500;color:#7a7a7a}
+.cal{display:flex;align-items:center;gap:8px;height:24px;color:#cfcfcf;font-size:12px}
+.cal i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+.cal.off{color:#666}.cal.off i{background:transparent!important;border:1.5px solid #555;box-sizing:border-box}
+.tz{margin-top:auto;font-size:11px;color:#7a7a7a;display:flex;flex-direction:column;gap:4px}
+.tz b{color:#bdbdbd;font-weight:500}
+.grid{flex:1;display:flex;flex-direction:column;min-width:0}
+.dayhd{display:flex;height:54px;border-bottom:1px solid #2a2a2a;flex:none}
+.dayhd .gut{width:88px;flex:none;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 4px 0;font-size:10px;color:#666}
+.dayhd .gut span{padding-left:10px}
+.dayhd .d{flex:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 10px;border-left:1px solid #2a2a2a;gap:2px}
+.dayhd .d .n{font-size:11px;color:#7a7a7a;font-weight:500;letter-spacing:.3px}
+.dayhd .d .num{font-size:20px;font-weight:600;color:#e6e6e6;letter-spacing:-.3px}
+.dayhd .d.today .n{color:#3b82f6}
+.dayhd .d.today .num{color:#3b82f6}
+.dayhd .d.we .num{color:#8a8a8a}
+.allday{display:flex;height:26px;border-bottom:1px solid #2a2a2a;flex:none}
+.allday .gut{width:88px;flex:none}
+.allday .d{flex:1;border-left:1px solid #2a2a2a;padding:3px 4px;box-sizing:border-box}
+.ad{height:18px;border-radius:3px;font-size:11px;line-height:18px;padding:0 6px;color:#fff;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hours{flex:1;display:flex;position:relative;overflow:hidden}
+.gut{width:88px;flex:none;position:relative}
+.gut .h{position:absolute;right:0;left:0;height:56px;display:flex;justify-content:space-between;padding:0 10px 0 10px;font-size:10px;color:#666;transform:translateY(-6px)}
+.gut .h b{font-weight:400;color:#4d4d4d}
+.col{flex:1;border-left:1px solid #2a2a2a;position:relative;background:repeating-linear-gradient(180deg,#2a2a2a 0 1px,transparent 1px 56px)}
+.col.we{background:repeating-linear-gradient(180deg,#2a2a2a 0 1px,transparent 1px 56px),#1d1d1d}
+.ev{position:absolute;left:3px;right:5px;border-radius:4px;padding:3px 6px 3px 8px;box-sizing:border-box;font-size:11px;line-height:14px;overflow:hidden;border-left:3px solid}
+.ev b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev span{display:block;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev.blue{background:#1e3a5f;border-color:#3b82f6;color:#bfdbfe}
+.ev.purple{background:#3b2a5c;border-color:#a78bfa;color:#e9d5ff}
+.ev.green{background:#153f2d;border-color:#34d399;color:#bbf7d0}
+.ev.orange{background:#4a2c12;border-color:#fb923c;color:#fed7aa}
+.ev.pink{background:#4a1f36;border-color:#f472b6;color:#fbcfe8}
+.ev.grey{background:#2c2c2c;border-color:#8a8a8a;color:#d0d0d0}
+.ev.striped{background:repeating-linear-gradient(135deg,#1e3a5f 0 4px,#223f66 4px 8px)}
+.ev.ghost{background:transparent;border:1px dashed #3b82f6;border-left:3px solid #3b82f6;color:#93c5fd}
+.now{position:absolute;left:0;right:0;height:1px;background:#ef4444;z-index:3}
+.now:before{content:"";position:absolute;left:-4px;top:-3.5px;width:8px;height:8px;border-radius:50%;background:#ef4444}
+.nowlab{position:absolute;right:92px;font-size:10px;color:#ef4444;font-weight:600;transform:translateY(-6px)}
+.status{height:26px;border-top:1px solid #2a2a2a;display:flex;align-items:center;gap:16px;padding:0 14px;font-size:11px;color:#777;flex:none}
+.status .k{border:1px solid #3a3a3a;border-radius:3px;padding:0 4px;color:#aaa;margin-right:4px}
+</style>
+</head>
+<body>
+<div class="top">
+  <span class="month">October 2026</span><span class="wk">W43</span>
+  <span class="btn" style="padding:4px 6px">‹</span><span class="btn">Today <span class="k">T</span></span><span class="btn" style="padding:4px 6px">›</span>
+  <span class="r">
+    <span class="btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#aaa" stroke-width="1.2"/><path d="M6 1.5v9M1.5 6h9" stroke="#aaa" stroke-width="1.2"/></svg>Share availability <span class="k">S</span></span>
+    <span class="btn">Week <span class="k">W</span></span>
+    <span class="btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="5" cy="5" r="3.5" stroke="#aaa" stroke-width="1.2"/><path d="m7.5 7.5 3 3" stroke="#aaa" stroke-width="1.2" stroke-linecap="round"/></svg><span class="k">⌘K</span></span>
+    <span style="width:24px;height:24px;border-radius:50%;background:#7c8cff;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#fff">MA</span>
+  </span>
+</div>
+<div class="body">
+  <div class="side">
+    <div class="mini">
+      <div class="hd"><span>October</span><span style="color:#777">‹ ›</span></div>
+      <div class="g">
+        <span class="dn">M</span><span class="dn">T</span><span class="dn">W</span><span class="dn">T</span><span class="dn">F</span><span class="dn">S</span><span class="dn">S</span>
+        <span class="o">28</span><span class="o">29</span><span class="o">30</span><span>1</span><span>2</span><span>3</span><span>4</span>
+        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+        <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+        <span class="wkr">19</span><span class="wkr">20</span><span class="wkr">21</span><span class="wkr">22</span><span class="wkr td">23</span><span class="wkr">24</span><span class="wkr">25</span>
+        <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span><span class="o">1</span>
+      </div>
+    </div>
+    <div class="cals">
+      <h4>maya@example.com</h4>
+      <div class="cal"><i style="background:#3b82f6"></i>Maya</div>
+      <div class="cal"><i style="background:#a78bfa"></i>Design team</div>
+      <div class="cal"><i style="background:#34d399"></i>Focus</div>
+      <div class="cal off"><i></i>Holidays in Sweden</div>
+      <h4 style="margin-top:10px">maya.andersen@example.com</h4>
+      <div class="cal"><i style="background:#fb923c"></i>Personal</div>
+      <div class="cal"><i style="background:#f472b6"></i>Family</div>
+      <div class="cal off"><i></i>Birthdays</div>
+    </div>
+    <div class="tz"><span><b>Stockholm</b> · 14:08</span><span><b>San Francisco</b> · 05:08</span><span><b>Tokyo</b> · 21:08</span></div>
+  </div>
+  <div class="grid">
+    <div class="dayhd">
+      <div class="gut"><span>CET</span></div>
+      <div class="d"><span class="n">MON</span><span class="num">19</span></div>
+      <div class="d"><span class="n">TUE</span><span class="num">20</span></div>
+      <div class="d"><span class="n">WED</span><span class="num">21</span></div>
+      <div class="d"><span class="n">THU</span><span class="num">22</span></div>
+      <div class="d today"><span class="n">FRI</span><span class="num">23</span></div>
+      <div class="d we"><span class="n">SAT</span><span class="num">24</span></div>
+      <div class="d we"><span class="n">SUN</span><span class="num">25</span></div>
+    </div>
+    <div class="allday">
+      <div class="gut"></div>
+      <div class="d"></div>
+      <div class="d"><span class="ad" style="background:#3b2a5c;color:#e9d5ff">Design offsite prep</span></div>
+      <div class="d"></div>
+      <div class="d"></div>
+      <div class="d"><span class="ad" style="background:#4a2c12;color:#fed7aa">Jonas OOO</span></div>
+      <div class="d"></div>
+      <div class="d"></div>
+    </div>
+    <div class="hours">
+      <div class="gut">
+        <div class="h" style="top:0;transform:none"><span>8 AM</span><b>11 PM</b></div>
+        <div class="h" style="top:56px"><span>9 AM</span><b>12 AM</b></div>
+        <div class="h" style="top:112px"><span>10 AM</span><b>1 AM</b></div>
+        <div class="h" style="top:168px"><span>11 AM</span><b>2 AM</b></div>
+        <div class="h" style="top:224px"><span>12 PM</span><b>3 AM</b></div>
+        <div class="h" style="top:280px"><span>1 PM</span><b>4 AM</b></div>
+        <div class="h" style="top:336px"><span style="visibility:hidden">2 PM</span><b>5 AM</b></div>
+        <div class="h" style="top:392px"><span>3 PM</span><b>6 AM</b></div>
+        <div class="h" style="top:448px"><span>4 PM</span><b>7 AM</b></div>
+        <div class="h" style="top:504px"><span>5 PM</span><b>8 AM</b></div>
+        <div class="h" style="top:560px"><span>6 PM</span><b>9 AM</b></div>
+        <div class="h" style="top:616px"><span>7 PM</span><b>10 AM</b></div>
+      </div>
+      <div class="col">
+        <div class="ev green" style="top:0;height:110px"><b>Focus: billing v4</b><span>8:00 – 10:00</span></div>
+        <div class="ev purple" style="top:112px;height:54px"><b>Design weekly</b><span>10:00 – 11:00 · Zoom</span></div>
+        <div class="ev blue" style="top:252px;height:40px"><b>1:1 Priya</b><span>12:30 – 1:15</span></div>
+        <div class="ev blue" style="top:392px;height:54px"><b>Icon audit review</b><span>3:00 – 4:00</span></div>
+      </div>
+      <div class="col">
+        <div class="ev blue" style="top:56px;height:26px"><b>Standup</b></div>
+        <div class="ev purple" style="top:140px;height:82px"><b>Billing v4 crit</b><span>10:30 – 12:00 · Room Aurora</span></div>
+        <div class="ev orange" style="top:308px;height:40px"><b>Dentist</b><span>1:30 – 2:15</span></div>
+        <div class="ev blue" style="top:448px;height:54px"><b>Hiring sync</b><span>4:00 – 5:00</span></div>
+      </div>
+      <div class="col">
+        <div class="ev blue" style="top:56px;height:26px"><b>Standup</b></div>
+        <div class="ev green" style="top:84px;height:138px"><b>Focus: onboarding illustrations</b><span>9:30 – 12:00</span></div>
+        <div class="ev blue" style="top:280px;height:54px"><b>Lunch w/ Sam</b><span>1:00 – 2:00 · Kafé Esaias</span></div>
+        <div class="ev grey" style="top:364px;height:40px"><b>Figma seats renewal</b><span>2:30 – 3:10</span></div>
+        <div class="ev pink" style="top:560px;height:54px"><b>Pick up Elsa</b><span>6:00 – 7:00</span></div>
+      </div>
+      <div class="col">
+        <div class="ev blue" style="top:56px;height:26px"><b>Standup</b></div>
+        <div class="ev purple" style="top:168px;height:110px"><b>Senior designer loop: portfolio</b><span>11:00 – 1:00 · Room Borealis</span></div>
+        <div class="ev blue striped" style="top:336px;height:54px"><b>Hold: Fieldnote intro</b><span>2:00 – 3:00 · tentative</span></div>
+        <div class="ev blue" style="top:476px;height:54px"><b>Pricing motion review</b><span>4:30 – 5:30</span></div>
+      </div>
+      <div class="col">
+        <div class="ev blue" style="top:56px;height:26px"><b>Standup</b></div>
+        <div class="ev purple" style="top:112px;height:82px"><b>Design review</b><span>10:00 – 11:30 · Zoom</span></div>
+        <div class="ev green" style="top:224px;height:82px"><b>Focus: release notes</b><span>12:00 – 1:30</span></div>
+        <div class="ev ghost" style="top:364px;height:54px"><b>New event</b><span>2:30 – 3:30</span></div>
+        <div class="ev blue" style="top:448px;height:54px"><b>Q4 planning w/ Elena</b><span>4:00 – 5:00</span></div>
+        <div class="now" style="top:344px"></div>
+      </div>
+      <div class="col we">
+        <div class="ev orange" style="top:112px;height:82px"><b>Farmers market</b><span>10:00 – 11:30</span></div>
+        <div class="ev pink" style="top:392px;height:110px"><b>Elsa's football</b><span>3:00 – 5:00 · Zinkensdamm</span></div>
+      </div>
+      <div class="col we">
+        <div class="ev orange" style="top:168px;height:138px"><b>Brunch w/ Lena &amp; Tom</b><span>11:00 – 1:30</span></div>
+        <div class="ev green" style="top:560px;height:54px"><b>Week planning</b><span>6:00 – 7:00</span></div>
+      </div>
+      <div class="nowlab" style="top:344px;right:auto;left:12px;background:#191919;padding:0 3px;transform:translateY(-7px);z-index:4">2:08</div>
+    </div>
+  </div>
+</div>
+<div class="status"><span><span class="k">C</span>Create</span><span><span class="k">D</span><span class="k">W</span><span class="k">M</span>Views</span><span><span class="k">⌘K</span>Command menu</span><span style="margin-left:auto">Next: Hold: Fieldnote intro in 52 min</span></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "id": "bear-editor",
+  "kind": "screen",
+  "subtype": "markdown editor",
+  "title": "Three-pane editor",
+  "inspiredBy": "Bear",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "red",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Warm paper editor with visible-but-faded markdown markers, terracotta tag pills and round to-dos, a cream notes list and a dark espresso sidebar of nested tags with TagCon icons."
+}

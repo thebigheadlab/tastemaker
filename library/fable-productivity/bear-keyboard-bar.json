@@ -1,0 +1,25 @@
+{
+  "id": "bear-keyboard-bar",
+  "kind": "component",
+  "subtype": "editor keyboard toolbar",
+  "title": "Markdown keyboard bar",
+  "inspiredBy": "Bear",
+  "platform": "mobile",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "red",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "The iOS shortcut strip above the keyboard: heading, bold, italic, to-do, list, tag, link and photo buttons in the terracotta accent, with a dark H1–H4 picker popping up over a warm paper note."
+}

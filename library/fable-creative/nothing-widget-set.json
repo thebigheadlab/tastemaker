@@ -1,0 +1,25 @@
+{
+  "id": "nothing-widget-set",
+  "kind": "component",
+  "subtype": "widget set",
+  "title": "Dot-matrix widgets",
+  "inspiredBy": "Nothing",
+  "platform": "mobile",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "red",
+    "typeStyle": "display",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "textured",
+    "mood": "brutalist"
+  },
+  "notes": "Charcoal widgets on black with LED-style dot-matrix numerals, a white conic progress ring, a dot-grid chart with one red marker per row and a vertical battery glyph; red used only as a stop/alert signal."
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Device picker</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#000;font-family:Figtree,"Circular Std",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#fff;overflow:hidden;-webkit-font-smoothing:antialiased;width:480px;height:600px;position:relative}
+.dim{position:absolute;inset:0;background:linear-gradient(180deg,#2b2b2b,#141414)}
+.sheet{position:absolute;left:0;right:0;bottom:0;height:520px;background:#282828;border-radius:14px 14px 0 0;padding:10px 20px 0}
+.grab{width:36px;height:4px;border-radius:2px;background:#5a5a5a;margin:0 auto 18px}
+.cur{display:flex;align-items:center;gap:14px}
+.cur .ic{width:48px;height:48px;display:grid;place-items:center}
+.cur small{font-size:12px;color:#b3b3b3;font-weight:600;letter-spacing:.01em}
+.cur b{display:block;font-size:18px;font-weight:700;color:#1ed760}
+.vol{display:flex;align-items:center;gap:12px;margin:18px 0 6px}
+.bar{flex:1;height:4px;border-radius:2px;background:#535353;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:62%;background:#1ed760;border-radius:2px}
+.bar u{position:absolute;left:62%;top:-4px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#fff}
+h4{margin:22px 0 6px;font-size:16px;font-weight:700}
+.d{display:flex;align-items:center;gap:16px;height:56px}
+.d b{font-size:16px;font-weight:500;display:block}
+.d small{font-size:13px;color:#b3b3b3;display:flex;align-items:center;gap:5px}
+.d .ic{width:32px;display:grid;place-items:center}
+.more{margin-left:auto}
+.mini{position:absolute;left:8px;right:8px;bottom:12px;height:58px;border-radius:8px;background:#5a2a20;display:flex;align-items:center;padding:0 12px 0 8px;gap:10px;overflow:hidden}
+.mini .cv{width:42px;height:42px;border-radius:4px;background:linear-gradient(135deg,#e8613a,#f6c453)}
+.mini b{font-size:14px;font-weight:700;display:block}
+.mini small{font-size:12px;color:#1ed760;font-weight:600;display:flex;align-items:center;gap:4px}
+.mini .p{position:absolute;left:8px;right:8px;bottom:0;height:2px;background:rgba(255,255,255,.25)}
+.mini .p i{display:block;width:38%;height:100%;background:#fff}
+.help{display:flex;align-items:center;gap:8px;font-size:13px;color:#b3b3b3;margin-top:10px}
+</style></head><body>
+<div class="dim"></div>
+<div class="sheet">
+  <div class="grab"></div>
+  <div class="cur"><div class="ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1ed760" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="14" r="3.5"/><circle cx="12" cy="6.5" r="1" fill="#1ed760"/></svg></div>
+  <div><small>Current device</small><b>Kitchen Speaker</b></div>
+  <span style="margin-left:auto;display:flex;align-items:flex-end;gap:2px;height:14px"><i style="width:3px;height:8px;background:#1ed760"></i><i style="width:3px;height:14px;background:#1ed760"></i><i style="width:3px;height:6px;background:#1ed760"></i><i style="width:3px;height:11px;background:#1ed760"></i></span></div>
+  <div class="vol"><svg width="18" height="18" viewBox="0 0 24 24" fill="#b3b3b3"><path d="M3 9v6h4l5 5V4L7 9z"/></svg><div class="bar"><i></i><u></u></div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b3b3b3" stroke-width="1.8"><path d="M3 9v6h4l5 5V4L7 9z" fill="#b3b3b3" stroke="none"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg></div>
+  <h4>Select a device</h4>
+  <div class="d"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div><div><b>This phone</b></div></div>
+  <div class="d"><div class="ic"><svg width="28" height="26" viewBox="0 0 26 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2" y="3" width="22" height="14" rx="1.5"/><path d="M9 21h8M13 17v4"/></svg></div><div><b>Living Room TV</b><small><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#b3b3b3" stroke-width="2.2"><path d="M2 8c5.5-5 14.5-5 20 0M5.5 12c3.5-3 9.5-3 13 0M9 16c1.7-1.4 4.3-1.4 6 0"/><circle cx="12" cy="19.5" r="1" fill="#b3b3b3"/></svg>Wi‑Fi · Cast</small></div><svg class="more" width="18" height="18" viewBox="0 0 24 24" fill="#b3b3b3"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></div>
+  <div class="d"><div class="ic"><svg width="22" height="26" viewBox="0 0 20 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 10a6 6 0 0 1 12 0v4a2 2 0 0 1-2 2h-1v-6h3M4 10v4a2 2 0 0 0 2 2h1v-6H4"/></svg></div><div><b>Ana’s Buds Pro</b><small><svg width="12" height="12" viewBox="0 0 12 18" fill="none" stroke="#b3b3b3" stroke-width="2"><path d="M1 5.5 10.5 13 6 17V1l4.5 4L1 12.5"/></svg>Bluetooth</small></div><svg class="more" width="18" height="18" viewBox="0 0 24 24" fill="#b3b3b3"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></div>
+  <div class="d"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M1 19h22"/></svg></div><div><b>Ana’s MacBook Air</b><small>Connect</small></div><svg class="more" width="18" height="18" viewBox="0 0 24 24" fill="#b3b3b3"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg></div>
+</div>
+<div class="mini"><div class="cv"></div><div style="flex:1"><b>Sundial · Marisol</b><small><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1ed760" stroke-width="2.4"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="14" r="3.5"/></svg>KITCHEN SPEAKER</small></div>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1ed760" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="14" r="3.5"/><circle cx="12" cy="6.5" r="1" fill="#1ed760"/></svg>
+<svg style="margin-left:14px" width="24" height="24" viewBox="0 0 24 24" fill="#fff"><rect x="5" y="3" width="4.6" height="18" rx="1"/><rect x="14.4" y="3" width="4.6" height="18" rx="1"/></svg>
+<div class="p"><i></i></div></div>
+</body></html>

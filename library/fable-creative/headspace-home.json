@@ -1,0 +1,25 @@
+{
+  "id": "headspace-home",
+  "kind": "screen",
+  "subtype": "home feed",
+  "title": "Mindful home",
+  "inspiredBy": "Headspace",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "medium",
+    "accentHue": "orange",
+    "typeStyle": "geometric",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "calm"
+  },
+  "notes": "Warm orange hero built from overlapping circles with a smiling blob character, cream background, big-radius white cards with flat illustrated thumbnails and a floating rounded tab bar."
+}

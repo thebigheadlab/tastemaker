@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Driver arriving</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#f2f0eb;font-family:"Inter Tight","Uber Move",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#000;overflow:hidden;-webkit-font-smoothing:antialiased;width:480px;height:600px;position:relative}
+.sheet{position:absolute;left:0;right:0;bottom:0;height:410px;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -4px 20px rgba(0,0,0,.1);padding:8px 20px 0}
+.grab{width:36px;height:4px;border-radius:2px;background:#d6d6d6;margin:0 auto}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-bottom:14px;border-bottom:1px solid #eee}
+.hd b{font-size:20px;font-weight:700;letter-spacing:-.01em}
+.eta{background:#276ef1;color:#fff;font-weight:700;font-size:15px;padding:6px 10px;border-radius:6px;text-align:center;line-height:16px}
+.eta small{display:block;font-size:10px;font-weight:600;letter-spacing:.04em}
+.pin{font-size:14px;color:#5e5e5e;margin-top:4px}
+.drv{display:flex;align-items:center;margin-top:16px}
+.ph{position:relative;width:110px;height:66px}
+.av{position:absolute;left:0;top:4px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#6b4a3a,#b07a5a);border:3px solid #fff;display:grid;place-items:center;color:#fff;font-weight:700;z-index:2}
+.carimg{position:absolute;left:38px;top:16px}
+.rt{position:absolute;left:8px;bottom:-6px;z-index:3;background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.2);font-size:12px;font-weight:600;padding:2px 7px;display:flex;align-items:center;gap:3px}
+.plate{margin-left:auto;text-align:right}
+.plate small{display:block;font-size:14px;color:#5e5e5e}
+.plate b{display:block;font-size:24px;font-weight:800;letter-spacing:.02em}
+.plate em{display:block;font-style:normal;font-size:14px;color:#5e5e5e}
+.acts{display:flex;gap:10px;margin-top:22px}
+.msg{flex:1;height:48px;border-radius:24px;background:#eee;display:flex;align-items:center;padding:0 18px;gap:10px;font-size:16px;color:#5e5e5e;font-weight:500}
+.cb{width:48px;height:48px;border-radius:50%;background:#eee;display:grid;place-items:center}
+.row{display:flex;align-items:center;gap:14px;margin-top:18px;padding-top:16px;border-top:1px solid #eee}
+.row b{font-size:16px;font-weight:600;display:block}
+.row small{font-size:14px;color:#5e5e5e}
+.share{margin-left:auto;font-size:14px;font-weight:600;background:#eee;border-radius:16px;padding:7px 12px}
+</style></head><body>
+<svg width="480" height="240" viewBox="0 0 480 240" style="position:absolute;inset:0">
+  <rect width="480" height="240" fill="#f2f0eb"/>
+  <path d="M330 0h150v110c-50 0-90-20-110-50S330 20 330 0z" fill="#d7ebcc"/>
+  <g stroke="#fff" stroke-width="12" fill="none"><path d="M0 120h480M200 0v240"/></g>
+  <g stroke="#fff" stroke-width="5" fill="none"><path d="M0 50h480M0 190h480M80 0v240M320 0v240M420 0v240M0 0l200 240"/></g>
+  <path d="M80 50v70h120v50" fill="none" stroke="#276ef1" stroke-width="5" stroke-linejoin="round"/>
+  <g transform="translate(80 58)"><rect x="-8" y="-13" width="16" height="26" rx="4" fill="#111"/><rect x="-6" y="-8" width="12" height="6" rx="1" fill="#7aa6c9"/></g>
+  <circle cx="200" cy="176" r="10" fill="#000"/><circle cx="200" cy="176" r="4" fill="#fff"/>
+  <rect x="214" y="160" width="100" height="26" fill="#000"/><text x="264" y="177" text-anchor="middle" font-family="Inter Tight" font-size="12" font-weight="600" fill="#fff">Pickup · Door 3</text>
+</svg>
+<div class="sheet">
+  <div class="grab"></div>
+  <div class="hd"><div><b>Meet at the pickup point</b><div class="pin">Ferry Building, Door 3 · PIN 4821</div></div><div class="eta">3<small>MIN</small></div></div>
+  <div class="drv">
+    <div class="ph"><div class="av">MR</div>
+      <svg class="carimg" width="72" height="40" viewBox="0 0 64 30"><path d="M4 20c0-4 2-6 6-7l8-6c2-1.5 4-2 7-2h14c3 0 5 1 7 2.5l6 5.5c5 .5 8 3 8 7v3H4z" fill="#8c9096"/><path d="M20 8h9v6H14zM32 8h7l6 6H32z" fill="#c9dbe8"/><circle cx="16" cy="23" r="5" fill="#222"/><circle cx="16" cy="23" r="2" fill="#aaa"/><circle cx="48" cy="23" r="5" fill="#222"/><circle cx="48" cy="23" r="2" fill="#aaa"/></svg>
+      <span class="rt">4.96 <svg width="10" height="10" viewBox="0 0 24 24" fill="#000"><path d="M12 2l2.9 6.9L22 9.3l-5.5 4.7 1.7 7.3L12 17.5 5.8 21.3l1.7-7.3L2 9.3l7.1-.4z"/></svg></span></div>
+    <div class="plate"><small>Marcus</small><b>8KTR 284</b><em>Gray Toyota Camry</em></div>
+  </div>
+  <div class="acts"><div class="msg">Send a message…</div><div class="cb"><svg width="20" height="20" viewBox="0 0 24 24" fill="#000"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></div></div>
+  <div class="row"><svg width="22" height="22" viewBox="0 0 24 24" fill="#276ef1"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="#fff" stroke-width="2" fill="none"/></svg><div><b>Safety toolkit</b><small>Share trip status, RideCheck</small></div><span class="share">Share trip</span></div>
+  <div class="row" style="margin-top:14px;padding-top:14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19"/></svg><div><b>$18.42 · Standard</b><small>Visa •••• 4821</small></div><span class="share">Switch</span></div>
+</div>
+</body></html>

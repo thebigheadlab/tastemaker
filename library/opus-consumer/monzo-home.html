@@ -1,0 +1,71 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Account home</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#0b1a2c;font-family:"DM Sans","Oldschool Grotesk",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#fff;overflow:hidden;-webkit-font-smoothing:antialiased;width:390px;height:844px;position:relative}
+.status{height:50px;display:flex;justify-content:space-between;align-items:center;padding:4px 30px 0 40px;font-weight:600;font-size:16px}
+.sicons{display:flex;gap:6px;align-items:center}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:4px 16px 0}
+.av{width:36px;height:36px;border-radius:50%;background:#ff4f40;display:grid;place-items:center;font-weight:700;font-size:14px}
+.bar .r{display:flex;gap:10px}
+.ci{width:36px;height:36px;border-radius:50%;background:#1a2c42;display:grid;place-items:center}
+.acc{margin:18px 16px 0;background:#13253a;border-radius:20px;padding:18px 18px 16px;position:relative;overflow:hidden}
+.acc .h{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#9fb0c3;font-weight:500}
+.acc .n{font-size:40px;font-weight:700;letter-spacing:-.03em;margin-top:6px}
+.acc .n span{font-size:24px}
+.acc .sp{font-size:14px;color:#9fb0c3;margin-top:2px}
+.acc .sp b{color:#fff;font-weight:600}
+.mini{width:46px;height:30px;border-radius:5px;background:#ff4f40;position:relative;box-shadow:0 4px 10px rgba(255,79,64,.35)}
+.mini:after{content:"";position:absolute;left:6px;top:9px;width:9px;height:7px;border-radius:2px;background:#ffd2c9;opacity:.8}
+.qa{display:flex;gap:8px;margin-top:16px}
+.qa span{flex:1;height:40px;border-radius:20px;background:#1e3550;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;font-weight:600}
+.sec{display:flex;justify-content:space-between;align-items:baseline;padding:22px 16px 10px;font-size:18px;font-weight:700}
+.sec span{font-size:14px;color:#6db3ff;font-weight:600}
+.pots{display:flex;gap:10px;padding-left:16px;overflow:hidden}
+.pot{width:118px;height:118px;border-radius:16px;flex:none;padding:12px;position:relative;overflow:hidden}
+.pot b{display:block;font-size:13px;font-weight:600;position:relative}
+.pot em{position:absolute;left:12px;bottom:12px;font-style:normal;font-size:17px;font-weight:700}
+.feed{margin:0 16px;background:#13253a;border-radius:20px;padding:4px 14px}
+.day{font-size:13px;color:#9fb0c3;font-weight:600;padding:12px 0 2px;display:flex;justify-content:space-between}
+.t{display:flex;align-items:center;gap:12px;height:58px}
+.lg{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
+.t .m{flex:1}
+.t b{display:block;font-size:15px;font-weight:600}
+.t small{font-size:13px;color:#9fb0c3}
+.t .v{font-size:15px;font-weight:600}
+.tab{position:absolute;left:0;right:0;bottom:0;height:84px;background:#0b1a2c;border-top:1px solid #1d3049;display:flex;justify-content:space-around;padding-top:9px}
+.tab div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;font-weight:600;color:#7d8fa3}
+.tab .on{color:#fff}
+.home{position:absolute;bottom:8px;left:50%;width:134px;height:5px;margin-left:-67px;background:#fff;border-radius:3px}
+</style></head><body>
+<div class="status">9:41<span class="sicons"><svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#fff" opacity=".5"/><rect x="2" y="2" width="20" height="9" rx="2" fill="#fff"/></svg></span></div>
+<div class="bar"><div class="av">TO</div><div class="r"><div class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></div><div class="ci"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3a6 6 0 0 1 6 6v4l2 3H4l2-3V9a6 6 0 0 1 6-6zM10 19a2 2 0 0 0 4 0"/></svg></div></div></div>
+<div class="acc">
+  <div class="h"><span>Current account</span><span class="mini"></span></div>
+  <div class="n">£1,206<span>.44</span></div>
+  <div class="sp"><b>£18.40</b> spent today</div>
+  <div class="qa"><span><svg width="14" height="14" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><path d="M12 4v16M4 12h16"/></svg>Add money</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Pay</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>Card</span></div>
+</div>
+<div class="sec">Pots <span>See all</span></div>
+<div class="pots">
+  <div class="pot" style="background:linear-gradient(160deg,#ffd166,#f78c3c)"><svg style="position:absolute;right:-10px;top:30px" width="90" height="90" viewBox="0 0 90 90"><circle cx="45" cy="45" r="28" fill="#fff3c4" opacity=".6"/><path d="M10 70c20-10 50-10 70 0v20H10z" fill="#e0662b" opacity=".6"/></svg><b>Lisbon trip</b><em>£640</em></div>
+  <div class="pot" style="background:linear-gradient(160deg,#7fd6c2,#2c8f8a)"><svg style="position:absolute;right:-6px;top:24px" width="80" height="80" viewBox="0 0 80 80"><path d="M10 70V30l30-20 30 20v40z" fill="#e8fff8" opacity=".45"/><rect x="32" y="46" width="16" height="24" fill="#1d6e6a" opacity=".6"/></svg><b>House deposit</b><em>£12,480</em></div>
+  <div class="pot" style="background:linear-gradient(160deg,#c5a3ff,#6c4ad9)"><svg style="position:absolute;right:0;top:30px" width="70" height="70" viewBox="0 0 70 70"><circle cx="35" cy="35" r="24" fill="none" stroke="#efe5ff" stroke-width="6" opacity=".5"/></svg><b>Bills</b><em>£310</em></div>
+</div>
+<div class="sec" style="padding-bottom:10px">Recent</div>
+<div class="feed">
+  <div class="t"><div class="lg" style="background:#1fb46a">G</div><div class="m"><b>Gail's Bakery</b><small>Eating out</small></div><div class="v">-4.20</div></div>
+  <div class="t"><div class="lg" style="background:#fff;color:#0b1a2c">L</div><div class="m"><b>Lidl</b><small>Groceries</small></div><div class="v">-14.20</div></div>
+  <div class="t"><div class="lg" style="background:#ff4f40"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div><div class="m"><b>Sam Okafor</b><small>Pizza night</small></div><div class="v" style="color:#4fd18b">+12.50</div></div>
+</div>
+<div class="tab">
+  <div class="on"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>Home</div>
+  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8fa3" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Trends</div>
+  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8fa3" stroke-width="2"><path d="M7 7h14l-4-4M17 17H3l4 4"/></svg>Payments</div>
+  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8fa3" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M8.5 9.5h5a2 2 0 0 1 0 4h-3a2 2 0 0 0 0 4h5"/></svg>Savings</div>
+  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7d8fa3" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg>Help</div>
+</div>
+<div class="home"></div>
+</body></html>

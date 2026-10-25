@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile library</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:390px;height:844px;overflow:hidden;background:#fff;font-family:Inter,-apple-system,system-ui,sans-serif;color:#1d2230;-webkit-font-smoothing:antialiased;font-size:13px;position:relative}
+.status{height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 8px 34px;font-size:15px;font-weight:600}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:6px 20px 0}
+.hd h1{font-size:28px;font-weight:700;letter-spacing:-.5px;margin:0}
+.hd .r{display:flex;gap:16px;color:#5c6372}
+.seg{margin:14px 20px 0;display:flex;background:#f1f2f5;border-radius:10px;padding:3px}
+.seg span{flex:1;text-align:center;padding:6px 0;border-radius:8px;font-size:13px;color:#5c6372;font-weight:500}
+.seg span.on{background:#fff;color:#1d2230;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.filters{display:flex;gap:8px;padding:12px 20px 4px;overflow:hidden}
+.chip{border:1px solid #e1e4ea;border-radius:999px;padding:4px 10px;font-size:12px;color:#5c6372;white-space:nowrap;display:flex;gap:5px;align-items:center}
+.chip.on{background:#1d2230;color:#fff;border-color:#1d2230}
+.list{position:absolute;left:0;right:0;top:198px;bottom:84px;overflow:hidden;padding:4px 0 0}
+.item{display:flex;gap:12px;padding:12px 20px;border-bottom:1px solid #eef0f3}
+.item .thumb{width:62px;height:62px;border-radius:8px;flex:none;position:relative;overflow:hidden}
+.item .thumb .src{position:absolute;left:4px;bottom:4px;width:16px;height:16px;border-radius:4px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#1d2230;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.item .c{flex:1;min-width:0}
+.item .t{font-size:14.5px;font-weight:600;line-height:19px;letter-spacing:-.1px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .s{font-size:12px;color:#5c6372;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .m{display:flex;align-items:center;gap:8px;font-size:11px;color:#8a90a0;margin-top:6px}
+.item .m .bar{width:46px;height:3px;border-radius:2px;background:#e8eaef;overflow:hidden}
+.item .m .bar i{display:block;height:100%;background:#5b8def}
+.item .m .tag{background:#f1f2f5;border-radius:4px;padding:0 5px;color:#5c6372}
+.item .m .hl{color:#b8860b;display:inline-flex;align-items:center;gap:3px}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:84px;border-top:1px solid #eef0f3;background:rgba(255,255,255,.97);display:flex;justify-content:space-around;padding:10px 12px 0;box-sizing:border-box}
+.tabbar .t{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:#8a90a0;width:64px;font-weight:500}
+.tabbar .t.on{color:#1d2230}
+.home{position:absolute;left:50%;bottom:8px;width:134px;height:5px;background:#1d2230;border-radius:3px;transform:translateX(-50%)}
+.fade{position:absolute;left:0;right:0;bottom:84px;height:30px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
+</style>
+</head>
+<body>
+<div class="status"><span>9:41</span><span style="display:flex;gap:6px;align-items:center">
+<svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx=".6" fill="#1d2230"/><rect x="4.5" y="5" width="3" height="6" rx=".6" fill="#1d2230"/><rect x="9" y="2.5" width="3" height="8.5" rx=".6" fill="#1d2230"/><rect x="13.5" y="0" width="3" height="11" rx=".6" fill="#1d2230"/></svg>
+<svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="#1d2230" opacity=".4" fill="none"/><rect x="2" y="2" width="18" height="8" rx="1.8" fill="#1d2230"/><path d="M23 4v4c.8-.3 1.3-1 1.3-2S23.8 4.3 23 4Z" fill="#1d2230" opacity=".4"/></svg></span></div>
+<div class="hd"><h1>Inbox</h1><span class="r"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.7"/><path d="m13.5 13.5 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M5 10h10M7 15h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></div>
+<div class="seg"><span class="on">Inbox <span style="color:#8a90a0;font-weight:400">24</span></span><span>Later</span><span>Archive</span></div>
+<div class="filters"><span class="chip on">All</span><span class="chip">Articles</span><span class="chip">Newsletters</span><span class="chip">PDFs</span><span class="chip">Videos</span><span class="chip">Tweets</span></div>
+<div class="list">
+  <div class="item"><div class="thumb" style="background:linear-gradient(135deg,#2d6a4f,#95d5b2)"><span class="src">fw</span></div><div class="c"><div class="t">The quiet case for slower interfaces</div><div class="s">frankwrites.co · Frank Alder</div><div class="m"><span class="bar"><i style="width:42%"></i></span><span>12 min left</span><span class="hl"><svg width="9" height="9" viewBox="0 0 9 9"><rect x="1" y="1" width="7" height="7" rx="1" fill="#facc15"/></svg>4</span></div></div></div>
+  <div class="item"><div class="thumb" style="background:linear-gradient(135deg,#1e293b,#64748b)"><span class="src">AL</span></div><div class="c"><div class="t">Why every design system eventually grows a "Misc" folder</div><div class="s">Component Weekly · Newsletter</div><div class="m"><span class="bar"><i style="width:0%"></i></span><span>9 min</span><span class="tag">systems</span></div></div></div>
+  <div class="item"><div class="thumb" style="background:linear-gradient(135deg,#7f1d1d,#f87171)"><span class="src">pdf</span></div><div class="c"><div class="t">Attention and the Pacing of Motion in Interfaces (CHI 2026)</div><div class="s">PDF · 14 pages</div><div class="m"><span class="bar"><i style="width:18%"></i></span><span>31 min left</span><span class="tag">papers</span></div></div></div>
+  <div class="item"><div class="thumb" style="background:linear-gradient(135deg,#312e81,#818cf8)"><span class="src">▶</span></div><div class="c"><div class="t">Rasmus Andersson on building a type system from scratch</div><div class="s">YouTube · 48:12 · transcript ready</div><div class="m"><span class="bar"><i style="width:0%"></i></span><span>48 min</span><span class="tag">typography</span></div></div></div>
+  <div class="item"><div class="thumb" style="background:linear-gradient(135deg,#9a3412,#fdba74)"><span class="src">eb</span></div><div class="c"><div class="t">Interface culture: notes on the keyboard</div><div class="s">EPUB · Chapter 3 of 11</div><div class="m"><span class="bar"><i style="width:27%"></i></span><span>2 h 10 min left</span><span class="hl"><svg width="9" height="9" viewBox="0 0 9 9"><rect x="1" y="1" width="7" height="7" rx="1" fill="#facc15"/></svg>17</span></div></div></div>
+  <div class="item"><div class="thumb" style="background:linear-gradient(135deg,#0f766e,#5eead4)"><span class="src">X</span></div><div class="c"><div class="t">Thread: 11 things I wish I knew before shipping a command palette</div><div class="s">@linnea_ux · 11 posts</div><div class="m"><span class="bar"><i style="width:100%;background:#8a90a0"></i></span><span>Read</span></div></div></div>
+  <div class="item"><div class="thumb" style="background:linear-gradient(135deg,#4a044e,#e879f9)"><span class="src">sb</span></div><div class="c"><div class="t">What we learned from 400 onboarding sessions</div><div class="s">substack.com · Growth Letters</div><div class="m"><span class="bar"><i style="width:0%"></i></span><span>7 min</span></div></div></div>
+</div>
+<div class="fade"></div>
+<div class="tabbar">
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 10l8-7 8 7v8H3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>Home</div>
+  <div class="t on"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M7 8h8M7 11.5h8M7 15h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Library</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="5.5" cy="16.5" r="1.8" fill="currentColor"/><path d="M4 9.5a8.5 8.5 0 0 1 8.5 8.5M4 4a14 14 0 0 1 14 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Feed</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 4h9l3 3v11H5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11h6M8 14h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Review</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="7.5" stroke="currentColor" stroke-width="1.7"/><circle cx="11" cy="11" r="2.3" stroke="currentColor" stroke-width="1.7"/></svg>Settings</div>
+</div>
+<div class="home"></div>
+</body>
+</html>

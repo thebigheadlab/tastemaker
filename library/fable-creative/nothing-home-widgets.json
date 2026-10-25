@@ -1,0 +1,25 @@
+{
+  "id": "nothing-home-widgets",
+  "kind": "screen",
+  "subtype": "phone home screen",
+  "title": "Dot-matrix home screen",
+  "inspiredBy": "Nothing",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "display",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "textured",
+    "mood": "brutalist"
+  },
+  "notes": "Pure black launcher: dot-matrix numerals at 84px, charcoal pill widgets with a single red dot accent, monochrome line icons in circular tiles, ALL-CAPS 12px grey labels and a pill dock."
+}

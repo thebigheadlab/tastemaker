@@ -1,0 +1,25 @@
+{
+  "id": "things-task-detail",
+  "kind": "component",
+  "subtype": "task detail",
+  "title": "Expanded task",
+  "inspiredBy": "Things 3",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "humanist",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "A to-do that lifts off the list as a white card: notes, a round-bulleted checklist, yellow Today and red Deadline chips, and a quiet row of grey tool icons."
+}

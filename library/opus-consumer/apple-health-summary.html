@@ -1,0 +1,74 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Health summary</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#f2f2f7;font-family:Inter,-apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:#000;overflow:hidden;-webkit-font-smoothing:antialiased;width:390px;height:844px;position:relative;letter-spacing:-.01em}
+.status{height:54px;display:flex;justify-content:space-between;align-items:center;padding:6px 30px 0 40px;font-weight:600;font-size:16px}
+.sicons{display:flex;gap:6px;align-items:center}
+.top{display:flex;justify-content:space-between;align-items:flex-end;padding:4px 16px 0}
+h1{font-size:34px;font-weight:700;margin:0;letter-spacing:-.02em;line-height:41px}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(160deg,#a2a6b4,#6f7486);color:#fff;font-size:14px;font-weight:600;display:grid;place-items:center;margin-bottom:4px}
+.sec{display:flex;justify-content:space-between;align-items:baseline;padding:18px 16px 8px}
+.sec b{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.sec span{font-size:17px;color:#007aff}
+.card{background:#fff;border-radius:12px;margin:0 16px 10px;padding:12px 14px 14px}
+.hd{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:600}
+.hd .t{display:flex;align-items:center;gap:6px}
+.hd .tm{font-size:14px;color:#8e8e93;font-weight:400;display:flex;align-items:center;gap:6px}
+.body{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px}
+.val{font-size:28px;font-weight:700;letter-spacing:-.02em;line-height:30px}
+.val small{font-size:15px;color:#8e8e93;font-weight:600;letter-spacing:0;margin-left:2px}
+.lbl{font-size:13px;color:#8e8e93;margin-bottom:2px;font-weight:500}
+.rings{display:flex;align-items:center;gap:18px;margin-top:10px}
+.rk{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600}
+.rk div{line-height:17px}
+.rk b{font-size:20px;font-weight:700;letter-spacing:-.01em}
+.rk em{font-style:normal;font-size:13px;color:#8e8e93;font-weight:600}
+.tab{position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(249,249,249,.94);border-top:.5px solid rgba(0,0,0,.18);display:flex;justify-content:space-around;padding-top:7px}
+.tab div{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;font-weight:500;color:#999}
+.tab .on{color:#007aff}
+.home{position:absolute;bottom:8px;left:50%;width:134px;height:5px;margin-left:-67px;background:#000;border-radius:3px}
+</style></head><body>
+<div class="status">9:41<span class="sicons"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2.5c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .7C5.2.7 2.7 1.8.8 3.6L2 4.9a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.3-1.3A6.6 6.6 0 0 0 8 4.3c-1.8 0-3.4.7-4.7 1.8l1.3 1.3c.9-.8 2.1-1.3 3.4-1.3zM8 9.6l2-2a2.8 2.8 0 0 0-4 0z"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#000" opacity=".35"/><rect x="2" y="2" width="20" height="9" rx="2"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2z" opacity=".4"/></svg></span></div>
+<div class="top"><h1>Summary</h1><div class="av">JL</div></div>
+<div class="sec"><b>Pinned</b><span>Edit</span></div>
+<div class="card">
+  <div class="hd"><span class="t" style="color:#fa114f"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke-width="2.2"><circle cx="8" cy="8" r="6.6" stroke="#fa114f"/><circle cx="8" cy="8" r="3.6" stroke="#a6ff00"/></svg>Activity</span><span class="tm">9:38 AM <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="#c4c4c7" stroke-width="2"><path d="m1 1 5 5-5 5"/></svg></span></div>
+  <div class="rings">
+    <svg width="96" height="96" viewBox="0 0 96 96" style="background:#000;border-radius:50%">
+      <g fill="none" stroke-width="11" stroke-linecap="round" transform="rotate(-90 48 48)">
+        <circle cx="48" cy="48" r="38" stroke="#3d0412"/><circle cx="48" cy="48" r="38" stroke="#fa114f" stroke-dasharray="186 239"/>
+        <circle cx="48" cy="48" r="26" stroke="#1f3300"/><circle cx="48" cy="48" r="26" stroke="#a6ff00" stroke-dasharray="122 163"/>
+        <circle cx="48" cy="48" r="14" stroke="#003a3d"/><circle cx="48" cy="48" r="14" stroke="#00f0ff" stroke-dasharray="66 88"/>
+      </g>
+    </svg>
+    <div class="rk">
+      <div>Move<br><b style="color:#fa114f">468/600</b><em> CAL</em></div>
+      <div>Exercise<br><b style="color:#7ed100">22/30</b><em> MIN</em></div>
+      <div>Stand<br><b style="color:#00c7d4">9/12</b><em> HRS</em></div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="hd"><span class="t" style="color:#fa5b3d"><svg width="15" height="15" viewBox="0 0 16 16" fill="#fa5b3d"><path d="M8 3.4C9.3 1.4 11 1 12.2 1 14.4 1 16 2.8 16 5.1 16 9 8 15 8 15S0 9 0 5.1C0 2.8 1.6 1 3.8 1 5 1 6.7 1.4 8 3.4z" transform="scale(.94) translate(.5 .5)"/></svg>Heart Rate</span><span class="tm">9:24 AM <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="#c4c4c7" stroke-width="2"><path d="m1 1 5 5-5 5"/></svg></span></div>
+  <div class="body"><div><div class="lbl">Latest</div><div class="val">64<small>BPM</small></div></div>
+  <svg width="150" height="42" viewBox="0 0 150 42"><g fill="#fa5b3d"><rect x="0" y="20" width="4" height="14" rx="2"/><rect x="10" y="16" width="4" height="20" rx="2"/><rect x="20" y="22" width="4" height="12" rx="2"/><rect x="30" y="12" width="4" height="22" rx="2"/><rect x="40" y="18" width="4" height="16" rx="2"/><rect x="50" y="6" width="4" height="26" rx="2"/><rect x="60" y="14" width="4" height="18" rx="2"/><rect x="70" y="20" width="4" height="12" rx="2"/><rect x="80" y="10" width="4" height="22" rx="2"/><rect x="90" y="16" width="4" height="16" rx="2"/><rect x="100" y="22" width="4" height="12" rx="2"/><rect x="110" y="18" width="4" height="16" rx="2"/><rect x="120" y="14" width="4" height="18" rx="2"/><rect x="130" y="20" width="4" height="14" rx="2"/></g><circle cx="142" cy="24" r="4" fill="#fa5b3d"/></svg></div>
+</div>
+<div class="card">
+  <div class="hd"><span class="t" style="color:#5ac8fa"><svg width="16" height="14" viewBox="0 0 16 14" fill="#5ac8fa"><path d="M2 12V6.5A2.5 2.5 0 0 1 4.5 4h7A2.5 2.5 0 0 1 14 6.5V12h-1.5v-1.5h-9V12zM4 7.8h8V9H4z"/></svg>Sleep</span><span class="tm">6:52 AM <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="#c4c4c7" stroke-width="2"><path d="m1 1 5 5-5 5"/></svg></span></div>
+  <div class="body"><div><div class="lbl">Time Asleep</div><div class="val">7<small>hr</small> 26<small>min</small></div></div>
+  <svg width="150" height="42" viewBox="0 0 150 42"><g><rect x="0" y="2" width="10" height="8" rx="2" fill="#ff8a65"/><rect x="12" y="12" width="26" height="8" rx="2" fill="#4fc3f7"/><rect x="40" y="22" width="20" height="8" rx="2" fill="#3f51b5"/><rect x="62" y="12" width="30" height="8" rx="2" fill="#4fc3f7"/><rect x="94" y="32" width="10" height="8" rx="2" fill="#5e35b1"/><rect x="106" y="22" width="18" height="8" rx="2" fill="#3f51b5"/><rect x="126" y="12" width="24" height="8" rx="2" fill="#4fc3f7"/></g></svg></div>
+</div>
+<div class="card">
+  <div class="hd"><span class="t" style="color:#fa5b3d"><svg width="14" height="15" viewBox="0 0 14 15" fill="#fa5b3d"><circle cx="8.5" cy="2" r="1.8"/><path d="M5 5.5 8 4.5l2 2.5 2.5.5-.3 1.4-3.2-.7L8 7l-.8 3 2.3 2V15H8v-2.4L5.8 11 4.4 15H2.9l2.2-7.3-1.3.6V10H2.4V7.4z"/></svg>Steps</span><span class="tm">9:41 AM <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="#c4c4c7" stroke-width="2"><path d="m1 1 5 5-5 5"/></svg></span></div>
+  <div class="body" style="margin-top:8px"><div class="val">6,842<small>steps</small></div></div>
+</div>
+<div class="tab">
+  <div class="on"><svg width="26" height="24" viewBox="0 0 26 24" fill="#007aff"><path d="M13 5c1.8-3 4.4-4 6.4-4C22.6 1 25 3.6 25 7c0 6-12 15-12 15S1 13 1 7c0-3.4 2.4-6 5.6-6C8.6 1 11.2 2 13 5z"/></svg>Summary</div>
+  <div><svg width="26" height="24" viewBox="0 0 26 24" fill="#999"><path d="M13 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-9 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm18 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM13 10a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-9 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm18 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM4 18a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm9 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm9 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6z" transform="scale(.9) translate(1.5 0)"/></svg>Sharing</div>
+  <div><svg width="26" height="24" viewBox="0 0 26 24" fill="none" stroke="#999" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="15" y="3" width="8" height="8" rx="2"/><rect x="3" y="15" width="8" height="8" rx="2"/><rect x="15" y="15" width="8" height="8" rx="2"/></svg>Browse</div>
+</div>
+<div class="home"></div>
+</body></html>

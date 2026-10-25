@@ -1,0 +1,70 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Payments table</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#fff;color:#1a2233;font:13px/1.4 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;padding:20px 22px}
+svg{display:block;flex:none}
+h1{font-size:22px;font-weight:700;margin:0 0 12px;letter-spacing:-.01em;display:flex;align-items:center}
+h1 .r{margin-left:auto;display:flex;gap:8px}
+.b{height:28px;border-radius:6px;padding:0 10px;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;box-shadow:0 0 0 1px #d5dbe1,0 1px 1px rgba(0,0,0,.05);color:#414552}
+.b.p{background:#635bff;color:#fff;box-shadow:0 1px 1px rgba(0,0,0,.12),inset 0 0 0 1px #5851ec}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px}
+.tl{border-radius:7px;box-shadow:0 0 0 1px #d5dbe1;padding:7px 10px}
+.tl .l{font-size:12px;color:#687385;font-weight:500}
+.tl .v{font-size:15px;font-weight:600;color:#1a2233;font-variant-numeric:tabular-nums}
+.tl.on{box-shadow:0 0 0 2px #635bff}
+.tl.on .l,.tl.on .v{color:#635bff}
+.flt{display:flex;gap:6px;margin-bottom:10px;flex-wrap:nowrap}
+.ch{height:24px;border-radius:12px;border:1px dashed #c0c8d2;padding:0 9px 0 6px;display:flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:#545969;white-space:nowrap}
+.ch.set{border-style:solid;border-color:#d5dbe1;color:#414552}
+.ch.set b{color:#635bff;font-weight:600}
+.ch svg{color:#8792a2}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;font-weight:600;color:#687385;text-transform:uppercase;letter-spacing:.04em;text-align:left;white-space:nowrap;padding:6px 6px;border-bottom:1px solid #ebeef1}
+td{padding:0 6px;height:36px;border-bottom:1px solid #ebeef1;white-space:nowrap;font-size:13px}
+tr.hov td{background:#f6f8fa}
+.cbx{width:14px;height:14px;border-radius:3px;box-shadow:inset 0 0 0 1px #c0c8d2;background:#fff}
+.amt{font-weight:600;font-variant-numeric:tabular-nums;color:#1a2233}
+.cur{color:#8792a2;font-weight:500;margin-left:4px;font-size:12px}
+.pill{display:inline-flex;align-items:center;gap:3px;height:19px;border-radius:4px;padding:0 6px;font-size:11.5px;font-weight:600}
+.ok{background:#d7f7c2;color:#006908}
+.rf{background:#ebeef1;color:#545969}
+.fl{background:#ffe7f2;color:#b3093c}
+.un{background:#cff5f6;color:#0055bc}
+.dp{background:#fcedb9;color:#a82c00}
+.pm{display:flex;align-items:center;gap:6px;color:#414552;font-variant-numeric:tabular-nums}
+.br{width:24px;height:16px;border-radius:3px;display:grid;place-items:center;font-size:7px;font-weight:800;color:#fff;letter-spacing:.02em}
+.mute{color:#687385}
+.more{color:#8792a2}
+.pg{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-size:12.5px;color:#687385}
+.pg .r{display:flex;gap:6px}
+</style></head><body>
+<h1>Payments<div class="r"><span class="b"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v8m-3-3 3 3 3-3M3 13h10"/></svg>Export</span><span class="b p"><svg width="12" height="12" viewBox="0 0 16 16" stroke="#fff" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg>Create payment</span></div></h1>
+<div class="tiles">
+  <div class="tl on"><div class="l">All</div><div class="v">1,284</div></div>
+  <div class="tl"><div class="l">Succeeded</div><div class="v">1,201</div></div>
+  <div class="tl"><div class="l">Refunded</div><div class="v">38</div></div>
+  <div class="tl"><div class="l">Disputed</div><div class="v">3</div></div>
+  <div class="tl"><div class="l">Failed</div><div class="v">42</div></div>
+</div>
+<div class="flt">
+  <span class="ch set"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4.5 4.5 7 7m0-7-7 7"/></svg>Date and time <b>| Last 7 days</b></span>
+  <span class="ch"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M8 5v6M5 8h6"/></svg>Amount</span>
+  
+  <span class="ch"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M8 5v6M5 8h6"/></svg>Payment method</span>
+  <span class="ch"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M8 5v6M5 8h6"/></svg>More</span>
+</div>
+<table>
+  <tr><th style="width:22px"><div class="cbx"></div></th><th>Amount</th><th></th><th>Method</th><th>Customer</th><th style="text-align:right">Date</th></tr>
+  <tr><td><div class="cbx"></div></td><td><span class="amt">$143.64</span></td><td><span class="pill ok">Succeeded <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 8.5 3 3 7-7"/></svg></span></td><td><div class="pm"><span class="br" style="background:linear-gradient(#1a1f71 0 68%,#f7b600 68%)"></span>•••• 4242</div></td><td class="mute">mara@example.com</td><td class="mute" style="text-align:right">Oct 24, 2:14 PM</td></tr>
+  <tr class="hov"><td><div class="cbx"></div></td><td><span class="amt">$58.00</span></td><td><span class="pill ok">Succeeded <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 8.5 3 3 7-7"/></svg></span></td><td><div class="pm"><span class="br" style="background:linear-gradient(90deg,#eb001b 0 50%,#f79e1b 50%)"></span>•••• 5100</div></td><td class="mute">tom@example.com</td><td class="mute" style="text-align:right">Oct 24, 2:07 PM</td></tr>
+  <tr><td><div class="cbx"></div></td><td><span class="amt">$24.00</span></td><td><span class="pill fl">Failed <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m4.5 4.5 7 7m0-7-7 7"/></svg></span></td><td><div class="pm"><span class="br" style="background:#2e77bc;box-shadow:inset 0 0 0 2px #2e77bc,inset 0 0 0 3px #9cc3ea"></span>•••• 0005</div></td><td class="mute">j.whitfield@example.com</td><td class="mute" style="text-align:right">Oct 24, 1:55 PM</td></tr>
+  <tr><td><div class="cbx"></div></td><td><span class="amt">$212.40</span></td><td><span class="pill rf">Refunded <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 6H11a3 3 0 0 1 0 6H8M5 6l2.5-2.5M5 6l2.5 2.5"/></svg></span></td><td><div class="pm"><span class="br" style="background:linear-gradient(#1a1f71 0 68%,#f7b600 68%)"></span>•••• 1881</div></td><td class="mute">priya@example.com</td><td class="mute" style="text-align:right">Oct 23, 6:41 PM</td></tr>
+  <tr><td><div class="cbx"></div></td><td><span class="amt">€86.00</span></td><td><span class="pill un">Uncaptured <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="5"/><path d="M8 5.5V8l1.5 1.5"/></svg></span></td><td><div class="pm"><span class="br" style="background:#000">SEPA</span>•••• 3000</div></td><td class="mute">lukas@example.com</td><td class="mute" style="text-align:right">Oct 23, 4:12 PM</td></tr>
+  <tr><td><div class="cbx"></div></td><td><span class="amt">$310.00</span></td><td><span class="pill dp">Disputed <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v6M8 12v.5"/></svg></span></td><td><div class="pm"><span class="br" style="background:linear-gradient(#1a1f71 0 68%,#f7b600 68%)"></span>•••• 0341</div></td><td class="mute">ben@example.com</td><td class="mute" style="text-align:right">Oct 22, 11:03 AM</td></tr>
+  <tr><td><div class="cbx"></div></td><td><span class="amt">$48.00</span></td><td><span class="pill ok">Succeeded <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m3 8.5 3 3 7-7"/></svg></span></td><td><div class="pm"><span class="br" style="background:linear-gradient(90deg,#eb001b 0 50%,#f79e1b 50%)"></span>•••• 4444</div></td><td class="mute">ayesha.k@example.com</td><td class="mute" style="text-align:right">Oct 22, 9:20 AM</td></tr>
+</table>
+<div class="pg"><span><b style="color:#1a2233;font-weight:600">1–7</b> of 1,284 results</span><div class="r"><span class="b" style="color:#a3acb9">Previous</span><span class="b">Next</span></div></div>
+</body></html>

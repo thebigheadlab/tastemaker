@@ -1,0 +1,25 @@
+{
+  "id": "figma-canvas",
+  "kind": "screen",
+  "subtype": "design editor",
+  "title": "Design canvas",
+  "inspiredBy": "Figma",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Three-pane editor at 11px type: layers tree with purple component instances, grey canvas with three phone frames, blue selection handles and dimension pill, named multiplayer cursors, a floating dark toolbar and a dense properties panel."
+}

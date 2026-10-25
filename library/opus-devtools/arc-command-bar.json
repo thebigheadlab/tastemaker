@@ -1,0 +1,28 @@
+{
+  "id": "arc-command-bar",
+  "kind": "component",
+  "subtype": "command bar",
+  "title": "Command bar",
+  "inspiredBy": "Arc",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "soft",
+    "accentHue": "purple",
+    "typeStyle": "geometric",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Centered new-tab command bar with search suggestions, open-tab switching and actions."
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dot-matrix home screen</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Doto:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:390px;height:844px;overflow:hidden;background:#000;font-family:"Inter",system-ui,sans-serif;color:#fff;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .dot{font-family:"Doto","Inter",monospace;font-weight:700}
+  .status{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:14px;font-weight:600}
+  .status .dot{font-size:16px}
+  .grid{padding:16px 20px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px 12px}
+  .w{background:#1c1c1c;border-radius:22px;position:relative;overflow:hidden}
+  .w.c2{grid-column:span 2}.w.c4{grid-column:span 4}
+  .clock{height:134px;padding:14px 18px}
+  .clock .t{font-size:76px;line-height:.9;letter-spacing:2px}
+  .clock .d{font-size:13px;color:#8a8a8a;margin-top:10px;font-weight:500;letter-spacing:.3px}
+  .clock .red{position:absolute;right:18px;top:16px;width:10px;height:10px;border-radius:50%;background:#d71921}
+  .sq{height:132px;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
+  .sq .v{font-size:40px;line-height:1}
+  .sq .l{font-size:12px;color:#8a8a8a;font-weight:500;letter-spacing:.3px}
+  .ring{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;background:conic-gradient(#fff 0 74%,#333 74% 100%)}
+  .ring:after{content:"";position:absolute;inset:6px;border-radius:50%;background:#1c1c1c}
+  .weather{height:132px;padding:14px 18px;display:flex;justify-content:space-between}
+  .weather .big{font-size:56px;line-height:.9}
+  .weather .cond{font-size:12px;color:#8a8a8a;margin-top:8px;font-weight:500;letter-spacing:.3px}
+  .weather .hrs{display:flex;gap:14px;align-items:flex-end}
+  .weather .h{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:#8a8a8a}
+  .weather .h b{font-family:"Doto",monospace;font-size:16px;color:#fff;font-weight:700}
+  .apps{position:absolute;left:0;right:0;bottom:126px;padding:0 24px;display:flex;justify-content:space-between}
+  .app{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;color:#8a8a8a;font-weight:500}
+  .app i{width:62px;height:62px;border-radius:50%;background:#1c1c1c;display:flex;align-items:center;justify-content:center}
+  .dock{position:absolute;left:20px;right:20px;bottom:34px;height:74px;border-radius:37px;background:#1c1c1c;display:flex;justify-content:space-around;align-items:center}
+  .dock i{width:52px;height:52px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center}
+  .pager{position:absolute;left:0;right:0;bottom:116px;display:flex;justify-content:center;gap:6px}
+  .pager i{width:5px;height:5px;border-radius:50%;background:#444}.pager i.on{background:#fff}
+  .homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#fff}
+</style>
+</head>
+<body>
+  <div class="status"><span class="dot">09:41</span><span style="display:flex;gap:6px;align-items:center">
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4"/><rect x="5" y="5" width="3" height="7"/><rect x="10" y="2" width="3" height="10"/><rect x="15" y="0" width="3" height="12" fill="#444"/></svg>
+    <span class="dot" style="font-size:13px">86</span><svg width="22" height="12" viewBox="0 0 22 12"><rect x=".5" y=".5" width="19" height="11" fill="none" stroke="#fff"/><rect x="2" y="2" width="14" height="8" fill="#fff"/><rect x="20.5" y="4" width="1.5" height="4" fill="#fff"/></svg></span></div>
+
+  <div class="grid">
+    <div class="w c4 clock"><span class="red"></span><div class="t dot">09:41</div><div class="d">FRI 24 OCT · LONDON</div></div>
+    <div class="w c2 sq"><span class="ring"></span><div class="v dot">7.4k</div><div class="l">STEPS · 74% OF GOAL</div></div>
+    <div class="w c2 sq"><div class="v dot" style="color:#d71921">●</div><div class="v dot" style="font-size:34px;margin-top:-18px">REC</div><div class="l">VOICE MEMO · 00:12</div></div>
+    <div class="w c4 weather"><div><div class="big dot">14°</div><div class="cond">RAIN · H16° L9°</div></div><div class="hrs"><div class="h"><b>13°</b>10</div><div class="h"><b>14°</b>11</div><div class="h"><b>15°</b>12</div><div class="h"><b>15°</b>13</div><div class="h"><b>13°</b>14</div></div></div>
+  </div>
+
+  <div class="apps" style="bottom:232px">
+    <div class="app"><i><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="4" width="18" height="18" rx="3"/><path d="M4 10h18M9 4v6"/></svg></i>Calendar</div>
+    <div class="app"><i><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="2"><path d="M5 20l8-14 8 14z"/><circle cx="13" cy="16" r="1.5" fill="#fff"/></svg></i>Weather</div>
+    <div class="app"><i><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="2"><rect x="5" y="3" width="16" height="20" rx="2"/><path d="M9 8h8M9 12h8M9 16h5"/></svg></i>Notes</div>
+    <div class="app"><i><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="2"><circle cx="13" cy="13" r="9"/><path d="M13 8v5l3 3"/></svg></i>Recorder</div>
+  </div>
+  <div class="apps">
+    <div class="app"><i><svg width="26" height="26" viewBox="0 0 26 26" fill="#fff"><circle cx="13" cy="13" r="10" fill="none" stroke="#fff" stroke-width="2"/><path d="M13 7v6l4 2" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></i>Clock</div>
+    <div class="app"><i><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="5" width="20" height="16" rx="2"/><circle cx="13" cy="13" r="4"/><rect x="9" y="3" width="8" height="2" fill="#fff" stroke="none"/></svg></i>Camera</div>
+    <div class="app"><i><svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="#fff" stroke-width="2"><circle cx="13" cy="13" r="10"/><path d="M13 3c3 3 3 17 0 20M13 3c-3 3-3 17 0 20M3 13h20"/></svg></i>Browser</div>
+    <div class="app"><i><svg width="26" height="26" viewBox="0 0 26 26" fill="#fff"><rect x="4" y="4" width="7" height="7"/><rect x="15" y="4" width="7" height="7"/><rect x="4" y="15" width="7" height="7"/><rect x="15" y="15" width="7" height="7"/></svg></i>Glyphs</div>
+  </div>
+  <div class="pager" style="bottom:118px;display:none"></div>
+
+  <div class="dock">
+    <i><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M6 3h4l2 5-3 2a10 10 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg></i>
+    <i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg></i>
+    <i><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M9 18V6l10 6z"/><rect x="4" y="6" width="2" height="12"/></svg></i>
+    <i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></i>
+  </div>
+  <div class="homebar"></div>
+</body>
+</html>

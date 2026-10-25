@@ -1,0 +1,28 @@
+{
+  "id": "github-pull-request",
+  "kind": "screen",
+  "subtype": "pull request",
+  "title": "Pull request",
+  "inspiredBy": "GitHub",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "PR conversation tab: timeline with commits and review, merge box with check statuses, and sidebar metadata."
+}

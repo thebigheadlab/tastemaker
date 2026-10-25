@@ -1,0 +1,28 @@
+{
+  "id": "stripe-payment-element",
+  "kind": "component",
+  "subtype": "payment form",
+  "title": "Payment element",
+  "inspiredBy": "Stripe",
+  "platform": "web",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Embeddable payment form with method tabs, focused card field ring and an inline validation error."
+}

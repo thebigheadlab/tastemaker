@@ -1,0 +1,25 @@
+{
+  "id": "things-today",
+  "kind": "screen",
+  "subtype": "today list",
+  "title": "Today",
+  "inspiredBy": "Things 3",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Yellow star header, tasks grouped under projects with tiny progress pies, a This Evening section and a single floating blue plus button."
+}

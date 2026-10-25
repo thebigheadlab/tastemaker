@@ -1,0 +1,28 @@
+{
+  "id": "nike-product-tiles",
+  "kind": "component",
+  "subtype": "product grid tiles",
+  "title": "Product grid tiles",
+  "inspiredBy": "Nike",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "orange",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "sharp",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Square gray product tiles with no borders, colored merchandising tags (Just In, Sustainable), colorway swatch row and strikethrough sale pricing."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "vercel-env-vars",
+  "kind": "component",
+  "subtype": "settings form",
+  "title": "Environment variables",
+  "inspiredBy": "Vercel",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "mono",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Key/value env editor with environment checkboxes and masked secrets in Geist Mono."
+}

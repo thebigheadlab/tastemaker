@@ -1,0 +1,28 @@
+{
+  "id": "raycast-ai-chat",
+  "kind": "screen",
+  "subtype": "ai chat",
+  "title": "AI chat",
+  "inspiredBy": "Raycast",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "purple",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Desktop AI chat window with chat history sidebar, model picker and a code-formatted answer."
+}

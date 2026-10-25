@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Design canvas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:1280px;height:800px;overflow:hidden;background:#f5f5f5;font-family:"Inter",system-ui,sans-serif;font-size:11px;color:#1e1e1e;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .left{position:absolute;left:0;top:0;bottom:0;width:240px;background:#fff;border-right:1px solid #e6e6e6;display:flex;flex-direction:column}
+  .right{position:absolute;right:0;top:0;bottom:0;width:240px;background:#fff;border-left:1px solid #e6e6e6;overflow:hidden}
+  .canvas{position:absolute;left:240px;right:240px;top:0;bottom:0;background:#e5e5e5;overflow:hidden}
+  .filebar{height:40px;display:flex;align-items:center;gap:8px;padding:0 10px;border-bottom:1px solid #e6e6e6}
+  .filebar .menu{width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center}
+  .filebar b{font-weight:500;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px}
+  .filebar .chev{color:#999}
+  .tabs{display:flex;gap:16px;padding:0 12px;height:40px;align-items:center;border-bottom:1px solid #e6e6e6;font-weight:600}
+  .tabs span{color:#999}.tabs span.on{color:#1e1e1e}
+  .pages{padding:6px 0;border-bottom:1px solid #e6e6e6}
+  .row{display:flex;align-items:center;height:28px;padding:0 12px;gap:6px}
+  .row.on{background:#f0f0f0}
+  .row.sel{background:#e5f4ff}
+  .row .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .ic{width:12px;height:12px;flex-shrink:0;color:#7a7a7a}
+  .section-h{display:flex;align-items:center;height:32px;padding:0 12px;font-weight:600;justify-content:space-between}
+  .layers .row{padding-left:12px}
+  .i1{padding-left:24px!important}.i2{padding-left:40px!important}.i3{padding-left:56px!important}
+  .caret{width:8px;color:#999;font-size:9px}
+  .purple{color:#8638e5}
+  /* canvas */
+  .frame{position:absolute;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.04)}
+  .flabel{position:absolute;top:-16px;left:0;font-size:11px;color:#7a7a7a;white-space:nowrap}
+  .flabel.sel{color:#0d99ff}
+  .sel-box{position:absolute;inset:0;border:1.5px solid #0d99ff;pointer-events:none}
+  .handle{position:absolute;width:7px;height:7px;background:#fff;border:1px solid #0d99ff}
+  .dim{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);background:#0d99ff;color:#fff;font-size:10px;padding:2px 5px;border-radius:2px;white-space:nowrap}
+  .cursor{position:absolute;display:flex;align-items:flex-start;gap:2px}
+  .cursor .tag{margin-top:12px;margin-left:8px;border-radius:999px;padding:3px 8px;color:#fff;font-weight:600;font-size:11px;white-space:nowrap}
+  .toolbar{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);height:48px;background:#1e1e1e;border-radius:13px;display:flex;align-items:center;padding:0 6px;gap:2px;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+  .tool{width:40px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+  .tool.on{background:#0d99ff}
+  .tool svg{width:18px;height:18px}
+  .sep{width:1px;height:24px;background:#444;margin:0 4px}
+  .zoom{position:absolute;right:12px;top:10px;background:#fff;border-radius:6px;padding:5px 8px;font-weight:500;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+  /* right panel */
+  .rtabs{display:flex;height:40px;align-items:center;padding:0 10px 0 12px;gap:12px;border-bottom:1px solid #e6e6e6;font-weight:600}
+  .rtabs span{color:#999}.rtabs span.on{color:#1e1e1e}
+  .avatars{margin-left:auto;display:flex}
+  .av{width:22px;height:22px;border-radius:50%;border:2px solid #fff;margin-left:-7px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:600}
+  .share{margin-left:4px;background:#0d99ff;color:#fff;border-radius:6px;padding:6px 8px;font-weight:600}
+  .prop{border-bottom:1px solid #e6e6e6;padding:8px 12px 10px}
+  .prop h4{margin:0 0 8px;font-size:11px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .inp{height:28px;border:1px solid transparent;border-radius:3px;background:#f5f5f5;display:flex;align-items:center;padding:0 8px;gap:8px;font-variant-numeric:tabular-nums}
+  .inp i{font-style:normal;color:#999;width:10px}
+  .swatch{width:16px;height:16px;border-radius:3px;border:1px solid rgba(0,0,0,.1)}
+  .fillrow{display:flex;align-items:center;gap:8px;height:28px}
+  .fillrow .pct{margin-left:auto;color:#1e1e1e}
+  .plus{color:#999;font-size:14px}
+  .mini{display:flex;gap:4px}
+  .mini span{width:24px;height:24px;border-radius:3px;background:#f5f5f5;display:flex;align-items:center;justify-content:center}
+  .mini span.on{background:#e5e5e5}
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="filebar">
+      <span class="menu"><svg width="14" height="14" viewBox="0 0 14 14" fill="#1e1e1e"><rect x="1" y="2" width="12" height="1.5"/><rect x="1" y="6.25" width="12" height="1.5"/><rect x="1" y="10.5" width="12" height="1.5"/></svg></span>
+      <span class="menu"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="3" fill="#0d99ff"/><path d="M5 11l3-6 3 6" fill="none" stroke="#fff" stroke-width="1.5"/></svg></span>
+      <b>Orbit Mobile — Onboarding</b><span class="chev">▾</span>
+    </div>
+    <div class="tabs"><span class="on">Layers</span><span>Assets</span></div>
+    <div class="pages">
+      <div class="section-h">Pages <span class="plus">+</span></div>
+      <div class="row on"><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12"><path d="M4 2l4 4-4 4" fill="none" stroke="#1e1e1e" stroke-width="1.2"/></svg></span><span class="nm">01 Onboarding</span></div>
+      <div class="row"><span class="ic"></span><span class="nm">02 Home &amp; tabs</span></div>
+      <div class="row"><span class="ic"></span><span class="nm">03 Components</span></div>
+      <div class="row"><span class="ic"></span><span class="nm">Archive</span></div>
+    </div>
+    <div class="layers">
+      <div class="section-h">Layers</div>
+      <div class="row"><span class="caret">▾</span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#7a7a7a" stroke-width="1.2"><path d="M3 1v10M9 1v10M1 3h10M1 9h10"/></svg></span><span class="nm">Welcome</span></div>
+      <div class="row i1"><span class="caret">▸</span><span class="ic purple"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 1l5 5-5 5-5-5z"/></svg></span><span class="nm purple">Status bar / iOS</span></div>
+      <div class="row i1"><span class="caret">▸</span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#7a7a7a" stroke-width="1.2"><rect x="1.5" y="1.5" width="9" height="9"/></svg></span><span class="nm">Hero illustration</span></div>
+      <div class="row i1"><span class="caret">▾</span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#7a7a7a" stroke-width="1.2"><path d="M2 3h8M2 6h8M2 9h8"/></svg></span><span class="nm">Copy</span></div>
+      <div class="row i2"><span class="caret"></span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="#7a7a7a"><path d="M2 2h8v1.5H6.75V10h-1.5V3.5H2z"/></svg></span><span class="nm">Headline</span></div>
+      <div class="row i2"><span class="caret"></span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="#7a7a7a"><path d="M2 2h8v1.5H6.75V10h-1.5V3.5H2z"/></svg></span><span class="nm">Subcopy</span></div>
+      <div class="row i1 sel"><span class="caret">▸</span><span class="ic purple"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 1l5 5-5 5-5-5z"/></svg></span><span class="nm purple">Button / Primary</span></div>
+      <div class="row i1"><span class="caret">▸</span><span class="ic purple"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 1l5 5-5 5-5-5z"/></svg></span><span class="nm purple">Button / Ghost</span></div>
+      <div class="row i1"><span class="caret"></span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#7a7a7a" stroke-width="1.2"><circle cx="6" cy="6" r="4.5"/></svg></span><span class="nm">Page dots</span></div>
+      <div class="row"><span class="caret">▸</span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#7a7a7a" stroke-width="1.2"><path d="M3 1v10M9 1v10M1 3h10M1 9h10"/></svg></span><span class="nm">Create account</span></div>
+      <div class="row"><span class="caret">▸</span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#7a7a7a" stroke-width="1.2"><path d="M3 1v10M9 1v10M1 3h10M1 9h10"/></svg></span><span class="nm">Pick interests</span></div>
+      <div class="row"><span class="caret">▸</span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#7a7a7a" stroke-width="1.2"><path d="M3 1v10M9 1v10M1 3h10M1 9h10"/></svg></span><span class="nm">Notifications permission</span></div>
+      <div class="row"><span class="caret">▸</span><span class="ic"><svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="#7a7a7a" stroke-width="1.2"><path d="M3 1v10M9 1v10M1 3h10M1 9h10"/></svg></span><span class="nm">All set</span></div>
+    </div>
+  </div>
+
+  <div class="canvas">
+    <!-- frame 1 -->
+    <div class="frame" style="left:90px;top:110px;width:196px;height:424px;border-radius:0">
+      <span class="flabel">Welcome</span>
+      <div style="position:absolute;left:0;right:0;top:0;height:200px;background:linear-gradient(160deg,#ffd7a8,#ff8a5c)"></div>
+      <svg style="position:absolute;left:38px;top:40px" width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="44" fill="#fff" opacity=".25"/><circle cx="60" cy="60" r="28" fill="#fff" opacity=".6"/><circle cx="60" cy="60" r="12" fill="#fff"/></svg>
+      <div style="position:absolute;left:20px;top:228px;width:156px;height:12px;background:#1e1e1e;border-radius:2px"></div>
+      <div style="position:absolute;left:20px;top:246px;width:110px;height:12px;background:#1e1e1e;border-radius:2px"></div>
+      <div style="position:absolute;left:20px;top:272px;width:150px;height:6px;background:#c8c8c8;border-radius:2px"></div>
+      <div style="position:absolute;left:20px;top:284px;width:124px;height:6px;background:#c8c8c8;border-radius:2px"></div>
+      <!-- selected button -->
+      <div style="position:absolute;left:20px;top:344px;width:156px;height:36px;background:#ff5c35;border-radius:18px">
+        <div class="sel-box"></div>
+        <span class="handle" style="left:-4px;top:-4px"></span><span class="handle" style="right:-4px;top:-4px"></span><span class="handle" style="left:-4px;bottom:-4px"></span><span class="handle" style="right:-4px;bottom:-4px"></span>
+        <span class="dim">312 × 56</span>
+      </div>
+      <div style="position:absolute;left:20px;top:390px;width:156px;height:12px;border-radius:2px"></div>
+      <div style="position:absolute;left:84px;top:320px;display:flex;gap:4px"><i style="width:14px;height:5px;border-radius:3px;background:#1e1e1e"></i><i style="width:5px;height:5px;border-radius:3px;background:#ccc"></i><i style="width:5px;height:5px;border-radius:3px;background:#ccc"></i></div>
+    </div>
+    <!-- frame 2 -->
+    <div class="frame" style="left:330px;top:110px;width:196px;height:424px">
+      <span class="flabel">Create account</span>
+      <div style="position:absolute;left:20px;top:56px;width:120px;height:14px;background:#1e1e1e;border-radius:2px"></div>
+      <div style="position:absolute;left:20px;top:100px;width:156px;height:34px;border:1px solid #d0d0d0;border-radius:8px"></div>
+      <div style="position:absolute;left:20px;top:144px;width:156px;height:34px;border:1px solid #d0d0d0;border-radius:8px"></div>
+      <div style="position:absolute;left:20px;top:188px;width:156px;height:34px;border:1px solid #d0d0d0;border-radius:8px"></div>
+      <div style="position:absolute;left:20px;top:240px;width:156px;height:36px;background:#1e1e1e;border-radius:18px"></div>
+      <div style="position:absolute;left:20px;top:290px;width:156px;height:1px;background:#e6e6e6"></div>
+      <div style="position:absolute;left:20px;top:306px;width:156px;height:34px;border:1px solid #d0d0d0;border-radius:18px"></div>
+      <div style="position:absolute;left:20px;top:348px;width:156px;height:34px;border:1px solid #d0d0d0;border-radius:18px"></div>
+    </div>
+    <!-- frame 3 -->
+    <div class="frame" style="left:570px;top:110px;width:196px;height:424px">
+      <span class="flabel">Pick interests</span>
+      <div style="position:absolute;left:20px;top:56px;width:140px;height:14px;background:#1e1e1e;border-radius:2px"></div>
+      <div style="position:absolute;left:20px;top:78px;width:100px;height:6px;background:#c8c8c8;border-radius:2px"></div>
+      <div style="position:absolute;left:20px;top:110px;width:156px;display:flex;flex-wrap:wrap;gap:8px">
+        <i style="display:block;width:60px;height:26px;border-radius:13px;background:#ff5c35"></i><i style="display:block;width:76px;height:26px;border-radius:13px;border:1px solid #d0d0d0"></i><i style="display:block;width:54px;height:26px;border-radius:13px;border:1px solid #d0d0d0"></i><i style="display:block;width:70px;height:26px;border-radius:13px;background:#ff5c35"></i><i style="display:block;width:66px;height:26px;border-radius:13px;border:1px solid #d0d0d0"></i><i style="display:block;width:88px;height:26px;border-radius:13px;border:1px solid #d0d0d0"></i><i style="display:block;width:48px;height:26px;border-radius:13px;border:1px solid #d0d0d0"></i><i style="display:block;width:80px;height:26px;border-radius:13px;background:#ff5c35"></i>
+      </div>
+      <div style="position:absolute;left:20px;top:344px;width:156px;height:36px;background:#1e1e1e;border-radius:18px"></div>
+    </div>
+    <!-- sticky note -->
+    <div style="position:absolute;left:330px;top:590px;width:170px;height:96px;background:#fff7a8;padding:10px;font-size:10px;line-height:1.4;color:#5a5200;box-shadow:0 1px 2px rgba(0,0,0,.1)">Do we need the ghost button at all on the first screen? Flow test showed 80% tap primary. — Noor</div>
+
+    <!-- multiplayer cursors -->
+    <div class="cursor" style="left:460px;top:360px">
+      <svg width="16" height="18" viewBox="0 0 16 18"><path d="M1 1l5 15 2.5-6 6-2.5z" fill="#8638e5" stroke="#fff" stroke-width="1.2"/></svg><span class="tag" style="background:#8638e5">Noor</span>
+    </div>
+    <div class="cursor" style="left:680px;top:200px">
+      <svg width="16" height="18" viewBox="0 0 16 18"><path d="M1 1l5 15 2.5-6 6-2.5z" fill="#1bc47d" stroke="#fff" stroke-width="1.2"/></svg><span class="tag" style="background:#1bc47d">Theo</span>
+    </div>
+
+    <div class="zoom">62% ▾</div>
+
+    <div class="toolbar">
+      <div class="tool on"><svg viewBox="0 0 18 18"><path d="M3 2l5 13 2-5.5L15.5 8z" fill="#fff"/></svg></div>
+      <div class="tool"><svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.4"><path d="M5 2v14M13 2v14M2 5h14M2 13h14"/></svg></div>
+      <div class="tool"><svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.4"><rect x="3" y="3" width="12" height="12"/></svg></div>
+      <div class="tool"><svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.4"><path d="M3 15L15 3M9 3v6"/></svg></div>
+      <div class="tool"><svg viewBox="0 0 18 18" fill="#fff"><path d="M3 3h12v2H10v10H8V5H3z"/></svg></div>
+      <div class="tool"><svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.4"><path d="M3 14c2-6 10-6 12 0M9 3v4"/></svg></div>
+      <div class="sep"></div>
+      <div class="tool"><svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.4"><path d="M3 4h12v8H8l-3 3v-3H3z"/></svg></div>
+      <div class="tool"><svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.4"><path d="M3 9h12M9 3v12"/></svg></div>
+      <div class="sep"></div>
+      <div class="tool"><svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.4"><path d="M4 11l5-5 5 5"/></svg></div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="rtabs"><span class="on">Design</span><span>Proto</span>
+      <span class="avatars"><span class="av" style="background:#8638e5">N</span><span class="av" style="background:#1bc47d">T</span><span class="av" style="background:#ff7262">A</span></span>
+      <span class="share">Share</span>
+    </div>
+    <div class="prop"><h4>Position</h4>
+      <div class="mini" style="margin-bottom:8px"><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="1" y="1" width="1.5" height="10"/><rect x="4" y="3" width="6" height="2"/><rect x="4" y="7" width="4" height="2"/></svg></span><span class="on"><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="5.25" y="1" width="1.5" height="10"/><rect x="2" y="3" width="8" height="2"/><rect x="3" y="7" width="6" height="2"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="9.5" y="1" width="1.5" height="10"/><rect x="2" y="3" width="6" height="2"/><rect x="4" y="7" width="4" height="2"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="1" y="1" width="10" height="1.5"/><rect x="3" y="4" width="2" height="6"/><rect x="7" y="4" width="2" height="4"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="1" y="5.25" width="10" height="1.5"/><rect x="3" y="2" width="2" height="8"/><rect x="7" y="3" width="2" height="6"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="1" y="9.5" width="10" height="1.5"/><rect x="3" y="2" width="2" height="6"/><rect x="7" y="4" width="2" height="4"/></svg></span></div>
+      <div class="grid"><div class="inp"><i>X</i>24</div><div class="inp"><i>Y</i>688</div><div class="inp"><i>↻</i>0°</div></div>
+    </div>
+    <div class="prop"><h4>Layout</h4>
+      <div class="grid"><div class="inp"><i>W</i>312</div><div class="inp"><i>H</i>56</div></div>
+      <div class="grid" style="margin-top:6px"><div class="inp"><i>⌐</i>28</div><div class="inp" style="color:#999">Clip content</div></div>
+    </div>
+    <div class="prop"><h4>Auto layout <span class="plus">⋯</span></h4>
+      <div class="grid"><div class="inp"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#555" stroke-width="1.2"><path d="M2 6h8M7 3l3 3-3 3"/></svg>Horizontal</div><div class="inp"><i>⇥</i>8</div></div>
+      <div class="grid" style="margin-top:6px"><div class="inp"><i>⇤</i>24</div><div class="inp"><i>⇅</i>16</div></div>
+    </div>
+    <div class="prop"><h4>Fill <span class="plus">+</span></h4>
+      <div class="fillrow"><span class="swatch" style="background:#ff5c35"></span><span>FF5C35</span><span class="pct">100%</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#555" stroke-width="1.2"><path d="M1 6s2-3 5-3 5 3 5 3-2 3-5 3-5-3-5-3z"/><circle cx="6" cy="6" r="1.5"/></svg><span style="color:#999">−</span></div>
+    </div>
+    <div class="prop"><h4>Stroke <span class="plus">+</span></h4></div>
+    <div class="prop"><h4>Effects <span class="plus">+</span></h4>
+      <div class="fillrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#555" stroke-width="1.2"><rect x="2" y="2" width="8" height="8"/><path d="M12 5v7H5"/></svg><span>Drop shadow</span><span class="pct" style="color:#999">−</span></div>
+    </div>
+    <div class="prop"><h4>Export <span class="plus">+</span></h4></div>
+  </div>
+</body>
+</html>

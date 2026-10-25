@@ -1,0 +1,25 @@
+{
+  "id": "framer-feature-card",
+  "kind": "component",
+  "subtype": "bento feature grid",
+  "title": "Bento feature card",
+  "inspiredBy": "Framer",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "expressive",
+    "mood": "editorial"
+  },
+  "notes": "Bento grid of glass cards on black: 1px translucent borders, soft colored glows bleeding from corners, abstract product vignettes (selection handles, bar chart, wireframe globe) and tiny icon tiles."
+}

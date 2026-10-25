@@ -1,0 +1,28 @@
+{
+  "id": "supabase-sql-editor",
+  "kind": "screen",
+  "subtype": "sql editor",
+  "title": "SQL editor",
+  "inspiredBy": "Supabase",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "mono",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Light SQL editor with snippets list, syntax-highlighted query and a results grid."
+}

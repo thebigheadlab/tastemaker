@@ -1,0 +1,25 @@
+{
+  "id": "discord-dm-mobile",
+  "kind": "screen",
+  "subtype": "inbox",
+  "title": "Direct messages",
+  "inspiredBy": "Discord",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "compact",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Mobile take with the server rail kept on the left, a rounded-corner DM panel sliding over it, status dots cut into avatars, stacked group avatars and red unread counts."
+}

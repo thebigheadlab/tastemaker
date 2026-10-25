@@ -1,0 +1,25 @@
+{
+  "id": "te-synth-app",
+  "kind": "screen",
+  "subtype": "instrument controller",
+  "title": "Pocket synth app",
+  "inspiredBy": "Teenage Engineering",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "orange",
+    "typeStyle": "mono",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "sharp",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Hardware-as-software: grey panel with 1px-outlined square buttons and round knobs, colour-coded encoder caps (blue, green, white, orange), a black oscilloscope strip, 16-step sequencer and an all-mono 9px label system."
+}

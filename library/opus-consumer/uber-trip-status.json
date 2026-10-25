@@ -1,0 +1,28 @@
+{
+  "id": "uber-trip-status",
+  "kind": "component",
+  "subtype": "trip status sheet",
+  "title": "Driver arriving",
+  "inspiredBy": "Uber",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "pill",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Pickup sheet over a map: blue ETA badge, driver photo stacked with car art, oversized license plate, message pill and safety toolkit row."
+}

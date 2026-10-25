@@ -1,0 +1,28 @@
+{
+  "id": "arc-sidebar",
+  "kind": "component",
+  "subtype": "browser sidebar",
+  "title": "Sidebar",
+  "inspiredBy": "Arc",
+  "platform": "web",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "soft",
+    "accentHue": "pink",
+    "typeStyle": "geometric",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Gradient-tinted vertical sidebar with favorites grid, pinned folders, today's tabs and space dots."
+}

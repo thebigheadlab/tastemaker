@@ -1,0 +1,28 @@
+{
+  "id": "airbnb-listing-card",
+  "kind": "component",
+  "subtype": "listing card",
+  "title": "Listing card",
+  "inspiredBy": "Airbnb",
+  "platform": "web",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "pink",
+    "typeStyle": "humanist",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Borderless photo-led card: carousel dots, heart and Guest-favorite chip on the image, terse gray metadata and underlined total price."
+}

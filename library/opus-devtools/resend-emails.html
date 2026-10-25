@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Emails</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#000;color:#f0f0f0;font:13.5px/1.45 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;display:flex}
+svg{display:block;flex:none}
+.side{width:236px;border-right:1px solid rgba(255,255,255,.08);padding:16px 12px;display:flex;flex-direction:column}
+.ws{display:flex;align-items:center;gap:10px;padding:4px 8px 18px}
+.ws .lg{width:26px;height:26px;border-radius:7px;background:#fff;display:grid;place-items:center}
+.ws b{font-weight:600;font-size:14px}
+.ws span{margin-left:auto;color:#6f6f6f}
+.n{height:34px;display:flex;align-items:center;gap:11px;padding:0 10px;border-radius:8px;color:#a1a1a1;font-size:13.5px}
+.n svg{color:#7a7a7a}
+.n.on{background:rgba(255,255,255,.07);color:#fff}
+.n.on svg{color:#fff}
+.sp{flex:1}
+.usage{border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px;font-size:12.5px;color:#a1a1a1}
+.usage b{color:#fff;font-weight:500}
+.meter{height:5px;border-radius:3px;background:rgba(255,255,255,.08);margin:8px 0 4px;overflow:hidden}
+.meter i{display:block;height:100%;width:62%;background:#fff;border-radius:3px}
+.me{display:flex;align-items:center;gap:10px;padding:14px 8px 0;font-size:13px;color:#d4d4d4}
+.me i{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#f97316,#db2777)}
+.main{flex:1;padding:30px 40px 0;min-width:0}
+h1{font-size:28px;font-weight:600;margin:0 0 20px;letter-spacing:-.02em;display:flex;align-items:center}
+h1 .r{margin-left:auto;display:flex;gap:8px}
+.btn{height:32px;border-radius:8px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:7px;padding:0 12px;font-size:13px;font-weight:500;color:#e5e5e5;background:rgba(255,255,255,.02)}
+.btn.w{background:#fff;color:#000;border-color:#fff}
+.tabs{display:flex;gap:22px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:18px}
+.tab{padding:0 0 11px;font-size:13.5px;color:#8a8a8a;position:relative}
+.tab.on{color:#fff}
+.tab.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:#fff}
+.fl{display:flex;gap:8px;margin-bottom:16px}
+.srch{flex:1;height:34px;border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;gap:9px;padding:0 11px;color:#6f6f6f;font-size:13px}
+.dd{height:34px;border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;gap:8px;padding:0 11px;font-size:13px;color:#e5e5e5;white-space:nowrap}
+.dd svg{color:#8a8a8a}
+.tbl{border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th{height:38px;text-align:left;font-weight:500;font-size:12.5px;color:#8a8a8a;padding:0 16px;background:rgba(255,255,255,.025);border-bottom:1px solid rgba(255,255,255,.08)}
+td{height:43px;padding:0 16px;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.to{display:flex;align-items:center;gap:10px;color:#f0f0f0}
+.mi{width:26px;height:26px;border-radius:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:#a1a1a1}
+.st{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:6px;font-size:12px;font-weight:500;border:1px solid}
+.sub{color:#cfcfcf;max-width:360px;overflow:hidden;text-overflow:ellipsis}
+.tm{color:#8a8a8a;text-align:right}
+.mm{color:#6f6f6f;width:40px;text-align:center}
+</style></head><body>
+<aside class="side">
+  <div class="ws"><span class="lg"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.8" stroke-linejoin="round"><path d="M2 7.5 14 2l-4 12-2.5-4.5z"/><path d="M7.5 9.5 14 2"/></svg></span><b>Fieldnotes</b><span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m5 6 3-3 3 3M5 10l3 3 3-3"/></svg></span></div>
+  <div class="n on"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg>Emails</div>
+  <div class="n"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 6.5v3h2l5 3v-9l-5 3zM12 5.5a3.5 3.5 0 0 1 0 5"/></svg>Broadcasts</div>
+  <div class="n"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="5.5" r="2.3"/><path d="M1.8 13c.5-2.3 2.1-3.5 4.2-3.5s3.7 1.2 4.2 3.5M10.5 3.5a2.2 2.2 0 0 1 0 4.2M12 9.7c1.2.4 2 1.5 2.3 3.3"/></svg>Audience</div>
+  <div class="n"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 13.5h12M4 11V7M8 11V3.5M12 11V6"/></svg>Metrics</div>
+  <div class="n"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c2 2 2 10 0 12M8 2c-2 2-2 10 0 12"/></svg>Domains</div>
+  <div class="n"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3.5h10M3 8h10M3 12.5h6"/></svg>Logs</div>
+  <div class="n"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5.5" cy="10.5" r="3"/><path d="m7.6 8.4 5.9-5.9M11.5 4.5l2 2"/></svg>API Keys</div>
+  <div class="n"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="4" cy="11.5" r="2"/><circle cx="12" cy="11.5" r="2"/><circle cx="8" cy="4" r="2"/><path d="M7 5.8 4.8 9.7M9 5.8l2.2 3.9M6 11.5h4"/></svg>Webhooks</div>
+  <div class="n"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="2.2"/><path d="M8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2M3.4 3.4l1.4 1.4M11.2 11.2l1.4 1.4M3.4 12.6l1.4-1.4M11.2 4.8l1.4-1.4"/></svg>Settings</div>
+  <div class="sp"></div>
+  <div class="usage"><b>Transactional</b> · Pro<div class="meter"><i></i></div>31,204 / 50,000 emails this month</div>
+  <div class="me"><i></i>dana@example.com</div>
+</aside>
+<main class="main">
+  <h1>Emails<div class="r"><span class="btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8m-3-3 3 3 3-3M3 13h10"/></svg>Export</span><span class="btn w"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#000" stroke-width="1.8"><path d="M8 3v10M3 8h10"/></svg>Send test email</span></div></h1>
+  <div class="tabs"><span class="tab on">Sending</span><span class="tab">Receiving</span></div>
+  <div class="fl">
+    <div class="srch"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search by recipient, subject or ID</div>
+    <div class="dd"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3.5" width="11" height="10" rx="2"/><path d="M2.5 7h11M5.5 2v3M10.5 2v3"/></svg>Last 15 days<svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 6 4 4 4-4"/></svg></div>
+    <div class="dd">All statuses<svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 6 4 4 4-4"/></svg></div>
+    <div class="dd">All API keys<svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 6 4 4 4-4"/></svg></div>
+  </div>
+  <div class="tbl"><table>
+    <tr><th>To</th><th>Status</th><th>Subject</th><th style="text-align:right">Sent</th><th></th></tr>
+    <tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>mara@example.com</div></td><td><span class="st" style="background:#0d3a26;color:#4cd38a;border-color:#4cd38a33">Delivered</span></td><td class="sub">Your Kettle & Leaf order #10482 has shipped</td><td class="tm">2 minutes ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>tom@example.com</div></td><td><span class="st" style="background:#0f2a4a;color:#62a8ff;border-color:#62a8ff33">Opened</span></td><td class="sub">Reset your Fieldnotes password</td><td class="tm">9 minutes ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>j.whitfield@example.com</div></td><td><span class="st" style="background:#3d1115;color:#ff6b72;border-color:#ff6b7233">Bounced</span></td><td class="sub">Your invoice for October is ready</td><td class="tm">21 minutes ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>priya@example.com</div></td><td><span class="st" style="background:#2a1a4a;color:#b18cff;border-color:#b18cff33">Clicked</span></td><td class="sub">You've been invited to join Northfield on Fieldnotes</td><td class="tm">34 minutes ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>lukas@example.com</div></td><td><span class="st" style="background:#0d3a26;color:#4cd38a;border-color:#4cd38a33">Delivered</span></td><td class="sub">Confirm your email address</td><td class="tm">about 1 hour ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>ayesha.k@example.com</div></td><td><span class="st" style="background:#33300c;color:#e8d44d;border-color:#e8d44d33">Delivery delayed</span></td><td class="sub">Weekly digest: 12 new notes in Research</td><td class="tm">about 1 hour ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>ben@example.com</div></td><td><span class="st" style="background:#3d2a0a;color:#ffb547;border-color:#ffb54733">Complained</span></td><td class="sub">Weekly digest: 4 new notes in Design</td><td class="tm">about 2 hours ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>sofia@example.com</div></td><td><span class="st" style="background:#0d3a26;color:#4cd38a;border-color:#4cd38a33">Delivered</span></td><td class="sub">Your magic link to sign in</td><td class="tm">about 2 hours ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>kenji@example.com</div></td><td><span class="st" style="background:#0f2a4a;color:#62a8ff;border-color:#62a8ff33">Opened</span></td><td class="sub">Ana mentioned you in “Q4 planning”</td><td class="tm">about 3 hours ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>ana@example.com</div></td><td><span class="st" style="background:#0d3a26;color:#4cd38a;border-color:#4cd38a33">Delivered</span></td><td class="sub">Your trial ends in 3 days</td><td class="tm">about 3 hours ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>noah@example.com</div></td><td><span class="st" style="background:#0d3a26;color:#4cd38a;border-color:#4cd38a33">Delivered</span></td><td class="sub">Receipt from Fieldnotes · $96.00</td><td class="tm">about 4 hours ago</td><td class="mm">···</td></tr>
+<tr><td><div class="to"><span class="mi"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span>li.wei@example.com</div></td><td><span class="st" style="background:#2a1a4a;color:#b18cff;border-color:#b18cff33">Clicked</span></td><td class="sub">Welcome to Fieldnotes 👋</td><td class="tm">about 5 hours ago</td><td class="mm">···</td></tr>
+  </table></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:12.5px;color:#8a8a8a"><span>Showing 1–12 of 2,418</span><span style="display:flex;gap:8px"><span class="btn" style="height:28px;color:#6f6f6f">Previous</span><span class="btn" style="height:28px">Next</span></span></div>
+</main>
+</body></html>

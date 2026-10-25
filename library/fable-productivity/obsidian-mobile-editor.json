@@ -1,0 +1,25 @@
+{
+  "id": "obsidian-mobile-editor",
+  "kind": "screen",
+  "subtype": "note editor",
+  "title": "Mobile editor",
+  "inspiredBy": "Obsidian",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "purple",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "A note on charcoal with a frontmatter Properties block, purple [[wikilinks]] and #tags, a blue Note callout and the horizontally scrolling markdown toolbar pinned above the keyboard."
+}

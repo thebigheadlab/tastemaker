@@ -1,0 +1,25 @@
+{
+  "id": "obsidian-command-palette",
+  "kind": "component",
+  "subtype": "command palette",
+  "title": "Command palette",
+  "inspiredBy": "Obsidian",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "purple",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Ctrl+P over a dimmed note: pinned commands first with purple pins, fuzzy-match letters tinted lavender, plugin-prefixed commands and hotkeys as grey keycaps."
+}

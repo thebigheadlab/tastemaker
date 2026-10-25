@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Command menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#0f1012;color:#e3e4e6;font:13px/1.4 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative}
+svg{display:block;flex:none}
+.bg{position:absolute;inset:0;padding:22px 28px;opacity:.55;filter:blur(.3px)}
+.bg .crumb{color:#7d7f86;font-size:12.5px;margin-bottom:18px}
+.bg h2{font-size:22px;font-weight:600;margin:0 0 12px;color:#f2f3f4;letter-spacing:-.01em}
+.bg p{color:#9a9ca3;margin:0 0 8px;line-height:1.6}
+.bg .ln{height:9px;border-radius:4px;background:#1f2024;margin:10px 0}
+.scrim{position:absolute;inset:0;background:rgba(8,8,10,.55)}
+.k{position:absolute;left:50%;top:28px;transform:translateX(-50%);width:540px;background:rgba(28,29,33,.98);border:1px solid #2c2d32;border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 .5px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden}
+.ctx{padding:12px 14px 0}
+.ctx span{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 8px;border-radius:6px;background:#2a2b30;font-size:12px;color:#c9cace;max-width:100%;white-space:nowrap}
+.ctx em{font-style:normal;color:#8d8f96}
+.in{display:flex;align-items:center;height:48px;padding:0 16px;font-size:15.5px;color:#f2f3f4;border-bottom:1px solid #2a2b30}
+.in .caret{width:1.5px;height:19px;background:#8b93f8;margin-right:3px}
+@keyframes b{50%{opacity:0}}
+.in .ph{color:#6c6e75}
+.grp{font-size:11.5px;font-weight:500;color:#7d7f86;padding:9px 16px 4px}
+.it{height:34px;margin:0 6px;padding:0 10px;border-radius:7px;display:flex;align-items:center;gap:11px;color:#d6d7da;font-size:13.5px}
+.it svg{color:#9a9ca3}
+.it.on{background:#2c2d33;color:#f7f8f8}
+.it.on svg{color:#f7f8f8}
+.it .sc{margin-left:auto;display:flex;gap:4px;align-items:center;color:#7d7f86;font-size:12px}
+kbd{font:500 11.5px Inter,sans-serif;min-width:20px;height:20px;padding:0 5px;border-radius:4px;background:#2f3035;color:#b7b9be;display:inline-grid;place-items:center;border:1px solid #3a3b40;border-bottom-width:1px}
+.it .then{color:#6c6e75;font-size:11.5px}
+.foot{height:6px}
+</style></head><body>
+<div class="bg">
+  <div class="crumb">Platform › PLA-412</div>
+  <h2>Webhook retries stall after 3rd attempt when signing secret rotates</h2>
+  <p>When a customer rotates their webhook signing secret while a delivery is mid-retry, attempts 4–8 are never scheduled. The job is acked but the next_attempt_at stays null.</p>
+  <div class="ln" style="width:82%"></div><div class="ln" style="width:64%"></div><div class="ln" style="width:74%"></div><div class="ln" style="width:40%"></div>
+</div>
+<div class="scrim"></div>
+<div class="k">
+  <div class="ctx"><span><svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#f0bf00" stroke-width="1.8"/><path d="M8 4.5a3.5 3.5 0 0 1 0 7z" fill="#f0bf00"/></svg>PLA-412 <em>Webhook retries stall after 3rd attempt…</em></span></div>
+  <div class="in"><span class="caret"></span><span class="ph">Type a command or search…</span></div>
+  <div class="grp">Issue</div>
+  <div class="it on"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.7a3.3 3.3 0 0 1 0 6.6z" fill="currentColor"/></svg>Change status…<span class="sc"><kbd>S</kbd></span></div>
+  <div class="it"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="5.8" r="2.8"/><path d="M2.8 13.5c.7-2.6 2.7-4 5.2-4s4.5 1.4 5.2 4"/></svg>Assign to…<span class="sc"><kbd>A</kbd></span></div>
+  <div class="it"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="9" width="3" height="5" rx="1"/><rect x="6.5" y="5.5" width="3" height="8.5" rx="1"/><rect x="11" y="2" width="3" height="12" rx="1" opacity=".35"/></svg>Change priority…<span class="sc"><kbd>P</kbd></span></div>
+  <div class="it"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M2.5 3.5v4.2l6 6 5.2-5.2-6-6H3.5a1 1 0 0 0-1 1Z"/><circle cx="5.6" cy="5.6" r="1" fill="currentColor"/></svg>Add labels…<span class="sc"><kbd>L</kbd></span></div>
+  <div class="it"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2.5a5.5 5.5 0 1 0 5.5 5.5"/><path d="M11 2.5h2.5V5"/></svg>Move to cycle…<span class="sc"><kbd>⇧</kbd><kbd>C</kbd></span></div>
+  <div class="it"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3.5" width="11" height="10" rx="2"/><path d="M2.5 7h11M5.5 2v3M10.5 2v3"/></svg>Set due date…<span class="sc"><kbd>⇧</kbd><kbd>D</kbd></span></div>
+  <div class="grp">Navigation</div>
+  <div class="it"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6.5 9.5 9.5 6.5"/><path d="M7.5 4.5 9 3a2.8 2.8 0 0 1 4 4l-1.5 1.5M8.5 11.5 7 13a2.8 2.8 0 0 1-4-4l1.5-1.5"/></svg>Copy issue URL<span class="sc"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>,</kbd></span></div>
+  <div class="it"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg>Copy git branch name<span class="sc"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>.</kbd></span></div>
+  <div class="foot"></div>
+</div>
+</body></html>

@@ -1,0 +1,25 @@
+{
+  "id": "te-spec-table",
+  "kind": "component",
+  "subtype": "data table",
+  "title": "Specification table",
+  "inspiredBy": "Teenage Engineering",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "orange",
+    "typeStyle": "mono",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "sharp",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Datasheet styling: all-lowercase mono text, hairline rows with black section rules, square outlined chips, one orange highlight and underlined footer links on a warm grey ground."
+}

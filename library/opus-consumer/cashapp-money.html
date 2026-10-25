@@ -1,0 +1,55 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Money tab</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#000;font-family:Manrope,"Cash Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#fff;overflow:hidden;-webkit-font-smoothing:antialiased;width:390px;height:844px;position:relative}
+.status{height:50px;display:flex;justify-content:space-between;align-items:center;padding:4px 30px 0 40px;font-weight:700;font-size:16px}
+.sicons{display:flex;gap:6px;align-items:center}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:6px 16px 0}
+.bar h1{margin:0;font-size:28px;font-weight:800;letter-spacing:-.02em}
+.av{width:36px;height:36px;border-radius:50%;background:#00d64f;color:#000;display:grid;place-items:center;font-weight:800;font-size:14px}
+.bal{margin:18px 16px 0;background:#141414;border-radius:24px;padding:20px}
+.bal small{font-size:14px;color:#9a9a9a;font-weight:600;display:flex;justify-content:space-between}
+.bal small u{color:#9a9a9a;text-decoration:none;display:flex;align-items:center;gap:4px}
+.bal .n{font-size:48px;font-weight:800;letter-spacing:-.035em;margin-top:6px}
+.bal .acct{font-size:13px;color:#9a9a9a;font-weight:600;margin-top:2px}
+.bb{display:flex;gap:10px;margin-top:18px}
+.bb div{flex:1;height:48px;border-radius:24px;background:#262626;display:grid;place-items:center;font-size:16px;font-weight:800}
+.bb div.g{background:#00d64f;color:#000}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 16px 0}
+.tile{background:#141414;border-radius:24px;padding:16px;height:172px;position:relative;overflow:hidden}
+.tile .ic{width:36px;height:36px;border-radius:50%;display:grid;place-items:center}
+.tile b{display:block;font-size:15px;font-weight:700;margin-top:34px}
+.tile .v{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+.tile .d{font-size:13px;font-weight:700;margin-top:2px}
+.tab{position:absolute;left:0;right:0;bottom:0;height:84px;display:flex;justify-content:space-around;align-items:flex-start;padding-top:12px;background:#000;border-top:1px solid #1d1d1d}
+.tab .bal2{font-size:15px;font-weight:800;color:#fff}
+.home{position:absolute;bottom:8px;left:50%;width:134px;height:5px;margin-left:-67px;background:#fff;border-radius:3px}
+</style></head><body>
+<div class="status">9:41<span class="sicons"><svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#fff" opacity=".5"/><rect x="2" y="2" width="20" height="9" rx="2" fill="#fff"/></svg></span></div>
+<div class="bar"><h1>Money</h1><div class="av">DM</div></div>
+<div class="bal">
+  <small><span>Cash balance</span><u>Account &amp; routing <svg width="7" height="12" viewBox="0 0 8 14" fill="none" stroke="#9a9a9a" stroke-width="2.4"><path d="m1 1 6 6-6 6"/></svg></u></small>
+  <div class="n">$1,204.18</div>
+  <div class="acct">$dmorales · Available now</div>
+  <div class="bb"><div class="g">Add Cash</div><div>Cash Out</div></div>
+</div>
+<div class="grid">
+  <div class="tile"><div class="ic" style="background:#00d64f"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.4"><path d="M4 10h16v10H4zM2 10l10-6 10 6M8 14v3M12 14v3M16 14v3"/></svg></div><b>Savings</b><div class="v">$3,420.00</div><div class="d" style="color:#00d64f">4.50% interest</div>
+    <svg style="position:absolute;right:16px;top:16px" width="44" height="44" viewBox="0 0 60 60"><circle cx="30" cy="30" r="24" fill="none" stroke="#1f3a28" stroke-width="7"/><circle cx="30" cy="30" r="24" fill="none" stroke="#00d64f" stroke-width="7" stroke-dasharray="102 151" transform="rotate(-90 30 30)" stroke-linecap="round"/></svg></div>
+  <div class="tile"><div class="ic" style="background:#f7931a"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.4"><path d="M12 3v18M12 3l7 9-7 9-7-9z"/></svg></div><b>Crypto</b><div class="v">$812.40</div><div class="d" style="color:#00d64f">▲ 3.2% today</div></div>
+  <div class="tile"><div class="ic" style="background:#9b6bff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.6"><path d="M3 17l6-6 4 4 8-8"/></svg></div><b>Stocks</b><div class="v">$2,066.91</div><div class="d" style="color:#ff5c5c">▼ 0.8% today</div>
+    <svg style="position:absolute;right:14px;top:22px" width="70" height="30" viewBox="0 0 70 30"><path d="M0 8 10 12 20 6 30 14 40 12 50 20 60 18 70 24" fill="none" stroke="#ff5c5c" stroke-width="2.4" stroke-linejoin="round"/></svg></div>
+  <div class="tile"><div class="ic" style="background:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.4"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M9 11l3-3 3 3"/></svg></div><b>Borrow</b><div class="v">Up to $300</div><div class="d" style="color:#9a9a9a">Unlocked</div></div>
+</div>
+<div class="tab">
+  <span class="bal2">$1,204</span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2.2"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19"/></svg>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#6b6b6b"><path d="M13.2 3h-2.4l-.4 2.2C8 5.7 6.6 7.3 6.6 9.3c0 2.4 1.9 3.3 4.4 4l1 .3c1.5.4 2.1.8 2.1 1.6 0 .9-.9 1.5-2.3 1.5-1.5 0-2.6-.6-3.4-1.6L6.6 16.7c.9 1.2 2.3 2 3.9 2.3l-.4 2h2.4l.4-2c2.6-.4 4.2-2 4.2-4.2 0-2.3-1.7-3.3-4.4-4l-1-.3c-1.4-.4-2-.7-2-1.5s.8-1.4 2-1.4c1.1 0 2 .4 2.7 1.2l1.7-1.6c-.8-.9-1.9-1.5-3.2-1.8z"/></svg>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+</div>
+<div class="home"></div>
+</body></html>

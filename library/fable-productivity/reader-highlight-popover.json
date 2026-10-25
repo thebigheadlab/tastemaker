@@ -1,0 +1,25 @@
+{
+  "id": "reader-highlight-popover",
+  "kind": "component",
+  "subtype": "text selection toolbar",
+  "title": "Highlight popover",
+  "inspiredBy": "Readwise Reader",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "yellow",
+    "typeStyle": "serif",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "editorial"
+  },
+  "notes": "Selecting serif text on a sepia page raises a dark pill toolbar (Highlight / Note / Tag with shortcuts, four colour swatches) and an inline note card with dot-tag syntax."
+}

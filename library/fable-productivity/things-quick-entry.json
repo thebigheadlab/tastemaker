@@ -1,0 +1,25 @@
+{
+  "id": "things-quick-entry",
+  "kind": "component",
+  "subtype": "quick entry",
+  "title": "Quick Entry",
+  "inspiredBy": "Things 3",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "humanist",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "A floating capture window over the desktop with inline @when and #list tokens, soft rounded chips for Today, tags and deadline, and an autocomplete dropdown of projects."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "headspace-mood-checkin",
+  "kind": "component",
+  "subtype": "bottom sheet",
+  "title": "Mood check-in",
+  "inspiredBy": "Headspace",
+  "platform": "mobile",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "orange",
+    "typeStyle": "geometric",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "pill",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "expressive",
+    "mood": "calm"
+  },
+  "notes": "Bottom sheet with a row of hand-drawn blob faces as the mood scale (selected one scaled up), pill emotion chips and a peach-orange pill button."
+}

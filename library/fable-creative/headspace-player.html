@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meditation player</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:390px;height:844px;overflow:hidden;background:#1f2a5c;font-family:"Figtree","Plus Jakarta Sans",system-ui,sans-serif;color:#fff;position:relative}
+  *{box-sizing:border-box}
+  body:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#2b3a7a 0,#1f2a5c 45%,#141b3d 100%)}
+  .status{position:relative;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-weight:700;font-size:15px}
+  .nav{position:relative;display:flex;justify-content:space-between;align-items:center;padding:8px 20px}
+  .nav .t{font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;opacity:.7}
+  .scene{position:relative;height:330px;display:flex;align-items:center;justify-content:center}
+  .ring{position:absolute;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .r1{width:300px;height:300px;background:rgba(255,255,255,.05);animation:breathe 8s ease-in-out infinite}
+  .r2{width:230px;height:230px;background:rgba(255,255,255,.07);animation:breathe 8s ease-in-out infinite .3s}
+  .r3{width:160px;height:160px;background:#ffb169;animation:breathe 8s ease-in-out infinite .6s}
+  @keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(.92)}50%{transform:translate(-50%,-50%) scale(1.06)}}
+  .moon{position:absolute;left:72px;top:40px}
+  .star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.8}
+  .cue{position:relative;text-align:center;font-size:22px;font-weight:600;letter-spacing:.2px;opacity:.95;margin-top:-6px}
+  .meta{position:relative;text-align:center;margin-top:60px}
+  .meta b{display:block;font-size:24px;font-weight:800;letter-spacing:-.3px}
+  .meta span{display:block;font-size:14px;opacity:.7;margin-top:6px;font-weight:500}
+  .progress{position:relative;margin:30px 28px 0}
+  .track{height:4px;border-radius:2px;background:rgba(255,255,255,.2);position:relative}
+  .track i{position:absolute;left:0;top:0;height:100%;width:38%;border-radius:2px;background:#ffb169}
+  .track i:after{content:"";position:absolute;right:-7px;top:-5px;width:14px;height:14px;border-radius:50%;background:#fff}
+  .times{display:flex;justify-content:space-between;font-size:12px;font-weight:600;opacity:.7;margin-top:10px}
+  .controls{position:relative;display:flex;justify-content:center;align-items:center;gap:40px;margin-top:26px}
+  .big{width:76px;height:76px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+  .ctl{font-size:12px;font-weight:700;opacity:.9;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#fff;opacity:.9}
+</style>
+</head>
+<body>
+  <div class="status"><span>9:41</span><span style="display:flex;gap:6px">
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+    <svg width="26" height="12" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#fff"/><rect x="2" y="2" width="19" height="8" rx="2" fill="#fff"/><rect x="24" y="4" width="2" height="4" rx="1" fill="#fff"/></svg></span></div>
+  <div class="nav">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    <span class="t">Sleep · Wind down</span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+  </div>
+
+  <div class="scene">
+    <span class="star" style="left:40px;top:30px"></span><span class="star" style="left:300px;top:60px;width:2px;height:2px"></span><span class="star" style="left:340px;top:200px"></span><span class="star" style="left:30px;top:250px;width:2px;height:2px"></span><span class="star" style="left:250px;top:20px;width:2px;height:2px"></span>
+    <svg class="moon" width="46" height="46" viewBox="0 0 46 46"><path d="M18 4a20 20 0 1 0 24 24A16 16 0 0 1 18 4z" fill="#ffd166"/></svg>
+    <div class="ring r1"></div><div class="ring r2"></div>
+    <div class="ring r3">
+      <svg width="160" height="160" viewBox="0 0 160 160" style="position:absolute;inset:0">
+        <circle cx="48" cy="92" r="8" fill="#f47d31" opacity=".4"/><circle cx="112" cy="92" r="8" fill="#f47d31" opacity=".4"/>
+        <path d="M60 78c4 3 10 3 14 0M86 78c4 3 10 3 14 0" fill="none" stroke="#2d2b27" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M72 94c4 4 12 4 16 0" fill="none" stroke="#2d2b27" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="cue">Breathe out…</div>
+
+  <div class="meta"><b>Drifting off</b><span>Dev · Sleep meditation · 20 min</span></div>
+
+  <div class="progress">
+    <div class="track"><i></i></div>
+    <div class="times"><span>7:36</span><span>-12:24</span></div>
+  </div>
+
+  <div class="controls">
+    <div class="ctl"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M15 5a10 10 0 1 0 10 10"/><path d="M15 2v6l4-3z" fill="#fff" stroke="none"/><text x="10" y="19" font-size="9" font-weight="700" fill="#fff" stroke="none" font-family="Figtree,sans-serif">15</text></svg></div>
+    <div class="big"><svg width="30" height="30" viewBox="0 0 30 30"><rect x="7" y="5" width="6" height="20" rx="2" fill="#1f2a5c"/><rect x="17" y="5" width="6" height="20" rx="2" fill="#1f2a5c"/></svg></div>
+    <div class="ctl"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M15 5A10 10 0 1 1 5 15"/><path d="M15 2v6l-4-3z" fill="#fff" stroke="none"/><text x="10" y="19" font-size="9" font-weight="700" fill="#fff" stroke="none" font-family="Figtree,sans-serif">15</text></svg></div>
+  </div>
+  <div class="homebar"></div>
+</body>
+</html>

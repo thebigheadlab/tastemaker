@@ -1,0 +1,84 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Launcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#1a1030;color:#fff;font:14px/1.4 Inter,-apple-system,"SF Pro Text",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative}
+svg{display:block;flex:none}
+.wall{position:absolute;inset:0;background:
+ radial-gradient(ellipse 60% 55% at 18% 85%,#ff5f6d 0,rgba(255,95,109,0) 70%),
+ radial-gradient(ellipse 55% 60% at 85% 20%,#5b5bf7 0,rgba(91,91,247,0) 70%),
+ radial-gradient(ellipse 50% 50% at 60% 90%,#ffb36b 0,rgba(255,179,107,0) 65%),
+ radial-gradient(ellipse 70% 60% at 30% 15%,#7a2a8c 0,rgba(122,42,140,0) 70%),
+ linear-gradient(160deg,#2a1450,#120a24)}
+.menubar{position:absolute;top:0;left:0;right:0;height:26px;background:rgba(20,12,36,.35);backdrop-filter:blur(20px);display:flex;align-items:center;padding:0 14px;gap:18px;font-size:13px;font-weight:500;color:rgba(255,255,255,.92)}
+.menubar b{font-weight:700}
+.menubar .r{margin-left:auto;display:flex;gap:16px;align-items:center}
+.win{position:absolute;left:50%;top:150px;transform:translateX(-50%);width:750px;height:474px;border-radius:12px;background:rgba(28,28,30,.84);backdrop-filter:blur(40px) saturate(1.6);box-shadow:0 0 0 1px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.12),0 30px 80px rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden}
+.top{height:56px;display:flex;align-items:center;padding:0 16px 0 18px;gap:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.q{font-size:17px;color:#fff;display:flex;align-items:center}
+.q .ph{color:rgba(255,255,255,.38)}
+.caret{width:2px;height:20px;background:#ff6363;margin-right:2px}
+@keyframes b{50%{opacity:0}}
+.ai{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.55)}
+kbd{font:500 11.5px Inter,sans-serif;height:20px;min-width:20px;padding:0 5px;border-radius:5px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);display:inline-grid;place-items:center}
+.list{flex:1;padding:6px 8px;overflow:hidden}
+.sec{font-size:12px;font-weight:500;color:rgba(255,255,255,.45);padding:8px 10px 5px}
+.it{height:40px;display:flex;align-items:center;gap:12px;padding:0 10px;border-radius:8px}
+.it.on{background:rgba(255,255,255,.09)}
+.ic{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;box-shadow:inset 0 0 0 .5px rgba(255,255,255,.2)}
+.it .t{font-weight:500;font-size:14px;color:#fff}
+.it .s{color:rgba(255,255,255,.45);font-size:13.5px}
+.it .k{margin-left:auto;color:rgba(255,255,255,.45);font-size:13px;display:flex;gap:10px;align-items:center}
+.alias{font-size:11.5px;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.18);border-radius:5px;padding:0 5px;height:19px;display:flex;align-items:center}
+.bar{height:42px;border-top:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);display:flex;align-items:center;padding:0 10px 0 14px;gap:10px;font-size:13px}
+.bar .ok{color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px}
+.bar .r{margin-left:auto;display:flex;align-items:center;gap:8px;color:#fff;font-weight:500}
+.bar .sep{width:1px;height:16px;background:rgba(255,255,255,.14);margin:0 4px}
+.bar .r span.m{color:rgba(255,255,255,.55);font-weight:400}
+.dock{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);height:66px;padding:8px 10px;border-radius:20px;background:rgba(255,255,255,.16);backdrop-filter:blur(30px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);display:flex;gap:8px}
+.dock i{width:50px;height:50px;border-radius:12px;display:block;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+</style></head><body>
+<div class="wall"></div>
+<div class="menubar"><b>Finder</b><span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Window</span><span>Help</span>
+  <div class="r">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="#fff"><path d="M8 1.5 14 13H2z" opacity=".9"/></svg>
+    <svg width="22" height="12" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#fff" opacity=".5"/><rect x="2" y="2" width="15" height="9" rx="2" fill="#fff"/></svg>
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
+    <span>Fri Oct 24&nbsp;&nbsp;9:41 AM</span>
+  </div>
+</div>
+<div class="win">
+  <div class="top">
+    <div class="q"><span class="caret"></span><span class="ph">Search for apps and commands…</span></div>
+    <div class="ai">Ask AI <kbd>Tab</kbd></div>
+  </div>
+  <div class="list">
+    <div class="sec">Favorites</div>
+    <div class="it on"><div class="ic" style="background:linear-gradient(135deg,#ff7a7a,#ff4d4d)"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2.5" y="3" width="11" height="10" rx="2"/><path d="M5.5 6.5h5M5.5 9.5h3"/></svg></div><span class="t">Clipboard History</span><span class="s">Clipboard</span><div class="k"><span class="alias">cv</span>Command</div></div>
+    <div class="it"><div class="ic" style="background:linear-gradient(135deg,#5ac8fa,#2f7cf6)"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2" y="3" width="5" height="10" rx="1"/><rect x="9" y="3" width="5" height="10" rx="1"/></svg></div><span class="t">Left Half</span><span class="s">Window Management</span><div class="k"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>←</kbd>Command</div></div>
+    <div class="it"><div class="ic" style="background:linear-gradient(135deg,#34d399,#059669)"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><path d="M5 4 2 8l3 4M11 4l3 4-3 4M9.5 3l-3 10"/></svg></div><span class="t">Search Snippets</span><span class="s">Snippets</span><div class="k"><span class="alias">;;</span>Command</div></div>
+    <div class="sec">Suggestions</div>
+    <div class="it"><div class="ic" style="background:linear-gradient(135deg,#2b2b2e,#0c0c0e)"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#e5e5e5" stroke-width="1.8"><path d="m3 5 3 3-3 3M8 11h5"/></svg></div><span class="t">Ghostline</span><span class="s">Terminal</span><div class="k">Application</div></div>
+    <div class="it"><div class="ic" style="background:linear-gradient(135deg,#7c6cff,#4a3cf0)"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="8" cy="8" r="5"/><path d="m5.5 8 2 2 3-4"/></svg></div><span class="t">Create Issue</span><span class="s">Arcline</span><div class="k">Command</div></div>
+    <div class="it"><div class="ic" style="background:linear-gradient(135deg,#ffcc4d,#ff9f0a)"><svg width="13" height="13" viewBox="0 0 16 16" fill="#fff"><circle cx="8" cy="8" r="3.2"/><g stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M8 1.5v1.5M8 13v1.5M1.5 8H3M13 8h1.5M3.4 3.4l1 1M11.6 11.6l1 1M3.4 12.6l1-1M11.6 4.4l1-1"/></g></svg></div><span class="t">Toggle System Appearance</span><span class="s">System</span><div class="k">Command</div></div>
+    <div class="sec">Commands</div>
+    <div class="it"><div class="ic" style="background:linear-gradient(135deg,#ff6363,#c4304d)"><svg width="13" height="13" viewBox="0 0 16 16" fill="#fff"><path d="M8 1.8 9.6 6l4.4.3-3.4 2.8 1.1 4.3L8 11l-3.7 2.4 1.1-4.3L2 6.3 6.4 6z"/></svg></div><span class="t">Ask AI</span><span class="s">Quick AI</span><div class="k">Command</div></div>
+  </div>
+  <div class="bar">
+    <div class="ok"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="4" fill="#ff6363"/><path d="M5 11 11 5M7.5 11H11V7.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></div>
+    <div class="r">Open Command <kbd>↵</kbd><span class="sep"></span><span class="m">Actions</span><kbd>⌘</kbd><kbd>K</kbd></div>
+  </div>
+</div>
+<div class="dock">
+  <i style="background:linear-gradient(135deg,#6ee7f9,#3b82f6)"></i>
+  <i style="background:linear-gradient(135deg,#fde68a,#f59e0b)"></i>
+  <i style="background:linear-gradient(135deg,#2b2b2e,#0c0c0e)"></i>
+  <i style="background:linear-gradient(135deg,#a78bfa,#6d28d9)"></i>
+  <i style="background:linear-gradient(135deg,#86efac,#16a34a)"></i>
+  <i style="background:linear-gradient(135deg,#fca5a5,#ef4444)"></i>
+  <i style="background:linear-gradient(135deg,#f9a8d4,#db2777)"></i>
+  <i style="background:linear-gradient(135deg,#e5e7eb,#9ca3af)"></i>
+</div>
+</body></html>

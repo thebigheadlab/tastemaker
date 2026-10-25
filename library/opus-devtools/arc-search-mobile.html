@@ -1,0 +1,60 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Browse for me</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#fbf8f4;color:#1d1a17;font:15px/1.45 "Plus Jakarta Sans",-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative}
+svg{display:block;flex:none}
+.status{height:50px;display:flex;align-items:center;justify-content:space-between;padding:6px 30px 0 34px;font-weight:600;font-size:16px;font-family:-apple-system,Inter,sans-serif}
+.status .r{display:flex;gap:6px;align-items:center}
+.wrap{padding:6px 20px 0}
+.src{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#7a7067;font-weight:600;margin-bottom:10px}
+.stack{display:flex}
+.stack i{width:20px;height:20px;border-radius:50%;border:2px solid #fbf8f4;margin-left:-6px;display:grid;place-items:center;font-size:9px;font-weight:800;color:#fff;font-style:normal}
+.stack i:first-child{margin-left:0}
+h1{font-size:30px;font-weight:800;line-height:1.1;letter-spacing:-.025em;margin:0 0 14px}
+.imgs{display:flex;gap:8px;margin:0 -20px 16px;padding:0 20px;overflow:hidden}
+.imgs div{flex:none;width:132px;height:96px;border-radius:14px}
+.sum{font-size:15px;color:#3b352f;margin:0 0 18px}
+.sum b{color:#1d1a17}
+h2{font-size:18px;font-weight:800;margin:0 0 10px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.card{background:#fff;border-radius:16px;box-shadow:0 0 0 1px rgba(60,40,20,.06),0 2px 8px rgba(60,40,20,.05);padding:12px 14px;margin-bottom:10px;display:flex;gap:12px}
+.num{width:24px;height:24px;border-radius:8px;background:#fff1e6;color:#e8590c;font-weight:800;font-size:13px;display:grid;place-items:center;flex:none}
+.card b{display:block;font-size:15px;font-weight:700}
+.card p{margin:2px 0 6px;font-size:13.5px;color:#5e554d;line-height:1.4}
+.chips{display:flex;gap:6px}
+.chip{height:22px;border-radius:11px;background:#f4efe9;display:flex;align-items:center;gap:5px;padding:0 8px 0 4px;font-size:11.5px;font-weight:600;color:#6b6158}
+.chip i{width:14px;height:14px;border-radius:50%;display:block}
+.bottom{position:absolute;left:0;right:0;bottom:0;height:116px;background:linear-gradient(180deg,rgba(251,248,244,0),#fbf8f4 26%);padding:24px 16px 0}
+.bar{height:52px;border-radius:26px;background:#fff;box-shadow:0 0 0 1px rgba(60,40,20,.08),0 8px 24px rgba(60,40,20,.12);display:flex;align-items:center;padding:0 8px 0 18px;gap:10px;font-size:15px;color:#9a9087}
+.bar .ic{margin-left:auto;display:flex;gap:6px}
+.bar .ic span{width:38px;height:38px;border-radius:19px;display:grid;place-items:center;background:#f4efe9;color:#5e554d}
+.bar .ic span.go{background:linear-gradient(135deg,#ff8a3d,#f43f5e);color:#fff}
+.home{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#1d1a17}
+</style></head><body>
+<div class="status"><span>9:41</span><span class="r">
+  <svg width="18" height="12" viewBox="0 0 18 12" fill="#000"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+  <svg width="16" height="12" viewBox="0 0 16 12" fill="#000"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.7 8.7 0 0 1 6-2.4Zm0 3.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 4.1 6.8 6.8 0 0 0 3.3 6l1.3 1.4C5.5 6.5 6.7 6 8 6Zm0 3.7c.5 0 1 .2 1.3.5L8 11.8 6.7 10.2c.3-.3.8-.5 1.3-.5Z"/></svg>
+  <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#000" opacity=".35"/><rect x="2" y="2" width="18" height="9" rx="2" fill="#000"/></svg>
+</span></div>
+<div class="wrap">
+  <div class="src"><span class="stack"><i style="background:#e8590c">E</i><i style="background:#2563eb">T</i><i style="background:#16a34a">R</i><i style="background:#7c3aed">L</i></span>Browsed 6 sites for you</div>
+  <h1>Best ramen in Lisbon for a rainy night</h1>
+  <div class="imgs">
+    <div style="background:radial-gradient(circle at 50% 55%,#f8e3c0 0 22%,#c2410c 23% 26%,#f5d6a8 27% 40%,#3b1d0e 41%)"></div>
+    <div style="background:linear-gradient(160deg,#1e293b,#334155 45%,#f59e0b 46% 50%,#1e293b 51%)"></div>
+    <div style="background:radial-gradient(circle at 35% 45%,#fde68a 0 14%,transparent 15%),radial-gradient(circle at 60% 60%,#86efac 0 10%,transparent 11%),linear-gradient(#f5e6d3,#e7cfb2)"></div>
+  </div>
+  <p class="sum">Lisbon's ramen scene is small but strong. Locals point to <b>rich tonkotsu in Príncipe Real</b> and a cozy counter in Alfama that stays open late.</p>
+  <h2>🍜 Top picks</h2>
+  <div class="card"><span class="num">1</span><div><b>Kotori Ramen Bar</b><p>Creamy chicken paitan, 12 seats, no reservations. Expect a 20 min wait after 8pm.</p><div class="chips"><span class="chip"><i style="background:#e8590c"></i>Eater</span><span class="chip"><i style="background:#16a34a"></i>Reddit</span></div></div></div>
+  <div class="card"><span class="num">2</span><div><b>Noodle House Alfama</b><p>Spicy miso and vegan shoyu. Open until 1am, cash friendly.</p><div class="chips"><span class="chip"><i style="background:#2563eb"></i>TimeOut</span><span class="chip"><i style="background:#7c3aed"></i>Lisbon Lux</span></div></div></div>
+  <div class="card"><span class="num">3</span><div><b>Ichiban Tonkotsu</b><p>18-hour pork broth and thick noodles. Best pick if you want something really hearty.</p><div class="chips"><span class="chip"><i style="background:#e8590c"></i>Eater</span><span class="chip"><i style="background:#0ea5e9"></i>Culture Trip</span></div></div></div>
+</div>
+<div class="bottom"><div class="bar">
+  <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#9a9087" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3" stroke-linecap="round"/></svg>Ask a follow-up…
+  <div class="ic"><span><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2" width="4" height="8" rx="2"/><path d="M3.5 8a4.5 4.5 0 0 0 9 0M8 12.5V14"/></svg></span><span class="go"><svg width="18" height="18" viewBox="0 0 16 16" fill="#fff"><path d="M8 1.5 9.4 6.6 14.5 8 9.4 9.4 8 14.5 6.6 9.4 1.5 8l5.1-1.4z"/></svg></span></div>
+</div></div>
+<div class="home"></div>
+</body></html>

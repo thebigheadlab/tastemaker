@@ -1,0 +1,25 @@
+{
+  "id": "duolingo-leaderboard",
+  "kind": "component",
+  "subtype": "leaderboard",
+  "title": "League leaderboard",
+  "inspiredBy": "Duolingo",
+  "platform": "mobile",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "yellow",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "bold",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "League shields row with the current league enlarged, colored rank numbers, initials avatars, a highlighted 'me' row and a dashed promotion-zone divider."
+}

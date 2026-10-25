@@ -1,0 +1,57 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Payment element</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#f2f4f7;color:#30313d;font:14px/1.4 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;display:flex;align-items:center;justify-content:center}
+svg{display:block;flex:none}
+.c{width:424px;background:#fff;border-radius:12px;box-shadow:0 0 0 1px rgba(50,50,93,.06),0 6px 20px rgba(50,50,93,.1),0 2px 6px rgba(0,0,0,.05);padding:22px 22px 20px}
+.h{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.h b{font-size:16px;font-weight:600;color:#1a1b25}
+.h span{font-size:13px;color:#6d6e78}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr) 44px;gap:10px;margin-bottom:16px}
+.tab{height:62px;border-radius:6px;box-shadow:0 0 0 1px #e6e6e6,0 1px 1px rgba(0,0,0,.03),0 3px 6px rgba(0,0,0,.02);padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;font-size:13px;font-weight:500;color:#6d6e78}
+.tab.on{box-shadow:0 0 0 2px #0570de,0 1px 1px rgba(0,0,0,.03);color:#0570de}
+.tab svg{color:currentColor}
+.tab.more{align-items:center;justify-content:center;padding:0}
+.lab{font-size:14px;color:#30313d;margin-bottom:5px;font-weight:400}
+.f{height:44px;border-radius:5px;box-shadow:0 0 0 1px #e6e6e6,0 1px 1px rgba(0,0,0,.03),0 3px 6px rgba(0,0,0,.02);display:flex;align-items:center;padding:0 12px;font-size:15px;color:#30313d;background:#fff}
+.f.foc{box-shadow:0 0 0 1px #0570de,0 0 0 4px rgba(5,112,222,.25)}
+.f.err{box-shadow:0 0 0 2px #df1b41;color:#df1b41}
+.ph{color:#87909f}
+.caret{display:inline-block;width:1.5px;height:18px;background:#0570de;margin-left:1px}
+.brands{margin-left:auto;display:flex;gap:4px}
+.brands i{width:28px;height:18px;border-radius:3px}
+.mb{margin-bottom:12px}
+.row{display:flex;gap:12px}
+.row>div{flex:1}
+.em{font-size:13px;color:#df1b41;margin-top:5px;display:flex;align-items:center;gap:5px}
+.sel{justify-content:space-between}
+.note{font-size:12.5px;color:#6d6e78;line-height:1.5;margin:14px 0 16px}
+.btn{height:46px;border-radius:6px;background:#0570de;color:#fff;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.sec{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:12px;color:#87909f}
+</style></head><body>
+<div class="c">
+  <div class="h"><b>Payment</b><span>Annual plan · $96.00</span></div>
+  <div class="tabs">
+    <div class="tab on"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4.5" width="16" height="11" rx="2"/><path d="M2 8h16M5 12.5h3"/></svg>Card</div>
+    <div class="tab"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8 10 4l7 4M4.5 8.5v6M8 8.5v6M12 8.5v6M15.5 8.5v6M3 16.5h14"/></svg>US bank</div>
+    <div class="tab"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l2.5 2.5"/></svg>Pay in 4</div>
+    <div class="tab more"><svg width="18" height="18" viewBox="0 0 16 16" fill="#6d6e78"><circle cx="3.5" cy="8" r="1.3"/><circle cx="8" cy="8" r="1.3"/><circle cx="12.5" cy="8" r="1.3"/></svg></div>
+  </div>
+  <div class="lab">Card number</div>
+  <div class="f foc mb">4000 0566 5566 55<span class="caret"></span>
+    <span class="brands"><i style="background:#1a1f71"></i><i style="background:linear-gradient(90deg,#eb001b 0 50%,#f79e1b 50%)"></i><i style="background:#2e77bc"></i></span></div>
+  <div class="row mb">
+    <div><div class="lab">Expiration date</div><div class="f err">08 / 23</div><div class="em"><svg width="13" height="13" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#df1b41"/><path d="M8 4.5v4M8 11v.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>Your card's expiration year is in the past.</div></div>
+    <div><div class="lab">Security code</div><div class="f"><span class="ph">CVC</span><svg style="margin-left:auto" width="26" height="18" viewBox="0 0 26 18"><rect x=".5" y=".5" width="25" height="17" rx="2.5" fill="#f2f2f2" stroke="#d6d6d6"/><rect y="4" width="26" height="3" fill="#bdbdbd"/><rect x="15" y="10" width="7" height="3.5" rx="1" fill="#fff" stroke="#9a9a9a" stroke-width=".8"/></svg></div></div>
+  </div>
+  <div class="row">
+    <div><div class="lab">Country</div><div class="f sel">United States<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#6d6e78" stroke-width="1.8"><path d="m4 6 4 4 4-4"/></svg></div></div>
+    <div><div class="lab">ZIP code</div><div class="f">94110</div></div>
+  </div>
+  <div class="note">By providing your card information, you allow Halcyon Notes to charge your card for future payments in accordance with their terms.</div>
+  <div class="btn"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.7"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>Subscribe · $96.00</div>
+</div>
+</body></html>

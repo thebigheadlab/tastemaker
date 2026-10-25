@@ -1,0 +1,28 @@
+{
+  "id": "monzo-home",
+  "kind": "screen",
+  "subtype": "banking home",
+  "title": "Account home",
+  "inspiredBy": "Monzo",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "red",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Deep navy app with rounded slate panels, a tiny hot-coral card thumbnail beside the balance, illustrated gradient pot tiles and a friendly feed."
+}

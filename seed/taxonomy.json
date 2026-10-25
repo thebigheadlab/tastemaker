@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "description": "Taste dimensions every card is tagged with. Swipes on cards update preferences per dimension value.",
+  "dimensions": {
+    "colorMode":   { "label": "Color mode",   "values": ["light", "dark"] },
+    "temperature": { "label": "Temperature",  "values": ["warm", "neutral", "cool"] },
+    "saturation":  { "label": "Saturation",   "values": ["muted", "balanced", "vivid"] },
+    "contrast":    { "label": "Contrast",     "values": ["soft", "medium", "high"] },
+    "accentHue":   { "label": "Accent hue",   "values": ["red", "orange", "yellow", "green", "teal", "blue", "indigo", "purple", "pink", "mono"] },
+    "typeStyle":   { "label": "Typeface",     "values": ["geometric", "grotesk", "humanist", "serif", "mono", "display"] },
+    "typeScale":   { "label": "Type scale",   "values": ["restrained", "moderate", "dramatic"] },
+    "density":     { "label": "Density",      "values": ["compact", "comfortable", "airy"] },
+    "radius":      { "label": "Corners",      "values": ["sharp", "soft", "round", "pill"] },
+    "elevation":   { "label": "Depth",        "values": ["flat", "subtle", "layered"] },
+    "border":      { "label": "Borders",      "values": ["none", "hairline", "bold"] },
+    "ornament":    { "label": "Ornament",     "values": ["minimal", "textured", "expressive"] },
+    "mood":        { "label": "Mood",         "values": ["calm", "playful", "serious", "luxurious", "technical", "editorial", "brutalist"] }
+  },
+  "cardKinds": {
+    "token":     ["palette", "typography", "shape"],
+    "component": ["button", "input", "card", "nav", "toggle", "badge", "modal", "table"],
+    "screen":    ["landing", "dashboard", "mobile-login", "pricing", "settings", "article"]
+  },
+  "cardSchema": {
+    "id": "string, stable",
+    "kind": "token | component | screen",
+    "subtype": "see cardKinds",
+    "title": "short human label",
+    "source": "{ type: generated | site | import, url?, credit? }",
+    "tags": "{ dimension: value } using taxonomy values; omit dimensions a card does not express",
+    "file": "path to self-contained HTML (cards/<id>.html) or image"
+  }
+}

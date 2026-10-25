@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Payment sent</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#fff;font-family:Manrope,"Cash Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#000;overflow:hidden;-webkit-font-smoothing:antialiased;width:480px;height:600px;position:relative}
+.top{background:#00d64f;height:300px;color:#fff;text-align:center;padding-top:26px;position:relative}
+.chk{width:62px;height:62px;border-radius:50%;background:#fff;margin:0 auto;display:grid;place-items:center;box-shadow:0 0 0 10px rgba(255,255,255,.18)}
+.top h2{margin:14px 0 0;font-size:22px;font-weight:800;letter-spacing:-.01em}
+.top .amt{font-size:76px;font-weight:800;letter-spacing:-.04em;line-height:84px;margin-top:4px}
+.top .amt sup{font-size:38px;vertical-align:28px;margin-right:2px}
+.top small{font-size:15px;font-weight:700;opacity:.9}
+.who{position:absolute;left:24px;right:24px;top:276px;background:#fff;border-radius:22px;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:18px}
+.p{display:flex;align-items:center;gap:14px}
+.av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#ffb36b,#ff6b8a);display:grid;place-items:center;font-weight:800;color:#fff;font-size:17px}
+.p b{display:block;font-size:17px;font-weight:800}
+.p small{font-size:14px;color:#777;font-weight:600}
+.note{margin-top:14px;background:#f4f4f4;border-radius:14px;padding:12px 14px;font-size:15px;font-weight:600;display:flex;justify-content:space-between}
+.note span{color:#777}
+.meta{display:flex;justify-content:space-between;margin-top:12px;font-size:13px;color:#777;font-weight:600}
+.btns{position:absolute;left:24px;right:24px;bottom:24px;display:flex;gap:10px}
+.btns div{flex:1;height:52px;border-radius:26px;display:grid;place-items:center;font-weight:800;font-size:16px}
+</style></head><body>
+<div class="top">
+  <div class="chk"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#00d64f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+  <h2>You sent</h2>
+  <div class="amt"><sup>$</sup>42</div>
+  <small>to $hanakim</small>
+</div>
+<div class="who">
+  <div class="p"><div class="av">HK</div><div style="flex:1"><b>Hana Kim</b><small>$hanakim · Brooklyn, NY</small></div><svg width="22" height="22" viewBox="0 0 24 24" fill="#00d64f"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1.1 3 1.1 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1-2.8-1.6 1.1-3-1.1-3 2.8-1.6.9-3.1 3.2.3z"/><path d="m8 12 3 3 5-6" stroke="#fff" stroke-width="2.2" fill="none"/></svg></div>
+  <div class="note" style="justify-content:flex-start;gap:10px"><span>For</span>Tacos + concert tix</div>
+  <div class="meta"><span>From Cash balance</span><span>Today at 9:41 PM</span></div>
+</div>
+<div class="btns"><div style="background:#f2f2f2">Add to Favorites</div><div style="background:#00d64f;color:#fff">Done</div></div>
+</body></html>

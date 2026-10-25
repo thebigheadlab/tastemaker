@@ -1,0 +1,25 @@
+{
+  "id": "headspace-player",
+  "kind": "screen",
+  "subtype": "media player",
+  "title": "Meditation player",
+  "inspiredBy": "Headspace",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "orange",
+    "typeStyle": "geometric",
+    "typeScale": "moderate",
+    "density": "airy",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "calm"
+  },
+  "notes": "Night-blue gradient with a slow breathing orb character, concentric halo rings, a peach progress bar and a big white pause button with 15-second skips."
+}

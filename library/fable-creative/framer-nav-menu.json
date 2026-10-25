@@ -1,0 +1,25 @@
+{
+  "id": "framer-nav-menu",
+  "kind": "component",
+  "subtype": "navigation menu",
+  "title": "Mega menu",
+  "inspiredBy": "Framer",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "editorial"
+  },
+  "notes": "Pill-highlighted nav item opening a near-black dropdown with a notch, a promo tile with glow and NEW badge, and two columns of icon-tile links with muted secondary copy."
+}

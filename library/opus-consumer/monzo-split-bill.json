@@ -1,0 +1,28 @@
+{
+  "id": "monzo-split-bill",
+  "kind": "component",
+  "subtype": "transaction detail with split",
+  "title": "Transaction + bill split",
+  "inspiredBy": "Monzo",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "red",
+    "typeStyle": "grotesk",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Transaction page with a mini map, merchant avatar overlapping it, bold amount, category and hashtag chips, and a split-the-bill status list."
+}

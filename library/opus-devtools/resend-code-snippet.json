@@ -1,0 +1,28 @@
+{
+  "id": "resend-code-snippet",
+  "kind": "component",
+  "subtype": "code block",
+  "title": "Send email snippet",
+  "inspiredBy": "Resend",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "mono",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Language-tabbed code block showing the SDK call to send an email, with copy button."
+}

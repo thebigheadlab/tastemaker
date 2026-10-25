@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Server chat</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:1280px;height:800px;overflow:hidden;background:#1e1f22;font-family:"Nunito Sans","Figtree",system-ui,sans-serif;font-size:15px;color:#dbdee1;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .rail{position:absolute;left:0;top:0;bottom:0;width:72px;background:#1e1f22;padding:12px 0;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .srv{width:48px;height:48px;border-radius:50%;background:#313338;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#dbdee1;position:relative}
+  .srv.on{border-radius:16px}
+  .srv.on:before{content:"";position:absolute;left:-16px;top:4px;width:4px;height:40px;border-radius:0 4px 4px 0;background:#fff}
+  .srv.home{background:#5865f2;color:#fff;border-radius:16px}
+  .srv .badge{position:absolute;right:-4px;bottom:-4px;background:#f23f43;color:#fff;font-size:11px;font-weight:800;border-radius:9px;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center;padding:0 4px;border:3px solid #1e1f22}
+  .rail hr{width:32px;border:none;border-top:2px solid #35363c;margin:2px 0}
+  .chan{position:absolute;left:72px;top:0;bottom:0;width:240px;background:#2b2d31;display:flex;flex-direction:column}
+  .chan .hd{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-weight:700;color:#f2f3f5;box-shadow:0 1px 0 rgba(0,0,0,.25);font-size:15px}
+  .cat{display:flex;align-items:center;gap:4px;padding:16px 8px 4px 10px;font-size:12px;font-weight:700;text-transform:uppercase;color:#949ba4;letter-spacing:.3px}
+  .cat span{flex:1}
+  .ch{display:flex;align-items:center;gap:6px;height:32px;margin:1px 8px;padding:0 8px;border-radius:4px;color:#949ba4;font-weight:600;font-size:15px}
+  .ch.on{background:#404249;color:#f2f3f5}
+  .ch.unread{color:#f2f3f5}
+  .ch svg{flex-shrink:0;opacity:.7}
+  .ch .n{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ch .pill{background:#f23f43;color:#fff;font-size:11px;font-weight:800;border-radius:9px;padding:0 5px;height:16px;display:flex;align-items:center}
+  .voice{display:flex;align-items:center;gap:8px;height:26px;margin:0 8px 0 36px;font-size:13px;color:#949ba4}
+  .voice i{width:20px;height:20px;border-radius:50%;display:block}
+  .user{margin-top:auto;height:52px;background:#232428;display:flex;align-items:center;gap:8px;padding:0 8px}
+  .user .av{width:32px;height:32px;border-radius:50%;background:#eb459e;position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:12px}
+  .st{position:absolute;right:-2px;bottom:-2px;width:14px;height:14px;border-radius:50%;background:#23a559;border:3px solid #232428}
+  .user b{display:block;font-size:13px;color:#f2f3f5;font-weight:700}
+  .user span{display:block;font-size:11px;color:#b5bac1}
+  .user .ic{margin-left:auto;display:flex;gap:4px}
+  .user .ic i{width:32px;height:32px;border-radius:4px;display:flex;align-items:center;justify-content:center}
+  .main{position:absolute;left:312px;right:240px;top:0;bottom:0;background:#313338;display:flex;flex-direction:column}
+  .main .hd{height:48px;display:flex;align-items:center;gap:8px;padding:0 16px;box-shadow:0 1px 0 rgba(0,0,0,.25);font-weight:700;color:#f2f3f5}
+  .main .hd .topic{color:#949ba4;font-weight:400;font-size:14px;border-left:1px solid #3f4147;padding-left:12px;margin-left:4px}
+  .main .hd .tools{margin-left:auto;display:flex;gap:16px;align-items:center}
+  .search{height:24px;width:144px;background:#1e1f22;border-radius:4px;display:flex;align-items:center;padding:0 6px;font-size:13px;color:#949ba4;justify-content:space-between}
+  .msgs{flex:1;overflow:hidden;padding:0 16px;display:flex;flex-direction:column;justify-content:flex-end}
+  .day{display:flex;align-items:center;gap:8px;color:#949ba4;font-size:12px;font-weight:700;margin:16px 0 8px}
+  .day:before,.day:after{content:"";flex:1;border-top:1px solid #3f4147}
+  .m{display:flex;gap:16px;padding:4px 0;margin-top:14px}
+  .m .av{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+  .m .who{font-weight:600;color:#f2f3f5}
+  .m .who .tag{background:#5865f2;color:#fff;font-size:10px;font-weight:700;border-radius:3px;padding:1px 4px;margin-left:6px;vertical-align:1px}
+  .m .t{color:#949ba4;font-size:12px;margin-left:8px;font-weight:400}
+  .m p{margin:2px 0 0;line-height:1.375;color:#dbdee1}
+  .m p a{color:#00a8fc}
+  .m .cont{margin-top:2px}
+  .m .cont p{margin:0;padding:1px 0}
+  .embed{margin-top:6px;border-left:4px solid #5865f2;background:#2b2d31;border-radius:4px;padding:10px 12px;max-width:432px}
+  .embed b{color:#00a8fc;font-weight:600;font-size:15px}
+  .embed span{display:block;color:#dbdee1;font-size:14px;margin-top:4px;line-height:1.4}
+  .embed .img{margin-top:8px;height:120px;border-radius:4px;background:linear-gradient(135deg,#2a3c7a,#5865f2 60%,#eb459e)}
+  .react{display:inline-flex;align-items:center;gap:5px;background:#2b2d31;border:1px solid transparent;border-radius:8px;padding:2px 6px;font-size:13px;margin:6px 4px 0 0;color:#dbdee1}
+  .react.me{background:rgba(88,101,242,.15);border-color:#5865f2}
+  .code{font-family:ui-monospace,Menlo,monospace;background:#2b2d31;border-radius:3px;padding:1px 4px;font-size:13px}
+  .input{margin:0 16px 24px;height:44px;background:#383a40;border-radius:8px;display:flex;align-items:center;padding:0 16px;gap:14px;color:#6d6f78}
+  .input .plus{flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:#b5bac1;display:flex;align-items:center;justify-content:center}
+  .input span{flex:1;font-size:15px}
+  .input .ic{display:flex;gap:14px;align-items:center}
+  .members{position:absolute;right:0;top:0;bottom:0;width:240px;background:#2b2d31;padding:16px 8px}
+  .members h6{margin:16px 8px 6px;font-size:12px;text-transform:uppercase;color:#949ba4;font-weight:700;letter-spacing:.3px}
+  .members h6:first-child{margin-top:8px}
+  .mem{display:flex;align-items:center;gap:12px;height:42px;padding:0 8px;border-radius:4px;color:#949ba4;font-weight:600}
+  .mem .av{width:32px;height:32px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800}
+  .mem .av .st{border-color:#2b2d31}
+  .mem .st.idle{background:#f0b232}.mem .st.dnd{background:#f23f43}.mem .st.off{background:#80848e}
+  .mem.off{opacity:.4}
+  .mem b{display:block;font-size:15px;font-weight:600}
+  .mem span{display:block;font-size:12px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+</style>
+</head>
+<body>
+  <div class="rail">
+    <div class="srv home"><svg width="26" height="20" viewBox="0 0 26 20"><path d="M22 2C20 1 18 .5 16 .3l-.8 1.6a18 18 0 0 0-4.4 0L10 .3C8 .5 6 1 4 2 .5 7-.5 12 0 17a21 21 0 0 0 6.6 3l1.4-2.2c-.8-.3-1.5-.7-2.2-1.1l.5-.4a15 15 0 0 0 13.4 0l.5.4c-.7.4-1.4.8-2.2 1.1L19.4 20A21 21 0 0 0 26 17c.6-5.7-1-10.7-4-15zM8.7 14c-1.3 0-2.4-1.2-2.4-2.7s1-2.7 2.4-2.7 2.4 1.2 2.4 2.7S10 14 8.7 14zm8.6 0c-1.3 0-2.4-1.2-2.4-2.7s1-2.7 2.4-2.7 2.4 1.2 2.4 2.7-1 2.7-2.4 2.7z" fill="#fff"/></svg></div>
+    <hr>
+    <div class="srv on" style="background:#23a559;color:#fff">PX</div>
+    <div class="srv" style="background:#f0b232;color:#1e1f22">LF<span class="badge">3</span></div>
+    <div class="srv" style="background:#eb459e;color:#fff">♪</div>
+    <div class="srv">DS</div>
+    <div class="srv" style="background:#5865f2;color:#fff">IG<span class="badge">12</span></div>
+    <div class="srv" style="color:#23a559;font-size:24px;font-weight:400">+</div>
+  </div>
+
+  <div class="chan">
+    <div class="hd">Pixel Forge <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#dbdee1" stroke-width="1.6"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg></div>
+    <div class="cat"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#949ba4" stroke-width="1.6"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg><span>Information</span></div>
+    <div class="ch"><svg width="18" height="18" viewBox="0 0 24 24" fill="#949ba4"><path d="M5.9 21l.8-4H3l.4-2h3.7l.8-4H4.2l.4-2h4.1l.8-4h2l-.8 4h4l.8-4h2l-.8 4H21l-.4 2h-3.7l-.8 4h3.7l-.4 2h-3.7l-.8 4h-2l.8-4h-4l-.8 4zm3.3-6h4l.8-4h-4z"/></svg><span class="n">welcome</span></div>
+    <div class="ch"><svg width="18" height="18" viewBox="0 0 24 24" fill="#949ba4"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span class="n">rules</span></div>
+    <div class="cat"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#949ba4" stroke-width="1.6"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg><span>Text channels</span><span style="flex:0">+</span></div>
+    <div class="ch on"><svg width="18" height="18" viewBox="0 0 24 24" fill="#dbdee1"><path d="M5.9 21l.8-4H3l.4-2h3.7l.8-4H4.2l.4-2h4.1l.8-4h2l-.8 4h4l.8-4h2l-.8 4H21l-.4 2h-3.7l-.8 4h3.7l-.4 2h-3.7l-.8 4h-2l.8-4h-4l-.8 4zm3.3-6h4l.8-4h-4z"/></svg><span class="n">general</span><svg width="16" height="16" viewBox="0 0 24 24" fill="#dbdee1"><path d="M12 2a8 8 0 0 0-8 8v3l-2 3h20l-2-3v-3a8 8 0 0 0-8-8zm0 20a3 3 0 0 0 3-3H9a3 3 0 0 0 3 3z"/></svg></div>
+    <div class="ch unread"><svg width="18" height="18" viewBox="0 0 24 24" fill="#949ba4"><path d="M5.9 21l.8-4H3l.4-2h3.7l.8-4H4.2l.4-2h4.1l.8-4h2l-.8 4h4l.8-4h2l-.8 4H21l-.4 2h-3.7l-.8 4h3.7l-.4 2h-3.7l-.8 4h-2l.8-4h-4l-.8 4zm3.3-6h4l.8-4h-4z"/></svg><span class="n">pixel-art</span><span class="pill">4</span></div>
+    <div class="ch"><svg width="18" height="18" viewBox="0 0 24 24" fill="#949ba4"><path d="M5.9 21l.8-4H3l.4-2h3.7l.8-4H4.2l.4-2h4.1l.8-4h2l-.8 4h4l.8-4h2l-.8 4H21l-.4 2h-3.7l-.8 4h3.7l-.4 2h-3.7l-.8 4h-2l.8-4h-4l-.8 4zm3.3-6h4l.8-4h-4z"/></svg><span class="n">game-jam-march</span></div>
+    <div class="ch"><svg width="18" height="18" viewBox="0 0 24 24" fill="#949ba4"><path d="M5.9 21l.8-4H3l.4-2h3.7l.8-4H4.2l.4-2h4.1l.8-4h2l-.8 4h4l.8-4h2l-.8 4H21l-.4 2h-3.7l-.8 4h3.7l-.4 2h-3.7l-.8 4h-2l.8-4h-4l-.8 4zm3.3-6h4l.8-4h-4z"/></svg><span class="n">showcase</span></div>
+    <div class="ch"><svg width="18" height="18" viewBox="0 0 24 24" fill="#949ba4"><path d="M5.9 21l.8-4H3l.4-2h3.7l.8-4H4.2l.4-2h4.1l.8-4h2l-.8 4h4l.8-4h2l-.8 4H21l-.4 2h-3.7l-.8 4h3.7l-.4 2h-3.7l-.8 4h-2l.8-4h-4l-.8 4zm3.3-6h4l.8-4h-4z"/></svg><span class="n">off-topic</span></div>
+    <div class="cat"><svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="#949ba4" stroke-width="1.6"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg><span>Voice channels</span></div>
+    <div class="ch"><svg width="18" height="18" viewBox="0 0 24 24" fill="#949ba4"><path d="M11 5L6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" stroke="#949ba4" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><span class="n">Lounge</span></div>
+    <div class="voice"><i style="background:#23a559"></i>kiro</div>
+    <div class="voice"><i style="background:#f0b232"></i>Maeve</div>
+    <div class="ch"><svg width="18" height="18" viewBox="0 0 24 24" fill="#949ba4"><path d="M11 5L6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" stroke="#949ba4" stroke-width="2" fill="none" stroke-linejoin="round"/></svg><span class="n">Co-working</span></div>
+    <div class="user"><span class="av">RV<span class="st"></span></span><div><b>rowan.v</b><span>Online</span></div>
+      <div class="ic"><i><svg width="20" height="20" viewBox="0 0 24 24" fill="#b5bac1"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11z"/></svg></i><i><svg width="20" height="20" viewBox="0 0 24 24" fill="#b5bac1"><path d="M12 3a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h3v-7H5v-2a7 7 0 0 1 14 0v2h-3v7h3a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9z"/></svg></i><i><svg width="20" height="20" viewBox="0 0 24 24" fill="#b5bac1"><path d="M19.4 13a7.9 7.9 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a8 8 0 0 0-1.7-1L15 3H9l-.4 2.9a8 8 0 0 0-1.7 1l-2.5-1-2 3.5L4.6 11a7.9 7.9 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a8 8 0 0 0 1.7 1L9 21h6l.4-2.9a8 8 0 0 0 1.7-1l2.5 1 2-3.5zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg></i></div></div>
+  </div>
+
+  <div class="main">
+    <div class="hd"><svg width="22" height="22" viewBox="0 0 24 24" fill="#80848e"><path d="M5.9 21l.8-4H3l.4-2h3.7l.8-4H4.2l.4-2h4.1l.8-4h2l-.8 4h4l.8-4h2l-.8 4H21l-.4 2h-3.7l-.8 4h3.7l-.4 2h-3.7l-.8 4h-2l.8-4h-4l-.8 4zm3.3-6h4l.8-4h-4z"/></svg>general<span class="topic">Say hi, share what you're working on. Be kind.</span>
+      <div class="tools">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#b5bac1"><path d="M12 2a8 8 0 0 0-8 8v3l-2 3h20l-2-3v-3a8 8 0 0 0-8-8zm0 20a3 3 0 0 0 3-3H9a3 3 0 0 0 3 3z"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#b5bac1"><path d="M16 4h-3V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-6 6l-4 4 4 4zm4 0v8l4-4z"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M14 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-9 9a6 6 0 0 1 12 0v2H5zM17 6a2.5 2.5 0 1 1 0 5v-1a1.5 1.5 0 0 0 0-3zM18 13.3a5 5 0 0 1 4 4.7v1h-3v-1a7 7 0 0 0-1-4.7z"/></svg>
+        <div class="search">Search <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#949ba4" stroke-width="2.5"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5"/></svg></div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#b5bac1"><path d="M19 3H5a2 2 0 0 0-2 2v14l4-4h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg>
+      </div>
+    </div>
+    <div class="msgs">
+      <div class="day">March 14, 2026</div>
+      <div class="m"><span class="av" style="background:#f0b232;color:#1e1f22">M</span><div><span class="who">Maeve<span class="tag">MOD</span></span><span class="t">Today at 10:12 AM</span><p>Morning all. Reminder that jam submissions close <b>Sunday 23:59 UTC</b>. Please post builds in <a>#showcase</a> with a 3-line README. 🙏</p></div></div>
+      <div class="m"><span class="av" style="background:#23a559">K</span><div><span class="who">kiro</span><span class="t">Today at 10:15 AM</span><p>finally got the lighting pass working. the dithering shader is <span class="code">32×32</span> tiles now instead of per-pixel and it runs at 240fps on the deck</p>
+        <div class="embed"><b>Pixel Forge Jam — Lighting test #3</b><span>Dithered volumetric fog in a 160×144 viewport. Palette: Sweetie 16.</span><div class="img"></div></div>
+        <div><span class="react me">🔥 7</span><span class="react">👀 3</span><span class="react">🫡 1</span></div></div></div>
+      <div class="m"><span class="av" style="background:#eb459e">RV</span><div><span class="who">rowan.v</span><span class="t">Today at 10:21 AM</span><p>okay that fog is unreasonable 😭 what's the dither pattern, bayer 4×4?</p></div></div>
+      <div class="m" style="margin-top:0;padding-top:0"><span class="av" style="opacity:0;height:0"></span><div class="cont"><p>also <a>@kiro</a> can you push the palette LUT to the shared repo? want to try it on the tileset</p></div></div>
+      <div class="m"><span class="av" style="background:#5865f2">T</span><div><span class="who">theo.builds</span><span class="t">Today at 10:24 AM</span><p>streaming the jam build on the Lounge stage in 5 if anyone wants to heckle 🎙️</p></div></div>
+    </div>
+    <div class="input"><span class="plus"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#383a40" stroke-width="2.2"><path d="M6 1.5v9M1.5 6h9"/></svg></span><span>Message #general</span>
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#b5bac1"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM4 18l5-6 3 4 2-2 6 4z"/></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="#b5bac1"><rect x="3" y="4" width="18" height="16" rx="3"/><text x="12" y="16" text-anchor="middle" font-size="9" font-weight="800" fill="#383a40" font-family="Nunito Sans,sans-serif">GIF</text></svg><svg width="22" height="22" viewBox="0 0 24 24" fill="#b5bac1"><circle cx="12" cy="12" r="10"/><circle cx="9" cy="10" r="1.5" fill="#383a40"/><circle cx="15" cy="10" r="1.5" fill="#383a40"/><path d="M8 14c1 2 7 2 8 0" stroke="#383a40" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></div></div>
+  </div>
+
+  <div class="members">
+    <h6>Mods — 2</h6>
+    <div class="mem"><span class="av" style="background:#f0b232;color:#1e1f22">M<span class="st"></span></span><div><b style="color:#f0b232">Maeve</b><span>Judging jam entries</span></div></div>
+    <div class="mem"><span class="av" style="background:#5865f2">T<span class="st dnd"></span></span><div><b style="color:#f0b232">theo.builds</b><span>🔴 Live in Lounge</span></div></div>
+    <h6>Online — 5</h6>
+    <div class="mem"><span class="av" style="background:#23a559">K<span class="st"></span></span><div><b>kiro</b><span>Playing Aseprite</span></div></div>
+    <div class="mem"><span class="av" style="background:#eb459e">RV<span class="st"></span></span><div><b>rowan.v</b></div></div>
+    <div class="mem"><span class="av" style="background:#00a8fc">AN<span class="st idle"></span></span><div><b>anika</b><span>Listening to Spotify</span></div></div>
+    <div class="mem"><span class="av" style="background:#80848e">JB<span class="st"></span></span><div><b>jbyte</b></div></div>
+    <div class="mem"><span class="av" style="background:#f23f43">SL<span class="st idle"></span></span><div><b>sol_</b><span>vibing</span></div></div>
+    <h6>Offline — 38</h6>
+    <div class="mem off"><span class="av" style="background:#313338">DM<span class="st off"></span></span><div><b>dmitri</b></div></div>
+    <div class="mem off"><span class="av" style="background:#313338">HN<span class="st off"></span></span><div><b>hana.png</b></div></div>
+    <div class="mem off"><span class="av" style="background:#313338">PX<span class="st off"></span></span><div><b>pixelpaul</b></div></div>
+  </div>
+</body>
+</html>

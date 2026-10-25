@@ -1,0 +1,261 @@
+{
+  "generator": {
+    "name": "tastemaker-generator",
+    "version": "1.0.0"
+  },
+  "deck": {
+    "version": 2,
+    "hash": "0123456789abcdef",
+    "cardCount": 8
+  },
+  "counts": {
+    "valid": 4,
+    "rated": 4,
+    "loved": 0,
+    "liked": 4,
+    "noped": 0,
+    "sum": 4,
+    "skipped": 0,
+    "ignored": 0
+  },
+  "weights": {
+    "love": 2,
+    "like": 1,
+    "nope": -1,
+    "skip": 0
+  },
+  "votes": [
+    {
+      "id": "a-dark-round",
+      "verdict": "like",
+      "weight": 1,
+      "title": "Dark round",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "b-dark-round",
+      "verdict": "like",
+      "weight": 1,
+      "title": "Dark round two",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "e-light-pill",
+      "verdict": "like",
+      "weight": 1,
+      "title": "Light pill",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "f-light-pill",
+      "verdict": "like",
+      "weight": 1,
+      "title": "Light pill two",
+      "kind": "component",
+      "inspiredBy": "Example"
+    }
+  ],
+  "ignored": {
+    "total": 0,
+    "listed": []
+  },
+  "traits": [
+    {
+      "dimension": "colorMode",
+      "value": "light",
+      "source": "default",
+      "status": "tie",
+      "tied": [
+        "light",
+        "dark"
+      ],
+      "avoid": [],
+      "counts": {
+        "rated": 2,
+        "loved": 0,
+        "liked": 2,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "temperature",
+      "value": "neutral",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "saturation",
+      "value": "balanced",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "contrast",
+      "value": "medium",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "accentHue",
+      "value": "blue",
+      "source": "default",
+      "status": "tie",
+      "tied": [
+        "green",
+        "indigo"
+      ],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "typeStyle",
+      "value": "grotesk",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "typeScale",
+      "value": "moderate",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "density",
+      "value": "comfortable",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "radius",
+      "value": "soft",
+      "source": "default",
+      "status": "tie",
+      "tied": [
+        "round",
+        "pill"
+      ],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "elevation",
+      "value": "subtle",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "border",
+      "value": "hairline",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "ornament",
+      "value": "minimal",
+      "source": "votes",
+      "status": "votes",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 4,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "mood",
+      "value": "calm",
+      "source": "default",
+      "status": "tie",
+      "tied": [
+        "calm",
+        "playful"
+      ],
+      "avoid": [],
+      "counts": {
+        "rated": 2,
+        "loved": 0,
+        "liked": 2,
+        "noped": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "cashapp-money",
+  "kind": "screen",
+  "subtype": "money dashboard",
+  "title": "Money tab",
+  "inspiredBy": "Cash App",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "geometric",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Pitch-black Money tab: chunky balance card with green Add Cash pill and a 2x2 of rounded product tiles each keyed to its own color."
+}

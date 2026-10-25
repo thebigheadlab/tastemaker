@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Daily review</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:480px;height:600px;overflow:hidden;background:#1b1e25;font-family:Inter,-apple-system,system-ui,sans-serif;color:#d7dae2;-webkit-font-smoothing:antialiased;font-size:13px;position:relative}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:22px 26px 0}
+.hd h2{margin:0;font-size:15px;font-weight:600;color:#fff}
+.hd .cnt{font-size:12px;color:#8a90a0}
+.dots{display:flex;gap:4px;padding:12px 26px 0}
+.dots i{flex:1;height:3px;border-radius:2px;background:#2b3040}
+.dots i.d{background:#5b8def}
+.stack{position:absolute;left:26px;right:26px;top:88px;height:400px}
+.card{position:absolute;left:0;right:0;top:0;background:#232834;border-radius:16px;padding:26px 26px 22px;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 0 1px #2e3442;display:flex;flex-direction:column;height:380px}
+.card.b2{transform:translateY(16px) scale(.96);opacity:.7;z-index:0;background:#20242e}
+.card.b3{transform:translateY(30px) scale(.92);opacity:.4;z-index:-1;background:#1e222b}
+.card.top{z-index:2}
+.src{display:flex;align-items:center;gap:10px;font-size:12px;color:#8a90a0;margin-bottom:18px}
+.src .cv{width:34px;height:46px;border-radius:3px;background:linear-gradient(160deg,#9a3412,#fdba74);flex:none;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+.src b{display:block;color:#d7dae2;font-weight:500;font-size:13px}
+q{quotes:none;font-family:"Source Serif 4",Georgia,serif;font-size:21px;line-height:1.45;color:#f0f2f6;display:block;flex:1}
+q .hl{background:rgba(250,204,21,.18);box-shadow:0 1px 0 rgba(250,204,21,.5)}
+.note{margin-top:14px;font-size:12.5px;color:#aab0bf;background:#1b1f28;border-radius:8px;padding:8px 10px;line-height:1.45;border-left:2px solid #facc15}
+.note b{color:#facc15;font-weight:500;margin-right:4px}
+.cmeta{display:flex;gap:12px;margin-top:14px;font-size:11px;color:#6c7384;align-items:center}
+.cmeta .tag{border:1px solid #333845;border-radius:999px;padding:1px 7px;color:#aab0bf}
+.acts{position:absolute;left:26px;right:26px;bottom:34px;display:flex;align-items:center;justify-content:space-between}
+.act{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:#8a90a0;width:64px}
+.act .c{width:40px;height:40px;border-radius:50%;background:#232834;border:1px solid #2e3442;display:flex;align-items:center;justify-content:center;color:#d7dae2}
+.act.main .c{width:52px;height:52px;background:#5b8def;border-color:#5b8def;color:#fff}
+.act .lb{white-space:nowrap}
+.act .k{font-size:10px;color:#6c7384;font-style:normal;margin-left:2px}
+.foot{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-size:11px;color:#6c7384}
+</style>
+</head>
+<body>
+<div class="hd"><h2>Daily review</h2><span class="cnt">4 of 10 · streak 23</span></div>
+<div class="dots"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="stack">
+  <div class="card b3"></div>
+  <div class="card b2"></div>
+  <div class="card top">
+    <div class="src"><span class="cv"></span><span><b>Interface culture: notes on the keyboard</b>Hedda Lund · Chapter 3 · Highlighted 14 Oct</span></div>
+    <q>The best shortcut is the one you never had to learn, because the key <span class="hl">already meant that</span> everywhere else you had ever typed.</q>
+    <div class="note"><b>.note</b>Argument for borrowing conventions (⌘K, J/K) rather than inventing them. Use in the command palette review.</div>
+    <div class="cmeta"><span class="tag">typography</span><span class="tag">keyboards</span><span style="margin-left:auto">Seen 3× · last 9 days ago</span></div>
+  </div>
+</div>
+<div class="acts">
+  <div class="act"><span class="c"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="lb">Skip <i class="k">→</i></span></div>
+  <div class="act"><span class="c"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="3" width="11" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M5 6.5h6M5 9h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span><span class="lb">Edit <i class="k">E</i></span></div>
+  <div class="act main"><span class="c"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 11.5l5 5L18 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="lb">Keep <i class="k">space</i></span></div>
+  <div class="act"><span class="c"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.8 3.7 4 .6-2.9 2.8.7 4L8 11.2l-3.6 1.9.7-4L2.2 6.3l4-.6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span class="lb">Favorite <i class="k">F</i></span></div>
+  <div class="act"><span class="c"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 4h10M6 4V2.5h4V4M4.5 4l.8 9h5.4l.8-9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="lb">Discard <i class="k">D</i></span></div>
+</div>
+<div class="foot">Resurfacing from 1,284 highlights across 96 sources</div>
+</body>
+</html>

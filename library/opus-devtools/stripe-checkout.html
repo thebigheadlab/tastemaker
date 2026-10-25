@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Hosted checkout</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#fff;color:#1a1a1a;font:14px/1.4 Inter,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;display:flex}
+svg{display:block;flex:none}
+.l{width:50%;background:#f6f4ef;display:flex;justify-content:flex-end;box-shadow:inset -1px 0 0 #ebe7de;position:relative}
+.l:after{content:"";position:absolute;right:0;top:0;bottom:0;width:18px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.025))}
+.li{width:440px;padding:56px 56px 0 0;position:relative}
+.biz{display:flex;align-items:center;gap:10px;font-weight:500;font-size:14px;color:#1a1a1a}
+.back{color:#6b6b6b}
+.bl{width:28px;height:28px;border-radius:50%;background:#2f4a3a;display:grid;place-items:center}
+.test{font-size:11px;font-weight:600;color:#a35200;background:#ffde92;border-radius:4px;padding:1px 6px;letter-spacing:.02em;text-transform:uppercase}
+.pay{margin-top:34px;color:#6b6b6b;font-size:15px;font-weight:500}
+.amt{font-size:36px;font-weight:600;letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
+.items{margin-top:30px}
+.it{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+.th{width:44px;height:44px;border-radius:6px;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.it .n{font-weight:500;font-size:14px}
+.it .q{font-size:12.5px;color:#6b6b6b;margin-top:2px}
+.it .p{margin-left:auto;font-weight:500;font-variant-numeric:tabular-nums}
+.sum{margin-left:58px;border-top:1px solid #e3dfd5;padding-top:14px}
+.sr{display:flex;justify-content:space-between;font-size:14px;margin-bottom:12px;font-variant-numeric:tabular-nums}
+.sr.m{color:#6b6b6b}
+.promo{display:inline-flex;height:30px;align-items:center;padding:0 12px;border-radius:6px;background:#ece8df;font-size:13px;font-weight:500;color:#3d3d3d;margin-bottom:14px}
+.sr.t{border-top:1px solid #e3dfd5;padding-top:14px;font-weight:600}
+.pw{position:absolute;bottom:32px;left:0;display:flex;gap:14px;font-size:12px;color:#8a8a8a}
+.pw b{color:#6b6b6b;font-weight:600}
+.r{width:50%;display:flex}
+.ri{width:440px;padding:56px 0 0 56px}
+.wallet{height:44px;border-radius:6px;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:500;font-size:16px}
+.or{display:flex;align-items:center;gap:12px;color:#8a8a8a;font-size:13px;margin:22px 0 20px}
+.or:before,.or:after{content:"";flex:1;height:1px;background:#e6e6e6}
+.lab{font-size:13px;font-weight:500;color:#4d4d4d;margin:0 0 6px}
+.field{height:42px;border-radius:6px;box-shadow:0 0 0 1px #e0e0e0,0 2px 4px rgba(0,0,0,.04);display:flex;align-items:center;padding:0 12px;font-size:15px;background:#fff}
+.field .ph{color:#9a9a9a}
+.grp{border-radius:6px;box-shadow:0 0 0 1px #e0e0e0,0 2px 4px rgba(0,0,0,.04);overflow:hidden;background:#fff}
+.grp .row{height:42px;display:flex;align-items:center;padding:0 12px;font-size:15px}
+.grp .row+.row,.grp .split{border-top:1px solid #e6e6e6}
+.split{display:flex}
+.split .row{flex:1}
+.split .row+.row{border-left:1px solid #e6e6e6;border-top:0}
+.grp.foc{box-shadow:0 0 0 1px #0570de,0 0 0 4px rgba(5,112,222,.18)}
+.brands{margin-left:auto;display:flex;gap:4px}
+.brands i{width:28px;height:18px;border-radius:3px;display:block}
+.mb{margin-bottom:16px}
+.ck{display:flex;gap:10px;align-items:flex-start;border:1px solid #e0e0e0;border-radius:6px;padding:12px;font-size:13px;color:#4d4d4d;margin:18px 0}
+.ck .bx{width:16px;height:16px;border:1px solid #c4c4c4;border-radius:4px;flex:none;margin-top:1px}
+.ck b{display:block;color:#1a1a1a;font-weight:500;font-size:14px}
+.btn{height:46px;border-radius:6px;background:#0570de;color:#fff;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 1px 1px rgba(0,0,0,.08),inset 0 -1px 0 rgba(0,0,0,.12)}
+.legal{font-size:12px;color:#8a8a8a;text-align:center;margin-top:14px;line-height:1.5}
+.caret{display:inline-block;width:1.5px;height:17px;background:#0570de;vertical-align:middle;margin-left:1px}
+</style></head><body>
+<div class="l"><div class="li">
+  <div class="biz"><svg class="back" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg><span class="bl"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#e8dcc4" stroke-width="1.5"><path d="M8 13c-3-1.5-4-4.2-4-7 2.8 0 5.5 1 7 4M8 13c1-3 3-6 5-7"/></svg></span>Kettle &amp; Leaf<span class="test">Test mode</span></div>
+  <div class="pay">Pay Kettle &amp; Leaf</div>
+  <div class="amt">$143.64</div>
+  <div class="items">
+    <div class="it"><div class="th" style="background:radial-gradient(circle at 50% 60%,#7f9a55 0 30%,#b7c98e 31% 45%,#f2efe6 46%)"></div><div><div class="n">Sencha Reserve, 100 g tin</div><div class="q">Qty 2 · $24.00 each</div></div><div class="p">$48.00</div></div>
+    <div class="it"><div class="th" style="background:radial-gradient(ellipse 50% 40% at 50% 62%,#262626 0 98%,transparent 100%),linear-gradient(#e9e4da,#e9e4da)"></div><div><div class="n">Tetsubin kettle, matte black</div><div class="q">0.8 L cast iron</div></div><div class="p">$86.00</div></div>
+  </div>
+  <div class="sum">
+    <div class="sr"><span>Subtotal</span><span>$134.00</span></div>
+    <div class="promo">Add promotion code</div>
+    <div class="sr m"><span>Shipping<br><span style="font-size:12.5px">Standard, 3–5 business days</span></span><span>$0.00</span></div>
+    <div class="sr m"><span>Sales tax (7.2%)</span><span>$9.64</span></div>
+    <div class="sr t"><span>Total due</span><span>$143.64</span></div>
+  </div>
+<div class="pw"><span>Powered by <b>ledgerline</b></span><span style="color:#d0ccc2">|</span><span>Terms</span><span>Privacy</span></div>
+</div></div>
+<div class="r"><div class="ri">
+  <div class="wallet"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2.5" y="5" width="15" height="11" rx="2.5"/><path d="M2.5 8.5h15"/><path d="M13 12.5h2"/></svg>Pay</div>
+  <div class="or">Or pay with card</div>
+  <div class="lab">Email</div>
+  <div class="field mb">mara.lindgren@example.com</div>
+  <div class="lab">Card information</div>
+  <div class="grp foc mb">
+    <div class="row">4242 4242 4242 42<span class="caret"></span>
+      <span class="brands"><i style="background:#1a1f71"></i><i style="background:linear-gradient(90deg,#eb001b 0 50%,#f79e1b 50%)"></i><i style="background:#2e77bc"></i></span></div>
+    <div class="split"><div class="row"><span class="ph" style="color:#9a9a9a">MM / YY</span></div><div class="row"><span style="color:#9a9a9a">CVC</span><svg style="margin-left:auto" width="26" height="18" viewBox="0 0 26 18"><rect x=".5" y=".5" width="25" height="17" rx="2.5" fill="#f2f2f2" stroke="#d6d6d6"/><rect x="0" y="4" width="26" height="3" fill="#bdbdbd"/><rect x="15" y="10" width="7" height="3.5" rx="1" fill="#fff" stroke="#9a9a9a" stroke-width=".8"/></svg></div></div>
+  </div>
+  <div class="lab">Cardholder name</div>
+  <div class="field mb">Mara Lindgren</div>
+  <div class="lab">Country or region</div>
+  <div class="grp"><div class="row">United States<svg style="margin-left:auto" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#6b6b6b" stroke-width="1.8"><path d="m4 6 4 4 4-4"/></svg></div><div class="row"><span style="color:#9a9a9a">ZIP</span></div></div>
+  <div class="ck"><span class="bx"></span><span><b>Securely save my information for 1-click checkout</b>Pay faster here and on thousands of other sites.</span></div>
+  <div class="btn">Pay $143.64</div>
+</div></div>
+</body></html>

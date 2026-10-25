@@ -1,0 +1,25 @@
+{
+  "id": "discord-message-group",
+  "kind": "component",
+  "subtype": "chat message",
+  "title": "Message with embed",
+  "inspiredBy": "Discord",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Hovered message with the floating action bar, a reply spine curving to the parent, tinted @mention, a colored-border link embed with fields and thumbnail, reaction chips (own reaction outlined in blurple) and a thread summary line."
+}

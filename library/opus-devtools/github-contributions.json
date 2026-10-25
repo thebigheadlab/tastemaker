@@ -1,0 +1,28 @@
+{
+  "id": "github-contributions",
+  "kind": "component",
+  "subtype": "activity heatmap",
+  "title": "Contribution graph",
+  "inspiredBy": "GitHub",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Year contribution heatmap in five greens with month labels, legend and a year switcher."
+}

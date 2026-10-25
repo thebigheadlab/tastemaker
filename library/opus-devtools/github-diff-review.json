@@ -1,0 +1,28 @@
+{
+  "id": "github-diff-review",
+  "kind": "component",
+  "subtype": "code diff",
+  "title": "Diff review",
+  "inspiredBy": "GitHub",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "mono",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Dark unified diff with add/remove gutters and an inline suggestion review comment."
+}

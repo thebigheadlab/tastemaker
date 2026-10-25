@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tag tree</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:480px;height:600px;overflow:hidden;background:#efe6d6;font-family:"Nunito Sans","Avenir Next",-apple-system,system-ui,sans-serif;color:#3d3833;-webkit-font-smoothing:antialiased;font-size:13.5px;display:flex}
+.side{width:250px;flex:none;background:#2f2a26;color:#d9cfc0;padding:18px 0 0;box-sizing:border-box;display:flex;flex-direction:column}
+.hd{display:flex;justify-content:space-between;align-items:center;padding:0 16px 10px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:#8c8176;font-weight:700}
+.tg{display:flex;align-items:center;gap:9px;padding:5px 16px;font-size:13.5px;color:#d9cfc0;position:relative}
+.tg .chev{width:10px;color:#8c8176;font-size:9px;flex:none}
+.tg .ic{width:20px;height:20px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;flex:none;font-size:12px;color:#fff}
+.tg .n{margin-left:auto;color:#8c8176;font-size:12px}
+.tg.sub{padding-left:38px}
+.tg.sub2{padding-left:58px}
+.tg.on{background:#c8664f;color:#fff;margin:0 8px;padding-left:8px;border-radius:6px}
+.tg.on .n{color:rgba(255,255,255,.75)}
+.tg.sub.on{padding-left:30px}
+.tg.drop{outline:1.5px dashed #c8664f;outline-offset:-2px;border-radius:6px;margin:0 8px;padding-left:8px}
+.tg.sub.drop{padding-left:30px}
+.ghost{position:absolute;left:46px;top:284px;background:#3d3833;color:#f3ecdf;border-radius:8px;padding:6px 12px;font-size:13px;box-shadow:0 10px 24px rgba(0,0,0,.35);display:flex;align-items:center;gap:8px;transform:rotate(-2deg);opacity:.95;z-index:3}
+.ghost b{font-weight:700;color:#fff}
+.foot{margin-top:auto;display:flex;justify-content:space-between;padding:10px 16px;color:#8c8176;font-size:12px;border-top:1px solid #3f3934}
+.pop{position:absolute;left:262px;top:150px;width:200px;background:#fbf6ec;border-radius:12px;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 14px 36px rgba(60,40,20,.25);padding:12px;box-sizing:border-box}
+.pop .ttl{font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#a0948a;font-weight:700;margin-bottom:8px}
+.pop .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.pop .grid span{height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
+.pop .grid span.on{box-shadow:0 0 0 2px #fbf6ec,0 0 0 3.5px #c8664f}
+.pop .srch{margin-top:10px;background:#efe6d6;border-radius:7px;height:26px;display:flex;align-items:center;padding:0 8px;font-size:12px;color:#a0948a}
+.pop .arrow{position:absolute;left:-6px;top:28px;width:12px;height:12px;background:#fbf6ec;transform:rotate(45deg);box-shadow:-1px 1px 0 rgba(0,0,0,.06)}
+.hint{position:absolute;left:262px;bottom:30px;width:200px;font-size:12px;color:#8c8176;line-height:1.5}
+.hint b{color:#3d3833;font-weight:700}
+</style>
+</head>
+<body>
+<div class="side">
+  <div class="hd">Tags<span>⌘⇧T</span></div>
+  <div class="tg"><span class="chev">▾</span><span class="ic" style="background:#c8664f">✎</span>design<span class="n">48</span></div>
+  <div class="tg sub"><span class="chev">▾</span><span class="ic" style="background:#c8664f">✎</span>crit notes<span class="n">22</span></div>
+  <div class="tg sub2"><span class="chev"></span><span class="ic" style="background:#b88a7a">✎</span>billing<span class="n">6</span></div>
+  <div class="tg sub2"><span class="chev"></span><span class="ic" style="background:#b88a7a">✎</span>onboarding<span class="n">9</span></div>
+  <div class="tg sub on"><span class="chev"></span><span class="ic" style="background:#fff;color:#c8664f">◆</span>principles<span class="n">7</span></div>
+  <div class="tg sub"><span class="chev"></span><span class="ic" style="background:#c8664f">A</span>type<span class="n">9</span></div>
+  <div class="tg"><span class="chev">▾</span><span class="ic" style="background:#8a6f4e">☕</span>journal<span class="n">96</span></div>
+  <div class="tg sub drop"><span class="chev"></span><span class="ic" style="background:#8a6f4e">☼</span>mornings<span class="n">41</span></div>
+  <div class="tg sub"><span class="chev"></span><span class="ic" style="background:#8a6f4e">☾</span>evenings<span class="n">55</span></div>
+  <div class="tg"><span class="chev">▸</span><span class="ic" style="background:#5f7f6a">❦</span>reading<span class="n">31</span></div>
+  <div class="tg"><span class="chev"></span><span class="ic" style="background:#9a7fb5">♪</span>music<span class="n">12</span></div>
+  <div class="tg"><span class="chev"></span><span class="ic" style="background:#4a6f8f">✈</span>travel<span class="n">18</span></div>
+  <div class="tg"><span class="chev"></span><span class="ic" style="background:#b58a3d">⚘</span>recipes<span class="n">9</span></div>
+  <div class="tg"><span class="chev"></span><span class="ic" style="background:#6b6b6b">#</span>untagged<span class="n">14</span></div>
+  <div class="foot"><span>Sort: by name</span><span>+ New tag</span></div>
+</div>
+<div class="ghost"><span style="width:16px;height:16px;border-radius:5px;background:#8a6f4e;display:inline-flex;align-items:center;justify-content:center;font-size:10px">☕</span><b>Walk to the lake</b><span style="opacity:.6">+ 2</span></div>
+<div class="pop">
+  <span class="arrow"></span>
+  <div class="ttl">TagCon for #principles</div>
+  <div class="grid">
+    <span style="background:#c8664f">✎</span><span style="background:#c8664f" class="on">◆</span><span style="background:#c8664f">★</span><span style="background:#c8664f">⚑</span><span style="background:#c8664f">☑</span>
+    <span style="background:#c8664f">♥</span><span style="background:#c8664f">✦</span><span style="background:#c8664f">☀</span><span style="background:#c8664f">⌘</span><span style="background:#c8664f">✉</span>
+    <span style="background:#c8664f">❦</span><span style="background:#c8664f">☕</span><span style="background:#c8664f">✈</span><span style="background:#c8664f">♪</span><span style="background:#c8664f">⚘</span>
+  </div>
+  <div class="srch">Search 1,200 icons…</div>
+</div>
+<div class="hint"><b>Dragging 3 notes</b> onto #journal/mornings. Nested tags are just slashes in the note: <b>#journal/mornings</b>.</div>
+</body>
+</html>

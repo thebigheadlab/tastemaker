@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reading view</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:1280px;height:800px;overflow:hidden;background:#1b1e25;font-family:Inter,-apple-system,system-ui,sans-serif;color:#d7dae2;-webkit-font-smoothing:antialiased;font-size:13px;display:flex}
+.side{width:224px;flex:none;background:#171a20;border-right:1px solid #262a33;padding:14px 10px;box-sizing:border-box;display:flex;flex-direction:column}
+.side .top{display:flex;align-items:center;justify-content:space-between;padding:0 6px 14px;color:#8a90a0}
+.side .top b{color:#e6e8ee;font-weight:600;font-size:14px}
+.nv{display:flex;align-items:center;gap:9px;padding:5px 8px;border-radius:6px;color:#aab0bf;font-size:13px}
+.nv.on{background:#262b36;color:#fff;font-weight:500}
+.nv .n{margin-left:auto;color:#6c7384;font-size:11px}
+.nv svg{flex:none}
+.grp{padding:14px 8px 4px;font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;color:#6c7384;font-weight:600}
+.nv.sub{padding-left:20px}
+.doc{flex:1;min-width:0;display:flex;flex-direction:column;position:relative}
+.doc .bar{height:44px;display:flex;align-items:center;padding:0 22px;gap:14px;color:#8a90a0;font-size:12px;border-bottom:1px solid #262a33}
+.doc .bar .r{margin-left:auto;display:flex;gap:16px;align-items:center}
+.doc .bar .k{border:1px solid #333845;border-radius:3px;padding:0 4px;color:#8a90a0;font-size:10px;margin-left:4px}
+.prog{position:absolute;left:0;top:44px;height:2px;width:42%;background:#5b8def}
+.art{flex:1;overflow:hidden;padding:36px 0 0;display:flex;justify-content:center}
+.col{width:640px}
+.kicker{font-size:12px;color:#8a90a0;display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.kicker i{width:16px;height:16px;border-radius:4px;background:#2d6a4f;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:9px;color:#fff;font-weight:700}
+h1{font-family:"Source Serif 4",Georgia,serif;font-size:34px;line-height:1.2;font-weight:600;letter-spacing:-.3px;margin:0 0 10px;color:#f0f2f6}
+.by{font-size:13px;color:#8a90a0;margin-bottom:26px}
+.by b{color:#c3c8d4;font-weight:500}
+p{font-family:"Source Serif 4",Georgia,serif;font-size:18.5px;line-height:1.62;margin:0 0 20px;color:#d7dae2}
+.hl{background:rgba(250,204,21,.22);box-shadow:0 1px 0 rgba(250,204,21,.6);color:#f5f1d8;border-radius:1px}
+.hl.b{background:rgba(96,165,250,.22);box-shadow:0 1px 0 rgba(96,165,250,.6)}
+.hl.note{position:relative}
+.hl.note:after{content:"";position:absolute;right:-12px;top:-4px;width:8px;height:8px;border-radius:50%;background:#facc15}
+.panel{width:300px;flex:none;border-left:1px solid #262a33;background:#171a20;display:flex;flex-direction:column}
+.ptabs{display:flex;gap:18px;padding:14px 18px 0;border-bottom:1px solid #262a33;font-size:12px;color:#6c7384}
+.ptabs span{padding-bottom:10px;position:relative}
+.ptabs span.on{color:#fff;font-weight:500}
+.ptabs span.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#5b8def}
+.pbody{padding:14px 18px;overflow:hidden;flex:1}
+.ph{font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;color:#6c7384;font-weight:600;margin:4px 0 8px}
+.meta{font-size:12px;color:#aab0bf;line-height:1.6}
+.meta b{color:#6c7384;font-weight:500;display:inline-block;width:76px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 16px}
+.tags span{border:1px solid #333845;border-radius:999px;padding:1px 8px;font-size:11px;color:#aab0bf}
+.hcard{border-left:2px solid #facc15;padding:2px 0 2px 10px;margin-bottom:12px}
+.hcard.b{border-color:#60a5fa}
+.hcard q{font-family:"Source Serif 4",Georgia,serif;font-size:13px;line-height:1.5;color:#d7dae2;quotes:none}
+.hcard .nt{margin-top:6px;font-size:12px;color:#aab0bf;background:#20242d;border-radius:6px;padding:6px 8px;line-height:1.45}
+.hcard .nt b{color:#facc15;font-weight:500;margin-right:4px}
+.ghost{margin-top:4px;border:1px dashed #333845;border-radius:6px;padding:8px 10px;font-size:12px;color:#6c7384}
+.pfoot{border-top:1px solid #262a33;padding:10px 18px;font-size:11px;color:#6c7384;display:flex;justify-content:space-between}
+.sum{background:#20242d;border-radius:8px;padding:10px 12px;font-size:12px;color:#c3c8d4;line-height:1.5;margin-bottom:14px}
+.sum b{display:flex;align-items:center;gap:6px;font-weight:500;color:#aab0bf;font-size:11px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="side">
+  <div class="top"><b>Library</b><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4h10M2 7h10M2 10h10" stroke="#8a90a0" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+  <div class="nv"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l5-4.5L12 7v5H2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Home</div>
+  <div class="nv"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 5h5M4.5 7.5h5M4.5 10h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Library</div>
+  <div class="nv sub on">Inbox<span class="n">24</span></div>
+  <div class="nv sub">Later<span class="n">118</span></div>
+  <div class="nv sub">Archive</div>
+  <div class="nv"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="3.5" cy="10.5" r="1.3" fill="currentColor"/><path d="M2.5 6a5.5 5.5 0 0 1 5.5 5.5M2.5 2.5a9 9 0 0 1 9 9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Feed<span class="n">37</span></div>
+  <div class="nv"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 3h6l2 2v6H3z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>Daily review</div>
+  <div class="grp">Views</div>
+  <div class="nv">Shortlist<span class="n">9</span></div>
+  <div class="nv">Design essays</div>
+  <div class="nv">Newsletters<span class="n">12</span></div>
+  <div class="nv">Papers to skim</div>
+  <div class="grp">Tags</div>
+  <div class="nv">typography</div>
+  <div class="nv">systems</div>
+  <div class="nv">craft</div>
+  <div style="margin-top:auto;font-size:11px;color:#6c7384;padding:0 8px">Synced 2 min ago</div>
+</div>
+<div class="doc">
+  <div class="bar"><span>Inbox</span><span>›</span><span style="color:#c3c8d4">Article</span><span class="r"><span>12 min left</span><span>Aa<span class="k">⇧A</span></span><span>Highlight<span class="k">H</span></span><span>Archive<span class="k">E</span></span><span>Later<span class="k">L</span></span></span></div>
+  <div class="prog"></div>
+  <div class="art"><div class="col">
+    <div class="kicker"><i>fw</i>frankwrites.co · 14 min · Saved from Safari</div>
+    <h1>The quiet case for slower interfaces</h1>
+    <div class="by"><b>Frank Alder</b> · Oct 18, 2026 · Highlighted 4</div>
+    <p>We spent a decade shaving milliseconds off every interaction, and it worked: software feels instant now. But somewhere along the way, instant stopped feeling like a courtesy and started feeling like pressure. <span class="hl">A list that refreshes before you've finished reading it is not fast. It is impatient.</span></p>
+    <p>Consider the humble loading state. Designers treat it as a failure to hide, yet the best ones do something else entirely: <span class="hl note">they give the person a beat to decide whether they still want what they asked for.</span> Reading apps understand this. A page turn that takes a quarter of a second is not latency, it is punctuation.</p>
+    <p>None of this is an argument for slow software. It is an argument for <span class="hl b">interfaces that move at the speed of attention rather than the speed of the network.</span> Those are different speeds, and most of the time the first one is lower.</p>
+    <p>What would it look like to design for that? Fewer things animating at once. Transitions that finish before the next one begins. Notifications that wait for a pause instead of interrupting a sentence. In short, an interface with manners.</p>
+  </div></div>
+</div>
+<div class="panel">
+  <div class="ptabs"><span class="on">Notebook</span><span>Info</span><span>Links</span></div>
+  <div class="pbody">
+    <div class="sum"><b><svg width="11" height="11" viewBox="0 0 11 11"><path d="M5.5 1l1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1z" fill="#8ab4ff"/></svg>Ghostreader summary</b>Argues that instant UI can feel impatient; proposes pacing interfaces to attention, not network speed.</div>
+    <div class="ph">Document note</div>
+    <div class="ghost">Add a note about this document…</div>
+    <div class="ph" style="margin-top:16px">Highlights · 4</div>
+    <div class="hcard"><q>A list that refreshes before you've finished reading it is not fast. It is impatient.</q></div>
+    <div class="hcard"><q>they give the person a beat to decide whether they still want what they asked for.</q><div class="nt"><b>.note</b>Pull for the onboarding deck: pacing as courtesy.</div></div>
+    <div class="hcard b"><q>interfaces that move at the speed of attention rather than the speed of the network.</q><div class="nt"><b>.tag</b>systems · motion</div></div>
+  </div>
+  <div class="pfoot"><span>↑↓ to jump between highlights</span><span>Export</span></div>
+</div>
+</body>
+</html>

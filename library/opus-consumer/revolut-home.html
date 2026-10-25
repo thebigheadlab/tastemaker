@@ -1,0 +1,72 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Account home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#000;font-family:Inter,"Aeonik Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#fff;overflow:hidden;-webkit-font-smoothing:antialiased;width:390px;height:844px;position:relative;letter-spacing:-.01em}
+.bg{position:absolute;left:0;right:0;top:0;height:560px;background:radial-gradient(120% 70% at 20% 10%,#4a3bd6 0%,rgba(74,59,214,0) 60%),radial-gradient(90% 60% at 90% 40%,#0f7ae5 0%,rgba(15,122,229,0) 60%),linear-gradient(180deg,#1b1650 0%,#0a0a1a 80%,#000 100%)}
+.wrap{position:relative;padding:0 16px}
+.status{height:50px;display:flex;justify-content:space-between;align-items:center;padding:4px 14px 0 24px;font-weight:600;font-size:16px}
+.sicons{display:flex;gap:6px;align-items:center}
+.bar{display:flex;align-items:center;gap:10px;margin-top:4px}
+.av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f59e8b,#c2577a);display:grid;place-items:center;font-weight:700;font-size:14px;position:relative}
+.av i{position:absolute;right:-2px;top:-2px;width:10px;height:10px;border-radius:50%;background:#ff4d4d;border:2px solid #241c63}
+.sr{flex:1;height:38px;border-radius:19px;background:rgba(255,255,255,.14);display:flex;align-items:center;gap:8px;padding:0 12px;font-size:15px;color:rgba(255,255,255,.7)}
+.ci{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center}
+.bal{text-align:center;margin-top:46px}
+.bal small{font-size:14px;color:rgba(255,255,255,.75);font-weight:500}
+.bal .n{font-size:52px;font-weight:700;letter-spacing:-.035em;margin-top:6px;line-height:58px}
+.bal .n span{font-size:30px;letter-spacing:-.02em}
+.acc{display:inline-flex;margin-top:14px;background:rgba(255,255,255,.16);border-radius:16px;padding:7px 14px;font-size:14px;font-weight:600}
+.dots{display:flex;justify-content:center;gap:5px;margin-top:22px}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35)}.dots i.on{background:#fff}
+.acts{display:flex;justify-content:space-around;margin-top:28px}
+.a{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;font-weight:500}
+.a span{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.list{margin-top:30px;background:#1c1c1e;border-radius:22px;padding:6px 16px}
+.t{display:flex;align-items:center;gap:14px;height:66px}
+.t+.t{border-top:0}
+.lg{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px;flex:none}
+.t .m{flex:1}
+.t b{display:block;font-size:16px;font-weight:600}
+.t small{font-size:13px;color:#8d8d93}
+.t .v{text-align:right;font-size:16px;font-weight:600}
+.t .v small{display:block;font-weight:400}
+.see{text-align:center;color:#4f9cff;font-size:15px;font-weight:600;padding:8px 0 12px}
+.tab{position:absolute;left:0;right:0;bottom:0;height:84px;background:rgba(18,18,20,.96);display:flex;justify-content:space-around;padding-top:9px;border-top:1px solid #222}
+.tab div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;font-weight:600;color:#8d8d93}
+.tab .on{color:#fff}
+.home{position:absolute;bottom:8px;left:50%;width:134px;height:5px;margin-left:-67px;background:#fff;border-radius:3px}
+</style></head><body>
+<div class="bg"></div>
+<div class="wrap">
+  <div class="status">9:41<span class="sicons"><svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="#fff"><path d="M8 2.5c2.3 0 4.4.9 6 2.4l1.2-1.3A10.4 10.4 0 0 0 8 .7C5.2.7 2.7 1.8.8 3.6L2 4.9a8.6 8.6 0 0 1 6-2.4zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.3-1.3A6.6 6.6 0 0 0 8 4.3c-1.8 0-3.4.7-4.7 1.8l1.3 1.3c.9-.8 2.1-1.3 3.4-1.3zM8 9.6l2-2a2.8 2.8 0 0 0-4 0z"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#fff" opacity=".5"/><rect x="2" y="2" width="20" height="9" rx="2" fill="#fff"/></svg></span></div>
+  <div class="bar"><div class="av">EK<i></i></div><div class="sr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="2.2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>Search</div>
+  <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+  <div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19"/></svg></div></div>
+  <div class="bal"><small>Personal · GBP</small><div class="n">£2,481<span>.30</span></div><div class="acc">Accounts</div></div>
+  <div class="dots"><i class="on"></i><i></i><i></i></div>
+  <div class="acts">
+    <div class="a"><span><svg width="20" height="20" viewBox="0 0 24 24" stroke="#fff" stroke-width="2.4"><path d="M12 4v16M4 12h16"/></svg></span>Add money</div>
+    <div class="a"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 8h14l-4-4M20 16H6l4 4"/></svg></span>Move</div>
+    <div class="a"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M5 8h14M5 12h14M5 16h9"/></svg></span>Details</div>
+    <div class="a"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span>More</div>
+  </div>
+  <div class="list">
+    <div class="t"><div class="lg" style="background:#00a862;color:#fff">P</div><div class="m"><b>Pret Exchange</b><small>Today, 08:42</small></div><div class="v">-£6.85</div></div>
+    <div class="t"><div class="lg" style="background:#fff;color:#000"><svg width="18" height="18" viewBox="0 0 24 24" fill="#000"><path d="M3 18 12 4l9 14z"/></svg></div><div class="m"><b>Transport for London</b><small>Yesterday, 18:10</small></div><div class="v">-£2.80</div></div>
+    <div class="t"><div class="lg" style="background:#2b2b2e;color:#fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div><div class="m"><b>From Olivia Hart</b><small>Yesterday, 12:31 · Dinner split</small></div><div class="v" style="color:#36d07f">+£24.00</div></div>
+    <div class="t"><div class="lg" style="background:#ff6a00;color:#fff">K</div><div class="m"><b>Kinetic Gym</b><small>Oct 21 · Subscription</small></div><div class="v">-£42.00</div></div>
+    <div class="see">See all</div>
+  </div>
+</div>
+<div class="tab">
+  <div class="on"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg>Home</div>
+  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8d8d93" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>Invest</div>
+  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8d8d93" stroke-width="2"><path d="M7 7h14l-4-4M17 17H3l4 4"/></svg>Payments</div>
+  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8d8d93" stroke-width="2"><path d="M12 3l2.6 5.5 6 .8-4.4 4.2 1 6L12 16.6 6.8 19.5l1-6L3.4 9.3l6-.8z"/></svg>Crypto</div>
+  <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8d8d93" stroke-width="2"><path d="M4 6h16v12H4zM4 10h16"/></svg>Lifestyle</div>
+</div>
+<div class="home"></div>
+</body></html>

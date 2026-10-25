@@ -1,0 +1,28 @@
+{
+  "id": "arc-browser-window",
+  "kind": "screen",
+  "subtype": "browser window",
+  "title": "Browser window",
+  "inspiredBy": "Arc",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "soft",
+    "accentHue": "purple",
+    "typeStyle": "geometric",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Full Arc window: tinted sidebar framing a rounded floating web page, with split view."
+}
