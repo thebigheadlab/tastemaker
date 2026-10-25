@@ -1,0 +1,80 @@
+<template>
+  <style>
+    #root { position:absolute; inset:0; background:#5B57F5; font-family:Inter,sans-serif; color:#fff; overflow:hidden; }
+    .s3-left { position:absolute; left:150px; top:300px; width:860px; }
+    .s3-title { font-size:116px; font-weight:700; letter-spacing:-0.045em; line-height:1.02; }
+    .s3-w { display:inline-block; }
+    .s3-sub { margin-top:40px; font-size:40px; line-height:1.35; color:rgba(255,255,255,.82); width:860px; }
+    .s3-sheet { position:absolute; width:520px; height:620px; border-radius:22px; background:#fff; color:#16161D; overflow:hidden;
+      box-shadow:0 40px 70px -30px rgba(14,14,40,.55); }
+    .s3-bar { height:72px; display:flex; align-items:center; padding:0 30px; gap:12px; background:#F3F3F7;
+      font-family:"JetBrains Mono",monospace; font-size:28px; font-weight:700; }
+    .s3-dot { width:14px; height:14px; border-radius:50%; background:#5B57F5; }
+    .s3-body { padding:30px 34px; font-size:28px; line-height:1.45; }
+    .s3-h { font-size:40px; font-weight:700; letter-spacing:-0.03em; margin-bottom:14px; }
+    .s3-sec { color:#6B6B78; font-size:26px; margin-bottom:10px; }
+    .s3-li { display:flex; gap:12px; margin-bottom:8px; }
+    .s3-li span:first-child { color:#5B57F5; font-weight:700; }
+    .s3-row { display:flex; align-items:center; gap:16px; margin-bottom:14px; }
+    .s3-chip { width:40px; height:40px; border-radius:10px; }
+    .s3-hex { font-family:"JetBrains Mono",monospace; font-size:26px; color:#6B6B78; margin-left:auto; }
+    .s3-code { font-family:"JetBrains Mono",monospace; font-size:24px; line-height:1.6; white-space:pre; }
+    .s3-k { color:#5B57F5; } .s3-v { color:#22A35B; }
+    #s3-tokens { left:1300px; top:150px; z-index:1; }
+    #s3-style { left:1190px; top:225px; z-index:2; }
+    #s3-design { left:1080px; top:300px; z-index:3; }
+  </style>
+  <div id="root" data-composition-id="docs" data-width="1920" data-height="1080">
+    <div class="s3-left">
+      <h1 class="s3-title" id="s3-title"><span class="s3-w">Your</span> <span class="s3-w">taste,</span><br /><span class="s3-w">written</span> <span class="s3-w">down.</span></h1>
+      <p class="s3-sub" id="s3-sub">Docs and tokens to build with, in any tool.</p>
+    </div>
+    <div class="s3-sheets" id="s3-sheets" data-layout-allow-overflow data-layout-allow-overlap>
+      <div class="s3-sheet" id="s3-tokens">
+        <div class="s3-bar"><i class="s3-dot"></i>tokens.json</div>
+        <div class="s3-body s3-code"><span class="s3-k">"radius"</span>: {
+  <span class="s3-k">"sm"</span>: { <span class="s3-k">"$value"</span>: <span class="s3-v">"8px"</span> },
+  <span class="s3-k">"md"</span>: { <span class="s3-k">"$value"</span>: <span class="s3-v">"12px"</span> },
+  <span class="s3-k">"lg"</span>: { <span class="s3-k">"$value"</span>: <span class="s3-v">"16px"</span> }
+},
+<span class="s3-k">"accent"</span>: {
+  <span class="s3-k">"$value"</span>: <span class="s3-v">"#5B57F5"</span>
+}</div>
+      </div>
+      <div class="s3-sheet" id="s3-style">
+        <div class="s3-bar"><i class="s3-dot"></i>STYLE.md</div>
+        <div class="s3-body">
+          <div class="s3-h">Color</div>
+          <div class="s3-row"><i class="s3-chip" style="background:#5B57F5"></i>accent<span class="s3-hex">#5B57F5</span></div>
+          <div class="s3-row"><i class="s3-chip" style="background:#22A35B"></i>success<span class="s3-hex">#22A35B</span></div>
+          <div class="s3-row"><i class="s3-chip" style="background:#F5A524"></i>warning<span class="s3-hex">#F5A524</span></div>
+          <div class="s3-row"><i class="s3-chip" style="background:#E5484D"></i>danger<span class="s3-hex">#E5484D</span></div>
+          <div class="s3-row"><i class="s3-chip" style="background:#F3F3F7;box-shadow:inset 0 0 0 1px #E6E6EC"></i>surface-2<span class="s3-hex">#F3F3F7</span></div>
+        </div>
+      </div>
+      <div class="s3-sheet" id="s3-design">
+        <div class="s3-bar"><i class="s3-dot"></i>DESIGN.md</div>
+        <div class="s3-body">
+          <div class="s3-h">Principles</div>
+          <div class="s3-li"><span>1.</span><span>Clarity first, then charm.</span></div>
+          <div class="s3-li"><span>2.</span><span>Color means something.</span></div>
+          <div class="s3-li"><span>3.</span><span>Soft geometry.</span></div>
+          <div class="s3-li"><span>4.</span><span>Depth from light, not lines.</span></div>
+          <div class="s3-li"><span>5.</span><span>Playful where it rewards.</span></div>
+          <div class="s3-li"><span>6.</span><span>Serif for reading only.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".s3-w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power4.out", stagger: 0.08 }, 0.0);
+    tl.fromTo("#s3-tokens", { y: 820, rotation: -4 }, { y: 0, rotation: 8, duration: 0.65, ease: "back.out(1.1)" }, 0.1);
+    tl.fromTo("#s3-style", { y: 820, rotation: -6 }, { y: 0, rotation: 2, duration: 0.65, ease: "back.out(1.1)" }, 0.24);
+    tl.fromTo("#s3-design", { y: 820, rotation: 4 }, { y: 0, rotation: -5, duration: 0.65, ease: "back.out(1.1)" }, 0.38);
+    tl.fromTo("#s3-sub", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.75);
+    tl.to(".s3-left", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power2.in" }, 2.95);
+    tl.to("#s3-sheets", { y: 300, opacity: 0, filter: "blur(8px)", duration: 0.25, ease: "power3.in" }, 2.92);
+    window.__timelines["docs"] = tl;
+  </script>
+</template>

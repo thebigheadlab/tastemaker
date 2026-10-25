@@ -1,0 +1,141 @@
+<template>
+  <style>
+    #root { position:absolute; inset:0; background:#efeee9; font-family:Inter,sans-serif; color:#17171a; overflow:hidden; }
+    .s1-left { position:absolute; left:150px; top:200px; width:860px; }
+    .s1-title { font-size:120px; font-weight:700; letter-spacing:-0.045em; line-height:1.0; }
+    .s1-w { display:inline-block; }
+    .s1-love { color:#6c4bf4; }
+    .s1-tally { margin-top:64px; display:flex; flex-wrap:wrap; gap:18px 34px; font-size:40px; font-weight:700; letter-spacing:-0.02em; min-height:120px; }
+    .s1-t { display:inline-flex; align-items:center; gap:12px; opacity:0; }
+    .s1-t i { width:34px; height:34px; display:inline-block; }
+    .s1-t svg { width:100%; height:100%; }
+    .s1-t.like i { color:#1f9d55; } .s1-t.nope i { color:#d6453d; } .s1-t.love i { color:#6c4bf4; }
+    .s1-t.nope { color:#6d6c72; text-decoration:line-through; text-decoration-thickness:3px; }
+    .s1-count { margin-top:56px; display:flex; align-items:center; gap:26px; font-size:34px; color:#6d6c72; }
+    .s1-num { position:relative; display:inline-block; width:24px; height:42px; }
+    .s1-n { position:absolute; left:0; top:0; opacity:0; color:#17171a; font-weight:700; }
+    #s1-n0 { opacity:1; }
+    .s1-track { width:380px; height:8px; border-radius:8px; background:#dcdad3; overflow:hidden; }
+    #s1-bar { width:100%; height:100%; background:#17171a; border-radius:8px; }
+    .s1-right { position:absolute; left:1150px; top:0; width:420px; height:1080px; }
+    .s1-stack { position:absolute; left:20px; top:58px; width:376px; height:814px; }
+    .s1-card { position:absolute; left:0; top:0; width:376px; height:814px; border-radius:34px; overflow:hidden; background:#fff;
+      box-shadow:0 30px 60px -24px rgba(23,23,26,.38), 0 0 0 1px rgba(23,23,26,.06); }
+    .s1-card img { width:100%; height:100%; display:block; }
+    .s1-stamp { position:absolute; top:34px; padding:6px 18px; border:5px solid currentColor; border-radius:12px; font-weight:900;
+      font-size:44px; letter-spacing:.06em; opacity:0; background:rgba(251,251,248,.88); }
+    .s1-stamp.like { left:30px; color:#1f9d55; rotate:-10deg; }
+    .s1-stamp.nope { right:30px; color:#d6453d; rotate:10deg; }
+    .s1-stamp.love { left:118px; top:auto; bottom:60px; color:#6c4bf4; }
+    .s1-ctl { position:absolute; top:908px; left:-20px; width:456px; display:flex; align-items:center; justify-content:center; gap:20px; }
+    .s1-b { position:relative; }
+    .s1-fill { border-radius:50%; background:#fbfbf8; border:1.5px solid #dcdad3; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .s1-tint { position:absolute; inset:0; opacity:0; }
+    .s1-fill svg { position:relative; }
+    .s1-big .s1-fill { width:112px; height:112px; } .s1-big svg { width:46px; height:46px; }
+    .s1-mid .s1-fill { width:90px; height:90px; } .s1-mid svg { width:40px; height:40px; }
+    .s1-small .s1-fill { width:70px; height:70px; color:#9a99a1; } .s1-small svg { width:30px; height:30px; }
+    #s1-b-nope { color:#d6453d; } #s1-b-nope .s1-tint { background:#d6453d22; }
+    #s1-b-love { color:#6c4bf4; } #s1-b-love .s1-tint { background:#6c4bf422; }
+    #s1-b-like { color:#1f9d55; } #s1-b-like .s1-tint { background:#1f9d5522; }
+  </style>
+  <div id="root" data-composition-id="swipe" data-width="1920" data-height="1080">
+    <div class="s1-left">
+      <h1 class="s1-title" id="s1-title"><span class="s1-w">Swipe</span> <span class="s1-w">the</span> <span class="s1-w">designs</span><br /><span class="s1-w">you</span> <span class="s1-w s1-love">love.</span></h1>
+      <div class="s1-tally s1-under" id="s1-tally"><span class="s1-t love" id="s1-t0"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.2 3.4 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.6 0 6 3.7 4.5 7.3C19.5 16.4 12 21 12 21z"/></svg></i>Headspace</span><span class="s1-t nope" id="s1-t1"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></i>Nike</span><span class="s1-t like" id="s1-t2"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>Revolut</span><span class="s1-t nope" id="s1-t3"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></i>Nothing</span><span class="s1-t like" id="s1-t4"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>Duolingo</span><span class="s1-t like" id="s1-t5"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>Linear</span></div>
+      <div class="s1-count s1-under" id="s1-count"><span><span class="s1-num"><span class="s1-n" id="s1-n0">0</span><span class="s1-n" id="s1-n1">1</span><span class="s1-n" id="s1-n2">2</span><span class="s1-n" id="s1-n3">3</span><span class="s1-n" id="s1-n4">4</span><span class="s1-n" id="s1-n5">5</span><span class="s1-n" id="s1-n6">6</span></span> / 128 swiped</span><div class="s1-track"><div id="s1-bar"></div></div></div>
+    </div>
+    <div class="s1-right" data-layout-allow-overflow data-layout-allow-overlap>
+      <div class="s1-stack">
+<div class="s1-card" id="s1-card0" style="z-index:20"><img src="assets/cards/headspace-home.png" alt="Headspace" /><div class="s1-stamp love" id="s1-stamp0">LOVE</div></div>
+<div class="s1-card" id="s1-card1" style="z-index:19"><img src="assets/cards/nike-app-home.png" alt="Nike" /><div class="s1-stamp nope" id="s1-stamp1">NOPE</div></div>
+<div class="s1-card" id="s1-card2" style="z-index:18"><img src="assets/cards/revolut-home.png" alt="Revolut" /><div class="s1-stamp like" id="s1-stamp2">LIKE</div></div>
+<div class="s1-card" id="s1-card3" style="z-index:17"><img src="assets/cards/nothing-lock-screen.png" alt="Nothing" /><div class="s1-stamp nope" id="s1-stamp3">NOPE</div></div>
+<div class="s1-card" id="s1-card4" style="z-index:16"><img src="assets/cards/duolingo-lesson-path.png" alt="Duolingo" /><div class="s1-stamp like" id="s1-stamp4">LIKE</div></div>
+<div class="s1-card" id="s1-card5" style="z-index:15"><img src="assets/cards/linear-mobile-inbox.png" alt="Linear" /><div class="s1-stamp like" id="s1-stamp5">LIKE</div></div>
+<div class="s1-card" id="s1-card6" style="z-index:14"><img src="assets/cards/monzo-home.png" alt="Monzo" /></div>
+      </div>
+      <div class="s1-ctl">
+        <div class="s1-b s1-small"><div class="s1-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg></div></div>
+        <div class="s1-b s1-big" id="s1-b-nope"><div class="s1-fill"><div class="s1-tint"></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div></div>
+        <div class="s1-b s1-mid" id="s1-b-love"><div class="s1-fill"><div class="s1-tint"></div><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.2 3.4 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.6 0 6 3.7 4.5 7.3C19.5 16.4 12 21 12 21z"/></svg></div></div>
+        <div class="s1-b s1-big" id="s1-b-like"><div class="s1-fill"><div class="s1-tint"></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div></div>
+        <div class="s1-b s1-small"><div class="s1-fill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l7 7-7 7M13 5l7 7-7 7"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    gsap.set(".s1-card", { x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 });
+    gsap.set("#s1-card1", { scale: 0.95, y: 22 });
+    gsap.set(["#s1-card2","#s1-card3","#s1-card4","#s1-card5","#s1-card6"], { scale: 0.95, y: 22, opacity: 0 });
+    gsap.set(".s1-stamp", { opacity: 0, scale: 1.4 });
+    gsap.set(".s1-fill", { scale: 1 });
+    gsap.set(".s1-tint", { opacity: 0 });
+    gsap.set("#s1-bar", { scaleX: 0.002, transformOrigin: "0% 50%" });
+    tl.fromTo(".s1-w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power4.out", stagger: 0.08 }, 0.05);
+    tl.fromTo(".s1-under", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.4);
+    tl.to("#s1-stamp0", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, 0.75);
+    tl.to("#s1-b-love .s1-fill", { scale: 0.86, duration: 0.08, ease: "power2.out" }, 0.75).to("#s1-b-love .s1-fill", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 0.83);
+    tl.to("#s1-b-love .s1-tint", { opacity: 1, duration: 0.06 }, 0.75).to("#s1-b-love .s1-tint", { opacity: 0, duration: 0.18 }, 0.89);
+    tl.set("#s1-card0", { opacity: 0 }, 1.38);
+    tl.to("#s1-card0", { y: -1250, rotation: -4, duration: 0.42, ease: "power3.in" }, 0.95);
+    tl.set("#s1-card1", { opacity: 0 }, 2.03);
+    tl.to("#s1-card1", { scale: 1, y: 0, duration: 0.50, ease: "expo.out" }, 1.07);
+    tl.set("#s1-card2", { opacity: 0 }, 2.63);
+    tl.to("#s1-card2", { opacity: 1, duration: 0.15 }, 1.07);
+    tl.fromTo("#s1-t0", { opacity: 0, filter: "blur(6px)", x: -14 }, { opacity: 1, filter: "blur(0px)", x: 0, duration: 0.22, ease: "expo.out" }, 0.95);
+    tl.set("#s1-n0", { opacity: 0 }, 0.95).set("#s1-n1", { opacity: 1 }, 0.95);
+    tl.to("#s1-bar", { scaleX: 0.0078, duration: 0.3, ease: "expo.out" }, 0.95);
+    tl.to("#s1-stamp1", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, 1.40);
+    tl.to("#s1-b-nope .s1-fill", { scale: 0.86, duration: 0.08, ease: "power2.out" }, 1.40).to("#s1-b-nope .s1-fill", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 1.48);
+    tl.to("#s1-b-nope .s1-tint", { opacity: 1, duration: 0.06 }, 1.40).to("#s1-b-nope .s1-tint", { opacity: 0, duration: 0.18 }, 1.54);
+    tl.to("#s1-card1", { x: -1750, y: 80, rotation: -18, duration: 0.42, ease: "power3.in" }, 1.60);
+    tl.to("#s1-card2", { scale: 1, y: 0, duration: 0.46, ease: "expo.out" }, 1.72);
+    tl.set("#s1-card3", { opacity: 0 }, 3.15);
+    tl.to("#s1-card3", { opacity: 1, duration: 0.15 }, 1.72);
+    tl.fromTo("#s1-t1", { opacity: 0, filter: "blur(6px)", x: -14 }, { opacity: 1, filter: "blur(0px)", x: 0, duration: 0.22, ease: "expo.out" }, 1.60);
+    tl.set("#s1-n1", { opacity: 0 }, 1.60).set("#s1-n2", { opacity: 1 }, 1.60);
+    tl.to("#s1-bar", { scaleX: 0.0156, duration: 0.3, ease: "expo.out" }, 1.60);
+    tl.to("#s1-stamp2", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, 2.00);
+    tl.to("#s1-b-like .s1-fill", { scale: 0.86, duration: 0.08, ease: "power2.out" }, 2.00).to("#s1-b-like .s1-fill", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 2.08);
+    tl.to("#s1-b-like .s1-tint", { opacity: 1, duration: 0.06 }, 2.00).to("#s1-b-like .s1-tint", { opacity: 0, duration: 0.18 }, 2.14);
+    tl.to("#s1-card2", { x: 1150, y: 80, rotation: 18, duration: 0.42, ease: "power3.in" }, 2.20);
+    tl.to("#s1-card3", { scale: 1, y: 0, duration: 0.38, ease: "expo.out" }, 2.32);
+    tl.set("#s1-card4", { opacity: 0 }, 3.61);
+    tl.to("#s1-card4", { opacity: 1, duration: 0.15 }, 2.32);
+    tl.fromTo("#s1-t2", { opacity: 0, filter: "blur(6px)", x: -14 }, { opacity: 1, filter: "blur(0px)", x: 0, duration: 0.22, ease: "expo.out" }, 2.20);
+    tl.set("#s1-n2", { opacity: 0 }, 2.20).set("#s1-n3", { opacity: 1 }, 2.20);
+    tl.to("#s1-bar", { scaleX: 0.0234, duration: 0.3, ease: "expo.out" }, 2.20);
+    tl.to("#s1-stamp3", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, 2.52);
+    tl.to("#s1-b-nope .s1-fill", { scale: 0.86, duration: 0.08, ease: "power2.out" }, 2.52).to("#s1-b-nope .s1-fill", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 2.60);
+    tl.to("#s1-b-nope .s1-tint", { opacity: 1, duration: 0.06 }, 2.52).to("#s1-b-nope .s1-tint", { opacity: 0, duration: 0.18 }, 2.66);
+    tl.to("#s1-card3", { x: -1750, y: 80, rotation: -18, duration: 0.42, ease: "power3.in" }, 2.72);
+    tl.to("#s1-card4", { scale: 1, y: 0, duration: 0.32, ease: "expo.out" }, 2.84);
+    tl.set("#s1-card5", { opacity: 0 }, 4.01);
+    tl.to("#s1-card5", { opacity: 1, duration: 0.15 }, 2.84);
+    tl.fromTo("#s1-t3", { opacity: 0, filter: "blur(6px)", x: -14 }, { opacity: 1, filter: "blur(0px)", x: 0, duration: 0.22, ease: "expo.out" }, 2.72);
+    tl.set("#s1-n3", { opacity: 0 }, 2.72).set("#s1-n4", { opacity: 1 }, 2.72);
+    tl.to("#s1-bar", { scaleX: 0.0312, duration: 0.3, ease: "expo.out" }, 2.72);
+    tl.to("#s1-stamp4", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, 2.98);
+    tl.to("#s1-b-like .s1-fill", { scale: 0.86, duration: 0.08, ease: "power2.out" }, 2.98).to("#s1-b-like .s1-fill", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 3.06);
+    tl.to("#s1-b-like .s1-tint", { opacity: 1, duration: 0.06 }, 2.98).to("#s1-b-like .s1-tint", { opacity: 0, duration: 0.18 }, 3.12);
+    tl.to("#s1-card4", { x: 1150, y: 80, rotation: 18, duration: 0.42, ease: "power3.in" }, 3.18);
+    tl.to("#s1-card5", { scale: 1, y: 0, duration: 0.26, ease: "expo.out" }, 3.30);
+    tl.to("#s1-card6", { opacity: 1, duration: 0.15 }, 3.30);
+    tl.fromTo("#s1-t4", { opacity: 0, filter: "blur(6px)", x: -14 }, { opacity: 1, filter: "blur(0px)", x: 0, duration: 0.22, ease: "expo.out" }, 3.18);
+    tl.set("#s1-n4", { opacity: 0 }, 3.18).set("#s1-n5", { opacity: 1 }, 3.18);
+    tl.to("#s1-bar", { scaleX: 0.0391, duration: 0.3, ease: "expo.out" }, 3.18);
+    tl.to("#s1-stamp5", { opacity: 1, scale: 1, duration: 0.15, ease: "back.out(2)" }, 3.38);
+    tl.to("#s1-b-like .s1-fill", { scale: 0.86, duration: 0.08, ease: "power2.out" }, 3.38).to("#s1-b-like .s1-fill", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 3.46);
+    tl.to("#s1-b-like .s1-tint", { opacity: 1, duration: 0.06 }, 3.38).to("#s1-b-like .s1-tint", { opacity: 0, duration: 0.18 }, 3.52);
+    tl.to("#s1-card5", { x: 1150, y: 80, rotation: 18, duration: 0.42, ease: "power3.in" }, 3.58);
+    tl.to("#s1-card6", { scale: 1, y: 0, duration: 0.50, ease: "expo.out" }, 3.70);
+    tl.fromTo("#s1-t5", { opacity: 0, filter: "blur(6px)", x: -14 }, { opacity: 1, filter: "blur(0px)", x: 0, duration: 0.22, ease: "expo.out" }, 3.58);
+    tl.set("#s1-n5", { opacity: 0 }, 3.58).set("#s1-n6", { opacity: 1 }, 3.58);
+    tl.to("#s1-bar", { scaleX: 0.0469, duration: 0.3, ease: "expo.out" }, 3.58);
+    tl.to(".s1-left", { opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power2.in" }, 4.22);
+    tl.to(".s1-right", { opacity: 0, filter: "blur(8px)", x: -60, duration: 0.2, ease: "power3.in" }, 4.2);
+    window.__timelines["swipe"] = tl;
+  </script>
+</template>

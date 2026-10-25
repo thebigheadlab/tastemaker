@@ -1,0 +1,39 @@
+<template>
+  <style>
+    #root { position:absolute; inset:0; background:#efeee9; font-family:Inter,sans-serif; color:#17171a; overflow:hidden; }
+    .s2-left { position:absolute; left:150px; top:290px; width:960px; }
+    .s2-label { font-size:40px; color:#6d6c72; font-weight:400; }
+    .s2-title { margin-top:22px; font-size:108px; font-weight:700; letter-spacing:-0.045em; line-height:1.02; }
+    .s2-w { display:inline-block; }
+    .s2-sws { margin-top:78px; display:flex; gap:18px; }
+    .s2-sw { width:96px; height:96px; border-radius:20px; box-shadow:0 12px 24px -12px rgba(23,23,26,.35); }
+    #s2-sw0 { position:relative; z-index:5; }
+    .s2-traits { margin-top:36px; font-size:38px; color:#6d6c72; }
+    .s2-traits b { color:#17171a; font-weight:700; }
+    .s2-grid { position:absolute; left:1166px; top:82px; width:404px; display:grid; grid-template-columns:192px 192px; gap:20px; }
+    .s2-th { width:192px; height:416px; border-radius:22px; overflow:hidden; background:#fff;
+      box-shadow:0 20px 40px -20px rgba(23,23,26,.38), 0 0 0 1px rgba(23,23,26,.06); }
+    .s2-th img { width:100%; height:100%; display:block; }
+  </style>
+  <div id="root" data-composition-id="taste" data-width="1920" data-height="1080">
+    <div class="s2-grid" id="s2-grid" data-layout-allow-overflow><div class="s2-th" id="s2-th0"><img src="assets/cards/headspace-home.png" alt="Headspace" /></div><div class="s2-th" id="s2-th1"><img src="assets/cards/revolut-home.png" alt="Revolut" /></div><div class="s2-th" id="s2-th2"><img src="assets/cards/duolingo-lesson-path.png" alt="Duolingo" /></div><div class="s2-th" id="s2-th3"><img src="assets/cards/linear-mobile-inbox.png" alt="Linear" /></div></div>
+    <div class="s2-left" data-layout-allow-overflow>
+      <div class="s2-label s2-fade" id="s2-label">From your 54 likes</div>
+      <h1 class="s2-title" id="s2-title"><span class="s2-w">You</span> <span class="s2-w">like</span><br /><span class="s2-w s2-acc">friendly</span> <span class="s2-w s2-acc">precision.</span></h1>
+      <div class="s2-sws" id="s2-sws"><div class="s2-sw" id="s2-sw0" style="background:#5B57F5"></div><div class="s2-sw" id="s2-sw1" style="background:#22A35B"></div><div class="s2-sw" id="s2-sw2" style="background:#3B82F6"></div><div class="s2-sw" id="s2-sw3" style="background:#F47D31"></div><div class="s2-sw" id="s2-sw4" style="background:#E85AAD"></div><div class="s2-sw" id="s2-sw5" style="background:#14B8A6"></div></div>
+      <div class="s2-traits s2-fade" id="s2-traits"><b>Inter</b> · radius <b>8–16 px</b> · soft shadows</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".s2-th", { x: 420, scale: 1.5, opacity: 0, filter: "blur(10px)" }, { x: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out", stagger: 0.07 }, 0);
+    tl.fromTo("#s2-label", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.3);
+    tl.fromTo(".s2-w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power4.out", stagger: 0.09 }, 0.55);
+    tl.fromTo(".s2-acc", { color: "#17171a" }, { color: "#5B57F5", duration: 0.3, ease: "power2.inOut" }, 1.45);
+    tl.fromTo(".s2-sw", { scale: 0, rotation: -12 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.7)", stagger: 0.07 }, 1.75);
+    tl.fromTo("#s2-traits", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 2.2);
+    tl.to(["#s2-grid", "#s2-label", "#s2-title", "#s2-traits", "#s2-sw1", "#s2-sw2", "#s2-sw3", "#s2-sw4", "#s2-sw5"], { opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power2.in" }, 3.95);
+    tl.fromTo("#s2-sw0", { x: 0, y: 0, scale: 1, borderRadius: 20 }, { x: 750, y: -154, scale: 26, borderRadius: 2, duration: 0.6, ease: "power3.inOut" }, 4.0);
+    window.__timelines["taste"] = tl;
+  </script>
+</template>

@@ -1,0 +1,27 @@
+<template>
+  <style>
+    #root { position:absolute; inset:0; background:#5B57F5; font-family:Inter,sans-serif; color:#17171a; overflow:hidden; }
+    .s4-paper { position:absolute; inset:0; background:#efeee9; }
+    .s4-lock { position:absolute; left:0; right:0; top:420px; display:flex; justify-content:center; align-items:center; gap:40px; }
+    .s4-mark { width:100px; height:122px; border-radius:20px; background:#17171a; box-shadow:26px 6px 0 -4px #6c4bf4; }
+    .s4-word { font-size:150px; font-weight:900; letter-spacing:-0.05em; line-height:1; }
+    .s4-tag { position:absolute; left:0; right:0; top:640px; text-align:center; font-size:46px; color:#6d6c72; }
+    .s4-tag b { color:#17171a; font-weight:700; }
+  </style>
+  <div id="root" data-composition-id="endcard" data-width="1920" data-height="1080">
+    <div class="s4-paper" id="s4-paper"></div>
+    <div class="s4-lock">
+      <div class="s4-mark" id="s4-mark"></div>
+      <div class="s4-word" id="s4-word">Tastemaker</div>
+    </div>
+    <p class="s4-tag" id="s4-tag">Swipe what you love. <b>Build with your taste.</b></p>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s4-paper", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.inOut" }, 0);
+    tl.fromTo("#s4-mark", { y: -760, rotation: 40 }, { y: 0, rotation: -8, duration: 0.7, ease: "back.out(1.5)" }, 0.12);
+    tl.fromTo("#s4-word", { clipPath: "inset(0% 100% 0% 0%)", x: -30 }, { clipPath: "inset(0% 0% 0% 0%)", x: 0, duration: 0.45, ease: "expo.out" }, 0.45);
+    tl.fromTo("#s4-tag", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.6);
+    window.__timelines["endcard"] = tl;
+  </script>
+</template>
