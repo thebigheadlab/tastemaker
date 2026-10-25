@@ -1,0 +1,28 @@
+{
+  "id": "uber-rate-trip",
+  "kind": "component",
+  "subtype": "rating and tip",
+  "title": "Rate your trip",
+  "inspiredBy": "Uber",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Dark post-trip sheet with five white stars, colorful compliment badges outlined when chosen and pill tip presets."
+}

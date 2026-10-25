@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Story feed</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:1280px;height:800px;overflow:hidden;background:#fff;font-family:"Inter",system-ui,sans-serif;color:#242424;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .serif{font-family:"Source Serif 4",Georgia,serif}
+  .top{height:57px;border-bottom:1px solid #f2f2f2;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+  .top .l{display:flex;align-items:center;gap:16px}
+  .wordmark{font-family:"Source Serif 4",serif;font-weight:700;font-size:28px;letter-spacing:-1px}
+  .search{height:40px;width:240px;border-radius:20px;background:#f9f9f9;display:flex;align-items:center;gap:10px;padding:0 14px;color:#6b6b6b;font-size:14px}
+  .top .r{display:flex;align-items:center;gap:26px;color:#6b6b6b;font-size:14px}
+  .top .r .w{display:flex;align-items:center;gap:6px}
+  .top .av{width:32px;height:32px;border-radius:50%;background:#3b6ea5;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+  .main{position:absolute;left:0;right:0;top:57px;bottom:0;display:flex;justify-content:center;gap:0}
+  .feed{width:728px;padding:0 24px 0 0;margin-right:64px;border-right:1px solid #f2f2f2}
+  .tabs{display:flex;gap:28px;height:52px;align-items:center;border-bottom:1px solid #f2f2f2;font-size:14px;color:#6b6b6b}
+  .tabs span.on{color:#242424;border-bottom:1px solid #242424;height:52px;display:flex;align-items:center}
+  .story{display:flex;gap:48px;padding:24px 0;border-bottom:1px solid #f2f2f2}
+  .story .t{flex:1}
+  .meta{display:flex;align-items:center;gap:8px;font-size:13px;color:#242424}
+  .meta .av{width:20px;height:20px;border-radius:50%;display:inline-block}
+  .meta .in{color:#6b6b6b}
+  .story h2{margin:12px 0 0;font-family:"Source Serif 4",serif;font-size:24px;font-weight:700;line-height:1.2;letter-spacing:-.2px}
+  .story p{margin:8px 0 0;font-family:"Source Serif 4",serif;font-size:16px;line-height:1.5;color:#6b6b6b}
+  .foot{display:flex;align-items:center;gap:16px;margin-top:16px;font-size:13px;color:#6b6b6b}
+  .foot .star{color:#ffc017}
+  .foot .r{margin-left:auto;display:flex;gap:18px}
+  .thumb{width:160px;height:107px;flex-shrink:0;position:relative;overflow:hidden;background:#eee}
+  .side{width:368px;padding:32px 0 0 0}
+  .side h4{margin:0 0 20px;font-size:16px;font-weight:600}
+  .pick{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+  .pick .meta{font-size:13px}
+  .pick b{font-size:16px;font-weight:700;line-height:1.3;font-family:"Inter",sans-serif}
+  .side .more{font-size:14px;color:#1a8917;display:block;margin-top:-6px}
+  .topics{margin-top:32px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{background:#f2f2f2;border-radius:20px;padding:9px 16px;font-size:14px}
+  .follow{margin-top:32px}
+  .who{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .who .av{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:600}
+  .who .n{flex:1;min-width:0}
+  .who b{display:block;font-size:15px;font-weight:600}
+  .who span{display:block;font-size:13px;color:#6b6b6b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .who .fb{border:1px solid #242424;border-radius:20px;padding:6px 14px;font-size:14px}
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="l"><span class="wordmark">Marginalia</span><div class="search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>Search</div></div>
+    <div class="r"><span class="w"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><path d="M14 4l6 6-10 10H4v-6z"/><path d="M12 6l6 6"/></svg>Write</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM10 19a2 2 0 0 0 4 0"/></svg><span class="av">AS</span></div>
+  </div>
+
+  <div class="main">
+    <div class="feed">
+      <div class="tabs"><span style="font-size:18px;line-height:1">+</span><span class="on">For you</span><span>Following</span><span>Design</span><span>Typography</span><span>Cities</span></div>
+
+      <div class="story">
+        <div class="t">
+          <div class="meta"><span class="av" style="background:#c8744f"></span><span>Ines Varga</span><span class="in">in</span><span>Field Notes on Form</span></div>
+          <h2>What the subway map knows that your dashboard doesn’t</h2>
+          <p>Beck’s 1933 diagram threw away geography to save legibility. Sixty years of analytics UI still hasn’t learned the trade.</p>
+          <div class="foot"><span class="star">✦</span><span>Oct 21</span><span>·</span><span>9 min read</span><span>·</span><span>Design</span><span class="r"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><path d="M6 3h12v18l-6-4-6 4z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#6b6b6b"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span></div>
+        </div>
+        <div class="thumb"><svg width="160" height="107" viewBox="0 0 160 107"><rect width="160" height="107" fill="#f4efe6"/><path d="M0 60h50l20-20h90" stroke="#d43" stroke-width="5" fill="none"/><path d="M20 107V70l20-20V0" stroke="#2a6" stroke-width="5" fill="none"/><path d="M0 30h80l30 30v47" stroke="#36c" stroke-width="5" fill="none"/><circle cx="70" cy="40" r="5" fill="#fff" stroke="#242424" stroke-width="2"/><circle cx="110" cy="60" r="5" fill="#fff" stroke="#242424" stroke-width="2"/></svg></div>
+      </div>
+
+      <div class="story">
+        <div class="t">
+          <div class="meta"><span class="av" style="background:#3b6ea5"></span><span>Tomás Reyes</span></div>
+          <h2>I timed every meeting for a year. Here’s the one that mattered.</h2>
+          <p>Not the standup. Not the retro. The eleven-minute Thursday call nobody put on a calendar.</p>
+          <div class="foot"><span>Oct 19</span><span>·</span><span>6 min read</span><span>·</span><span>Work</span><span class="r"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><path d="M6 3h12v18l-6-4-6 4z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#6b6b6b"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span></div>
+        </div>
+        <div class="thumb"><svg width="160" height="107" viewBox="0 0 160 107"><rect width="160" height="107" fill="#242424"/><circle cx="80" cy="54" r="36" fill="none" stroke="#fff" stroke-width="2"/><path d="M80 54V26M80 54l20 12" stroke="#ffc017" stroke-width="3" stroke-linecap="round"/><circle cx="80" cy="54" r="3" fill="#fff"/></svg></div>
+      </div>
+
+      <div class="story">
+        <div class="t">
+          <div class="meta"><span class="av" style="background:#7a9a6a"></span><span>Hana Okoye</span><span class="in">in</span><span>Letterform</span></div>
+          <h2>Why your serif looks cheap on screen (and the two settings that fix it)</h2>
+          <p>Optical sizes exist for a reason. Most sites never turn them on.</p>
+          <div class="foot"><span class="star">✦</span><span>Oct 18</span><span>·</span><span>5 min read</span><span>·</span><span>Typography</span><span class="r"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="1.6"><path d="M6 3h12v18l-6-4-6 4z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#6b6b6b"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg></span></div>
+        </div>
+        <div class="thumb"><svg width="160" height="107" viewBox="0 0 160 107"><rect width="160" height="107" fill="#fff6d6"/><text x="80" y="82" text-anchor="middle" font-family="Source Serif 4,Georgia,serif" font-size="92" font-weight="700" fill="#242424">Aa</text></svg></div>
+      </div>
+    </div>
+
+    <div class="side">
+      <h4>Staff Picks</h4>
+      <div class="pick"><div class="meta"><span class="av" style="background:#d4a373"></span><span>Marcus Bell</span><span class="in">in</span><span>The Long Table</span></div><b>The last typewriter repairman in Lisbon</b><div style="font-size:13px;color:#6b6b6b">Oct 20</div></div>
+      <div class="pick"><div class="meta"><span class="av" style="background:#8e6c9e"></span><span>Priya Nair</span></div><b>A love letter to the margin note</b><div style="font-size:13px;color:#6b6b6b">Oct 17</div></div>
+      <div class="pick"><div class="meta"><span class="av" style="background:#1a8917"></span><span>Marginalia Staff</span></div><b>How we’re changing the way stories are recommended</b><div style="font-size:13px;color:#6b6b6b">Oct 15</div></div>
+      <span class="more">See the full list</span>
+      <div class="topics"><h4>Recommended topics</h4><div class="tags"><span class="tag">Design</span><span class="tag">Typography</span><span class="tag">Cities</span><span class="tag">Productivity</span><span class="tag">Writing</span><span class="tag">Cooking</span><span class="tag">Urbanism</span></div></div>
+      <div class="follow"><h4>Who to follow</h4>
+        <div class="who"><span class="av" style="background:#c8744f">IV</span><div class="n"><b>Ines Varga</b><span>Information designer. Maps, mostly.</span></div><span class="fb">Follow</span></div>
+        <div class="who"><span class="av" style="background:#3b6ea5">FN</span><div class="n"><b>Field Notes on Form</b><span>A publication about how things are shaped</span></div><span class="fb">Follow</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

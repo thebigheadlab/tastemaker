@@ -1,0 +1,28 @@
+{
+  "id": "revolut-exchange",
+  "kind": "component",
+  "subtype": "currency exchange",
+  "title": "Currency exchange",
+  "inspiredBy": "Revolut",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Two stacked white currency fields joined by a swap button, live rate link in blue, fee breakdown and a full-width blue pill."
+}

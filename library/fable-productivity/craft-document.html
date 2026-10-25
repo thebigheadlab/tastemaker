@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Document</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:1280px;height:800px;overflow:hidden;background:#f4f4f6;font-family:Inter,-apple-system,"SF Pro Text",system-ui,sans-serif;color:#1c1c1e;-webkit-font-smoothing:antialiased;font-size:14px;display:flex}
+.side{width:250px;flex:none;background:#ececef;border-right:1px solid #e0e0e4;display:flex;flex-direction:column;padding:12px 10px;box-sizing:border-box}
+.lights{display:flex;gap:8px;padding:2px 6px 16px}
+.lights i{width:12px;height:12px;border-radius:50%;display:block}
+.space{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:8px;margin-bottom:8px}
+.space .av{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#7c6cff,#5aa9ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px}
+.space b{font-weight:600;font-size:14px}
+.space small{display:block;font-size:11px;color:#8a8a8f;font-weight:400}
+.sn{display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:8px;color:#3a3a3c;font-size:13.5px;font-weight:500}
+.sn svg{flex:none}
+.sn.on{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.sg{font-size:11px;font-weight:600;color:#8a8a8f;padding:14px 8px 4px;letter-spacing:.2px}
+.sdoc{display:flex;align-items:center;gap:9px;padding:5px 8px 5px 14px;border-radius:8px;color:#3a3a3c;font-size:13.5px}
+.sdoc .ic{width:16px;height:20px;border-radius:3px;flex:none;position:relative}
+.sdoc .ic:after{content:"";position:absolute;left:3px;right:3px;top:5px;height:1.5px;background:rgba(255,255,255,.7);box-shadow:0 4px 0 rgba(255,255,255,.7),0 8px 0 rgba(255,255,255,.7)}
+.sdoc.on{background:#dcdcff;color:#2d2a8c;font-weight:500}
+.sdoc.sub{padding-left:34px}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.tb{height:46px;display:flex;align-items:center;padding:0 20px;gap:10px;font-size:13px;color:#8a8a8f}
+.tb .crumb{display:flex;gap:6px;align-items:center}
+.tb .crumb b{color:#1c1c1e;font-weight:500}
+.tb .r{margin-left:auto;display:flex;gap:10px;align-items:center}
+.tb .btn{border-radius:8px;padding:5px 10px;font-weight:500;font-size:12.5px;color:#1c1c1e;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.tb .btn.pri{background:#5b57f5;color:#fff}
+.paper{flex:1;margin:0 20px 0 20px;background:#fff;border-radius:14px 14px 0 0;box-shadow:0 1px 3px rgba(0,0,0,.06),0 8px 30px rgba(0,0,0,.05);overflow:hidden;display:flex;justify-content:center}
+.doc{width:680px;padding-top:56px}
+.emoji{font-size:40px;margin-bottom:8px}
+h1{font-size:36px;font-weight:800;letter-spacing:-.8px;margin:0 0 6px;line-height:1.15}
+.meta{display:flex;gap:10px;align-items:center;font-size:12.5px;color:#8a8a8f;margin-bottom:26px}
+.meta i{width:18px;height:18px;border-radius:50%;background:#7c6cff;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:8px;font-weight:700;font-style:normal}
+p{margin:0 0 14px;font-size:15px;line-height:1.6;color:#2c2c2e}
+h2{font-size:20px;font-weight:700;letter-spacing:-.3px;margin:22px 0 10px}
+.focus{background:#eef0ff;border-radius:12px;padding:14px 18px;margin:0 0 16px;font-size:15px;line-height:1.55;color:#2d2a8c;display:flex;gap:12px}
+.focus .em{font-size:20px;flex:none}
+.cards{display:flex;gap:14px;margin:4px 0 18px}
+.card{flex:1;background:#fff;border-radius:12px;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 4px 14px rgba(0,0,0,.06);overflow:hidden}
+.card .cv{height:70px}
+.card .t{padding:10px 12px 12px;font-size:13.5px;font-weight:600;line-height:1.3}
+.card .t small{display:block;font-weight:400;color:#8a8a8f;font-size:11.5px;margin-top:3px}
+.todo{display:flex;align-items:center;gap:10px;padding:4px 0;font-size:15px}
+.todo i{width:18px;height:18px;border-radius:50%;border:1.5px solid #c7c7cc;box-sizing:border-box;flex:none}
+.todo i.on{background:#5b57f5;border-color:#5b57f5;position:relative}
+.todo i.on:after{content:"";position:absolute;left:5.5px;top:2.5px;width:4px;height:8px;border:solid #fff;border-width:0 1.8px 1.8px 0;transform:rotate(45deg)}
+.todo.on span{color:#8a8a8f;text-decoration:line-through}
+.dec{height:1px;background:linear-gradient(90deg,transparent,#d1d1d6,transparent);margin:16px 0}
+.hint{position:absolute;right:40px;bottom:16px;font-size:11px;color:#8a8a8f}
+.fab{position:absolute;right:34px;bottom:34px;width:52px;height:52px;border-radius:16px;background:#5b57f5;box-shadow:0 8px 24px rgba(91,87,245,.4);display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<div class="side">
+  <div class="lights"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+  <div class="space"><span class="av">N</span><div><b>Northwind Design</b><small>Team space · 7 members</small></div></div>
+  <div class="sn"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#5b57f5" stroke-width="1.6"/><path d="m10 10 3 3" stroke="#5b57f5" stroke-width="1.6" stroke-linecap="round"/></svg>Search</div>
+  <div class="sn"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="2" y="2.5" width="11" height="10" rx="2" stroke="#f0883e" stroke-width="1.6"/><path d="M2 6h11" stroke="#f0883e" stroke-width="1.6"/></svg>Daily notes</div>
+  <div class="sn"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5l1.8 3.7 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4L1.7 5.8l4-.6z" stroke="#e0a526" stroke-width="1.5" stroke-linejoin="round"/></svg>Starred</div>
+  <div class="sg">DOCUMENTS</div>
+  <div class="sdoc"><span class="ic" style="background:#f0883e"></span>Team handbook</div>
+  <div class="sdoc on"><span class="ic" style="background:#5b57f5"></span>Lumen 2.0 launch plan</div>
+  <div class="sdoc sub">Onboarding redesign</div>
+  <div class="sdoc sub">Pricing &amp; billing</div>
+  <div class="sdoc sub">Launch comms</div>
+  <div class="sdoc"><span class="ic" style="background:#2bb673"></span>Design principles</div>
+  <div class="sdoc"><span class="ic" style="background:#e2567a"></span>Research archive</div>
+  <div class="sdoc"><span class="ic" style="background:#8a8a8f"></span>Meeting notes</div>
+  <div class="sg">FOLDERS</div>
+  <div class="sdoc">📁&nbsp; Specs</div>
+  <div class="sdoc">📁&nbsp; Decks</div>
+  <div style="margin-top:auto;font-size:11.5px;color:#8a8a8f;padding:0 8px;display:flex;justify-content:space-between"><span>Synced</span><span>⌘ ,</span></div>
+</div>
+<div class="main">
+  <div class="tb"><span class="crumb">Northwind Design <span>›</span> <b>Lumen 2.0 launch plan</b></span><span class="r"><span>Edited 12 min ago</span><span class="btn">Share</span><span class="btn pri">Present</span></span></div>
+  <div class="paper" style="position:relative">
+    <div class="doc">
+      <div class="emoji">🚀</div>
+      <h1>Lumen 2.0 launch plan</h1>
+      <div class="meta"><i>MA</i><span>Maya Andersen</span><span>·</span><span>Updated today</span><span>·</span><span>3 subpages</span></div>
+      <div class="focus"><span class="em">🎯</span><span>Ship the redesigned onboarding, new pricing and a public changelog by <b>14 November</b>. Marketing-site freeze on the 10th; nothing merges after that without Maya's sign-off.</span></div>
+      <p>This is the single source of truth for launch. Each workstream owns a subpage below, and the status line at the top of each page is what we read out in Monday's sync.</p>
+      <h2>Workstreams</h2>
+      <div class="cards">
+        <div class="card"><div class="cv" style="background:linear-gradient(135deg,#7c6cff,#c084fc)"></div><div class="t">Onboarding redesign<small>Jonas · 71% complete</small></div></div>
+        <div class="card"><div class="cv" style="background:linear-gradient(135deg,#f59e0b,#fb7185)"></div><div class="t">Pricing &amp; billing<small>Priya · In review</small></div></div>
+        <div class="card"><div class="cv" style="background:linear-gradient(135deg,#22c1c3,#5aa9ff)"></div><div class="t">Launch comms<small>Lena · Drafting</small></div></div>
+      </div>
+      <h2>This week</h2>
+      <div class="todo on"><i class="on"></i><span>Review billing v4 prototype with Sam</span></div>
+      <div class="todo on"><i class="on"></i><span>Lock the changelog layout</span></div>
+      <div class="todo"><i></i><span>Confirm enterprise tier: public price or contact sales</span></div>
+      <div class="todo"><i></i><span>Brief Jonas on launch video storyboard</span></div>
+      <div class="dec"></div>
+      <p style="color:#8a8a8f;font-size:14px">Type <b style="color:#5b57f5;font-weight:600">/</b> for blocks, or ⌘⇧S to change the style of this one.</p>
+    </div>
+    <div class="fab"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 4v14M4 11h14" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+  </div>
+</div>
+</body>
+</html>

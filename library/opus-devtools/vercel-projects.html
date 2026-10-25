@@ -1,0 +1,130 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Projects overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#fafafa;color:#171717;font:14px/1.45 Geist,Inter,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+svg{display:block;flex:none}
+.mono{font-family:"Geist Mono",ui-monospace,Menlo,monospace}
+header{background:#fff;border-bottom:1px solid #ebebeb}
+.bar{height:56px;display:flex;align-items:center;padding:0 24px;gap:10px}
+.slash{color:#d4d4d4;font-size:22px;font-weight:300;margin:0 2px}
+.sw{display:flex;align-items:center;gap:8px;font-weight:500}
+.sw .av{width:20px;height:20px;border-radius:50%;background:conic-gradient(from 200deg,#ff4d8d,#ffb84d,#4dd2ff,#9d4dff,#ff4d8d)}
+.pro{font-size:12px;color:#666;border:1px solid #e5e5e5;border-radius:10px;padding:0 7px;height:20px;display:flex;align-items:center}
+.bar .r{margin-left:auto;display:flex;align-items:center;gap:16px;color:#666}
+.fb{height:32px;border:1px solid #e5e5e5;border-radius:6px;padding:0 10px;display:flex;align-items:center}
+.uav{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#a855f7)}
+nav{display:flex;gap:4px;padding:0 14px;height:46px;align-items:flex-end}
+nav a{color:#666;padding:0 10px 12px;position:relative}
+nav a.on{color:#171717}
+nav a.on:after{content:"";position:absolute;left:10px;right:10px;bottom:-1px;height:2px;background:#171717}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 40px 0}
+.tools{display:flex;gap:10px;margin-bottom:24px}
+.search{flex:1;height:40px;background:#fff;border:1px solid #e5e5e5;border-radius:6px;display:flex;align-items:center;gap:10px;padding:0 12px;color:#8f8f8f}
+.ib{width:40px;height:40px;border:1px solid #e5e5e5;background:#fff;border-radius:6px;display:grid;place-items:center;color:#666}
+.seg{display:flex;border:1px solid #e5e5e5;border-radius:6px;background:#fff;padding:3px;gap:2px}
+.seg i{width:32px;height:32px;border-radius:4px;display:grid;place-items:center;color:#8f8f8f}
+.seg i.on{background:#f2f2f2;color:#171717}
+.add{height:40px;background:#171717;color:#fff;border-radius:6px;padding:0 14px;display:flex;align-items:center;gap:8px;font-weight:500}
+.cols{display:flex;gap:24px}
+.left{width:332px;flex:none}
+h3{font-size:16px;font-weight:600;margin:0 0 12px;letter-spacing:-.01em}
+.box{background:#fff;border:1px solid #ebebeb;border-radius:12px;margin-bottom:24px}
+.boxh{display:flex;align-items:center;padding:14px 16px;border-bottom:1px solid #ebebeb;font-size:13px;color:#666}
+.boxh b{color:#171717;font-weight:500;font-size:14px}
+.boxh .up{margin-left:auto;height:28px;border-radius:6px;background:#171717;color:#fff;padding:0 10px;display:flex;align-items:center;font-size:13px;font-weight:500}
+.u{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13.5px}
+.ring{width:16px;height:16px}
+.u .v{margin-left:auto;color:#666;font-variant-numeric:tabular-nums}
+.u .v b{color:#171717;font-weight:500}
+.prv{display:flex;gap:12px;padding:12px 16px;align-items:center}
+.prv+.prv{border-top:1px solid #f2f2f2}
+.thumb{width:56px;height:36px;border-radius:5px;border:1px solid #ebebeb;flex:none}
+.prv .t{font-size:13.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prv .s{font-size:12.5px;color:#8f8f8f}
+.grid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-content:start}
+.p{background:#fff;border:1px solid #ebebeb;border-radius:12px;padding:16px 18px;height:174px;display:flex;flex-direction:column}
+.p .h{display:flex;gap:12px;align-items:center}
+.pic{width:32px;height:32px;border-radius:50%;border:1px solid #ebebeb;display:grid;place-items:center;flex:none}
+.p .nm{font-weight:500;font-size:14px}
+.p .dm{font-size:13px;color:#666}
+.p .h .r{margin-left:auto;display:flex;gap:8px;align-items:center;color:#8f8f8f}
+.act{width:28px;height:28px;border-radius:50%;border:1px solid #ebebeb;display:grid;place-items:center}
+.repo{margin-top:14px;display:inline-flex;align-self:flex-start;align-items:center;gap:6px;height:26px;padding:0 10px 0 8px;border-radius:13px;background:#f2f2f2;font-size:12.5px;font-weight:500;color:#171717}
+.cm{margin-top:auto;font-size:13.5px;font-weight:500;color:#171717;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wh{font-size:13px;color:#666;display:flex;align-items:center;gap:5px;margin-top:3px}
+.err{color:#e5484d}
+</style></head><body>
+<header>
+  <div class="bar">
+    <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#171717"/><path d="M7 12h10" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <span class="slash">/</span>
+    <div class="sw"><span class="av"></span>Fernwood Labs<span class="pro">Pro</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#8f8f8f" stroke-width="1.5"><path d="m5 6 3-3 3 3M5 10l3 3 3-3"/></svg></div>
+    <div class="r"><span class="fb">Feedback</span><span>Changelog</span><span>Help</span><span>Docs</span><span class="uav"></span></div>
+  </div>
+  <nav><a class="on">Overview</a><a>Integrations</a><a>Deployments</a><a>Activity</a><a>Domains</a><a>Usage</a><a>Observability</a><a>Storage</a><a>AI Gateway</a><a>Support</a><a>Settings</a></nav>
+</header>
+<div class="wrap">
+  <div class="tools">
+    <div class="search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3" stroke-linecap="round"/></svg>Search Repositories and Projects...</div>
+    <div class="ib"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2.5 4h11M4.5 8h7M6.5 12h3"/></svg></div>
+    <div class="seg"><i class="on"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></i><i><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/></svg></i></div>
+    <div class="add">Add New...<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="m4 6 4 4 4-4"/></svg></div>
+  </div>
+  <div class="cols">
+    <div class="left">
+      <h3>Usage</h3>
+      <div class="box">
+        <div class="boxh"><div><b>Last 30 days</b><br>Updated 6m ago</div><span class="up">Upgrade</span></div>
+        <div class="u" style="padding-top:14px"><svg class="ring" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#ebebeb" stroke-width="2.2"/><circle cx="8" cy="8" r="6" fill="none" stroke="#0070f3" stroke-width="2.2" stroke-dasharray="23 38" transform="rotate(-90 8 8)"/></svg>Edge Requests<span class="v"><b>3.9M</b> / 10M</span></div>
+        <div class="u"><svg class="ring" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#ebebeb" stroke-width="2.2"/><circle cx="8" cy="8" r="6" fill="none" stroke="#0070f3" stroke-width="2.2" stroke-dasharray="11 38" transform="rotate(-90 8 8)"/></svg>Fast Data Transfer<span class="v"><b>284 GB</b> / 1 TB</span></div>
+        <div class="u"><svg class="ring" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#ebebeb" stroke-width="2.2"/><circle cx="8" cy="8" r="6" fill="none" stroke="#f5a623" stroke-width="2.2" stroke-dasharray="31 38" transform="rotate(-90 8 8)"/></svg>Function Invocations<span class="v"><b>812K</b> / 1M</span></div>
+        <div class="u" style="padding-bottom:14px"><svg class="ring" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#ebebeb" stroke-width="2.2"/><circle cx="8" cy="8" r="6" fill="none" stroke="#0070f3" stroke-width="2.2" stroke-dasharray="6 38" transform="rotate(-90 8 8)"/></svg>Image Optimization<span class="v"><b>1,204</b> / 5,000</span></div>
+      </div>
+      <h3>Recent Previews</h3>
+      <div class="box">
+        <div class="prv"><div class="thumb" style="background:linear-gradient(180deg,#f6f3ee 0 30%,#e4d3bf 30%)"></div><div style="min-width:0"><div class="t">feat: gift wrap option at checkout</div><div class="s">storefront · 34m ago</div></div></div>
+        <div class="prv"><div class="thumb" style="background:linear-gradient(180deg,#0b0b0f 0 35%,#1e1b4b 35%)"></div><div style="min-width:0"><div class="t">docs: add webhooks quickstart</div><div class="s">docs · 3h ago</div></div></div>
+        <div class="prv"><div class="thumb" style="background:linear-gradient(180deg,#fff 0 30%,#ccfbf1 30%)"></div><div style="min-width:0"><div class="t">feat(orders): bulk refund from table</div><div class="s">admin · 2d ago</div></div></div>
+      </div>
+    </div>
+    <div style="flex:1">
+      <h3>Projects</h3>
+      <div class="grid">
+        <div class="p"><div class="h"><div class="pic" style="background:#2b241d"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M5 12V4h3.5a2.3 2.3 0 0 1 0 4.6H5" stroke="#f6f3ee" stroke-width="1.6" fill="none"/></svg></div><div><div class="nm">storefront</div><div class="dm">oakandember.com</div></div><div class="r"><span class="act"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12 6 7l3 3 5-6"/></svg></span><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div></div>
+          <span class="repo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#171717" stroke-width="1.5"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg>fernwood/storefront</span>
+          <div class="cm">fix: hydrate cart drawer before checkout redirect</div>
+          <div class="wh">12m ago on <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg><span class="mono" style="font-size:12.5px;color:#171717">main</span></div>
+        </div>
+        <div class="p"><div class="h"><div class="pic" style="background:#111"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><path d="M4 3h6l2 2v8H4z"/><path d="M6 8h4M6 10.5h3"/></svg></div><div><div class="nm">docs</div><div class="dm">docs.fernwood.dev</div></div><div class="r"><span class="act"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12 6 7l3 3 5-6"/></svg></span><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div></div>
+          <span class="repo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#171717" stroke-width="1.5"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg>fernwood/docs</span>
+          <div class="cm">docs: add webhooks quickstart</div>
+          <div class="wh">3h ago on <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg><span class="mono" style="font-size:12.5px;color:#171717">main</span></div>
+        </div>
+        <div class="p"><div class="h"><div class="pic" style="background:linear-gradient(135deg,#7c3aed,#db2777)"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 11 8 4l5 7z"/></svg></div><div><div class="nm">api-gateway</div><div class="dm">api.fernwood.dev</div></div><div class="r"><span class="act"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12 6 7l3 3 5-6"/></svg></span><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div></div>
+          <span class="repo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#171717" stroke-width="1.5"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg>fernwood/api-gateway</span>
+          <div class="cm"><span class="err">●</span> perf: cache JWKS for 10 minutes</div>
+          <div class="wh">Yesterday on <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg><span class="mono" style="font-size:12.5px;color:#171717">jwks-cache</span></div>
+        </div>
+        <div class="p"><div class="h"><div class="pic" style="background:#fff"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5" fill="#f5a623"/><circle cx="8" cy="8" r="2" fill="#fff"/></svg></div><div><div class="nm">marketing-site</div><div class="dm">fernwood.dev</div></div><div class="r"><span class="act"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12 6 7l3 3 5-6"/></svg></span><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div></div>
+          <span class="repo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#171717" stroke-width="1.5"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg>fernwood/marketing-site</span>
+          <div class="cm">Merge pull request #214 from fernwood/pricing-v3</div>
+          <div class="wh">Oct 19 on <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg><span class="mono" style="font-size:12.5px;color:#171717">main</span></div>
+        </div>
+        <div class="p"><div class="h"><div class="pic" style="background:#0f766e"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 8h10M8 3v10"/></svg></div><div><div class="nm">admin</div><div class="dm">admin.fernwood.dev</div></div><div class="r"><span class="act"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12 6 7l3 3 5-6"/></svg></span><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div></div>
+          <span class="repo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#171717" stroke-width="1.5"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg>fernwood/admin</span>
+          <div class="cm">feat(orders): bulk refund from table selection</div>
+          <div class="wh">2d ago on <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg><span class="mono" style="font-size:12.5px;color:#171717">main</span></div>
+        </div>
+        <div class="p"><div class="h"><div class="pic" style="background:#f2f2f2"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#171717" stroke-width="1.5"><rect x="3" y="3" width="10" height="10" rx="2"/><path d="M6 8h4"/></svg></div><div><div class="nm">email-templates</div><div class="dm">emails.fernwood.dev</div></div><div class="r"><span class="act"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12 6 7l3 3 5-6"/></svg></span><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div></div>
+          <span class="repo"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#171717" stroke-width="1.5"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg>fernwood/email-templates</span>
+          <div class="cm">chore: bump react-email to 4.1</div>
+          <div class="wh">Oct 14 on <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg><span class="mono" style="font-size:12.5px;color:#171717">renovate/react-email</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

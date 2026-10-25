@@ -1,0 +1,28 @@
+{
+  "id": "raycast-action-panel",
+  "kind": "component",
+  "subtype": "action menu",
+  "title": "Action panel",
+  "inspiredBy": "Raycast",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "red",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Light-mode Cmd+K action panel layered over a list, with shortcut keycaps and a search footer."
+}

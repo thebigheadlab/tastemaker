@@ -1,0 +1,25 @@
+{
+  "id": "bear-tag-tree",
+  "kind": "component",
+  "subtype": "tag sidebar",
+  "title": "Tag tree",
+  "inspiredBy": "Bear",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "red",
+    "typeStyle": "humanist",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "calm"
+  },
+  "notes": "Nested slash-tags in an espresso sidebar, each with its own TagCon glyph in a coloured tile, a drag-drop target outlined in terracotta and the TagCon picker popover."
+}

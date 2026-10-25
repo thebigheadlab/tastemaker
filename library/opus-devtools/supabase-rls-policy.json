@@ -1,0 +1,28 @@
+{
+  "id": "supabase-rls-policy",
+  "kind": "component",
+  "subtype": "policy editor",
+  "title": "RLS policies",
+  "inspiredBy": "Supabase",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "mono",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Row Level Security panel listing policies per command with a SQL definition preview."
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page properties</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:480px;height:600px;overflow:hidden;background:#fff;font-family:Inter,-apple-system,system-ui,sans-serif;color:#37352f;-webkit-font-smoothing:antialiased;font-size:14px;position:relative}
+.doc{padding:30px 36px 0}
+.bc{font-size:13px;color:#9b9a97;margin-bottom:14px;display:flex;gap:6px;align-items:center}
+h1{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:700;letter-spacing:-.4px;margin:0 0 12px;line-height:1.2}
+.prop{display:flex;align-items:center;height:34px;font-size:14px}
+.prop .k{width:140px;color:#9b9a97;display:flex;align-items:center;gap:7px;flex:none}
+.prop .k svg{flex:none}
+.prop .v{flex:1;display:flex;align-items:center;gap:5px;padding:4px 6px;border-radius:4px;min-height:20px}
+.prop .v.on{background:#f1f1ef}
+.prop .v.empty{color:#c4c3bf}
+.tag{border-radius:3px;padding:0 6px;line-height:19px;font-size:13px;white-space:nowrap}
+.g-grey{background:#e3e2e0;color:#32302c}.g-blue{background:#d3e5ef;color:#183347}.g-green{background:#dbeddb;color:#1c3829}.g-yellow{background:#fdecc8;color:#402c1b}.g-red{background:#ffe2dd;color:#5d1715}.g-purple{background:#e8deee;color:#412454}.g-orange{background:#fadec9;color:#49290e}
+.dotpill{display:inline-flex;align-items:center;gap:6px;border-radius:3px;padding:0 7px 0 6px;line-height:19px;font-size:13px}
+.dotpill i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.who{display:inline-flex;align-items:center;gap:6px}
+.who i{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:600;font-style:normal}
+.rel{display:inline-flex;align-items:center;gap:5px;text-decoration:underline;text-decoration-color:#c4c3bf;text-underline-offset:3px}
+.bar{width:90px;height:4px;border-radius:2px;background:#ededeb;overflow:hidden;display:inline-block;vertical-align:middle}
+.bar i{display:block;height:100%;width:71%;background:#2383e2}
+.more{color:#9b9a97;padding:6px 6px;display:flex;align-items:center;gap:8px;font-size:14px}
+.hr{border-top:1px solid #ededeb;margin:10px 0}
+.menu{position:absolute;left:176px;top:210px;width:250px;background:#fff;border-radius:8px;box-shadow:rgba(15,15,15,.05) 0 0 0 1px,rgba(15,15,15,.1) 0 3px 6px,rgba(15,15,15,.2) 0 9px 24px;padding:6px 0 4px;box-sizing:border-box}
+.menu .inp{margin:2px 8px 6px;background:#f7f7f5;border:1px solid #e9e9e7;border-radius:4px;padding:5px 8px;display:flex;gap:6px;align-items:center;min-height:20px}
+.menu .inp .x{display:inline-flex;align-items:center;gap:4px}
+.menu .inp .x{display:inline-flex;align-items:center;gap:4px;padding-right:4px}
+.menu .inp .x b{font-weight:400;opacity:.6;margin-left:2px;font-size:12px}
+.menu .sec{padding:4px 12px 4px;font-size:12px;color:#9b9a97;font-weight:500}
+.menu .opt{display:flex;align-items:center;gap:8px;padding:4px 8px;margin:0 4px;border-radius:4px;height:22px}
+.menu .opt.sel{background:#efefed}
+.menu .opt .drag{color:#c4c3bf;font-size:11px;letter-spacing:-2px}
+.menu .opt .dots{margin-left:auto;color:#c4c3bf;letter-spacing:1px;font-size:12px}
+.menu .grp{display:flex;align-items:center;gap:6px;padding:7px 12px 2px;font-size:12px;color:#9b9a97;font-weight:500}
+.menu .grp i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.menu .foot{border-top:1px solid #ededeb;margin-top:6px;padding:8px 12px 4px;font-size:12px;color:#9b9a97;display:flex;align-items:center;gap:6px}
+</style>
+</head>
+<body>
+<div class="doc">
+  <div class="bc"><span>🎨 Design tasks</span><span>/</span><span>Billing flow v4</span></div>
+  <h1><span>📄</span>Billing flow v4: plan picker</h1>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#9b9a97" stroke-width="1.3"/><path d="M4.5 7l2 2 3-3.5" stroke="#9b9a97" stroke-width="1.3" stroke-linecap="round"/></svg>Status</span><span class="v"><span class="dotpill g-blue"><i style="background:#2f80ed"></i>In progress</span></span></div>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="5" r="2.5" stroke="#9b9a97" stroke-width="1.3"/><path d="M2.5 12a4.5 4.5 0 0 1 9 0" stroke="#9b9a97" stroke-width="1.3"/></svg>Assignee</span><span class="v"><span class="who"><i style="background:#d9775f">JL</i>Jonas Lindqvist</span></span></div>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="3" width="10" height="9" rx="1.2" stroke="#9b9a97" stroke-width="1.3"/><path d="M2 6h10" stroke="#9b9a97" stroke-width="1.3"/></svg>Due</span><span class="v">October 30, 2026</span></div>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l5-4 5 4-5 4z" stroke="#9b9a97" stroke-width="1.3" stroke-linejoin="round"/></svg>Priority</span><span class="v on"><span class="tag g-red">P0</span></span></div>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 4h8M3 7h8M3 10h5" stroke="#9b9a97" stroke-width="1.3" stroke-linecap="round"/></svg>Tags</span><span class="v"><span class="tag g-green">Growth</span><span class="tag g-purple">Onboarding</span></span></div>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5.5 8.5l3-3M4 10l-1 1a2 2 0 0 1-2.8-2.8l2-2A2 2 0 0 1 5 6M10 4l1-1a2 2 0 0 1 2.8 2.8l-2 2A2 2 0 0 1 9 8" stroke="#9b9a97" stroke-width="1.3" stroke-linecap="round"/></svg>Project</span><span class="v"><span class="rel">🗺️ Q4 roadmap: Billing</span></span></div>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 11l3-4 2.5 3 2-2.5L12 11" stroke="#9b9a97" stroke-width="1.3" stroke-linejoin="round"/><path d="M2 3h10" stroke="#9b9a97" stroke-width="1.3" stroke-linecap="round"/></svg>Subtasks</span><span class="v"><span class="bar"><i></i></span><span style="color:#9b9a97;font-size:13px">5/7</span></span></div>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="#9b9a97" stroke-width="1.3"/><path d="M7 4v3l2 1.2" stroke="#9b9a97" stroke-width="1.3" stroke-linecap="round"/></svg>Last edited</span><span class="v" style="color:#9b9a97">Today 10:42</span></div>
+  <div class="prop"><span class="k"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 3h8v8H3z" stroke="#9b9a97" stroke-width="1.3"/><path d="M5.5 7h3" stroke="#9b9a97" stroke-width="1.3" stroke-linecap="round"/></svg>Figma</span><span class="v empty">Empty</span></div>
+  <div class="more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 3v8M3 7h8" stroke="#9b9a97" stroke-width="1.4" stroke-linecap="round"/></svg>Add a property</div>
+  <div class="hr"></div>
+  <div class="more"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3h10v7H6l-3 2.5V10H2z" stroke="#9b9a97" stroke-width="1.3" stroke-linejoin="round"/></svg>Add a comment…</div>
+</div>
+
+<div class="menu">
+  <div class="inp"><span class="x tag g-red">P0<b>×</b></span></div>
+  <div class="sec">Select an option or create one</div>
+  <div class="opt sel"><span class="drag">⋮⋮</span><span class="tag g-red">P0</span><span class="dots">···</span></div>
+  <div class="opt"><span class="drag">⋮⋮</span><span class="tag g-orange">P1</span><span class="dots">···</span></div>
+  <div class="opt"><span class="drag">⋮⋮</span><span class="tag g-yellow">P2</span><span class="dots">···</span></div>
+  <div class="opt"><span class="drag">⋮⋮</span><span class="tag g-grey">P3</span><span class="dots">···</span></div>
+  <div class="opt"><span class="drag">⋮⋮</span><span class="tag g-grey">Someday</span><span class="dots">···</span></div>
+  <div class="foot"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#9b9a97" stroke-width="1.2"/><path d="M6 4v2.2l1.4.9" stroke="#9b9a97" stroke-width="1.2" stroke-linecap="round"/></svg>Edit property</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "id": "medium-clap-bar",
+  "kind": "component",
+  "subtype": "article footer",
+  "title": "Story footer",
+  "inspiredBy": "Medium",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "serif",
+    "typeScale": "moderate",
+    "density": "airy",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "editorial"
+  },
+  "notes": "End-of-story block: serif closing paragraph with a dotted section break, grey pill tags, the clap hands with a black +12 counter bubble, hairline action bar and an author card with a green Follow pill."
+}

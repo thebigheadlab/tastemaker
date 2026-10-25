@@ -1,0 +1,25 @@
+{
+  "id": "te-knob-panel",
+  "kind": "component",
+  "subtype": "mixer controls",
+  "title": "Mixer channel strip",
+  "inspiredBy": "Teenage Engineering",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "orange",
+    "typeStyle": "mono",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "sharp",
+    "elevation": "flat",
+    "border": "bold",
+    "ornament": "minimal",
+    "mood": "brutalist"
+  },
+  "notes": "Four skeuomorphic-but-flat channel strips on a bordered grey plate: outlined knobs with colour caps, ticked faders with square caps, tri-colour LED meters and square SOLO/MUTE buttons, one lit orange."
+}

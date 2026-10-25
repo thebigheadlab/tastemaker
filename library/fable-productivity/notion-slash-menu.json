@@ -1,0 +1,25 @@
+{
+  "id": "notion-slash-menu",
+  "kind": "component",
+  "subtype": "slash command menu",
+  "title": "Slash menu",
+  "inspiredBy": "Notion",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Typing '/cal' in a document opens the block-insert menu: thumbnail previews per block type, two-line labels, filtered sections and a shortcut footer."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "nike-product-page",
+  "kind": "screen",
+  "subtype": "product detail page",
+  "title": "Product detail page",
+  "inspiredBy": "Nike",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "orange",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Gray-tile product imagery with thumbnail rail, plain medium-weight type, a five-column size grid and full-width black and outline pill buttons."
+}

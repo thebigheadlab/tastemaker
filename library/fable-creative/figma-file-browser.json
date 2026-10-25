@@ -1,0 +1,25 @@
+{
+  "id": "figma-file-browser",
+  "kind": "screen",
+  "subtype": "file browser",
+  "title": "Recent files",
+  "inspiredBy": "Figma",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Flat white file grid with thumbnail previews of each file's own canvas, blue and purple file-type glyphs, hairline sidebar with colored team squares and small-caps-free 12px UI."
+}

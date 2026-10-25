@@ -1,0 +1,25 @@
+{
+  "id": "cron-event-popover",
+  "kind": "component",
+  "subtype": "event detail popover",
+  "title": "Event popover",
+  "inspiredBy": "Notion Calendar (Cron)",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "purple",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Click an event and a dark card floats beside it: times shown in two zones, a conflict warning, a blue Join button, guests with RSVP status dots and Y/N keyboard RSVP."
+}

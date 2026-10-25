@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bento feature card</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:600px;height:480px;overflow:hidden;background:#000;font-family:"Inter",system-ui,sans-serif;color:#fff;position:relative;-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center}
+  *{box-sizing:border-box}
+  .bento{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:14px;width:552px;height:432px}
+  .card{border-radius:20px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));padding:22px;position:relative;overflow:hidden}
+  .card.big{grid-row:1/3}
+  .card h3{margin:0;font-size:17px;font-weight:600;letter-spacing:-.3px}
+  .card p{margin:6px 0 0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.55)}
+  .ic{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:14px;border:1px solid rgba(255,255,255,.08)}
+  .glow{position:absolute;width:320px;height:320px;border-radius:50%;filter:blur(30px);pointer-events:none}
+  .vis{position:absolute;left:22px;right:22px;bottom:22px;height:200px;border-radius:12px;background:#0c0c0f;border:1px solid rgba(255,255,255,.1);overflow:hidden}
+  .vis .bar{height:28px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:6px;padding:0 10px}
+  .vis .bar i{width:8px;height:8px;border-radius:50%;background:#2a2a30;display:block}
+  .vis .el{position:absolute;border-radius:6px;background:rgba(255,255,255,.06)}
+  .sel{position:absolute;border:1.5px solid #0099ff;border-radius:6px}
+  .sel i{position:absolute;width:6px;height:6px;background:#0099ff;border-radius:1px}
+  .lbl{position:absolute;top:-18px;left:0;background:#0099ff;color:#fff;font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px}
+  .pts{position:absolute;right:22px;bottom:18px;display:flex;align-items:flex-end;gap:5px;height:64px}
+  .pts i{width:14px;border-radius:3px 3px 0 0;background:linear-gradient(180deg,#8f6bff,rgba(143,107,255,.2));display:block}
+  .globe{position:absolute;right:-30px;bottom:-60px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(90,214,125,.4);background:radial-gradient(circle at 40% 40%,rgba(90,214,125,.25),transparent 60%)}
+  .globe:before,.globe:after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(90,214,125,.25);transform:scaleX(.6)}
+  .globe:after{transform:scaleX(.25)}
+  .dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#5ad67d;box-shadow:0 0 12px #5ad67d}
+</style>
+</head>
+<body>
+  <div class="bento">
+    <div class="card big">
+      <div class="glow" style="background:rgba(0,153,255,.35);left:-80px;top:-120px"></div>
+      <div class="ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><path d="M2 2l5 12 1.5-5 5-1.5z"/></svg></div>
+      <h3>Design on the canvas you ship</h3>
+      <p>Drag, align and animate real DOM elements. What you see is exactly what your visitors get.</p>
+      <div class="vis">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <span class="el" style="left:16px;top:44px;width:180px;height:14px"></span>
+        <span class="el" style="left:16px;top:66px;width:120px;height:10px"></span>
+        <span class="el" style="left:16px;top:96px;width:90px;height:30px;border-radius:999px;background:#fff"></span>
+        <span class="el" style="left:224px;top:44px;width:80px;height:120px;background:linear-gradient(160deg,#1f2b4d,#111)"></span>
+        <div class="sel" style="left:220px;top:40px;width:88px;height:128px"><span class="lbl">Image</span><i style="left:-4px;top:-4px"></i><i style="right:-4px;top:-4px"></i><i style="left:-4px;bottom:-4px"></i><i style="right:-4px;bottom:-4px"></i></div>
+        <span class="el" style="left:16px;top:146px;width:260px;height:10px"></span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="glow" style="background:rgba(143,107,255,.35);right:-120px;bottom:-160px"></div>
+      <div class="ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><path d="M2 12l4-5 3 3 5-7"/></svg></div>
+      <h3>Built-in analytics</h3>
+      <p>Pageviews, sources and A/B results without a tag manager.</p>
+      <div class="pts"><i style="height:20px"></i><i style="height:34px"></i><i style="height:26px"></i><i style="height:44px"></i><i style="height:38px"></i><i style="height:58px"></i><i style="height:64px"></i></div>
+    </div>
+    <div class="card">
+      <div class="ic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c2.5 3 2.5 9 0 12M8 2c-2.5 3-2.5 9 0 12"/></svg></div>
+      <h3>Global edge hosting</h3>
+      <p>Published to 30+ regions in seconds, with automatic SSL.</p>
+      <div class="globe"></div>
+      <span class="dot" style="right:50px;bottom:60px"></span><span class="dot" style="right:90px;bottom:30px"></span><span class="dot" style="right:28px;bottom:22px"></span>
+    </div>
+  </div>
+</body>
+</html>

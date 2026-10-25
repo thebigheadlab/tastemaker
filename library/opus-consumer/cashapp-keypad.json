@@ -1,0 +1,28 @@
+{
+  "id": "cashapp-keypad",
+  "kind": "screen",
+  "subtype": "payment keypad",
+  "title": "Pay keypad",
+  "inspiredBy": "Cash App",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "geometric",
+    "typeScale": "dramatic",
+    "density": "airy",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Whole screen flooded in signature green with a giant white dollar amount, bare numeric keypad and translucent Request/Pay pills."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "revolut-home",
+  "kind": "screen",
+  "subtype": "banking home",
+  "title": "Account home",
+  "inspiredBy": "Revolut",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "textured",
+    "mood": "technical"
+  },
+  "notes": "Glowing indigo-to-blue gradient behind a huge centered balance, frosted circular quick actions and a rounded charcoal transactions sheet."
+}

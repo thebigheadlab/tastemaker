@@ -1,0 +1,28 @@
+{
+  "id": "raycast-launcher",
+  "kind": "screen",
+  "subtype": "launcher",
+  "title": "Launcher",
+  "inspiredBy": "Raycast",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "red",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Floating translucent launcher over a desktop wallpaper: root search with favorites, suggestions and an action bar."
+}

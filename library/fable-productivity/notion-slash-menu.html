@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Slash menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:480px;height:600px;overflow:hidden;background:#fff;font-family:Inter,-apple-system,system-ui,sans-serif;color:#37352f;-webkit-font-smoothing:antialiased;font-size:16px;position:relative}
+.doc{padding:34px 40px 0}
+h1{font-size:28px;font-weight:700;letter-spacing:-.4px;margin:0 0 14px;line-height:1.2}
+p{margin:0 0 8px;line-height:1.6;font-size:16px}
+.ph{color:#37352f;display:flex;align-items:center}
+.ph .slash{color:#37352f}
+.ph .q{color:#37352f}
+.caret{display:inline-block;width:1.5px;height:19px;background:#37352f;vertical-align:-4px;animation:b 1s step-end infinite}
+@keyframes b{50%{opacity:0}}
+.hl{display:inline-block;background:rgba(35,131,226,.14);border-radius:3px;padding:0 2px}
+.menu{position:absolute;left:40px;top:198px;width:324px;background:#fff;border-radius:10px;box-shadow:rgba(15,15,15,.05) 0 0 0 1px,rgba(15,15,15,.1) 0 3px 6px,rgba(15,15,15,.2) 0 9px 24px;padding:6px 0;box-sizing:border-box}
+.sec{padding:8px 14px 4px;font-size:12px;font-weight:500;color:#9b9a97}
+.it{display:flex;align-items:center;gap:12px;padding:5px 10px;margin:0 4px;border-radius:6px}
+.it.sel{background:#efefed}
+.it .pv{width:46px;height:46px;border-radius:4px;background:#fff;border:1px solid #e9e9e7;box-sizing:border-box;flex:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.it .tx{min-width:0}
+.it .tx b{display:block;font-size:14px;font-weight:500;color:#37352f}
+.it .tx span{display:block;font-size:12px;color:#9b9a97;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.it .k{margin-left:auto;font-size:12px;color:#9b9a97;flex:none}
+.pv .t{font-size:11px;color:#37352f;line-height:1.2}
+.pv .h1{font-size:20px;font-weight:700}
+.pv .h2{font-size:16px;font-weight:700}
+.pv .cb{display:flex;align-items:center;gap:4px;font-size:9px}
+.pv .cb i{width:9px;height:9px;border:1px solid #37352f;border-radius:1px;display:inline-block}
+.pv .bl{display:flex;flex-direction:column;gap:3px;align-items:flex-start}
+.pv .bl i{display:flex;align-items:center;gap:3px;font-size:8px}
+.pv .bl i:before{content:"";width:3px;height:3px;border-radius:50%;background:#37352f}
+.pv .tg{display:flex;align-items:center;gap:3px;font-size:9px}
+.pv .tg:before{content:"";border-left:5px solid #37352f;border-top:3.5px solid transparent;border-bottom:3.5px solid transparent}
+.pv .pg{display:flex;align-items:center;gap:3px;font-size:9px}
+.pv .pg i{width:9px;height:11px;border:1px solid #37352f;border-radius:1px;display:inline-block}
+.pv .co{background:#f1f1ef;border-radius:2px;padding:3px 4px;font-size:8px;display:flex;gap:3px;align-items:center}
+.pv .ln{height:2px;width:26px;background:#d3d1cb;border-radius:1px}
+.pv .im{width:24px;height:18px;background:#e9e9e7;border-radius:2px;display:flex;align-items:center;justify-content:center;color:#9b9a97;font-size:8px}
+.pv .cd{font-family:ui-monospace,Menlo,monospace;font-size:8px;background:#f7f6f3;padding:3px 4px;border-radius:2px;color:#eb5757}
+.pv .db{display:grid;grid-template-columns:repeat(3,10px);gap:1px}
+.pv .db i{height:6px;border:1px solid #d3d1cb}
+.pv .lines{display:flex;flex-direction:column;gap:3px}
+.pv .lines i{height:2px;width:26px;background:#37352f;border-radius:1px;opacity:.75}
+.foot{display:flex;align-items:center;gap:10px;padding:8px 14px 2px;font-size:12px;color:#9b9a97;border-top:1px solid #ededeb;margin-top:4px}
+.foot b{font-weight:500;color:#9b9a97;background:#f1f1ef;border-radius:3px;padding:0 4px;margin-right:3px}
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1>Design review notes</h1>
+  <p>Weekly review, 24 Oct. Jonas walked through billing v4; the annual toggle above the cards tested well with <span class="hl">5 of 6</span> people.</p>
+  <p class="ph"><span class="slash">/cal</span><span class="caret"></span></p>
+</div>
+<div class="menu">
+  <div class="sec">Basic blocks</div>
+  <div class="it sel"><span class="pv"><span class="co">💡<span class="ln" style="width:18px"></span></span></span><span class="tx"><b>Callout</b><span>Make writing stand out.</span></span></div>
+  <div class="it"><span class="pv"><span class="pv t" style="border:none;width:auto;height:auto;display:block"><span class="db" style="display:grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></span><span class="tx"><b>Calendar view</b><span>Create a calendar database view.</span></span></div>
+  <div class="it"><span class="pv"><span class="pv t" style="border:none;width:auto;height:auto;display:flex;flex-direction:column;gap:2px;align-items:center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="4" width="15" height="13" rx="1.5" stroke="#37352f" stroke-width="1.2"/><path d="M2.5 8h15M6.5 2.5v3M13.5 2.5v3" stroke="#37352f" stroke-width="1.2" stroke-linecap="round"/></svg></span></span><span class="tx"><b>Calendar</b><span>Embed a calendar.</span></span></div>
+  <div class="sec">Inline</div>
+  <div class="it"><span class="pv"><span class="pv t" style="border:none;width:auto;height:auto;font-size:10px;color:#9b9a97">@Oct 24</span></span><span class="tx"><b>Date or reminder</b><span>Insert a date or reminder.</span></span></div>
+  <div class="it"><span class="pv"><span class="pv t" style="border:none;width:auto;height:auto;font-size:10px">E = mc²</span></span><span class="tx"><b>Inline equation</b><span>Insert mathematical symbols in text.</span></span><span class="k">⌘⇧E</span></div>
+  <div class="foot"><span><b>↑↓</b>Select</span><span><b>↵</b>Insert</span><span><b>esc</b>Dismiss</span><span style="margin-left:auto;white-space:nowrap">Type to filter…</span></div>
+</div>
+</body>
+</html>

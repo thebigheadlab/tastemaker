@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile day</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:390px;height:844px;overflow:hidden;background:#fff;font-family:Inter,-apple-system,system-ui,sans-serif;color:#1a1a1a;-webkit-font-smoothing:antialiased;font-size:13px;position:relative}
+.status{height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 8px 34px;font-size:15px;font-weight:600}
+.hd{display:flex;align-items:center;padding:6px 18px 0;gap:8px}
+.hd h1{font-size:22px;font-weight:600;letter-spacing:-.4px;margin:0}
+.hd .y{color:#8a8a8a;font-weight:400;font-size:22px}
+.hd .r{margin-left:auto;display:flex;gap:14px;align-items:center;color:#555}
+.strip{display:flex;padding:14px 10px 10px;border-bottom:1px solid #ececec}
+.strip .d{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.strip .d span{font-size:10px;font-weight:500;color:#8a8a8a;letter-spacing:.4px}
+.strip .d b{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;color:#1a1a1a}
+.strip .d.today b{background:#2563eb;color:#fff;font-weight:600}
+.strip .d.we b{color:#8a8a8a}
+.strip .d i{width:4px;height:4px;border-radius:50%;background:#c4c4c4}
+.strip .d.today i{background:transparent}
+.allday{display:flex;align-items:center;gap:8px;padding:8px 18px;border-bottom:1px solid #ececec;font-size:12px}
+.allday .lab{color:#8a8a8a;width:44px;font-size:10px}
+.allday .ad{background:#fff1e4;color:#9a3412;border-radius:4px;padding:2px 8px;font-weight:500}
+.day{position:relative;height:560px;overflow:hidden}
+.hour{position:absolute;left:0;right:0;height:64px;border-top:1px solid #efefef}
+.hour span{position:absolute;left:14px;top:-7px;font-size:10px;color:#8a8a8a;background:#fff;padding-right:4px}
+.lane{position:absolute;left:62px;right:14px;top:0;bottom:0}
+.ev{position:absolute;left:0;right:0;border-radius:6px;border-left:3px solid;padding:5px 8px;box-sizing:border-box;overflow:hidden;font-size:12px;line-height:15px}
+.ev b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev span{display:block;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev.blue{background:#e8f0fe;border-color:#2563eb;color:#1e3a8a}
+.ev.purple{background:#f1eafd;border-color:#8b5cf6;color:#4c1d95}
+.ev.green{background:#e3f6ec;border-color:#10b981;color:#065f46}
+.ev.orange{background:#fff1e4;border-color:#f97316;color:#7c2d12}
+.ev.pink{background:#fde8f1;border-color:#ec4899;color:#831843}
+.ev .av{position:absolute;right:6px;top:5px;display:flex}
+.ev .av i{width:16px;height:16px;border-radius:50%;border:1.5px solid #fff;margin-left:-5px;display:inline-flex;align-items:center;justify-content:center;font-size:7px;font-weight:600;color:#fff;font-style:normal}
+.now{position:absolute;left:54px;right:0;height:1.5px;background:#ef4444;z-index:3}
+.now:before{content:"";position:absolute;left:-4px;top:-3px;width:8px;height:8px;border-radius:50%;background:#ef4444}
+.now i{position:absolute;left:-44px;top:-7px;font-size:10px;color:#ef4444;font-weight:600;font-style:normal;background:#fff;padding:0 3px}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:84px;border-top:1px solid #ececec;background:rgba(255,255,255,.96);display:flex;justify-content:space-around;padding:10px 20px 0;box-sizing:border-box}
+.tabbar .t{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:#8a8a8a;width:60px}
+.tabbar .t.on{color:#2563eb}
+.home{position:absolute;left:50%;bottom:8px;width:134px;height:5px;background:#1a1a1a;border-radius:3px;transform:translateX(-50%)}
+.fab{position:absolute;right:18px;bottom:98px;width:50px;height:50px;border-radius:50%;background:#1a1a1a;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.join{position:absolute;left:18px;right:80px;bottom:98px;height:44px;border-radius:10px;background:#1a1a1a;color:#fff;display:flex;align-items:center;gap:10px;padding:0 14px;box-sizing:border-box;font-size:13px;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.join b{font-weight:600}
+.join .j{margin-left:auto;background:#2563eb;border-radius:6px;padding:4px 10px;font-weight:600;font-size:12px}
+</style>
+</head>
+<body>
+<div class="status"><span>9:41</span><span style="display:flex;gap:6px;align-items:center">
+<svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx=".6" fill="#1a1a1a"/><rect x="4.5" y="5" width="3" height="6" rx=".6" fill="#1a1a1a"/><rect x="9" y="2.5" width="3" height="8.5" rx=".6" fill="#1a1a1a"/><rect x="13.5" y="0" width="3" height="11" rx=".6" fill="#1a1a1a"/></svg>
+<svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="#1a1a1a" opacity=".4" fill="none"/><rect x="2" y="2" width="18" height="8" rx="1.8" fill="#1a1a1a"/><path d="M23 4v4c.8-.3 1.3-1 1.3-2S23.8 4.3 23 4Z" fill="#1a1a1a" opacity=".4"/></svg></span></div>
+<div class="hd"><h1>October <span class="y">2026</span></h1><span class="r"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#555" stroke-width="1.6"/><path d="m12.2 12.2 3.3 3.3" stroke="#555" stroke-width="1.6" stroke-linecap="round"/></svg><span style="font-size:12px;font-weight:600;border:1px solid #ddd;border-radius:6px;padding:3px 8px">Today</span><span style="width:26px;height:26px;border-radius:50%;background:#7c8cff;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#fff">MA</span></span></div>
+<div class="strip">
+  <div class="d"><span>MON</span><b>19</b><i></i></div>
+  <div class="d"><span>TUE</span><b>20</b><i></i></div>
+  <div class="d"><span>WED</span><b>21</b><i></i></div>
+  <div class="d"><span>THU</span><b>22</b><i></i></div>
+  <div class="d today"><span style="color:#2563eb">FRI</span><b>23</b><i></i></div>
+  <div class="d we"><span>SAT</span><b>24</b><i></i></div>
+  <div class="d we"><span>SUN</span><b>25</b><i style="background:transparent"></i></div>
+</div>
+<div class="allday"><span class="lab">All day</span><span class="ad">Jonas OOO</span></div>
+<div class="day">
+  <div class="hour" style="top:0;border-top:none"><span style="top:3px">9 AM</span></div>
+  <div class="hour" style="top:64px"><span>10 AM</span></div>
+  <div class="hour" style="top:128px"><span>11 AM</span></div>
+  <div class="hour" style="top:192px"><span>12 PM</span></div>
+  <div class="hour" style="top:256px"><span>1 PM</span></div>
+  <div class="hour" style="top:320px"><span style="visibility:hidden">2 PM</span></div>
+  <div class="hour" style="top:384px"><span>3 PM</span></div>
+  <div class="hour" style="top:448px"><span>4 PM</span></div>
+  <div class="hour" style="top:512px"><span>5 PM</span></div>
+  <div class="lane">
+    <div class="ev blue" style="top:2px;height:28px"><b>Standup</b></div>
+    <div class="ev purple" style="top:66px;height:92px"><b>Design review</b><span>10:00 – 11:30 · Zoom</span><span class="av"><i style="background:#d9775f">JL</i><i style="background:#5d7bd0">PR</i><i style="background:#c5603c">RK</i></span></div>
+    <div class="ev green" style="top:194px;height:92px"><b>Focus: release notes</b><span>12:00 – 1:30</span></div>
+    <div class="ev blue" style="top:322px;height:60px"><b>Hold: Fieldnote intro</b><span>2:00 – 3:00 · tentative</span></div>
+    <div class="ev blue" style="top:450px;height:60px"><b>Q4 planning w/ Elena</b><span>4:00 – 5:00 · Room Aurora</span></div>
+  </div>
+  <div class="now" style="top:328px"><i>2:08</i></div>
+</div>
+<div class="join"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="9" height="9" rx="2" stroke="#fff" stroke-width="1.4"/><path d="M10.5 7l4-2.5v7l-4-2.5z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></svg><div><b>Hold: Fieldnote intro</b><div style="font-size:11px;color:#bbb">in 52 min · Google Meet</div></div><span class="j">Join</span></div>
+<div class="fab"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v14M3 10h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+<div class="tabbar">
+  <div class="t on"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="4.5" width="16" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h16M7.5 2.5v4M14.5 2.5v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Calendar</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="4" width="16" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M7 9h8M7 13h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Schedule</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M11 7v4l2.5 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Availability</div>
+  <div class="t"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.7"/><circle cx="11" cy="11" r="2.2" stroke="currentColor" stroke-width="1.7"/></svg>Settings</div>
+</div>
+<div class="home"></div>
+</body>
+</html>

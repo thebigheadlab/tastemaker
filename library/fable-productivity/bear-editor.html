@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Editor</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:1280px;height:800px;overflow:hidden;background:#f6efe2;font-family:"Nunito Sans","Avenir Next",-apple-system,system-ui,sans-serif;color:#3d3833;-webkit-font-smoothing:antialiased;font-size:13px;display:flex}
+.side{width:230px;flex:none;background:#2f2a26;color:#d9cfc0;display:flex;flex-direction:column;padding:12px 0 0;box-sizing:border-box}
+.lights{display:flex;gap:8px;padding:2px 16px 20px}
+.lights i{width:12px;height:12px;border-radius:50%;display:block}
+.sn{display:flex;align-items:center;gap:10px;padding:5px 16px;font-size:13.5px;color:#d9cfc0}
+.sn svg{flex:none}
+.sn .n{margin-left:auto;color:#8c8176;font-size:12px}
+.sn.on{background:#c8664f;color:#fff;margin:0 8px;padding:5px 8px;border-radius:6px}
+.sn.on .n{color:rgba(255,255,255,.75)}
+.tags{margin-top:12px;border-top:1px solid #3f3934;padding-top:8px}
+.tg{display:flex;align-items:center;gap:10px;padding:4px 16px;font-size:13.5px;color:#d9cfc0}
+.tg .ic{width:18px;height:18px;border-radius:5px;display:inline-flex;align-items:center;justify-content:center;flex:none;font-size:11px}
+.tg .n{margin-left:auto;color:#8c8176;font-size:12px}
+.tg .chev{width:10px;color:#8c8176;font-size:9px}
+.tg.sub{padding-left:38px}
+.sidefoot{margin-top:auto;display:flex;justify-content:space-between;padding:10px 16px;color:#8c8176;font-size:12px;border-top:1px solid #3f3934}
+.list{width:290px;flex:none;background:#efe6d6;border-right:1px solid #e1d6c3;display:flex;flex-direction:column}
+.list .srch{margin:14px 12px 8px;background:#e5dac7;border-radius:7px;height:28px;display:flex;align-items:center;gap:7px;padding:0 10px;color:#8c8176;font-size:12.5px}
+.note{padding:11px 16px 11px 16px;border-bottom:1px solid #e3d8c6;position:relative}
+.note b{display:block;font-size:14px;font-weight:700;color:#3d3833;letter-spacing:-.1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.note span{display:block;font-size:12.5px;color:#7a6f64;margin-top:2px;line-height:1.4;max-height:35px;overflow:hidden}
+.note small{display:block;font-size:11px;color:#a0948a;margin-top:4px}
+.note.on{background:#fff9ef}
+.note.on:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#c8664f}
+.note .pin{position:absolute;right:14px;top:12px;color:#c8664f}
+.list .sec{padding:8px 16px 2px;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:#a0948a;font-weight:700}
+.ed{flex:1;min-width:0;background:#fbf6ec;display:flex;flex-direction:column;position:relative}
+.ed .tb{height:44px;display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:0 20px;color:#a0948a}
+.doc{width:640px;margin:0 auto;padding-top:18px;font-size:16px;line-height:1.65;color:#3d3833}
+.mk{color:#c9bca8;font-weight:400}
+h1{font-size:30px;font-weight:700;margin:0 0 10px;letter-spacing:-.3px;line-height:1.2;color:#2f2a26}
+h1 .mk{font-size:30px;margin-right:8px;font-weight:400}
+h2{font-size:21px;font-weight:700;margin:22px 0 8px;color:#2f2a26}
+h2 .mk{font-size:21px;margin-right:8px;font-weight:400}
+p{margin:0 0 12px}
+.tag{display:inline-block;background:#f0dcd1;color:#b2543f;border-radius:5px;padding:0 7px;font-size:13.5px;font-weight:600;line-height:22px;margin-right:4px}
+.hl{background:#f8e6a0;border-radius:2px;padding:0 2px}
+.todo{display:flex;align-items:flex-start;gap:10px;margin:2px 0}
+.todo i{width:16px;height:16px;border-radius:50%;border:1.5px solid #b8ac9a;box-sizing:border-box;flex:none;margin-top:5px}
+.todo i.on{background:#c8664f;border-color:#c8664f;position:relative}
+.todo i.on:after{content:"";position:absolute;left:4.5px;top:1.5px;width:4px;height:7px;border:solid #fff;border-width:0 1.6px 1.6px 0;transform:rotate(45deg)}
+.todo.on span{color:#a0948a;text-decoration:line-through}
+blockquote{margin:10px 0;padding:2px 0 2px 14px;border-left:3px solid #d9b8a9;color:#6e635a;font-style:italic}
+code{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:13px;background:#efe6d6;border-radius:4px;padding:1px 5px;color:#7a4a3c}
+a{color:#c8664f;text-decoration:none;border-bottom:1px solid #e5bfae}
+.caret{display:inline-block;width:1.5px;height:19px;background:#c8664f;vertical-align:-4px;animation:b 1s step-end infinite}
+@keyframes b{50%{opacity:0}}
+.ed .foot{position:absolute;left:0;right:0;bottom:0;height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:11.5px;color:#a0948a;background:linear-gradient(180deg,rgba(251,246,236,0),#fbf6ec 40%)}
+.ed .foot .tools{display:flex;gap:14px;align-items:center}
+.ed .foot svg{display:block}
+</style>
+</head>
+<body>
+<div class="side">
+  <div class="lights"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+  <div class="sn on"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="1.5" width="10" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 5h5M4.5 7.5h5M4.5 10h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Notes<span class="n">214</span></div>
+  <div class="sn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.2" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8 3.2-3.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Todo<span class="n">6</span></div>
+  <div class="sn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="2.5" width="11" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 5.5h11" stroke="currentColor" stroke-width="1.3"/></svg>Today</div>
+  <div class="sn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 6h8v6H3z" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="currentColor" stroke-width="1.3"/></svg>Locked</div>
+  <div class="sn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="10" height="3" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M3 5v6.5h8V5M5.5 8h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Archive</div>
+  <div class="sn"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 4h8l-.7 8H3.7zM2 4h10M5.5 2h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Trash</div>
+  <div class="tags">
+    <div class="tg"><span class="chev">▾</span><span class="ic" style="background:#c8664f;color:#fff">✎</span>design<span class="n">48</span></div>
+    <div class="tg sub">principles<span class="n">7</span></div>
+    <div class="tg sub">crit notes<span class="n">22</span></div>
+    <div class="tg sub">type<span class="n">9</span></div>
+    <div class="tg"><span class="chev">▸</span><span class="ic" style="background:#8a6f4e;color:#fff">☕</span>journal<span class="n">96</span></div>
+    <div class="tg"><span class="chev">▸</span><span class="ic" style="background:#5f7f6a;color:#fff">❦</span>reading<span class="n">31</span></div>
+    <div class="tg"><span class="chev"></span><span class="ic" style="background:#9a7fb5;color:#fff">♪</span>music<span class="n">12</span></div>
+    <div class="tg"><span class="chev"></span><span class="ic" style="background:#4a6f8f;color:#fff">✈</span>travel<span class="n">18</span></div>
+    <div class="tg"><span class="chev"></span><span class="ic" style="background:#b58a3d;color:#fff">⚘</span>recipes<span class="n">9</span></div>
+  </div>
+  <div class="sidefoot"><span>⌘N New note</span><span>⚙</span></div>
+</div>
+<div class="list">
+  <div class="srch"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="5" cy="5" r="3.6" stroke="currentColor" stroke-width="1.3"/><path d="m7.8 7.8 2.7 2.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>Search notes · #design</div>
+  <div class="sec">Pinned</div>
+  <div class="note on"><b>Design principles, v3</b><span>Clarity over cleverness. If a screen needs a tooltip to explain its primary action…</span><small>Today, 10:12 · 412 words</small><span class="pin" style="position:absolute;right:14px;top:12px;max-height:none"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M4 1h3l.5 3 2 1.5v1h-3V10L5.5 8.5 5 6.5H2v-1l2-1.5z" fill="#c8664f"/></svg></span></div>
+  <div class="sec">Notes</div>
+  <div class="note"><b>Crit: billing v4 plan picker</b><span>Annual toggle above the cards works. Comparison table hidden behind a link…</span><small>Yesterday · #design/crit notes</small></div>
+  <div class="note"><b>Type scale experiments</b><span>Trying 1.2 vs 1.25 ratio for the marketing site. The 1.25 feels more…</span><small>Tue · #design/type</small></div>
+  <div class="note"><b>Interview notes: Hedda</b><span>Portfolio walkthrough: the keyboard-first editor project. Strong on systems…</span><small>Mon · #design</small></div>
+  <div class="note"><b>Offsite: what to cut</b><span>Three sessions too many. Merge the retro and the roadmap into one…</span><small>Oct 18 · #design</small></div>
+  <div class="note"><b>Icon weights</b><span>1.5px at 16, 1.75px at 20, 2px at 24. Round caps everywhere except…</span><small>Oct 15 · #design/type</small></div>
+  <div class="note"><b>Why the sidebar is dark</b><span>Because the content pane should be the brightest thing on screen…</span><small>Oct 11 · #design/principles</small></div>
+</div>
+<div class="ed">
+  <div class="tb">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M7.5 5v3M7.5 10v.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M4 2.5h7l-.5 10h-6z" stroke="currentColor" stroke-width="1.3"/></svg>
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 2v8M4.5 7l3 3 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 11v2h10v-2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="3" cy="7.5" r="1.2" fill="currentColor"/><circle cx="7.5" cy="7.5" r="1.2" fill="currentColor"/><circle cx="12" cy="7.5" r="1.2" fill="currentColor"/></svg>
+  </div>
+  <div class="doc">
+    <h1><span class="mk">#</span>Design principles, v3</h1>
+    <p><span class="tag">#design/principles</span><span class="tag">#lumen</span></p>
+    <p>We write these down so that decisions survive the people who made them. <span class="mk">*</span>Three<span class="mk">*</span> principles carry most of the weight; everything else is commentary.</p>
+    <h2><span class="mk">##</span>1. Clarity over cleverness</h2>
+    <p>If a screen needs a tooltip to explain its primary action, <span class="mk">**</span><b>the screen is not finished yet</b><span class="mk">**</span>. Counter-example: our old export dialog, where <code>⌘E</code> did three different things depending on focus.</p>
+    <blockquote>"Simple is not the same as easy. Simple is what is left when you remove everything that is not the point." <span class="mk">— from the</span> <a href="#">offsite notes</a></blockquote>
+    <h2><span class="mk">##</span>2. The content is the brightest thing</h2>
+    <p>Chrome recedes, content advances. That is why the sidebar is dark and <span class="mk">::</span><span class="hl">the note is the only white surface</span><span class="mk">::</span> in the window.</p>
+    <h2><span class="mk">##</span>Open threads</h2>
+    <div class="todo on"><i class="on"></i><span>Rewrite principle 3 after Priya's feedback</span></div>
+    <div class="todo"><i></i><span>Add counter-example for principle 2 (settings panel?)</span></div>
+    <div class="todo"><i></i><span>Share with the team before Monday<span class="caret"></span></span></div>
+  </div>
+  <div class="foot"><span>412 words · 2,311 characters · 2 min read</span><span class="tools"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 3.5h8M3 7h8M3 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span>B</span><span style="font-style:italic">I</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 7l1.8 1.8 3.2-3.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span>#</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5.5 8.5l3-3M4 10l-1 1a2 2 0 0 1-2.8-2.8l2-2A2 2 0 0 1 5 6M10 4l1-1a2 2 0 0 1 2.8 2.8l-2 2A2 2 0 0 1 9 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span></div>
+</div>
+</body>
+</html>

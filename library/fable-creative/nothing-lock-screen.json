@@ -1,0 +1,25 @@
+{
+  "id": "nothing-lock-screen",
+  "kind": "screen",
+  "subtype": "lock screen",
+  "title": "Glyph lock screen",
+  "inspiredBy": "Nothing",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "red",
+    "typeStyle": "display",
+    "typeScale": "dramatic",
+    "density": "airy",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "textured",
+    "mood": "brutalist"
+  },
+  "notes": "White variant: stacked 132px dot-matrix clock, a black glyph-pattern emblem with one red core, light-grey pill notifications with black circle icons and ALL-CAPS tracked microcopy."
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dark pricing tiers</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:1280px;height:800px;overflow:hidden;background:#000;font-family:"Inter",system-ui,sans-serif;color:#fff;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .glow{position:absolute;left:50%;top:-500px;transform:translateX(-50%);width:1200px;height:800px;border-radius:50%;background:radial-gradient(closest-side,rgba(120,80,255,.35),transparent 70%)}
+  nav{position:relative;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;font-size:14px;font-weight:500}
+  nav .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
+  nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;color:rgba(255,255,255,.8)}
+  .btn{height:36px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+  .btn.w{background:#fff;color:#000}
+  .btn.g{background:rgba(255,255,255,.08);color:#fff}
+  .head{position:relative;text-align:center;padding-top:28px}
+  h1{margin:0;font-size:56px;letter-spacing:-2.5px;font-weight:700;line-height:1.05}
+  .head p{margin:12px 0 0;color:rgba(255,255,255,.6);font-size:17px}
+  .toggle{display:inline-flex;margin-top:22px;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:4px;font-size:13px;font-weight:600}
+  .toggle span{padding:7px 16px;border-radius:999px;color:rgba(255,255,255,.6)}
+  .toggle span.on{background:#fff;color:#000}
+  .toggle em{font-style:normal;color:#5ad67d;margin-left:6px;font-size:11px}
+  .tiers{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:40px 48px 0}
+  .tier{border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px;background:rgba(255,255,255,.02);position:relative;height:396px;display:flex;flex-direction:column}
+  .tier.hi{background:linear-gradient(180deg,rgba(0,153,255,.18),rgba(0,0,0,0) 60%);border-color:rgba(0,153,255,.6);box-shadow:0 0 0 1px rgba(0,153,255,.2),0 20px 60px rgba(0,153,255,.15)}
+  .tier h3{margin:0;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:space-between}
+  .tier h3 b{font-size:11px;font-weight:600;background:#0099ff;border-radius:999px;padding:3px 8px}
+  .tier .d{color:rgba(255,255,255,.55);font-size:13px;margin-top:6px;min-height:36px;line-height:1.4}
+  .price{margin-top:16px;display:flex;align-items:baseline;gap:4px}
+  .price b{font-size:40px;font-weight:700;letter-spacing:-2px}
+  .price span{color:rgba(255,255,255,.5);font-size:13px}
+  .tier .btn{margin-top:18px;height:42px;width:100%}
+  ul{list-style:none;margin:20px 0 0;padding:0;font-size:13px;color:rgba(255,255,255,.8);display:grid;gap:10px}
+  li{display:flex;gap:10px;align-items:center}
+  li svg{flex-shrink:0}
+  .foot{position:absolute;bottom:0;left:0;right:0;padding:0 48px 26px;display:flex;justify-content:center;gap:40px;font-size:13px;color:rgba(255,255,255,.45)}
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <nav>
+    <div class="logo"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2h16v6H11l8 6H3V8h8z" fill="#fff"/><path d="M3 14h8v6z" fill="#fff"/></svg>Lumen</div>
+    <ul><li>Product</li><li>Templates</li><li style="color:#fff">Pricing</li><li>Customers</li><li>Resources</li></ul>
+    <div style="display:flex;gap:10px"><span class="btn g">Log in</span><span class="btn w">Start free</span></div>
+  </nav>
+  <div class="head">
+    <h1>Simple pricing, serious sites.</h1>
+    <p>Start free. Upgrade when you publish.</p>
+    <div class="toggle"><span>Monthly</span><span class="on">Yearly<em>Save 20%</em></span></div>
+  </div>
+  <div class="tiers">
+    <div class="tier">
+      <h3>Free</h3><div class="d">For trying things out and personal projects.</div>
+      <div class="price"><b>$0</b><span>/ month</span></div>
+      <span class="btn g">Get started</span>
+      <ul>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>Unlimited drafts</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>lumen.site subdomain</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>1 GB bandwidth</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>Community support</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <h3>Mini</h3><div class="d">A simple site with a custom domain.</div>
+      <div class="price"><b>$5</b><span>/ month</span></div>
+      <span class="btn g">Choose Mini</span>
+      <ul>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>Custom domain</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>2 pages</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>Remove badge</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>10 GB bandwidth</li>
+      </ul>
+    </div>
+    <div class="tier hi">
+      <h3>Pro <b>Most popular</b></h3><div class="d">Everything a growing team needs to ship a real site.</div>
+      <div class="price"><b>$20</b><span>/ month</span></div>
+      <span class="btn w">Choose Pro</span>
+      <ul>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#5ad67d" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>Unlimited pages</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#5ad67d" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>CMS with 10k items</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#5ad67d" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>Analytics &amp; A/B tests</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#5ad67d" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>Localization</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#5ad67d" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>100 GB bandwidth</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <h3>Scale</h3><div class="d">High-traffic sites with SSO, SLAs and priority support.</div>
+      <div class="price"><b>$75</b><span>/ month</span></div>
+      <span class="btn g">Talk to sales</span>
+      <ul>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>Everything in Pro</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>SSO &amp; audit log</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>99.99% uptime SLA</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#fff" stroke-width="1.6"><path d="M3 7.5l2.5 2.5L11 4"/></svg>1 TB bandwidth</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Trusted by 4,000+ teams</span><span>·</span><span>Cancel anytime</span><span>·</span><span>VAT may apply</span></div>
+</body>
+</html>

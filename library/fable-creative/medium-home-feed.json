@@ -1,0 +1,25 @@
+{
+  "id": "medium-home-feed",
+  "kind": "screen",
+  "subtype": "article feed",
+  "title": "Story feed",
+  "inspiredBy": "Medium",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "serif",
+    "typeScale": "moderate",
+    "density": "airy",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "editorial"
+  },
+  "notes": "Black-on-white two-column feed: serif story titles with grey serif deks and small square thumbnails, a yellow member star, pill topic chips, a staff-picks rail and outline Follow buttons."
+}

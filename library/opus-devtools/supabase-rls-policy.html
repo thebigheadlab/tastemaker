@@ -1,0 +1,56 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>RLS policies</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#f8f8f8;color:#171717;font:13px/1.4 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;padding:14px 18px}
+svg{display:block;flex:none}
+.mono{font-family:"Source Code Pro",ui-monospace,monospace}
+.card{background:#fff;border:1px solid #e3e3e3;border-radius:8px;margin-bottom:10px;overflow:hidden}
+.ch{height:42px;display:flex;align-items:center;gap:10px;padding:0 12px 0 14px;border-bottom:1px solid #ececec;background:#fcfcfc}
+.ch .nm{font-weight:500;font-size:13.5px;display:flex;align-items:center;gap:8px}
+.ch .nm span{color:#8f8f8f;font-weight:400}
+.tag{font-size:11px;font-weight:500;border-radius:4px;padding:1px 6px}
+.ch .r{margin-left:auto;display:flex;gap:6px}
+.btn{height:26px;border:1px solid #dcdcdc;border-radius:6px;padding:0 9px;display:flex;align-items:center;gap:6px;font-size:12px;background:#fff;color:#262626}
+.btn.g{background:#1f9d64;border-color:#178a56;color:#fff}
+.p{display:flex;align-items:center;gap:12px;height:40px;padding:0 12px 0 14px;border-bottom:1px solid #f0f0f0}
+.p:last-child{border-bottom:0}
+.cmd{width:58px;text-align:center;font:500 10.5px "Source Code Pro",monospace;border-radius:4px;padding:2px 0;letter-spacing:.02em}
+.sel{background:#e6f0ff;color:#1d5bd8}
+.ins{background:#e3f6ec;color:#16794a}
+.upd{background:#fff2dc;color:#a35c00}
+.del{background:#fde8e8;color:#c0303b}
+.p .t{flex:1;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p .role{font:12px "Source Code Pro",monospace;color:#707070}
+.p .m{color:#a0a0a0}
+.p.open{background:#fafafa;border-bottom:0}
+.sql{margin:0 14px 12px 84px;border:1px solid #e6e6e6;border-radius:6px;background:#fff;font:12px/19px "Source Code Pro",monospace;padding:8px 12px;white-space:pre;color:#262626}
+.k{color:#a626a4}.f{color:#0e7ac4}.s{color:#1f8a52}
+.warn{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:#fffaf0;font-size:12.5px;color:#6b4a00;line-height:1.5}
+.warn b{display:block;color:#3d2a00;font-weight:600;font-size:13px}
+.tgl{width:30px;height:17px;border-radius:9px;background:#1f9d64;position:relative}
+.tgl:after{content:"";position:absolute;right:2px;top:2px;width:13px;height:13px;border-radius:50%;background:#fff}
+.tgl.off{background:#d4d4d4}.tgl.off:after{right:auto;left:2px}
+</style></head><body>
+<div class="card">
+  <div class="ch"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#8f8f8f" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg><div class="nm"><span>public.</span>notes</div><span class="tag" style="background:#e3f6ec;color:#16794a">RLS enabled</span>
+    <div class="r"><span class="btn"><span class="tgl"></span>Enforce</span><span class="btn g"><svg width="12" height="12" viewBox="0 0 16 16" stroke="#fff" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg>Create policy</span></div></div>
+  <div class="p open"><span class="cmd sel">SELECT</span><span class="t">Members can read notes in their workspace</span><span class="role">authenticated</span><svg class="m" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div>
+<div class="sql"><span class="k">using</span> (
+  workspace_id <span class="k">in</span> (
+    <span class="k">select</span> workspace_id <span class="k">from</span> members
+    <span class="k">where</span> user_id = (<span class="k">select</span> <span class="f">auth.uid</span>())
+  )
+)</div>
+  <div class="p"><span class="cmd ins">INSERT</span><span class="t">Authors can create notes</span><span class="role">authenticated</span><svg class="m" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div>
+  <div class="p"><span class="cmd upd">UPDATE</span><span class="t">Authors can edit their own notes</span><span class="role">authenticated</span><svg class="m" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div>
+  <div class="p"><span class="cmd del">DELETE</span><span class="t">Workspace admins can delete notes</span><span class="role">authenticated</span><svg class="m" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div>
+</div>
+<div class="card">
+  <div class="ch"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#8f8f8f" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg><div class="nm"><span>public.</span>webhook_events</div><span class="tag" style="background:#fff2dc;color:#a35c00">RLS disabled</span>
+    <div class="r"><span class="btn" style="color:#a35c00;border-color:#f2d39a;background:#fffaf0">Enable RLS</span></div></div>
+  <div class="warn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#b36b00" stroke-width="1.5"><path d="M8 2 14.5 13.5h-13z" stroke-linejoin="round"/><path d="M8 6.5v3M8 11.5v.01"/></svg><div><b>This table is publicly accessible</b>Anyone with the anon key can read, edit and delete rows.</div></div>
+</div>
+</body></html>

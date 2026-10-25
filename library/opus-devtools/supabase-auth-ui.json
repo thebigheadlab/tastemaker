@@ -1,0 +1,28 @@
+{
+  "id": "supabase-auth-ui",
+  "kind": "component",
+  "subtype": "sign-in form",
+  "title": "Auth form",
+  "inspiredBy": "Supabase",
+  "platform": "web",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Drop-in auth UI: OAuth buttons, divider, email/password fields and magic-link option."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "arc-search-mobile",
+  "kind": "screen",
+  "subtype": "ai browse result",
+  "title": "Browse for me",
+  "inspiredBy": "Arc",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "orange",
+    "typeStyle": "geometric",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Arc Search's Browse for Me result page: summarized sections, source chips and bottom search bar."
+}

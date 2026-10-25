@@ -1,0 +1,147 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Table editor</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#121212;color:#ededed;font:13px/1.4 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;display:flex;flex-direction:column}
+svg{display:block;flex:none}
+.mono{font-family:"Source Code Pro",ui-monospace,Menlo,monospace;font-size:12px}
+.top{height:48px;border-bottom:1px solid #2e2e2e;display:flex;align-items:center;padding:0 14px;gap:10px;background:#121212}
+.logo{width:22px;height:22px}
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:#ededed}
+.crumb .sl{color:#4d4d4d;font-size:18px;font-weight:300}
+.badge{font-size:11px;border:1px solid #2e2e2e;border-radius:10px;padding:0 7px;color:#a0a0a0;height:18px;display:flex;align-items:center}
+.br{display:flex;align-items:center;gap:6px;font-size:12px;color:#a0a0a0;border:1px solid #2e2e2e;border-radius:6px;height:26px;padding:0 8px}
+.top .r{margin-left:auto;display:flex;align-items:center;gap:10px;color:#a0a0a0;font-size:12.5px}
+.btn{height:26px;border:1px solid #2e2e2e;border-radius:6px;padding:0 9px;display:flex;align-items:center;gap:6px;color:#ededed;font-size:12px;background:#1f1f1f}
+.uav{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#3ecf8e,#0f766e)}
+.wrap{flex:1;display:flex;min-height:0}
+.rail{width:52px;border-right:1px solid #2e2e2e;display:flex;flex-direction:column;align-items:center;padding-top:8px;gap:4px;background:#121212}
+.rail i{width:36px;height:36px;border-radius:6px;display:grid;place-items:center;color:#8f8f8f}
+.rail i.on{background:#262626;color:#ededed}
+.rail hr{width:24px;border:0;border-top:1px solid #2e2e2e;margin:4px 0}
+.nav{width:240px;border-right:1px solid #2e2e2e;background:#171717;display:flex;flex-direction:column}
+.nh{height:48px;display:flex;align-items:center;padding:0 16px;font-size:15px;font-weight:500;border-bottom:1px solid #2e2e2e}
+.np{padding:12px}
+.sel{height:30px;border:1px solid #2e2e2e;border-radius:6px;display:flex;align-items:center;gap:6px;padding:0 9px;font-size:12px;color:#a0a0a0;background:#1f1f1f}
+.sel b{color:#ededed;font-weight:500}
+.newt{margin-top:8px;height:30px;border:1px solid #2e2e2e;border-radius:6px;display:flex;align-items:center;gap:8px;padding:0 9px;font-size:12.5px;color:#ededed}
+.srch{margin-top:12px;display:flex;align-items:center;gap:8px;color:#707070;font-size:12.5px;padding:0 2px}
+.tl{padding:6px 8px}
+.tl .h{font-size:11.5px;color:#707070;padding:6px 6px 4px;display:flex;justify-content:space-between}
+.t{height:30px;border-radius:5px;display:flex;align-items:center;gap:8px;padding:0 8px;font-size:13px;color:#b4b4b4}
+.t svg{color:#707070}
+.t.on{background:#262626;color:#ededed}
+.t.on svg{color:#3ecf8e}
+.t .w{margin-left:auto;font-size:10px;color:#f5a524;border:1px solid #5c4210;background:#2b200a;border-radius:4px;padding:0 4px}
+.main{flex:1;display:flex;flex-direction:column;min-width:0;background:#171717}
+.tabs{height:38px;display:flex;align-items:flex-end;border-bottom:1px solid #2e2e2e;background:#121212;padding-left:0}
+.tab{height:38px;display:flex;align-items:center;gap:8px;padding:0 14px;font-size:12.5px;color:#a0a0a0;border-right:1px solid #2e2e2e}
+.tab.on{background:#171717;color:#ededed;box-shadow:inset 0 2px 0 #3ecf8e;margin-bottom:-1px;height:39px}
+.tbar{height:44px;display:flex;align-items:center;gap:8px;padding:0 12px;border-bottom:1px solid #2e2e2e}
+.tb{height:28px;display:flex;align-items:center;gap:6px;padding:0 9px;border-radius:6px;font-size:12.5px;color:#b4b4b4}
+.ins{height:28px;display:flex;align-items:center;gap:6px;padding:0 10px;border-radius:6px;background:#006239;border:1px solid #3ecf8e66;color:#fff;font-size:12.5px;font-weight:500}
+.tbar .r{margin-left:auto;display:flex;gap:8px;align-items:center}
+.pol{height:28px;display:flex;align-items:center;gap:7px;padding:0 10px;border-radius:6px;border:1px solid #2e2e2e;font-size:12px;color:#ededed}
+.pol .c{background:#3ecf8e22;color:#3ecf8e;border-radius:4px;padding:0 5px;font-size:11px}
+.rt{height:28px;display:flex;align-items:center;gap:7px;padding:0 10px;border-radius:6px;border:1px solid #2e2e2e;font-size:12px;color:#a0a0a0}
+.grid{flex:1;overflow:hidden}
+table{border-collapse:collapse;width:100%;table-layout:fixed}
+th{height:34px;background:#1f1f1f;border-right:1px solid #2e2e2e;border-bottom:1px solid #2e2e2e;text-align:left;padding:0 10px;font-weight:500;font-size:12.5px;color:#ededed;white-space:nowrap;overflow:hidden}
+th span{display:flex;align-items:center;gap:6px}
+th em{font-style:normal;font-family:"Source Code Pro",monospace;font-size:11px;color:#707070;font-weight:400}
+td{height:32px;border-right:1px solid #262626;border-bottom:1px solid #262626;padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12.5px;color:#d4d4d4}
+td.num{text-align:right;color:#a0a0a0;font-family:"Source Code Pro",monospace;font-size:12px}
+td.mu{color:#8f8f8f}
+.f{color:#707070}
+.ck{width:36px;padding:0;text-align:center}
+.ck i{display:inline-block;width:14px;height:14px;border:1px solid #454545;border-radius:3px;vertical-align:middle}
+tr.rsel td{background:#1d2a23}
+tr.rsel td.edit{box-shadow:inset 0 0 0 2px #3ecf8e;background:#171717;color:#fff}
+.tg{font-size:11.5px;font-weight:500}
+.foot{height:40px;border-top:1px solid #2e2e2e;display:flex;align-items:center;gap:10px;padding:0 12px;font-size:12px;color:#a0a0a0;background:#121212}
+.pg{display:flex;align-items:center;gap:6px}
+.pg i{width:24px;height:24px;border:1px solid #2e2e2e;border-radius:5px;display:grid;place-items:center;font-style:normal}
+.pg .in{width:34px;height:24px;border:1px solid #2e2e2e;border-radius:5px;display:grid;place-items:center;color:#ededed}
+.seg{margin-left:auto;display:flex;border:1px solid #2e2e2e;border-radius:6px;overflow:hidden}
+.seg span{padding:3px 10px}
+.seg span.on{background:#262626;color:#ededed}
+</style></head><body>
+<div class="top">
+  <svg class="logo" viewBox="0 0 24 24"><path d="M13.5 2 4 14h7.5L10.5 22 20 10h-7.5z" fill="#3ecf8e"/></svg>
+  <div class="crumb"><span class="sl">/</span>Fieldnotes<span class="badge">Pro</span><span class="sl">/</span>fieldnotes-prod<span class="br"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg>main<span class="badge" style="color:#f5a524;border-color:#5c4210">PRODUCTION</span></span></div>
+  <div class="r"><span class="btn"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h8M8 4v8"/></svg>Connect</span><span>Feedback</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M6.3 6.2a1.8 1.8 0 1 1 2.4 1.7c-.5.2-.7.6-.7 1.1M8 11v.3"/></svg><span class="uav"></span></div>
+</div>
+<div class="wrap">
+  <div class="rail">
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 7 8 2.5 13.5 7v6.5h-11z"/></svg></i>
+    <hr>
+    <i class="on"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M2 9.5h12M6 6v7.5"/></svg></i>
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m3 5 3 3-3 3M8 11h5"/></svg></i>
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/></svg></i>
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg></i>
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2.5 4.5h11v9h-11zM5 4.5V2.5h6v2"/></svg></i>
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 2 4 9h4l-1 5 5-7H8z"/></svg></i>
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="2"/><path d="M4 4a5.6 5.6 0 0 0 0 8M12 4a5.6 5.6 0 0 1 0 8"/></svg></i>
+    <hr>
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 13.5h12M4 11V7M8 11V3.5M12 11V6"/></svg></i>
+    <i><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3.5h10M3 8h10M3 12.5h6"/></svg></i>
+  </div>
+  <div class="nav">
+    <div class="nh">Table Editor</div>
+    <div class="np">
+      <div class="sel">schema <b>public</b><svg style="margin-left:auto" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#a0a0a0" stroke-width="1.5"><path d="m5 6 3-3 3 3M5 10l3 3 3-3"/></svg></div>
+      <div class="newt"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M8 5.5v5M5.5 8h5"/></svg>New table</div>
+      <div class="srch"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search tables...</div>
+    </div>
+    <div class="tl">
+      <div class="h"><span>Tables (9)</span></div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>notebooks</div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>notes</div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>note_tags</div>
+      <div class="t on"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>profiles</div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>shares</div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>subscriptions</div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>tags</div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>webhook_events<span class="w">Unrestricted</span></div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>workspaces</div>
+      <div class="h" style="margin-top:8px"><span>Views (1)</span></div>
+      <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8Z"/><circle cx="8" cy="8" r="2"/></svg>active_subscribers</div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="tabs"><div class="tab">notes</div><div class="tab on"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#3ecf8e" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6h12M6 6v7.5"/></svg>profiles<svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#707070" stroke-width="1.6"><path d="m4.5 4.5 7 7m0-7-7 7"/></svg></div></div>
+    <div class="tbar">
+      <span class="tb"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2.5 4h11M4.5 8h7M6.5 12h3"/></svg>Filter</span>
+      <span class="tb"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v10M2.5 10.5 5 13l2.5-2.5M11 13V3M8.5 5.5 11 3l2.5 2.5"/></svg>Sort</span>
+      <span class="ins"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 3v10M3 8h10"/></svg>Insert<svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="m4 6 4 4 4-4"/></svg></span>
+      <div class="r"><span class="rt"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="2"/><path d="M4 4a5.6 5.6 0 0 0 0 8M12 4a5.6 5.6 0 0 1 0 8"/></svg>Realtime off</span><span class="pol"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#3ecf8e" stroke-width="1.5"><path d="M8 1.8 13 3.5V8c0 3-2.2 5.2-5 6.2C5.2 13.2 3 11 3 8V3.5z"/></svg>RLS policies<span class="c">3</span></span><span class="tb"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5h12M2 8h12M2 12.5h12"/></svg>Index advisor</span></div>
+    </div>
+    <div class="grid"><table>
+      <colgroup><col style="width:36px"><col style="width:84px"><col style="width:144px"><col style="width:176px"><col style="width:150px"><col style="width:104px"><col style="width:104px"><col></colgroup>
+      <tr><th class="ck"><i></i></th><th><span><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#f5a524" stroke-width="1.6"><circle cx="5.5" cy="10.5" r="3"/><path d="m7.6 8.4 5.9-5.9M11.5 4.5l2 2"/></svg>id <em>int8</em></span></th><th><span>user_id <em>uuid</em><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#707070" stroke-width="1.5"><path d="M6.5 9.5 9.5 6.5"/><path d="M7.5 4.5 9 3a2.8 2.8 0 0 1 4 4l-1.5 1.5M8.5 11.5 7 13a2.8 2.8 0 0 1-4-4l1.5-1.5"/></svg></span></th><th><span>email <em>text</em></span></th><th><span>full_name <em>text</em></span></th><th><span>plan <em>text</em></span></th><th><span>verified <em>bool</em></span></th><th><span>created_at <em>timestamptz</em></span></th></tr>
+      <tr><td class="ck"><i></i></td><td class="num">1</td><td class="mono mu">a3f2c1e0-7b9d…</td><td>mara@lindgren.se</td><td>Mara Lindgren</td><td><span class="tg" style="color:#3ecf8e">pro</span></td><td class="mono">true</td><td class="mono mu">2026-10-24 14:02:11+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">2</td><td class="mono mu">b81d0c44-2e1a…</td><td>tom@okafor.dev</td><td>Tom Okafor</td><td><span class="tg" style="color:#a0a0a0">free</span></td><td class="mono">true</td><td class="mono mu">2026-10-24 13:47:52+00</td></tr>
+<tr class="rsel"><td class="ck"><i style="background:#3ecf8e;border-color:#3ecf8e"></i></td><td class="num">3</td><td class="mono mu">c09e7f12-a4c3…</td><td>priya@northfield.co</td><td class="edit">Priya Bhatt<span style="display:inline-block;width:1.5px;height:14px;background:#3ecf8e;vertical-align:-2px;margin-left:1px"></span></td><td><span class="tg" style="color:#8b9cf7">team</span></td><td class="mono">true</td><td class="mono mu">2026-10-23 18:41:09+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">4</td><td class="mono mu">d7a1b3e8-55f0…</td><td>lukas@brenner.de</td><td>Lukas Brenner</td><td><span class="tg" style="color:#a0a0a0">free</span></td><td class="mono"><span class=f>false</span></td><td class="mono mu">2026-10-23 16:12:30+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">5</td><td class="mono mu">e2c4d9a7-1b88…</td><td>ayesha.k@proton.me</td><td>Ayesha Khan</td><td><span class="tg" style="color:#3ecf8e">pro</span></td><td class="mono">true</td><td class="mono mu">2026-10-22 09:20:44+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">6</td><td class="mono mu">f5b8e21c-903d…</td><td>ben@carver.io</td><td>Ben Carver</td><td><span class="tg" style="color:#a0a0a0">free</span></td><td class="mono">true</td><td class="mono mu">2026-10-22 11:03:17+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">7</td><td class="mono mu">0a9c3f6e-d241…</td><td>sofia@reyes.mx</td><td>Sofía Reyes</td><td><span class="tg" style="color:#8b9cf7">team</span></td><td class="mono">true</td><td class="mono mu">2026-10-21 20:58:02+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">8</td><td class="mono mu">1e7d5b20-8c6a…</td><td>j.whitfield@hey.com</td><td>June Whitfield</td><td><span class="tg" style="color:#a0a0a0">free</span></td><td class="mono"><span class=f>false</span></td><td class="mono mu">2026-10-21 07:15:39+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">9</td><td class="mono mu">2b6f8a91-e3d7…</td><td>kenji@mori.jp</td><td>Kenji Mori</td><td><span class="tg" style="color:#3ecf8e">pro</span></td><td class="mono">true</td><td class="mono mu">2026-10-20 23:44:58+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">10</td><td class="mono mu">3c4e0d72-6fa9…</td><td>ana@lindqvist.fi</td><td>Ana Lindqvist</td><td><span class="tg" style="color:#f5a524">enterprise</span></td><td class="mono">true</td><td class="mono mu">2026-10-20 12:31:06+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">11</td><td class="mono mu">4d2a9e63-b05c…</td><td>noah@pike.studio</td><td>Noah Pike</td><td><span class="tg" style="color:#a0a0a0">free</span></td><td class="mono">true</td><td class="mono mu">2026-10-19 17:09:21+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">12</td><td class="mono mu">5e1b7c54-a9e2…</td><td>li.wei@fastmail.com</td><td>Li Wei</td><td><span class="tg" style="color:#3ecf8e">pro</span></td><td class="mono">true</td><td class="mono mu">2026-10-19 08:52:47+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">13</td><td class="mono mu">6f0c6b45-0d7f…</td><td>oscar@haverford.ca</td><td>Oscar Haverford</td><td><span class="tg" style="color:#a0a0a0">free</span></td><td class="mono"><span class=f>false</span></td><td class="mono mu">2026-10-18 15:26:13+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">14</td><td class="mono mu">7a9d5a36-c1e4…</td><td>elif@demir.com.tr</td><td>Elif Demir</td><td><span class="tg" style="color:#8b9cf7">team</span></td><td class="mono">true</td><td class="mono mu">2026-10-18 10:04:55+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">15</td><td class="mono mu">8b8e4927-f6b1…</td><td>rafa@costa.pt</td><td>Rafael Costa</td><td><span class="tg" style="color:#a0a0a0">free</span></td><td class="mono">true</td><td class="mono mu">2026-10-17 21:37:40+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">16</td><td class="mono mu">9c7f3818-2a58…</td><td>hana@sato.dev</td><td>Hana Sato</td><td><span class="tg" style="color:#3ecf8e">pro</span></td><td class="mono">true</td><td class="mono mu">2026-10-17 06:18:29+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">17</td><td class="mono mu">ad6e2709-7cf3…</td><td>marcus@osei.gh</td><td>Marcus Osei</td><td><span class="tg" style="color:#a0a0a0">free</span></td><td class="mono">true</td><td class="mono mu">2026-10-16 19:43:12+00</td></tr>
+<tr><td class="ck"><i></i></td><td class="num">18</td><td class="mono mu">be5d1f80-4a27…</td><td>ines@vidal.es</td><td>Inés Vidal</td><td><span class="tg" style="color:#3ecf8e">pro</span></td><td class="mono">true</td><td class="mono mu">2026-10-16 08:11:54+00</td></tr>
+    </table></div>
+    <div class="foot"><div class="pg"><i>‹</i>Page<span class="in">1</span>of 74<i>›</i></div><span>100 rows</span><span>·</span><span>7,382 records</span><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8a5 5 0 1 1-1.5-3.5L13 6"/><path d="M13 2.5V6H9.5"/></svg>
+      <div class="seg"><span class="on">Data</span><span>Definition</span></div></div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,25 @@
+{
+  "id": "reader-reading-view",
+  "kind": "screen",
+  "subtype": "article reader",
+  "title": "Reading view",
+  "inspiredBy": "Readwise Reader",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "yellow",
+    "typeStyle": "serif",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "editorial"
+  },
+  "notes": "Three panes: a library sidebar, a serif article column with yellow and blue inline highlights, and a Notebook panel collecting highlights, notes and an AI summary; shortcuts shown next to every action."
+}

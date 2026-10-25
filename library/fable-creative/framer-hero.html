@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dark launch hero</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:1280px;height:800px;overflow:hidden;background:#000;font-family:"Inter",system-ui,sans-serif;color:#fff;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .clip{position:absolute;left:0;top:0;width:1280px;height:800px;overflow:hidden}
+  .glow{position:absolute;left:50%;top:420px;transform:translateX(-50%);width:1400px;height:900px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,153,255,.55),rgba(90,60,255,.25) 40%,rgba(0,0,0,0) 72%);filter:blur(10px)}
+  .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 70%)}
+  nav{position:relative;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
+  nav .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:-.3px}
+  nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:500;color:rgba(255,255,255,.8)}
+  nav .r{display:flex;gap:10px;align-items:center;font-size:14px;font-weight:500}
+  .btn{height:36px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
+  .btn.w{background:#fff;color:#000}
+  .btn.g{background:rgba(255,255,255,.08);color:#fff}
+  .hero{position:relative;text-align:center;padding-top:72px}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);border-radius:999px;padding:6px 14px 6px 6px;font-size:13px;font-weight:500;color:rgba(255,255,255,.85)}
+  .pill b{background:#0099ff;color:#fff;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:700}
+  h1{margin:26px auto 0;font-size:84px;line-height:.98;letter-spacing:-4px;font-weight:700;max-width:960px}
+  h1 span{background:linear-gradient(90deg,#7ad0ff,#b48cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  p{margin:26px auto 0;max-width:560px;font-size:19px;line-height:1.5;color:rgba(255,255,255,.65);font-weight:400;letter-spacing:-.1px}
+  .cta{margin-top:34px;display:flex;gap:12px;justify-content:center}
+  .cta .btn{height:48px;padding:0 24px;font-size:15px}
+  .stage{position:absolute;left:50%;top:560px;transform:translateX(-50%);width:1040px;height:300px;border-radius:16px 16px 0 0;background:#0c0c0e;border:1px solid rgba(255,255,255,.12);border-bottom:none;box-shadow:0 -20px 80px rgba(0,153,255,.15)}
+  .stage .tb{height:40px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;padding:0 14px;gap:8px}
+  .stage .tb i{width:10px;height:10px;border-radius:50%;background:#2b2b2f;display:block}
+  .stage .tb .url{margin:0 auto;height:24px;width:260px;border-radius:6px;background:rgba(255,255,255,.06);font-size:11px;color:rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center}
+  .stage .in{display:grid;grid-template-columns:200px 1fr 220px;height:260px}
+  .stage .in > div{border-right:1px solid rgba(255,255,255,.08);padding:14px}
+  .stage .in > div:last-child{border-right:none}
+  .ln{height:8px;border-radius:4px;background:rgba(255,255,255,.1);margin-bottom:10px}
+  .cv{display:flex;align-items:center;justify-content:center;height:100%}
+  .cv .mock{width:360px;height:180px;border-radius:10px;background:linear-gradient(135deg,#1b1b22,#101014);border:1px solid rgba(255,255,255,.1);position:relative;overflow:hidden}
+  .cv .mock:after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(0,153,255,.6),transparent 70%)}
+  .cur{position:absolute;left:520px;top:640px}
+  .cur .t{position:absolute;left:14px;top:14px;background:#ff6a3d;color:#fff;font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="clip">
+  <div class="glow"></div>
+  <div class="grid"></div>
+  <nav>
+    <div class="logo"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 2h16v6H11l8 6H3V8h8z" fill="#fff"/><path d="M3 14h8v6z" fill="#fff"/></svg>Lumen</div>
+    <ul><li>Product</li><li>Templates</li><li>Pricing</li><li>Customers</li><li>Resources</li></ul>
+    <div class="r"><span class="btn g">Log in</span><span class="btn w">Start free</span></div>
+  </nav>
+  <div class="hero">
+    <span class="pill"><b>New</b>AI layouts are here <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.5"><path d="M4 2l4 4-4 4"/></svg></span>
+    <h1>The site builder<br>for <span>serious</span> teams.</h1>
+    <p>Design on a real canvas, publish on a global edge network, and ship pages that feel hand-coded. No handoff, no waiting.</p>
+    <div class="cta"><span class="btn w">Start for free</span><span class="btn g"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 2l9 5-9 5z" fill="#fff"/></svg>Watch the film</span></div>
+  </div>
+  <div class="stage">
+    <div class="tb"><i></i><i></i><i></i><span class="url">lumen.site/launch</span></div>
+    <div class="in">
+      <div><div class="ln" style="width:70%"></div><div class="ln" style="width:50%"></div><div class="ln" style="width:60%"></div><div class="ln" style="width:40%"></div><div class="ln" style="width:55%"></div></div>
+      <div class="cv"><div class="mock"></div></div>
+      <div><div class="ln" style="width:60%"></div><div class="ln" style="width:100%;height:24px"></div><div class="ln" style="width:100%;height:24px"></div><div class="ln" style="width:45%"></div></div>
+    </div>
+  </div>
+  <div class="cur"><svg width="18" height="20" viewBox="0 0 16 18"><path d="M1 1l5 15 2.5-6 6-2.5z" fill="#ff6a3d" stroke="#fff" stroke-width="1.2"/></svg><span class="t">Mira</span></div>
+</div>
+</body>
+</html>

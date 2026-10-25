@@ -1,0 +1,28 @@
+{
+  "id": "stripe-checkout",
+  "kind": "screen",
+  "subtype": "checkout",
+  "title": "Hosted checkout",
+  "inspiredBy": "Stripe",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Split-panel hosted checkout: tinted order summary on the left, Link email and card form on the right."
+}

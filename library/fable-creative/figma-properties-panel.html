@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Design properties</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:480px;height:600px;overflow:hidden;background:#e5e5e5;font-family:"Inter",system-ui,sans-serif;font-size:11px;color:#1e1e1e;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .panel{position:absolute;right:0;top:0;bottom:0;width:240px;background:#fff;border-left:1px solid #e6e6e6;overflow:hidden}
+  .stage{position:absolute;left:0;top:0;width:240px;bottom:0;display:flex;align-items:center;justify-content:center}
+  .card{width:168px;background:#fff;border-radius:12px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);position:relative}
+  .card .sel{position:absolute;inset:-1px;border:1.5px solid #0d99ff;border-radius:12px}
+  .h{position:absolute;width:7px;height:7px;background:#fff;border:1px solid #0d99ff}
+  .rtabs{display:flex;height:40px;align-items:center;padding:0 12px;gap:16px;border-bottom:1px solid #e6e6e6;font-weight:600}
+  .rtabs span{color:#999}.rtabs span.on{color:#1e1e1e}
+  .prop{border-bottom:1px solid #e6e6e6;padding:8px 12px 10px}
+  .prop h4{margin:0 0 8px;font-size:11px;font-weight:600;display:flex;justify-content:space-between;align-items:center;height:20px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .inp{height:28px;border:1px solid transparent;border-radius:3px;background:#f5f5f5;display:flex;align-items:center;padding:0 8px;gap:8px;font-variant-numeric:tabular-nums}
+  .inp.focus{border-color:#0d99ff;background:#fff}
+  .inp i{font-style:normal;color:#999;width:10px}
+  .swatch{width:16px;height:16px;border-radius:3px;border:1px solid rgba(0,0,0,.1)}
+  .fillrow{display:flex;align-items:center;gap:8px;height:28px}
+  .fillrow .pct{margin-left:auto}
+  .dim{color:#999}
+  .plus{color:#555;font-size:14px;font-weight:400}
+  .mini{display:flex;gap:4px}
+  .mini span{width:24px;height:24px;border-radius:3px;background:#f5f5f5;display:flex;align-items:center;justify-content:center}
+  .mini span.on{background:#e5e5e5}
+  .al{display:grid;grid-template-columns:repeat(3,16px);gap:3px;padding:4px;background:#f5f5f5;border-radius:3px;width:60px}
+  .al i{height:16px;display:flex;align-items:center;justify-content:center}
+  .al i:after{content:"";width:3px;height:3px;border-radius:50%;background:#ccc}
+  .al i.on:after{width:10px;height:6px;border-radius:1px;background:#1e1e1e}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:#f5f5f5;border-radius:3px;height:28px;padding:0 8px;color:#1e1e1e}
+  .token{display:flex;align-items:center;gap:6px;height:28px;padding:0 8px;background:#f5f5f5;border-radius:3px}
+  .token .dot{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.1)}
+  .tiplabel{position:absolute;left:0;top:-18px;color:#0d99ff;font-size:11px;white-space:nowrap}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="card">
+      <span class="tiplabel">Card / Product</span>
+      <div class="sel"></div>
+      <span class="h" style="left:-4px;top:-4px"></span><span class="h" style="right:-4px;top:-4px"></span><span class="h" style="left:-4px;bottom:-4px"></span><span class="h" style="right:-4px;bottom:-4px"></span>
+      <div style="height:90px;border-radius:8px;background:linear-gradient(140deg,#c8f0d8,#1bc47d)"></div>
+      <div style="margin-top:12px;height:10px;width:100px;background:#1e1e1e;border-radius:2px"></div>
+      <div style="margin-top:6px;height:6px;width:70px;background:#bbb;border-radius:2px"></div>
+      <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center"><div style="height:10px;width:40px;background:#1e1e1e;border-radius:2px"></div><div style="height:24px;width:56px;background:#0d99ff;border-radius:12px"></div></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="rtabs"><span class="on">Design</span><span>Prototype</span><span>Inspect</span></div>
+    <div class="prop">
+      <div class="mini" style="justify-content:space-between">
+        <span class="on"><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="1" y="1" width="1.5" height="10"/><rect x="4" y="3" width="6" height="2"/><rect x="4" y="7" width="4" height="2"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="5.25" y="1" width="1.5" height="10"/><rect x="2" y="3" width="8" height="2"/><rect x="3" y="7" width="6" height="2"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="9.5" y="1" width="1.5" height="10"/><rect x="2" y="3" width="6" height="2"/><rect x="4" y="7" width="4" height="2"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="1" y="1" width="10" height="1.5"/><rect x="3" y="4" width="2" height="6"/><rect x="7" y="4" width="2" height="4"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="1" y="5.25" width="10" height="1.5"/><rect x="3" y="2" width="2" height="8"/><rect x="7" y="3" width="2" height="6"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#555"><rect x="1" y="9.5" width="10" height="1.5"/><rect x="3" y="2" width="2" height="6"/><rect x="7" y="4" width="2" height="4"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#555" stroke-width="1.2"><path d="M2 6h8M6 2v8"/></svg></span>
+      </div>
+    </div>
+    <div class="prop">
+      <div class="grid"><div class="inp"><i>X</i>412</div><div class="inp"><i>Y</i>260</div><div class="inp focus"><i>W</i>280</div><div class="inp"><i>H</i>344</div><div class="inp"><i>↻</i>0°</div><div class="inp"><i>⌐</i>12</div></div>
+    </div>
+    <div class="prop"><h4>Auto layout <span class="plus">−</span></h4>
+      <div style="display:flex;gap:6px;align-items:flex-start">
+        <div style="flex:1;display:grid;gap:6px">
+          <div class="mini"><span class="on"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#555" stroke-width="1.2"><path d="M6 2v8M3 7l3 3 3-3"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#555" stroke-width="1.2"><path d="M2 6h8M7 3l3 3-3 3"/></svg></span><span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#555" stroke-width="1.2"><path d="M2 3h8M2 6h8M2 9h8"/></svg></span></div>
+          <div class="inp"><i>⇅</i>12</div>
+          <div class="inp"><i>⇤</i>16</div>
+          <div class="inp"><i>⇥</i>16</div>
+        </div>
+        <div class="al"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+    <div class="prop"><h4>Fill <span class="plus">+</span></h4>
+      <div class="fillrow"><div class="token" style="flex:1"><span class="dot" style="background:#fff"></span>surface/elevated</div><span class="dim">100%</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#555" stroke-width="1.2"><path d="M1 6s2-3 5-3 5 3 5 3-2 3-5 3-5-3-5-3z"/><circle cx="6" cy="6" r="1.5"/></svg></div>
+    </div>
+    <div class="prop"><h4>Stroke <span class="plus">+</span></h4>
+      <div class="fillrow"><span class="swatch" style="background:#e6e6e6"></span><span>E6E6E6</span><span class="pct">100%</span><span class="dim">−</span></div>
+      <div class="grid" style="margin-top:6px"><div class="inp"><i>≡</i>1</div><div class="inp">Inside</div></div>
+    </div>
+    <div class="prop"><h4>Effects <span class="plus">+</span></h4>
+      <div class="fillrow"><span class="chip" style="flex:1"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#555" stroke-width="1.2"><rect x="1.5" y="1.5" width="6" height="6"/><path d="M10.5 4.5v6h-6"/></svg>shadow/sm</span><span class="dim">−</span></div>
+    </div>
+  </div>
+</body>
+</html>

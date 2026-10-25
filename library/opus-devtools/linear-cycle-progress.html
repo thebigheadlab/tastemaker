@@ -1,0 +1,72 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Cycle progress</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#f4f4f6;color:#1b1c1f;font:13px/1.4 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;display:flex;align-items:center;justify-content:center}
+svg{display:block;flex:none}
+.p{width:416px;height:552px;background:#fff;border:1px solid #e3e4e8;border-radius:10px;box-shadow:0 1px 2px rgba(16,17,26,.04),0 4px 14px rgba(16,17,26,.05);padding:18px 20px;display:flex;flex-direction:column}
+.h{display:flex;align-items:center;gap:8px}
+.h .ic{width:22px;height:22px;border-radius:6px;background:#eef0fd;display:grid;place-items:center}
+.h b{font-weight:600;font-size:14px}
+.h .cur{font-size:11.5px;font-weight:500;color:#5e6ad2;background:#eef0fd;padding:2px 7px;border-radius:5px}
+.h .more{margin-left:auto;color:#8a8f98}
+.dates{color:#6b6f76;font-size:12.5px;margin:6px 0 16px;display:flex;gap:6px;align-items:center}
+.dates i{font-style:normal;color:#b0b3b9}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #ebebef;border-radius:8px;overflow:hidden}
+.st{padding:9px 12px}
+.st+.st{border-left:1px solid #ebebef}
+.st .l{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b6f76}
+.st .l:before{content:"";width:8px;height:8px;border-radius:2px;background:var(--c)}
+.st .v{font-size:15px;font-weight:600;margin-top:2px;font-variant-numeric:tabular-nums}
+.st .v small{font-size:12px;font-weight:500;color:#8a8f98;margin-left:4px}
+.chart{margin:14px 0 4px;position:relative}
+.ax{display:flex;justify-content:space-between;font-size:11px;color:#9a9ea5;padding:4px 0 0 26px}
+.tabs{display:flex;gap:2px;margin:16px 0 10px;border-bottom:1px solid #ebebef}
+.tab{padding:0 2px 8px;margin-right:16px;font-weight:500;color:#8a8f98;font-size:12.5px;position:relative}
+.tab.on{color:#1b1c1f}
+.tab.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#1b1c1f;border-radius:1px}
+.a{display:flex;align-items:center;gap:10px;height:36px}
+.av{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:9.5px;font-weight:600;color:#fff;flex:none}
+.a .nm{width:104px;font-weight:500;white-space:nowrap}
+.bar{flex:1;height:6px;border-radius:3px;background:#efeff2;overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+.a .pct{width:74px;text-align:right;font-size:12px;color:#6b6f76;font-variant-numeric:tabular-nums}
+.a .pct b{color:#1b1c1f;font-weight:500}
+</style></head><body>
+<div class="p">
+  <div class="h"><div class="ic"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#5e6ad2" stroke-width="1.6"><path d="M8 2.5a5.5 5.5 0 1 0 5.5 5.5"/><path d="M11 2.5h2.5V5"/></svg></div><b>Cycle 42</b><span class="cur">Current</span>
+    <svg class="more" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div>
+  <div class="dates">Oct 14 <i>→</i> Oct 28 <i>·</i> 4 days left <i>·</i> Platform</div>
+  <div class="stats">
+    <div class="st" style="--c:#c4c6cc"><div class="l">Scope</div><div class="v">48<small>+6</small></div></div>
+    <div class="st" style="--c:#f0bf00"><div class="l">Started</div><div class="v">11<small>23%</small></div></div>
+    <div class="st" style="--c:#5e6ad2"><div class="l">Completed</div><div class="v">27<small>56%</small></div></div>
+  </div>
+  <div class="chart">
+    <svg width="374" height="150" viewBox="0 0 374 150">
+      <g font-family="Inter" font-size="10.5" fill="#9a9ea5"><text x="0" y="14">50</text><text x="0" y="62">25</text><text x="6" y="140">0</text></g>
+      <g stroke="#f0f0f3"><path d="M26 10h348M26 58h348M26 106h348"/></g>
+      <path d="M26 136h348" stroke="#e3e4e8"/>
+      <rect x="276" y="4" width="98" height="132" fill="#f7f7fb"/>
+      <path d="M276 4v132" stroke="#c9ccf3" stroke-dasharray="3 3"/>
+      <text x="282" y="18" font-family="Inter" font-size="10.5" font-weight="500" fill="#5e6ad2">Today</text>
+      <path d="M26 54 L52 54 L78 50 L104 50 L130 46 L156 46 L182 38 L208 38 L234 34 L260 33 L276 33" fill="none" stroke="#b9bcc4" stroke-width="1.6"/>
+      <path d="M276 33 L374 33" fill="none" stroke="#b9bcc4" stroke-width="1.6" stroke-dasharray="4 3"/>
+      <path d="M26 136 L52 128 L78 120 L104 108 L130 98 L156 92 L182 80 L208 70 L234 62 L260 58 L276 56 L276 136 Z" fill="#fff7d6" opacity=".9"/>
+      <path d="M26 136 L52 128 L78 120 L104 108 L130 98 L156 92 L182 80 L208 70 L234 62 L260 58 L276 56" fill="none" stroke="#f0bf00" stroke-width="1.6"/>
+      <path d="M26 136 L52 136 L78 132 L104 126 L130 118 L156 110 L182 104 L208 96 L234 90 L260 84 L276 81 L276 136 Z" fill="#eef0fd"/>
+      <path d="M26 136 L52 136 L78 132 L104 126 L130 118 L156 110 L182 104 L208 96 L234 90 L260 84 L276 81" fill="none" stroke="#5e6ad2" stroke-width="2"/>
+      <path d="M276 81 L374 42" fill="none" stroke="#5e6ad2" stroke-width="1.6" stroke-dasharray="4 3" opacity=".7"/>
+      <circle cx="276" cy="81" r="3.5" fill="#fff" stroke="#5e6ad2" stroke-width="2"/>
+    </svg>
+    <div class="ax"><span>Oct 14</span><span>Oct 18</span><span>Oct 22</span><span>Oct 25</span><span>Oct 28</span></div>
+  </div>
+  <div class="tabs"><div class="tab on">Assignees</div><div class="tab">Labels</div><div class="tab">Priority</div><div class="tab">Projects</div></div>
+  <div class="a"><div class="av" style="background:#7c5cd6">KM</div><span class="nm">Kenji Mori</span><div class="bar"><i style="width:64%;background:#5e6ad2"></i><i style="width:21%;background:#f0bf00"></i></div><span class="pct"><b>64%</b> of 14</span></div>
+  <div class="a"><div class="av" style="background:#d9822b">SR</div><span class="nm">Sofia Reyes</span><div class="bar"><i style="width:58%;background:#5e6ad2"></i><i style="width:25%;background:#f0bf00"></i></div><span class="pct"><b>58%</b> of 12</span></div>
+  <div class="a"><div class="av" style="background:#2f9e8f">AL</div><span class="nm">Ana Lindqvist</span><div class="bar"><i style="width:50%;background:#5e6ad2"></i><i style="width:20%;background:#f0bf00"></i></div><span class="pct"><b>50%</b> of 10</span></div>
+  <div class="a"><div class="av" style="background:#c2417a">JT</div><span class="nm">Jules Tan</span><div class="bar"><i style="width:44%;background:#5e6ad2"></i><i style="width:33%;background:#f0bf00"></i></div><span class="pct"><b>44%</b> of 9</span></div>
+</div>
+</body></html>

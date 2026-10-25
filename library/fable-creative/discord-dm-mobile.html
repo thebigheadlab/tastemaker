@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Direct messages</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:390px;height:844px;overflow:hidden;background:#1e1f22;font-family:"Nunito Sans","Figtree",system-ui,sans-serif;font-size:15px;color:#dbdee1;position:relative;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  .status{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-weight:700;font-size:15px;color:#fff}
+  .rail{position:absolute;left:0;top:44px;bottom:84px;width:72px;display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:8px}
+  .srv{width:48px;height:48px;border-radius:50%;background:#313338;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;position:relative}
+  .srv.on{border-radius:16px;background:#5865f2;color:#fff}
+  .srv.on:before{content:"";position:absolute;left:-12px;top:4px;width:4px;height:40px;border-radius:0 4px 4px 0;background:#fff}
+  .srv .badge{position:absolute;right:-4px;bottom:-4px;background:#f23f43;color:#fff;font-size:11px;font-weight:800;border-radius:9px;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center;padding:0 4px;border:3px solid #1e1f22}
+  .rail hr{width:32px;border:none;border-top:2px solid #35363c;margin:2px 0}
+  .panel{position:absolute;left:72px;right:0;top:44px;bottom:84px;background:#2b2d31;border-radius:16px 0 0 0;padding:14px 12px 0}
+  .panel h1{margin:0 0 10px 4px;font-size:20px;font-weight:800;color:#f2f3f5}
+  .search{height:36px;border-radius:8px;background:#1e1f22;display:flex;align-items:center;gap:8px;padding:0 10px;color:#80848e;font-size:14px}
+  .row{display:flex;align-items:center;gap:12px;height:56px;padding:0 6px;border-radius:8px;margin-top:4px}
+  .row.sel{background:#404249}
+  .av{width:40px;height:40px;border-radius:50%;flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
+  .st{position:absolute;right:-2px;bottom:-2px;width:14px;height:14px;border-radius:50%;background:#23a559;border:3px solid #2b2d31}
+  .st.idle{background:#f0b232}.st.dnd{background:#f23f43}.st.off{background:#80848e}
+  .row .tx{flex:1;min-width:0}
+  .row b{display:block;font-weight:700;color:#f2f3f5;font-size:15px;display:flex;justify-content:space-between}
+  .row b small{font-weight:400;color:#949ba4;font-size:12px}
+  .row .tx span{display:block;font-size:13px;color:#949ba4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+  .row.unread .tx span{color:#f2f3f5;font-weight:600}
+  .row .dot{width:18px;height:18px;border-radius:9px;background:#f23f43;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .av.grp{background:transparent}
+  .grp i{position:absolute;border-radius:50%;display:block}
+  .grp i:nth-child(1){left:0;top:0;width:28px;height:28px}
+  .grp i:nth-child(2){right:0;bottom:0;width:24px;height:24px;border:3px solid #2b2d31}
+  .grp i:nth-child(3){display:none}
+  .tabbar{position:absolute;left:0;right:0;bottom:0;height:84px;background:#1e1f22;border-top:1px solid #2b2d31;display:flex;justify-content:space-around;padding:10px 8px 0}
+  .tab{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;font-weight:700;color:#949ba4;position:relative}
+  .tab.on{color:#f2f3f5}
+  .tab .b{position:absolute;right:-2px;top:-4px;background:#f23f43;color:#fff;font-size:10px;border-radius:8px;min-width:16px;height:16px;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid #1e1f22}
+  .homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#fff;opacity:.9}
+</style>
+</head>
+<body>
+  <div class="status"><span>9:41</span><span style="display:flex;gap:6px">
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+    <svg width="26" height="12" viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="#fff"/><rect x="2" y="2" width="19" height="8" rx="2" fill="#fff"/><rect x="24" y="4" width="2" height="4" rx="1" fill="#fff"/></svg></span></div>
+
+  <div class="rail">
+    <div class="srv on"><svg width="26" height="20" viewBox="0 0 26 20"><path d="M22 2C20 1 18 .5 16 .3l-.8 1.6a18 18 0 0 0-4.4 0L10 .3C8 .5 6 1 4 2 .5 7-.5 12 0 17a21 21 0 0 0 6.6 3l1.4-2.2c-.8-.3-1.5-.7-2.2-1.1l.5-.4a15 15 0 0 0 13.4 0l.5.4c-.7.4-1.4.8-2.2 1.1L19.4 20A21 21 0 0 0 26 17c.6-5.7-1-10.7-4-15zM8.7 14c-1.3 0-2.4-1.2-2.4-2.7s1-2.7 2.4-2.7 2.4 1.2 2.4 2.7S10 14 8.7 14zm8.6 0c-1.3 0-2.4-1.2-2.4-2.7s1-2.7 2.4-2.7 2.4 1.2 2.4 2.7-1 2.7-2.4 2.7z" fill="#fff"/></svg></div>
+    <hr>
+    <div class="srv" style="background:#23a559;color:#fff">PX<span class="badge">4</span></div>
+    <div class="srv" style="background:#f0b232;color:#1e1f22">LF</div>
+    <div class="srv" style="background:#eb459e;color:#fff">♪</div>
+    <div class="srv">DS</div>
+    <div class="srv" style="background:#5865f2;color:#fff">IG<span class="badge">12</span></div>
+    <div class="srv" style="color:#23a559;font-size:24px">+</div>
+  </div>
+
+  <div class="panel">
+    <h1>Messages</h1>
+    <div class="search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#80848e" stroke-width="2.5"><circle cx="10" cy="10" r="6"/><path d="M15 15l5 5"/></svg>Find or start a conversation</div>
+    <div class="row unread"><span class="av" style="background:#23a559">K<span class="st"></span></span><div class="tx"><b>kiro<small>10:21</small></b><span>pushed the LUT, check the shared repo</span></div><span class="dot">2</span></div>
+    <div class="row"><span class="av" style="background:#f0b232;color:#1e1f22">M<span class="st"></span></span><div class="tx"><b>Maeve<small>09:48</small></b><span>You: on it, will have the README up by lunch</span></div></div>
+    <div class="row unread"><span class="av grp"><i style="background:#eb459e"></i><i style="background:#00a8fc"></i><i style="background:#5865f2"></i></span><div class="tx"><b>jam squad 🎮<small>Yesterday</small></b><span>anika: who's bringing snacks to the stream</span></div><span class="dot">7</span></div>
+    <div class="row"><span class="av" style="background:#00a8fc">AN<span class="st idle"></span></span><div class="tx"><b>anika<small>Yesterday</small></b><span>lol the fog is cursed in the best way</span></div></div>
+    <div class="row"><span class="av" style="background:#5865f2">T<span class="st dnd"></span></span><div class="tx"><b>theo.builds<small>Tue</small></b><span>stream link for later 👇</span></div></div>
+    <div class="row"><span class="av" style="background:#f23f43">SL<span class="st idle"></span></span><div class="tx"><b>sol_<small>Tue</small></b><span>You: ty!! 🫶</span></div></div>
+    <div class="row"><span class="av" style="background:#80848e">JB<span class="st off"></span></span><div class="tx"><b>jbyte<small>Mon</small></b><span>gg last night</span></div></div>
+    <div class="row"><span class="av grp"><i style="background:#f0b232"></i><i style="background:#23a559"></i></span><div class="tx"><b>mods<small>Sun</small></b><span>Maeve: pinned the rules update</span></div></div>
+    <div class="row"><span class="av" style="background:#eb459e">HN<span class="st off"></span></span><div class="tx"><b>hana.png<small>Mar 8</small></b><span>sent you the sprite sheet</span></div></div>
+  </div>
+
+  <div class="tabbar">
+    <div class="tab on"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h3v-7H5v-2a7 7 0 0 1 14 0v2h-3v7h3a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9z"/></svg>Home</div>
+    <div class="tab"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Notifications<span class="b">3</span></div>
+    <div class="tab"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="#eb459e"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="800" fill="#fff" font-family="Nunito Sans,sans-serif">RV</text></svg>You</div>
+  </div>
+  <div class="homebar"></div>
+</body>
+</html>

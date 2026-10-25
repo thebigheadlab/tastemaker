@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Task detail</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:480px;height:600px;overflow:hidden;background:#fff;font-family:Inter,-apple-system,"SF Pro Text",system-ui,sans-serif;color:#1d1d1f;-webkit-font-smoothing:antialiased;font-size:13px;position:relative}
+.list{padding:26px 28px 0}
+.task{display:flex;align-items:center;gap:10px;padding:7px 8px;font-size:14px;color:#1d1d1f}
+.task.dim{color:#8e8e93}
+.box{width:15px;height:15px;border-radius:4px;border:1.3px solid #c4c4c9;box-sizing:border-box;flex:none;background:#fff}
+.box.done{background:#2f7cf6;border-color:#2f7cf6;position:relative}
+.box.done:after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 1.6px 1.6px 0;transform:rotate(45deg)}
+.open{margin:6px 0;background:#fff;border-radius:10px;box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 8px 24px rgba(0,0,0,.14),0 1px 3px rgba(0,0,0,.08);padding:14px 16px 12px;box-sizing:border-box}
+.open .hd{display:flex;align-items:flex-start;gap:10px}
+.open .hd .box{margin-top:3px}
+.open h3{margin:0;font-size:16px;font-weight:600;letter-spacing:-.2px;line-height:22px}
+.open .notes{margin:6px 0 0 25px;font-size:13px;line-height:19px;color:#3a3a3c}
+.open .notes a{color:#2f7cf6;text-decoration:none}
+.check{margin:12px 0 0 25px}
+.ci{display:flex;align-items:center;gap:9px;padding:4px 0;font-size:13px}
+.ci .c{width:13px;height:13px;border-radius:50%;border:1.3px solid #c4c4c9;box-sizing:border-box;flex:none}
+.ci .c.on{background:#2f7cf6;border-color:#2f7cf6;position:relative}
+.ci .c.on:after{content:"";position:absolute;left:3.5px;top:1px;width:3px;height:6px;border:solid #fff;border-width:0 1.4px 1.4px 0;transform:rotate(45deg)}
+.ci.on span{color:#aeaeb2;text-decoration:line-through}
+.ci .add{color:#aeaeb2}
+.chips{margin:14px 0 0 25px;display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:3px 8px;font-size:12px;font-weight:500;background:#f0f0f3}
+.chip.today{background:#fff5c2;color:#8a6d00}
+.chip.dl{background:#ffe4e4;color:#b32226}
+.chip.tag{background:#fff;border:1px solid #d1d1d6;color:#6e6e73;font-weight:500}
+.toolbar{margin:14px 0 0 0;display:flex;justify-content:flex-end;gap:16px;color:#8e8e93;border-top:1px solid #ececf0;padding-top:10px}
+.toolbar svg{display:block}
+.proj{display:flex;align-items:center;gap:8px;font-size:12px;color:#8e8e93;margin-top:10px;margin-left:25px}
+.pie{width:12px;height:12px;border-radius:50%;border:1.5px solid #9a9aa0;box-sizing:border-box;background:conic-gradient(#9a9aa0 0 45%,transparent 45% 100%)}
+</style>
+</head>
+<body>
+<div class="list">
+  <div class="task dim"><span class="box done"></span>Confirm venue for offsite</div>
+  <div class="task"><span class="box"></span>Order new desk lamp</div>
+
+  <div class="open">
+    <div class="hd"><span class="box"></span><div style="flex:1"><h3>Renew passport before Lisbon trip</h3></div></div>
+    <div class="notes">Appointment booked at the Passport Office, 4 Nov 11:20. Bring old passport and two photos. Confirmation: <a href="#">gov.uk/track/AX4-19</a></div>
+    <div class="check">
+      <div class="ci on"><span class="c on"></span><span>Book appointment</span></div>
+      <div class="ci on"><span class="c on"></span><span>Photos (Boots, Oxford St)</span></div>
+      <div class="ci"><span class="c"></span><span>Fill in form online</span></div>
+      <div class="ci"><span class="c"></span><span>Print confirmation</span></div>
+      <div class="ci"><span class="c"></span><span class="add">New checklist item</span></div>
+    </div>
+    <div class="chips">
+      <span class="chip today"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M5.5 .8l1.4 2.9 3.2.5-2.3 2.2.5 3.2-2.8-1.5-2.8 1.5.5-3.2L.9 4.2l3.2-.5z" fill="#f0b400"/></svg>Today</span>
+      <span class="chip dl"><svg width="10" height="11" viewBox="0 0 10 11"><path d="M1 1h8l-2 3 2 3H1z" fill="#b32226"/><rect x="1" y="1" width="1.4" height="10" fill="#b32226"/></svg>Deadline 11 Nov</span>
+      <span class="chip tag">Errand</span>
+      <span class="chip tag">Travel</span>
+    </div>
+    <div class="proj"><span class="pie"></span>Trip to Lisbon</div>
+    <div class="toolbar">
+      <svg width="15" height="15" viewBox="0 0 15 15"><path d="M7.5 1l1.9 4 4.4.6-3.2 3 .8 4.4-3.9-2.1-3.9 2.1.8-4.4-3.2-3 4.4-.6z" fill="none" stroke="#8e8e93" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      <svg width="15" height="15" viewBox="0 0 15 15"><path d="M3 2h7v9H3z" fill="none" stroke="#8e8e93" stroke-width="1.3"/><path d="M5 5h3M5 7.5h3" stroke="#8e8e93" stroke-width="1.2" stroke-linecap="round"/></svg>
+      <svg width="15" height="15" viewBox="0 0 15 15"><rect x="2" y="2" width="11" height="11" rx="2" fill="none" stroke="#8e8e93" stroke-width="1.3"/><path d="M5 7.5l2 2 3.5-3.5" fill="none" stroke="#8e8e93" stroke-width="1.3" stroke-linecap="round"/></svg>
+      <svg width="15" height="15" viewBox="0 0 15 15"><path d="M2 3h9l2 2v7H2z" fill="none" stroke="#8e8e93" stroke-width="1.3"/></svg>
+      <svg width="15" height="15" viewBox="0 0 15 15"><path d="M1.5 2h9l-2 3 2 3h-9z" fill="none" stroke="#8e8e93" stroke-width="1.3"/><path d="M1.5 2v11" stroke="#8e8e93" stroke-width="1.3"/></svg>
+      <svg width="15" height="15" viewBox="0 0 15 15"><circle cx="3" cy="7.5" r="1.4" fill="#8e8e93"/><circle cx="7.5" cy="7.5" r="1.4" fill="#8e8e93"/><circle cx="12" cy="7.5" r="1.4" fill="#8e8e93"/></svg>
+    </div>
+  </div>
+
+  <div class="task"><span class="box"></span>Return library books</div>
+  <div class="task"><span class="box"></span>Reply to Elena re: contract</div>
+</div>
+</body>
+</html>

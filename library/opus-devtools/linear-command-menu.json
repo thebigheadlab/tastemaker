@@ -1,0 +1,28 @@
+{
+  "id": "linear-command-menu",
+  "kind": "component",
+  "subtype": "command palette",
+  "title": "Command menu",
+  "inspiredBy": "Linear",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Context-scoped Cmd+K menu with an issue chip, grouped actions and right-aligned keyboard shortcuts."
+}

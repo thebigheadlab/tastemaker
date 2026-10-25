@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Send email snippet</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#000;color:#f0f0f0;font:13px/1.45 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;padding:24px;position:relative;display:flex;flex-direction:column;justify-content:center}
+body:before{content:"";position:absolute;left:50%;top:-120px;width:600px;height:300px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,255,255,.07),transparent)}
+svg{display:block;flex:none}
+.w{position:relative;border-radius:14px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 30px 60px rgba(0,0,0,.6);overflow:hidden}
+.tabs{display:flex;align-items:center;height:46px;padding:0 8px 0 14px;border-bottom:1px solid rgba(255,255,255,.08);gap:2px}
+.tab{height:30px;display:flex;align-items:center;gap:7px;padding:0 11px;border-radius:8px;font-size:13px;color:#8a8a8a}
+.tab.on{background:rgba(255,255,255,.08);color:#fff}
+.tab i{width:14px;height:14px;border-radius:3px;display:block}
+.tabs .cp{margin-left:auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:#8a8a8a}
+.code{display:flex;padding:16px 0 18px;font:13px/23px "JetBrains Mono",ui-monospace,Menlo,monospace}
+.ln{width:46px;text-align:right;padding-right:18px;color:#4a4a4a}
+pre{margin:0;color:#e5e5e5;white-space:pre}
+.k{color:#ff8fbf}.s{color:#9fe0b4}.f{color:#8ab4ff}.p{color:#8a8a8a}.t{color:#ffcf8a}.c{color:#5c5c5c}
+.res{border-top:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.35);padding:12px 16px 14px;font:12.5px/21px "JetBrains Mono",monospace}
+.rh{display:flex;align-items:center;gap:10px;font-family:Inter,sans-serif;font-size:12px;color:#8a8a8a;margin-bottom:6px}
+.ok{display:flex;align-items:center;gap:6px;color:#4cd38a;font-weight:500}
+.ok:before{content:"";width:7px;height:7px;border-radius:50%;background:#4cd38a;box-shadow:0 0 0 3px rgba(76,211,138,.18)}
+</style></head><body>
+<div class="w">
+  <div class="tabs">
+    <span class="tab on"><i style="background:#3c873a"></i>Node.js</span>
+    <span class="tab"><i style="background:linear-gradient(135deg,#3572a5 50%,#ffd43b 50%)"></i>Python</span>
+    <span class="tab"><i style="background:#cc342d"></i>Ruby</span>
+    <span class="tab"><i style="background:#00add8"></i>Go</span>
+    <span class="tab"><i style="background:#dea584"></i>Rust</span>
+    <span class="tab"><i style="background:#6b6b6b"></i>cURL</span>
+    <span class="cp"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg></span>
+  </div>
+  <div class="code"><div class="ln">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</div>
+<pre><span class="k">import</span> { Postwell } <span class="k">from</span> <span class="s">'postwell'</span>;
+<span class="k">import</span> { ShippedEmail } <span class="k">from</span> <span class="s">'./emails/shipped'</span>;
+
+<span class="k">const</span> postwell = <span class="k">new</span> <span class="f">Postwell</span>(<span class="s">'pw_9f2kLx81…'</span>);
+
+<span class="k">await</span> postwell.emails.<span class="f">send</span>({
+  from: <span class="s">'Kettle &amp; Leaf &lt;orders@kettleandleaf.com&gt;'</span>,
+  to: [<span class="s">'mara@lindgren.se'</span>],
+  subject: <span class="s">'Your order has shipped'</span>,
+  react: <span class="p">&lt;</span><span class="t">ShippedEmail</span> order={order} <span class="p">/&gt;</span>,
+});</pre></div>
+  <div class="res"><div class="rh"><span class="ok">200 OK</span><span>· 84 ms</span></div><span class="p">{</span> <span class="s">"id"</span><span class="p">:</span> <span class="s">"4ef9a417-02e9-4d2c-8f1a-b7d1c3e5a9f0"</span> <span class="p">}</span></div>
+</div>
+</body></html>

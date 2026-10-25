@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Graph view</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:1280px;height:800px;overflow:hidden;background:#1e1e1e;font-family:Inter,-apple-system,system-ui,sans-serif;color:#dadada;-webkit-font-smoothing:antialiased;font-size:13px;display:flex;flex-direction:column}
+.title{height:36px;background:#262626;border-bottom:1px solid #363636;display:flex;align-items:center;padding:0 12px;gap:8px;flex:none}
+.lights{display:flex;gap:8px;margin-right:10px}
+.lights i{width:12px;height:12px;border-radius:50%;display:block}
+.tabs{display:flex;gap:2px;height:36px;align-items:flex-end;flex:1;padding-left:4px}
+.tab{height:30px;padding:0 14px;border-radius:6px 6px 0 0;display:flex;align-items:center;gap:8px;font-size:12.5px;color:#999;background:transparent;white-space:nowrap}
+.tab.on{background:#1e1e1e;color:#dadada}
+.tab .x{color:#666;font-size:12px}
+.title .r{display:flex;gap:12px;color:#888;align-items:center}
+.body{flex:1;display:flex;min-height:0}
+.ribbon{width:44px;flex:none;background:#262626;border-right:1px solid #363636;display:flex;flex-direction:column;align-items:center;padding-top:10px;gap:14px;color:#8a8a8a}
+.ribbon svg{display:block}
+.ribbon .on{color:#a78bfa}
+.ribbon .bot{margin-top:auto;padding-bottom:12px;display:flex;flex-direction:column;gap:14px;align-items:center}
+.files{width:240px;flex:none;background:#202020;border-right:1px solid #363636;display:flex;flex-direction:column}
+.files .hd{display:flex;gap:14px;padding:8px 12px;color:#777;border-bottom:1px solid #2e2e2e;align-items:center}
+.files .hd svg{display:block}
+.files .vault{font-size:12px;color:#999;padding:8px 12px 2px;font-weight:600;display:flex;justify-content:space-between}
+.tree{padding:2px 6px;font-size:12.5px}
+.f{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:4px;color:#bbb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.f .c{color:#777;font-size:9px;width:10px;flex:none}
+.f.d{color:#dadada;font-weight:500}
+.f.l1{padding-left:22px}
+.f.l2{padding-left:38px}
+.f.on{background:#333;color:#fff}
+.main{flex:1;position:relative;min-width:0;overflow:hidden;background:#1e1e1e}
+.main svg{position:absolute;inset:0}
+.graph-lab{position:absolute;font-size:10.5px;color:#9a9a9a;transform:translate(-50%,10px);white-space:nowrap;pointer-events:none}
+.graph-lab.b{color:#dadada;font-weight:500;font-size:11.5px}
+.ctrl{position:absolute;right:16px;top:16px;width:232px;background:#262626;border:1px solid #363636;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.4);font-size:12px}
+.ctrl .sec{display:flex;align-items:center;gap:6px;padding:9px 12px;color:#dadada;font-weight:500;border-top:1px solid #333}
+.ctrl .sec:first-child{border-top:none}
+.ctrl .sec .c{color:#777;font-size:9px}
+.ctrl .row{display:flex;align-items:center;justify-content:space-between;padding:4px 12px 6px 24px;color:#aaa}
+.tog{width:30px;height:16px;border-radius:8px;background:#444;position:relative}
+.tog:after{content:"";position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;background:#ccc}
+.tog.on{background:#a78bfa}
+.tog.on:after{left:16px;background:#fff}
+.sl{width:100px;height:3px;border-radius:2px;background:#444;position:relative}
+.sl i{position:absolute;left:0;top:0;height:100%;border-radius:2px;background:#a78bfa}
+.sl b{position:absolute;top:-4px;width:11px;height:11px;border-radius:50%;background:#dadada;margin-left:-5px}
+.grp{display:flex;align-items:center;gap:8px;padding:4px 12px 4px 24px;color:#aaa}
+.grp i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.grp code{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#ccc;background:#1e1e1e;border-radius:3px;padding:1px 5px}
+.srch{margin:6px 12px 8px 24px;background:#1e1e1e;border:1px solid #363636;border-radius:4px;padding:4px 8px;color:#777}
+.status{height:22px;background:#262626;border-top:1px solid #363636;display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:0 12px;font-size:11px;color:#888;flex:none}
+.zoom{position:absolute;right:16px;bottom:16px;display:flex;flex-direction:column;gap:4px}
+.zoom span{width:26px;height:26px;border-radius:5px;background:#262626;border:1px solid #363636;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:14px}
+</style>
+</head>
+<body>
+<div class="title">
+  <div class="lights"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+  <div class="tabs"><span class="tab">Design principles<span class="x">×</span></span><span class="tab on"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="3" cy="3" r="1.6" stroke="currentColor" stroke-width="1.2"/><circle cx="9" cy="4" r="1.6" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="9.5" r="1.6" stroke="currentColor" stroke-width="1.2"/><path d="M4.4 3.6l3.2.2M3.6 4.4l1 3.6M7.8 5.2l-2 3.2" stroke="currentColor" stroke-width="1"/></svg>Graph view<span class="x">×</span></span><span class="tab">2026-10-24<span class="x">×</span></span><span class="tab" style="padding:0 10px;color:#666">+</span></div>
+  <div class="r"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="2.5" width="11" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 2.5v9" stroke="currentColor" stroke-width="1.2"/></svg><span style="font-size:11px">⌘P</span></div>
+</div>
+<div class="body">
+  <div class="ribbon">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4h12M3 9h12M3 14h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.5"/><path d="m12 12 3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <svg class="on" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="4.5" cy="4.5" r="2.2" stroke="currentColor" stroke-width="1.5"/><circle cx="13.5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.5"/><circle cx="7.5" cy="14" r="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M6.6 5l4.7.8M5.3 6.5l1.5 5.4M11.7 7.8l-3 4.4" stroke="currentColor" stroke-width="1.3"/></svg>
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.5" y="3" width="13" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 7h13M6.5 1.5v3M11.5 1.5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2l1.8 5.4H16l-4.6 3.4 1.8 5.4L9 12.8l-4.2 3.4 1.8-5.4L2 7.4h5.2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15l2-7 6-5 4 4-5 6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M5 8l5 5" stroke="currentColor" stroke-width="1.4"/></svg>
+    <div class="bot"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9a5 5 0 0 1 9.5-2M14 9a5 5 0 0 1-9.5 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13 3.5v3.5h-3.5M5 14.5V11h3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/></svg></div>
+  </div>
+  <div class="files">
+    <div class="hd"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3.5h4l1.5 1.5H12v6H2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 4h8M3 7h8M3 10h8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 6l3-3 3 3M4 8l3 3 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="vault">northwind-notes<span style="font-weight:400;color:#666">412 files</span></div>
+    <div class="tree">
+      <div class="f d"><span class="c">▾</span>Areas</div>
+      <div class="f l1 d"><span class="c">▾</span>Design</div>
+      <div class="f l2">Design principles</div>
+      <div class="f l2">Icon weights</div>
+      <div class="f l2">Type scale experiments</div>
+      <div class="f l2">Why the sidebar is dark</div>
+      <div class="f l1 d"><span class="c">▸</span>Hiring</div>
+      <div class="f l1 d"><span class="c">▸</span>Lumen 2.0</div>
+      <div class="f d"><span class="c">▾</span>Daily</div>
+      <div class="f l1 on">2026-10-24</div>
+      <div class="f l1">2026-10-23</div>
+      <div class="f l1">2026-10-22</div>
+      <div class="f d"><span class="c">▸</span>People</div>
+      <div class="f d"><span class="c">▸</span>Reading</div>
+      <div class="f d"><span class="c">▸</span>Templates</div>
+      <div class="f">Home</div>
+      <div class="f">Inbox</div>
+    </div>
+  </div>
+  <div class="main">
+    <svg viewBox="0 0 950 742" width="950" height="742" preserveAspectRatio="xMidYMid slice">
+      <g stroke="#4a4a4a" stroke-width="1" opacity=".9">
+        <line x1="420" y1="340" x2="300" y2="250"/><line x1="420" y1="340" x2="520" y2="230"/><line x1="420" y1="340" x2="560" y2="400"/><line x1="420" y1="340" x2="360" y2="470"/><line x1="420" y1="340" x2="250" y2="380"/><line x1="420" y1="340" x2="470" y2="500"/>
+        <line x1="300" y1="250" x2="200" y2="180"/><line x1="300" y1="250" x2="260" y2="130"/><line x1="300" y1="250" x2="360" y2="150"/><line x1="300" y1="250" x2="250" y2="380"/>
+        <line x1="520" y1="230" x2="600" y2="140"/><line x1="520" y1="230" x2="640" y2="250"/><line x1="520" y1="230" x2="470" y2="120"/><line x1="520" y1="230" x2="560" y2="400"/>
+        <line x1="560" y1="400" x2="680" y2="430"/><line x1="560" y1="400" x2="620" y2="520"/><line x1="560" y1="400" x2="470" y2="500"/><line x1="680" y1="430" x2="760" y2="350"/><line x1="680" y1="430" x2="770" y2="490"/><line x1="640" y1="250" x2="760" y2="350"/><line x1="640" y1="250" x2="720" y2="180"/>
+        <line x1="360" y1="470" x2="300" y2="580"/><line x1="360" y1="470" x2="420" y2="600"/><line x1="470" y1="500" x2="420" y2="600"/><line x1="470" y1="500" x2="540" y2="620"/><line x1="250" y1="380" x2="150" y2="440"/><line x1="250" y1="380" x2="160" y2="320"/><line x1="150" y1="440" x2="110" y2="540"/><line x1="200" y1="180" x2="120" y2="120"/><line x1="200" y1="180" x2="160" y2="320"/>
+        <line x1="600" y1="140" x2="700" y2="80"/><line x1="600" y1="140" x2="720" y2="180"/><line x1="470" y1="120" x2="420" y2="40"/><line x1="470" y1="120" x2="360" y2="150"/><line x1="770" y1="490" x2="840" y2="570"/><line x1="620" y1="520" x2="700" y2="620"/><line x1="300" y1="580" x2="220" y2="640"/><line x1="840" y1="250" x2="760" y2="350"/><line x1="840" y1="250" x2="880" y2="150"/>
+      </g>
+      <g fill="#6b6b6b">
+        <circle cx="200" cy="180" r="5"/><circle cx="260" cy="130" r="3.5"/><circle cx="360" cy="150" r="4"/><circle cx="470" cy="120" r="4.5"/><circle cx="600" cy="140" r="5"/><circle cx="700" cy="80" r="3.5"/><circle cx="720" cy="180" r="4"/><circle cx="420" cy="40" r="3"/><circle cx="120" cy="120" r="3"/>
+        <circle cx="640" cy="250" r="5.5"/><circle cx="760" cy="350" r="5"/><circle cx="840" cy="250" r="3.5"/><circle cx="880" cy="150" r="3"/><circle cx="680" cy="430" r="4.5"/><circle cx="770" cy="490" r="4"/><circle cx="840" cy="570" r="3"/><circle cx="620" cy="520" r="4"/><circle cx="700" cy="620" r="3"/><circle cx="540" cy="620" r="3.5"/><circle cx="420" cy="600" r="4.5"/><circle cx="300" cy="580" r="4"/><circle cx="220" cy="640" r="3"/><circle cx="160" cy="320" r="4"/><circle cx="150" cy="440" r="4"/><circle cx="110" cy="540" r="3"/>
+      </g>
+      <g fill="#a78bfa"><circle cx="300" cy="250" r="8"/><circle cx="520" cy="230" r="7.5"/><circle cx="250" cy="380" r="6"/><circle cx="360" cy="470" r="6"/></g>
+      <g fill="#34d399"><circle cx="560" cy="400" r="7"/><circle cx="470" cy="500" r="6"/></g>
+      <circle cx="420" cy="340" r="12" fill="#c4b5fd" stroke="#1e1e1e" stroke-width="2"/>
+      <circle cx="420" cy="340" r="18" fill="none" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
+    </svg>
+    <span class="graph-lab b" style="left:420px;top:352px">Design principles</span>
+    <span class="graph-lab" style="left:300px;top:258px">Clarity over cleverness</span>
+    <span class="graph-lab" style="left:520px;top:238px">Icon weights</span>
+    <span class="graph-lab" style="left:560px;top:407px">Lumen 2.0</span>
+    <span class="graph-lab" style="left:250px;top:386px">Why the sidebar is dark</span>
+    <span class="graph-lab" style="left:360px;top:476px">Type scale experiments</span>
+    <span class="graph-lab" style="left:470px;top:506px">Billing v4 crit</span>
+    <span class="graph-lab" style="left:640px;top:256px">Priya Raman</span>
+    <span class="graph-lab" style="left:200px;top:185px">Offsite notes</span>
+    <span class="graph-lab" style="left:600px;top:145px">Jonas Lindqvist</span>
+    <span class="graph-lab" style="left:760px;top:355px">Hiring loop</span>
+    <span class="graph-lab" style="left:420px;top:605px">2026-10-24</span>
+    <div class="ctrl">
+      <div class="sec"><span class="c">▾</span>Filters</div>
+      <div class="srch">path:Areas/Design OR tag:#design</div>
+      <div class="row">Tags<span class="tog on"></span></div>
+      <div class="row">Attachments<span class="tog"></span></div>
+      <div class="row">Existing files only<span class="tog on"></span></div>
+      <div class="row">Orphans<span class="tog on"></span></div>
+      <div class="sec"><span class="c">▾</span>Groups</div>
+      <div class="grp"><i style="background:#a78bfa"></i><code>tag:#design</code></div>
+      <div class="grp"><i style="background:#34d399"></i><code>path:Lumen</code></div>
+      <div class="grp" style="color:#777">+ New group</div>
+      <div class="sec"><span class="c">▾</span>Display</div>
+      <div class="row">Arrows<span class="tog"></span></div>
+      <div class="row">Text fade threshold<span class="sl"><i style="width:40%"></i><b style="left:40%"></b></span></div>
+      <div class="row">Node size<span class="sl"><i style="width:55%"></i><b style="left:55%"></b></span></div>
+      <div class="row">Link thickness<span class="sl"><i style="width:30%"></i><b style="left:30%"></b></span></div>
+      <div class="sec"><span class="c">▸</span>Forces</div>
+    </div>
+    <div class="zoom"><span>+</span><span>−</span><span>⤢</span></div>
+  </div>
+</div>
+<div class="status"><span>412 notes · 1,968 links</span><span>Filtered: 38 nodes</span></div>
+</body>
+</html>

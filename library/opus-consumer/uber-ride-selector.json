@@ -1,0 +1,28 @@
+{
+  "id": "uber-ride-selector",
+  "kind": "screen",
+  "subtype": "ride selector over map",
+  "title": "Ride selector",
+  "inspiredBy": "Uber",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Monochrome map with a black route and square drop-off pin, black ETA label boxes, and a sheet of ride tiers where the selection gets a heavy black outline."
+}

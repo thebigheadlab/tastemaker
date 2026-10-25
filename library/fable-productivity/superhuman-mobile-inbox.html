@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile inbox</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:390px;height:844px;overflow:hidden;background:#111322;font-family:Inter,-apple-system,system-ui,sans-serif;color:#e7e8ef;-webkit-font-smoothing:antialiased;font-size:13px;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(500px 420px at 100% -5%,rgba(93,78,190,.4),transparent 60%),radial-gradient(400px 400px at -10% 100%,rgba(32,120,170,.28),transparent 60%),linear-gradient(170deg,#181b2f 0%,#11131f 55%,#0e1019 100%)}
+.status{position:relative;height:54px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px 8px 34px;font-size:15px;font-weight:600}
+.hdr{position:relative;padding:8px 20px 0;display:flex;align-items:center;justify-content:space-between}
+.hdr h1{font-size:26px;font-weight:600;letter-spacing:-.4px;margin:0}
+.hdr .cnt{font-size:13px;color:#8b8ea3;margin-left:8px;font-weight:400}
+.av0{width:30px;height:30px;border-radius:50%;background:#7c8cff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff}
+.tabs{position:relative;display:flex;gap:6px;padding:14px 20px 12px;overflow:hidden}
+.tab{padding:6px 12px;border-radius:999px;font-size:12.5px;color:#9a9db3;background:rgba(255,255,255,.05);white-space:nowrap;display:flex;gap:6px;align-items:center}
+.tab b{font-weight:500;color:#6c6f86;font-size:11px}
+.tab.on{background:#fff;color:#111322;font-weight:600}
+.tab.on b{color:#55597a}
+.rows{position:relative;overflow:hidden}
+.row{display:flex;gap:12px;padding:13px 20px;border-bottom:1px solid rgba(255,255,255,.05);position:relative;background:transparent}
+.row .av{width:38px;height:38px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:600;color:#fff}
+.row .c{flex:1;min-width:0}
+.row .l1{display:flex;align-items:center;gap:8px}
+.row .n{font-size:14.5px;color:#c9cbd8;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row.unread .n{color:#fff;font-weight:600}
+.row .t{font-size:11.5px;color:#6c6f86;flex:none}
+.row .s{font-size:13px;color:#c9cbd8;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row.unread .s{color:#fff;font-weight:500}
+.row .p{font-size:12.5px;color:#8b8ea3;margin-top:2px;line-height:17px;max-height:34px;overflow:hidden}
+.row .dot{position:absolute;left:8px;top:28px;width:6px;height:6px;border-radius:50%;background:#7c8cff}
+.lab{font-size:10px;padding:1px 6px;border-radius:3px;font-weight:500;background:rgba(124,140,255,.18);color:#aab4ff}
+.swipe{display:flex;transform:translateX(-30px)}
+.swipe .row{flex:none;width:390px;box-sizing:border-box;background:#161930;border-bottom:1px solid rgba(255,255,255,.05)}
+.swipe .act{flex:none;width:118px;background:#4ade80;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0b2d19;font-size:12px;font-weight:600;gap:6px}
+.fab{position:absolute;right:20px;bottom:46px;width:56px;height:56px;border-radius:50%;background:linear-gradient(145deg,#8e9cff,#5b6cf0);box-shadow:0 10px 26px rgba(91,108,240,.45);display:flex;align-items:center;justify-content:center}
+.home{position:absolute;left:50%;bottom:8px;width:134px;height:5px;background:#fff;border-radius:3px;transform:translateX(-50%);opacity:.9}
+.fade{position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,rgba(14,16,25,0),#0e1019 85%)}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="status"><span>9:41</span><span style="display:flex;gap:6px;align-items:center">
+<svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx=".6" fill="#fff"/><rect x="4.5" y="5" width="3" height="6" rx=".6" fill="#fff"/><rect x="9" y="2.5" width="3" height="8.5" rx=".6" fill="#fff"/><rect x="13.5" y="0" width="3" height="11" rx=".6" fill="#fff"/></svg>
+<svg width="25" height="12" viewBox="0 0 25 12"><rect x=".5" y=".5" width="21" height="11" rx="3" stroke="#fff" opacity=".4" fill="none"/><rect x="2" y="2" width="18" height="8" rx="1.8" fill="#fff"/><path d="M23 4v4c.8-.3 1.3-1 1.3-2S23.8 4.3 23 4Z" fill="#fff" opacity=".4"/></svg></span></div>
+<div class="hdr"><h1>Inbox<span class="cnt">8</span></h1><span class="av0">MA</span></div>
+<div class="tabs"><span class="tab on">Important <b>8</b></span><span class="tab">Other <b>31</b></span><span class="tab">Team <b>2</b></span><span class="tab">Calendar <b>3</b></span><span class="tab">News</span></div>
+<div class="rows">
+  <div class="row unread"><span class="dot"></span><span class="av" style="background:#d9775f">JL</span><div class="c"><div class="l1"><span class="n">Jonas Lindqvist</span><span class="t">10:42</span></div><div class="s">Updated mocks for the billing flow</div><div class="p">I went through Priya's notes and reworked the plan picker so the annual toggle sits above the cards…</div></div></div>
+  <div class="swipe">
+    <div class="act"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="#0b2d19" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Done</div>
+    <div class="row unread"><span class="dot"></span><span class="av" style="background:#5b8def">PR</span><div class="c"><div class="l1"><span class="n">Priya Raman</span><span class="t">10:11</span></div><div class="s">Re: Senior designer loop — Thursday?</div><div class="p">Works for me. Can we add a 30 min portfolio walkthrough before the panel? I'll move my 2pm.</div></div></div>
+    <div class="act" style="background:#fbbf24;color:#3d2a00"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="#3d2a00" stroke-width="2"/><path d="M10 5.8v4.4l2.8 1.6" stroke="#3d2a00" stroke-width="2" stroke-linecap="round"/></svg>Remind</div>
+  </div>
+  <div class="row"><span class="av" style="background:#8a63d2">SW</span><div class="c"><div class="l1"><span class="n">Sam Whitaker</span><span class="t">09:38</span></div><div class="s">Contract redlines</div><div class="p">Attached the version with legal's changes. Only clause 7 is still open, and that one is yours.</div></div></div>
+  <div class="row unread"><span class="dot"></span><span class="av" style="background:#2fa58a">AC</span><div class="c"><div class="l1"><span class="n">Ana Costa</span><span class="lab">Customer</span><span class="t">09:05</span></div><div class="s">Loving the new export, one request</div><div class="p">Would it be possible to keep column widths when exporting to CSV? Our finance team re-sizes every…</div></div></div>
+  <div class="row"><span class="av" style="background:#c0607f">LB</span><div class="c"><div class="l1"><span class="n">Lena Baumann</span><span class="t">Yesterday</span></div><div class="s">Offsite agenda v2</div><div class="p">Moved the roadmap session to the morning and added a slot for the design systems retro.</div></div></div>
+  <div class="row"><span class="av" style="background:#4f6f8f">TN</span><div class="c"><div class="l1"><span class="n">Tom Nakamura</span><span class="t">Yesterday</span></div><div class="s">Re: API rate limits for enterprise</div><div class="p">Agreed on 10k/min as the default, with the override behind a support flag for now.</div></div></div>
+</div>
+<div class="fade"></div>
+<div class="fab"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 18.5l1.4-5 9.9-9.9a2 2 0 0 1 2.8 0l.8.8a2 2 0 0 1 0 2.8L8 17.1z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+<div class="home"></div>
+</body>
+</html>

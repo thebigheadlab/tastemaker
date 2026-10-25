@@ -1,0 +1,28 @@
+{
+  "id": "airbnb-search-bar",
+  "kind": "component",
+  "subtype": "search bar",
+  "title": "Expanded search bar",
+  "inspiredBy": "Airbnb",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "pink",
+    "typeStyle": "humanist",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "pill",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Segmented pill search where the active segment lifts as a white floating pill over gray, with a soft-shadow destination dropdown."
+}

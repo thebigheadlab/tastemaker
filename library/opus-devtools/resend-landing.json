@@ -1,0 +1,28 @@
+{
+  "id": "resend-landing",
+  "kind": "screen",
+  "subtype": "landing hero",
+  "title": "Landing hero",
+  "inspiredBy": "Resend",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "serif",
+    "typeScale": "dramatic",
+    "density": "airy",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "expressive",
+    "mood": "editorial"
+  },
+  "notes": "Developer-email landing hero: huge serif headline, glassy 3D cube illustration and a code-first CTA."
+}

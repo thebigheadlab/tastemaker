@@ -1,0 +1,28 @@
+{
+  "id": "vercel-domain-config",
+  "kind": "component",
+  "subtype": "dns config",
+  "title": "Domain configuration",
+  "inspiredBy": "Vercel",
+  "platform": "web",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Domain cards with Valid/Invalid configuration states and a DNS record table to copy."
+}

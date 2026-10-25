@@ -1,0 +1,28 @@
+{
+  "id": "spotify-wrapped-story",
+  "kind": "screen",
+  "subtype": "year-in-review story",
+  "title": "Year-in-review story",
+  "inspiredBy": "Spotify",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "red",
+    "typeStyle": "display",
+    "typeScale": "dramatic",
+    "density": "airy",
+    "radius": "sharp",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Instagram-style story segments over clashing flat color fields, a giant tightly-tracked stat number and a white pill share button."
+}

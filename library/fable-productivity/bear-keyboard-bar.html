@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Keyboard bar</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,400&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:480px;height:600px;overflow:hidden;background:#fbf6ec;font-family:"Nunito Sans","Avenir Next",-apple-system,system-ui,sans-serif;color:#3d3833;-webkit-font-smoothing:antialiased;font-size:16px;position:relative}
+.note{padding:28px 26px 0;line-height:1.6}
+.mk{color:#cbbfab}
+h1{font-size:26px;font-weight:700;margin:0 0 8px;color:#2f2a26;line-height:1.2}
+.tag{display:inline-block;background:#f0dcd1;color:#b2543f;border-radius:5px;padding:0 7px;font-size:13.5px;font-weight:700;line-height:22px;margin-right:4px}
+p{margin:0 0 10px}
+.todo{display:flex;align-items:flex-start;gap:10px;margin:2px 0}
+.todo i{width:17px;height:17px;border-radius:50%;border:1.5px solid #b8ac9a;box-sizing:border-box;flex:none;margin-top:5px}
+.todo i.on{background:#c8664f;border-color:#c8664f;position:relative}
+.todo i.on:after{content:"";position:absolute;left:5px;top:2px;width:4px;height:7px;border:solid #fff;border-width:0 1.6px 1.6px 0;transform:rotate(45deg)}
+.todo.on span{color:#a0948a;text-decoration:line-through}
+.caret{display:inline-block;width:2px;height:19px;background:#c8664f;vertical-align:-4px;animation:b 1s step-end infinite}
+@keyframes b{50%{opacity:0}}
+.kb{position:absolute;left:0;right:0;bottom:0;background:#d6d1c6;height:270px}
+.bar{position:absolute;left:0;right:0;bottom:270px;height:46px;background:#efe6d6;border-top:1px solid #e1d6c3;display:flex;align-items:center;padding:0 6px;gap:0;overflow:hidden}
+.bar .b{width:42px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#3d3833;font-weight:700;font-size:16px;flex:none}
+.bar .b.on{background:#c8664f;color:#fff}
+.bar .b svg{display:block}
+.bar .sep{width:1px;height:22px;background:#d8cdb9;margin:0 4px;flex:none}
+.bar .b.dim{color:#b8ac9a}
+.bar .kbhide{margin-left:auto;color:#8c8176}
+.keys{padding:10px 4px 0;display:flex;flex-direction:column;gap:9px}
+.row{display:flex;justify-content:center;gap:5px}
+.k{width:36px;height:40px;background:#fcfbf7;border-radius:6px;box-shadow:0 1px 0 #a9a39a;display:flex;align-items:center;justify-content:center;font-size:19px;color:#1c1c1e;font-weight:400}
+.k.w{width:56px;background:#b9b3a8;font-size:14px}
+.k.sp{width:184px;font-size:14px}
+.k.go{width:92px;background:#c8664f;color:#fff;font-size:14px}
+.pop{position:absolute;left:8px;bottom:324px;background:#3d3833;color:#f3ecdf;border-radius:10px;padding:6px;display:flex;gap:2px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.pop:after{content:"";position:absolute;left:14px;bottom:-6px;width:12px;height:12px;background:#3d3833;transform:rotate(45deg)}
+.pop span{height:30px;min-width:30px;padding:0 10px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.pop span.on{background:#c8664f}
+</style>
+</head>
+<body>
+<div class="note">
+  <h1>Walk to the lake, finally</h1>
+  <p><span class="tag">#journal/mornings</span></p>
+  <p>Up at six, fog on the water. Took the long way past the boathouse and wrote nothing down until I got back, which was the point.</p>
+  <p><span class="mk">**</span><b>Things I noticed</b><span class="mk">**</span></p>
+  <div class="todo on"><i class="on"></i><span>Heron on the far jetty</span></div>
+  <div class="todo"><i></i><span>The café opens at seven now<span class="caret"></span></span></div>
+</div>
+<div class="pop"><span>H1</span><span class="on">H2</span><span>H3</span><span style="color:#b8ac9a">H4</span></div>
+<div class="bar">
+  <span class="b on">H</span>
+  <span class="b">B</span>
+  <span class="b" style="font-style:italic;font-weight:400">I</span>
+  <span class="b"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="M6 9l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <span class="b"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6 4.5h9M6 9h9M6 13.5h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="3" cy="4.5" r="1.1" fill="currentColor"/><circle cx="3" cy="9" r="1.1" fill="currentColor"/><circle cx="3" cy="13.5" r="1.1" fill="currentColor"/></svg></span>
+  <span class="b">#</span>
+  <span class="sep"></span>
+  <span class="b"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 11l4-4M5.5 12.5l-1 1a2.5 2.5 0 0 1-3.5-3.5l2.5-2.5A2.5 2.5 0 0 1 7 7M12.5 5.5l1-1a2.5 2.5 0 0 1 3.5 3.5l-2.5 2.5A2.5 2.5 0 0 1 11 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+  <span class="b"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3.5" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="6.5" cy="7.5" r="1.4" fill="currentColor"/><path d="M4 13l3.5-3.5 2.5 2.5 2-2 3 3" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
+  <span class="b dim">‹</span><span class="b dim">›</span>
+  <span class="b kbhide"><svg width="20" height="18" viewBox="0 0 20 18" fill="none"><rect x="1.5" y="2" width="17" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 5h1M8 5h1M11 5h1M14 5h1M6 8.5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 16l3-3 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 10 14.5)"/></svg></span>
+</div>
+<div class="kb">
+  <div class="keys">
+    <div class="row"><span class="k">q</span><span class="k">w</span><span class="k">e</span><span class="k">r</span><span class="k">t</span><span class="k">y</span><span class="k">u</span><span class="k">i</span><span class="k">o</span><span class="k">p</span></div>
+    <div class="row"><span class="k">a</span><span class="k">s</span><span class="k">d</span><span class="k">f</span><span class="k">g</span><span class="k">h</span><span class="k">j</span><span class="k">k</span><span class="k">l</span></div>
+    <div class="row"><span class="k w">⇧</span><span class="k">z</span><span class="k">x</span><span class="k">c</span><span class="k">v</span><span class="k">b</span><span class="k">n</span><span class="k">m</span><span class="k w">⌫</span></div>
+    <div class="row"><span class="k w">123</span><span class="k w">😀</span><span class="k sp">space</span><span class="k go">return</span></div>
+  </div>
+</div>
+</body>
+</html>

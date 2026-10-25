@@ -1,0 +1,110 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Browser window</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:linear-gradient(165deg,#9fd8e8 0%,#a8c8f0 40%,#b9b2f2 75%,#d3b0ec 100%);color:#16233a;font:13px/1.35 "Plus Jakarta Sans",-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;display:flex;padding:8px}
+svg{display:block;flex:none}
+.sb{width:250px;display:flex;flex-direction:column;padding:4px 10px 2px 4px}
+.chrome{display:flex;align-items:center;gap:8px;height:30px;padding:0 6px}
+.chrome i{width:12px;height:12px;border-radius:50%;display:block}
+.chrome .r{margin-left:auto;display:flex;gap:12px;color:rgba(22,35,58,.55)}
+.url{margin:8px 0 12px;height:36px;border-radius:10px;background:rgba(255,255,255,.34);display:flex;align-items:center;padding:0 12px;gap:8px;font-size:13px;color:rgba(22,35,58,.85)}
+.fav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.fav div{height:48px;border-radius:12px;background:rgba(255,255,255,.3);display:grid;place-items:center}
+.ap{width:22px;height:22px;border-radius:6px;display:grid;place-items:center}
+.sp{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;padding:0 8px 8px}
+.t{height:34px;border-radius:9px;display:flex;align-items:center;gap:10px;padding:0 10px;font-size:13px;font-weight:500;color:rgba(22,35,58,.86);white-space:nowrap;overflow:hidden}
+.t span{overflow:hidden;text-overflow:ellipsis}
+.t.on{background:rgba(255,255,255,.9);box-shadow:0 1px 2px rgba(30,40,90,.12),0 2px 8px rgba(30,40,90,.08)}
+.split{display:flex;align-items:center;gap:6px;height:auto;padding:5px;background:rgba(255,255,255,.9);border-radius:10px;box-shadow:0 1px 2px rgba(30,40,90,.12),0 2px 8px rgba(30,40,90,.08)}
+.split .t{flex:1;height:28px;padding:0 6px;gap:7px;font-size:12px}
+.split .t+.t{border-left:1px solid rgba(22,35,58,.1);border-radius:0}
+.fi{width:16px;height:16px;border-radius:4px;flex:none;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff}
+.div{display:flex;align-items:center;gap:8px;margin:10px 8px 6px;font-size:11.5px;color:rgba(22,35,58,.5);font-weight:600}
+.div:after{content:"";flex:1;height:1px;background:rgba(22,35,58,.13)}
+.fill{flex:1}
+.bot{display:flex;align-items:center;justify-content:space-between;height:36px;padding:0 8px;color:rgba(22,35,58,.55)}
+.dots{display:flex;gap:12px;align-items:center}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(22,35,58,.25);display:block}
+.pages{flex:1;display:flex;gap:8px;min-width:0}
+.pg{background:#fff;border-radius:10px;box-shadow:0 0 0 1px rgba(30,40,90,.08),0 6px 24px rgba(30,40,90,.14);overflow:hidden;position:relative}
+.pg.a{flex:1.35;outline:2px solid rgba(255,255,255,.95);outline-offset:0}
+.pg.b{flex:1}
+/* article */
+.art{padding:28px 52px}
+.art .mast{display:flex;align-items:center;justify-content:space-between;font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:500;padding-bottom:14px;border-bottom:1px solid #1a1a1a;margin-bottom:28px;letter-spacing:-.01em;color:#141414}
+.art .mast span{font-family:"Plus Jakarta Sans";font-size:11px;font-weight:600;letter-spacing:.08em;color:#6b6b6b}
+.kick{font-size:11px;font-weight:700;letter-spacing:.12em;color:#c2410c;margin-bottom:12px}
+.art h1{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:44px;line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;color:#141414}
+.dek{font-family:Newsreader,Georgia,serif;font-size:19px;line-height:1.4;color:#4a4a4a;margin:0 0 18px}
+.by{display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6b6b;margin-bottom:22px}
+.by i{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#fdba74,#c2410c)}
+.by b{color:#141414;font-weight:600}
+.hero{height:200px;border-radius:4px;background:
+ radial-gradient(circle at 70% 35%,#fde68a 0 9%,transparent 10%),
+ linear-gradient(180deg,#fed7aa 0%,#fdba74 45%,#7c2d12 46%,#9a3412 60%,#431407 100%);margin-bottom:8px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;left:-10%;right:-10%;bottom:28%;height:30%;background:radial-gradient(ellipse at 30% 100%,#7c2d12 0 40%,transparent 41%),radial-gradient(ellipse at 75% 100%,#9a3412 0 45%,transparent 46%)}
+.cap{font-size:11px;color:#8a8a8a;margin-bottom:20px}
+.body{font-family:Newsreader,Georgia,serif;font-size:17px;line-height:1.55;color:#262626;margin:0 0 14px}
+.dc{float:left;font-size:58px;line-height:.85;margin:6px 8px 0 0;color:#c2410c}
+/* player */
+.pl{height:100%;background:linear-gradient(180deg,#1f1b2e,#0f0d17);color:#fff;padding:22px 22px;display:flex;flex-direction:column}
+.pl .h{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.6);margin-bottom:20px}
+.cover{aspect-ratio:1;border-radius:10px;background:conic-gradient(from 210deg at 60% 40%,#f472b6,#a78bfa,#60a5fa,#34d399,#f472b6);position:relative;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.cover:after{content:"";position:absolute;inset:28%;border-radius:50%;background:radial-gradient(circle,#0f0d17 0 18%,rgba(15,13,23,.3) 19% 100%)}
+.pl h3{margin:18px 0 2px;font-size:19px;font-weight:700;letter-spacing:-.01em}
+.pl .ar{font-size:13px;color:rgba(255,255,255,.6)}
+.prog{height:4px;border-radius:2px;background:rgba(255,255,255,.15);margin:18px 0 6px}
+.prog i{display:block;height:100%;width:38%;background:#fff;border-radius:2px}
+.tm{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.5)}
+.ctl{display:flex;align-items:center;justify-content:center;gap:28px;margin-top:14px}
+.play{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.q{margin-top:auto;font-size:12px;color:rgba(255,255,255,.55)}
+.q div{display:flex;justify-content:space-between;padding:7px 0;border-top:1px solid rgba(255,255,255,.08)}
+.q b{color:#fff;font-weight:500}
+</style></head><body>
+<div class="sb">
+  <div class="chrome"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+    <div class="r"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2.5" width="12" height="11" rx="2.5"/><path d="M6 2.5v11"/></svg><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3 5 8l5 5"/></svg><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" style="opacity:.45"><path d="m6 3 5 5-5 5"/></svg><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 8a5 5 0 1 1-1.5-3.5L13 6"/><path d="M13 2.5V6H9.5"/></svg></div></div>
+  <div class="url"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="rgba(22,35,58,.45)" stroke-width="1.7"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>thelongread.co/slow-software</div>
+  <div class="fav">
+    <div><span class="ap" style="background:#2563eb"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2.5" y="3.5" width="11" height="10" rx="2"/><path d="M2.5 7h11M5.5 2v3M10.5 2v3"/></svg></span></div>
+    <div><span class="ap" style="background:#ea4335"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span></div>
+    <div><span class="ap" style="background:#111"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 2.5h6L12.5 5v8.5H4z"/></svg></span></div>
+    <div><span class="ap" style="background:#ff7a45"><svg width="13" height="13" viewBox="0 0 16 16" fill="#fff"><path d="M6 11.5V4l7-1.5V10" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="4.5" cy="11.5" r="1.8"/><circle cx="11.5" cy="10" r="1.8"/></svg></span></div>
+  </div>
+  <div class="sp"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#16233a" stroke-width="1.6"><path d="M8 13.5S2.5 10.2 2.5 6.2A2.9 2.9 0 0 1 8 4.8a2.9 2.9 0 0 1 5.5 1.4c0 4-5.5 7.3-5.5 7.3Z"/></svg>Personal</div>
+  <div class="t"><span class="fi" style="background:#16a34a">R</span><span>Weeknight recipes</span></div>
+  <div class="t"><span class="fi" style="background:#0ea5e9">T</span><span>Lisbon trip — Nov 14</span></div>
+  <div class="div">Today</div>
+  <div class="split"><div class="t"><span class="fi" style="background:#c2410c">L</span><span>The case for slow…</span></div><div class="t"><span class="fi" style="background:#7c3aed">♪</span><span>Low Tide · Mira</span></div></div>
+  <div class="t"><span class="fi" style="background:#3b82f6">M</span><span>MDN · View Transitions</span></div>
+  <div class="t"><span class="fi" style="background:#f59e0b">A</span><span>Apartment listings · Alfama</span></div>
+  <div class="t"><span class="fi" style="background:#ef4444">Y</span><span>How film cameras work</span></div>
+  <div class="fill"></div>
+  <div class="bot"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v8m-3-3 3 3 3-3M3 13h10"/></svg><div class="dots"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#16233a" stroke-width="1.7"><path d="M8 13.5S2.5 10.2 2.5 6.2A2.9 2.9 0 0 1 8 4.8a2.9 2.9 0 0 1 5.5 1.4c0 4-5.5 7.3-5.5 7.3Z"/></svg><i></i><i></i></div><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v10M3 8h10"/></svg></div>
+</div>
+<div class="pages">
+  <div class="pg a"><div class="art">
+    <div class="mast">The Long Read<span>ESSAYS · TECHNOLOGY</span></div>
+    <div class="kick">ESSAY</div>
+    <h1>The case for slow software</h1>
+    <p class="dek">Why the tools we love most are the ones that refuse to hurry us, and what a decade of “instant” has cost.</p>
+    <div class="by"><i></i><span>By <b>Inés Vidal</b> · October 24, 2026 · 14 min read</span></div>
+    <div class="hero"></div>
+    <div class="cap">Sunset over the Tagus. Photograph by Rui Costa.</div>
+    <p class="body"><span class="dc">T</span>he first piece of software I truly loved took eleven seconds to open. I know because I timed it, the way you time a kettle: not out of impatience, but because the waiting had become part of the ritual. In those eleven seconds I decided what I was going to write.</p>
+    <p class="body">Somewhere along the way we decided that every pause was a defect. Spinners became skeletons, skeletons became optimistic updates, and the tools got faster than the people using them.</p>
+  </div></div>
+  <div class="pg b"><div class="pl">
+    <div class="h"><span>Now playing</span><svg width="16" height="16" viewBox="0 0 16 16" fill="rgba(255,255,255,.6)"><circle cx="3.5" cy="8" r="1.2"/><circle cx="8" cy="8" r="1.2"/><circle cx="12.5" cy="8" r="1.2"/></svg></div>
+    <div class="cover"></div>
+    <h3>Low Tide</h3><div class="ar">Mira Okonkwo · Saltwater Sessions</div>
+    <div class="prog"><i></i></div><div class="tm"><span>1:24</span><span>3:41</span></div>
+    <div class="ctl"><svg width="22" height="22" viewBox="0 0 16 16" fill="#fff"><path d="M4 3v10M13 3 6 8l7 5z"/></svg><span class="play"><svg width="18" height="18" viewBox="0 0 16 16" fill="#0f0d17"><rect x="4" y="3" width="3" height="10" rx="1"/><rect x="9" y="3" width="3" height="10" rx="1"/></svg></span><svg width="22" height="22" viewBox="0 0 16 16" fill="#fff"><path d="M12 3v10M3 3l7 5-7 5z"/></svg></div>
+    <div class="q"><div><b>Up next · Harbour Lights</b><span>4:02</span></div><div><span>Paper Boats</span><span>2:58</span></div></div>
+  </div></div>
+</div>
+</body></html>

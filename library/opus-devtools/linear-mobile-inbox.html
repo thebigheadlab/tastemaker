@@ -1,0 +1,98 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Mobile inbox</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#0b0b0d;color:#ecedee;font:15px/1.35 Inter,-apple-system,"SF Pro Text",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative}
+svg{display:block;flex:none}
+.status{height:50px;display:flex;align-items:center;justify-content:space-between;padding:6px 30px 0 34px;font-weight:600;font-size:16px}
+.status .r{display:flex;gap:6px;align-items:center}
+.head{display:flex;align-items:center;justify-content:space-between;padding:8px 18px 0 20px;height:52px}
+.head .ws{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:#d6d7da}
+.logo{width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,#f4774b,#d84a8a);display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
+.head .acts{display:flex;gap:6px}
+.ib{width:34px;height:34px;border-radius:17px;background:#18191c;display:grid;place-items:center;color:#a5a7ad}
+h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin:6px 20px 12px}
+.seg{display:flex;gap:8px;padding:0 20px 14px}
+.pill{height:30px;padding:0 13px;border-radius:15px;background:#18191c;color:#a5a7ad;display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:500}
+.pill.on{background:#ecedee;color:#111}
+.pill b{font-weight:600;font-size:12px;color:inherit;opacity:.6}
+.day{font-size:12.5px;font-weight:600;color:#7d7f86;padding:10px 20px 6px;text-transform:none}
+.n{display:flex;gap:12px;padding:11px 18px 11px 20px;position:relative}
+.n + .n:before{content:"";position:absolute;left:68px;right:0;top:0;height:1px;background:#1c1d21}
+.avw{position:relative;width:36px;height:36px;flex:none}
+.av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;color:#fff}
+.badge{position:absolute;right:-3px;bottom:-3px;width:18px;height:18px;border-radius:50%;background:#0b0b0d;display:grid;place-items:center}
+.body{flex:1;min-width:0}
+.l1{display:flex;align-items:center;gap:6px}
+.l1 .id{font-size:13px;color:#7d7f86;font-weight:500}
+.l1 .tm{margin-left:auto;font-size:13px;color:#7d7f86}
+.dot{width:8px;height:8px;border-radius:50%;background:#5e6ad2}
+.title{font-weight:600;font-size:15px;color:#f2f3f4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.n.read .title{color:#b4b6bb;font-weight:500}
+.sub{font-size:14px;color:#8d8f96;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sub b{color:#c9cace;font-weight:500}
+.fab{position:absolute;right:18px;bottom:104px;width:56px;height:56px;border-radius:28px;background:#5e6ad2;display:grid;place-items:center;box-shadow:0 8px 24px rgba(94,106,210,.45),0 2px 6px rgba(0,0,0,.5)}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:86px;background:rgba(17,17,20,.94);border-top:1px solid #1f2024;display:flex;justify-content:space-around;padding-top:9px}
+.tb{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10.5px;font-weight:500;color:#76787f;width:70px}
+.tb.on{color:#f2f3f4}
+.home{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:#f2f3f4}
+</style></head><body>
+<div class="status"><span>9:41</span><span class="r">
+  <svg width="18" height="12" viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+  <svg width="16" height="12" viewBox="0 0 16 12" fill="#fff"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.7 8.7 0 0 1 6-2.4Zm0 3.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 4.1 6.8 6.8 0 0 0 3.3 6l1.3 1.4C5.5 6.5 6.7 6 8 6Zm0 3.7c.5 0 1 .2 1.3.5L8 11.8 6.7 10.2c.3-.3.8-.5 1.3-.5Z"/></svg>
+  <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#fff" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2" fill="#fff"/><path d="M25 4.5v4c.8-.3 1.3-1.1 1.3-2s-.5-1.7-1.3-2Z" fill="#fff" opacity=".4"/></svg>
+</span></div>
+<div class="head">
+  <div class="ws"><div class="logo">A</div>Arcline<svg width="10" height="10" viewBox="0 0 10 10"><path d="m2 3.5 3 3 3-3" fill="none" stroke="#7d7f86" stroke-width="1.5"/></svg></div>
+  <div class="acts">
+    <div class="ib"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2.5 4h11M4.5 8h7M6.5 12h3"/></svg></div>
+    <div class="ib"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="m3 8.5 3 3 7-7"/><path d="m8 11.5.5.5"/></svg></div>
+  </div>
+</div>
+<h1>Inbox</h1>
+<div class="seg"><div class="pill on">All <b>12</b></div><div class="pill">Mentions <b>3</b></div><div class="pill">Assigned</div><div class="pill">Reviews</div></div>
+
+<div class="day">Today</div>
+<div class="n">
+  <div class="avw"><div class="av" style="background:#7c5cd6">KM</div><div class="badge"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#f0bf00" stroke-width="1.8"/><path d="M8 4.5a3.5 3.5 0 0 1 0 7z" fill="#f0bf00"/></svg></div></div>
+  <div class="body"><div class="l1"><span class="id">PLA-412</span><span class="tm">4m</span><span class="dot"></span></div>
+  <div class="title">Webhook retries stall after 3rd attempt</div>
+  <div class="sub"><b>Kenji Mori</b> mentioned you: @dana can you confirm the backoff resets when the secret rotates mid-retry?</div></div>
+</div>
+<div class="n">
+  <div class="avw"><div class="av" style="background:#c2417a">JT</div><div class="badge"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#4cb782" stroke-width="1.8"/><path d="M8 4.5a3.5 3.5 0 1 1-3.5 3.5H8z" fill="#4cb782"/></svg></div></div>
+  <div class="body"><div class="l1"><span class="id">PLA-388</span><span class="tm">38m</span><span class="dot"></span></div>
+  <div class="title">Expose p95 delivery latency per endpoint</div>
+  <div class="sub"><b>Jules Tan</b> moved to In Review and requested your review</div></div>
+</div>
+<div class="n">
+  <div class="avw"><div class="av" style="background:#d9822b">SR</div><div class="badge"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="#5e6ad2"/><path d="m5.2 8.2 1.9 1.9 3.8-3.9" fill="none" stroke="#0b0b0d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div class="body"><div class="l1"><span class="id">PLA-405</span><span class="tm">2h</span><span class="dot"></span></div>
+  <div class="title">Dead-letter queue shows stale counts</div>
+  <div class="sub"><b>Sofia Reyes</b> marked as Done · Fixed in #2291</div></div>
+</div>
+<div class="day">Yesterday</div>
+<div class="n read">
+  <div class="avw"><div class="av" style="background:#2f9e8f">AL</div><div class="badge"><svg width="14" height="14" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#c9cace" stroke-width="1.8"/></svg></div></div>
+  <div class="body"><div class="l1"><span class="id">PLA-417</span><span class="tm">Wed</span></div>
+  <div class="title">Remove legacy v0 consumer SDK</div>
+  <div class="sub"><b>Ana Lindqvist</b> assigned the issue to you</div></div>
+</div>
+<div class="n read">
+  <div class="avw"><div class="av" style="background:#4b6fd6">PB</div><div class="badge"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M8 1.5 14 5v6l-6 3.5L2 11V5z" fill="#4ea7fc"/></svg></div></div>
+  <div class="body"><div class="l1"><span class="id">Event Bus v2</span><span class="tm">Wed</span></div>
+  <div class="title">Project update: On track</div>
+  <div class="sub" style="padding-right:60px"><b>Priya Bhatt</b>: Delivery guarantees landed. Batch publish slips one week to Nov 4.</div></div>
+</div>
+
+<div class="fab"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"><path d="M9.5 2.5H4A1.5 1.5 0 0 0 2.5 4v8A1.5 1.5 0 0 0 4 13.5h8a1.5 1.5 0 0 0 1.5-1.5V6.5"/><path d="m7 9 6.5-6.5"/></svg></div>
+<nav class="tabbar">
+  <div class="tb on"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2.5 9.5h3l1 1.5h3l1-1.5h3"/><rect x="2.5" y="3" width="11" height="10" rx="2"/></svg>Inbox</div>
+  <div class="tb"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="5.5"/><circle cx="8" cy="8" r="2"/></svg>My issues</div>
+  <div class="tb"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 3h4v4H3zM9 3h4v4H9zM3 9h4v4H3zM9 9h4v4H9z"/></svg>Projects</div>
+  <div class="tb"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3" stroke-linecap="round"/></svg>Search</div>
+</nav>
+<div class="home"></div>
+</body></html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Landing hero</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#000;color:#f0f0f0;font:15px/1.5 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;position:relative}
+svg{display:block;flex:none}
+.glow{position:absolute;right:0;top:40px;width:700px;height:620px;background:radial-gradient(closest-side,rgba(255,255,255,.08),transparent)}
+.grain{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:3px 3px;mask-image:linear-gradient(180deg,#000 0,transparent 80%);-webkit-mask-image:linear-gradient(180deg,#000 0,transparent 80%)}
+nav{position:relative;height:72px;display:flex;align-items:center;padding:0 64px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:17px;letter-spacing:-.02em}
+.links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:30px;font-size:14px;color:#a1a1a1}
+.nr{margin-left:auto;display:flex;gap:10px;align-items:center;font-size:14px}
+.nr .si{color:#d4d4d4;padding:0 10px}
+.pill{height:36px;border-radius:18px;padding:0 16px;display:flex;align-items:center;gap:6px;font-weight:500;font-size:14px}
+.pw{background:#fff;color:#000}
+.pg{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#f0f0f0}
+.hero{position:relative;display:flex;padding:70px 64px 0}
+.copy{width:620px;padding-top:26px}
+.ann{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px 0 4px;border-radius:15px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);font-size:13px;color:#cfcfcf}
+.ann b{background:rgba(255,255,255,.1);color:#fff;font-weight:500;font-size:12px;border-radius:11px;padding:2px 9px}
+h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:112px;line-height:.98;letter-spacing:-.025em;margin:26px 0 22px;background:linear-gradient(180deg,#fff 30%,rgba(255,255,255,.55));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:18px;color:#a1a1a1;max-width:470px;margin:0 0 34px;line-height:1.55}
+.lede b{color:#f0f0f0;font-weight:500}
+.ctas{display:flex;gap:12px}
+.ctas .pill{height:44px;padding:0 22px;font-size:15px;border-radius:22px}
+.cmd{margin-top:26px;display:inline-flex;align-items:center;gap:10px;font:13px "JetBrains Mono",ui-monospace,Menlo,monospace;color:#8a8a8a}
+.cmd span{color:#d4d4d4}
+.art{flex:1;position:relative;height:520px}
+.trust{position:absolute;left:64px;right:64px;bottom:34px;display:flex;align-items:center;gap:56px;color:#6b6b6b;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.trust small{font-size:12.5px;font-weight:400;color:#6b6b6b;letter-spacing:0;width:170px;line-height:1.4}
+.trust .w{display:flex;align-items:center;gap:7px}
+</style></head><body>
+<div class="glow"></div><div class="grain"></div>
+<nav>
+  <div class="logo"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M2.5 9.5 17.5 2.5 12.5 17.5 9.5 11.5z"/><path d="M9.5 11.5 17.5 2.5"/></svg>Postwell</div>
+  <div class="links"><span>Features</span><span>Company</span><span>Resources</span><span>Help</span><span>Docs</span><span>Pricing</span></div>
+  <div class="nr"><span class="si">Sign in</span><span class="pill pw">Get Started</span></div>
+</nav>
+<section class="hero">
+  <div class="copy">
+    <span class="ann"><b>New</b>Inbound email is now generally available →</span>
+    <h1>Email for<br>developers</h1>
+    <p class="lede">The best way to reach humans instead of spam folders. Deliver <b>transactional and marketing emails</b> at scale.</p>
+    <div class="ctas"><span class="pill pw">Get Started</span><span class="pill pg">Documentation</span></div>
+    <div class="cmd">$ <span>npm install postwell</span><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#6b6b6b" stroke-width="1.4"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg></div>
+  </div>
+  <div class="art">
+    <svg width="560" height="520" viewBox="0 0 560 520" style="position:absolute;left:0;top:-30px">
+      <defs>
+        <linearGradient id="top" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#121212"/></linearGradient>
+        <linearGradient id="left" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c1c1c"/><stop offset="1" stop-color="#050505"/></linearGradient>
+        <linearGradient id="right" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a2a"/><stop offset="1" stop-color="#080808"/></linearGradient>
+        <linearGradient id="edge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/></linearGradient>
+        <radialGradient id="shine" cx=".35" cy=".3" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+      </defs>
+      <ellipse cx="290" cy="468" rx="170" ry="18" fill="#fff" opacity=".025"/>
+      <!-- big cube made of 3x3 faces -->
+      <g transform="translate(290 260)">
+        <g id="tf">
+          <path d="M0 -190 L165 -95 L0 0 L-165 -95 Z" fill="url(#top)"/>
+          <path d="M0 -190 L165 -95 L0 0 L-165 -95 Z" fill="url(#shine)"/>
+        </g>
+        <path d="M-165 -95 L0 0 L0 190 L-165 95 Z" fill="url(#left)"/>
+        <path d="M165 -95 L0 0 L0 190 L165 95 Z" fill="url(#right)"/>
+        <g stroke="#000" stroke-width="5" opacity=".9">
+          <path d="M-55 -158 L110 -63 M-110 -127 L55 -32 M55 -158 L-110 -63 M110 -127 L-55 -32"/>
+          <path d="M-165 -32 L0 63 M-165 32 L0 127 M-110 -63 L-110 127 M-55 -32 L-55 158"/>
+          <path d="M165 -32 L0 63 M165 32 L0 127 M110 -63 L110 127 M55 -32 L55 158"/>
+        </g>
+        <g fill="none" stroke="url(#edge)" stroke-width="1.2">
+          <path d="M0 -190 L165 -95 L165 95 L0 190 L-165 95 L-165 -95 Z"/>
+          <path d="M-165 -95 L0 0 L165 -95 M0 0 L0 190"/>
+        </g>
+        <g stroke="#fff" stroke-opacity=".12" stroke-width="1" fill="none">
+          <path d="M-55 -158 L110 -63 M-110 -127 L55 -32 M55 -158 L-110 -63 M110 -127 L-55 -32" transform="translate(0 -3)"/>
+        </g>
+        <path d="M0 -190 L55 -158 L0 -127 L-55 -158 Z" fill="#fff" opacity=".08"/>
+      </g>
+    </svg>
+  </div>
+</section>
+<div class="trust"><small>Companies of all sizes trust us to deliver their most important emails.</small>
+  <span class="w"><svg width="18" height="18" viewBox="0 0 18 18" fill="#6b6b6b"><circle cx="9" cy="9" r="8"/></svg>Northwind</span>
+  <span class="w" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:24px">Halcyon</span>
+  <span class="w"><svg width="18" height="18" viewBox="0 0 18 18" fill="#6b6b6b"><path d="M9 1 17 17H1z"/></svg>APEXLY</span>
+  <span class="w" style="letter-spacing:.12em;font-size:15px">KETTLE&amp;LEAF</span>
+  <span class="w"><svg width="18" height="18" viewBox="0 0 18 18" fill="#6b6b6b"><rect x="1" y="1" width="7" height="7" rx="1.5"/><rect x="10" y="10" width="7" height="7" rx="1.5"/></svg>gridwise</span>
+</div>
+</body></html>

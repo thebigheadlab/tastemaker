@@ -1,0 +1,25 @@
+{
+  "id": "notion-properties",
+  "kind": "component",
+  "subtype": "property panel",
+  "title": "Page properties",
+  "inspiredBy": "Notion",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "A database page's property table with grey label column and pastel pills, and the Priority select dropdown open with coloured options and drag handles."
+}

@@ -1,0 +1,28 @@
+{
+  "id": "stripe-payments-table",
+  "kind": "component",
+  "subtype": "data table",
+  "title": "Payments table",
+  "inspiredBy": "Stripe",
+  "platform": "web",
+  "viewport": {
+    "w": 600,
+    "h": 480
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Dense payments table with status pills, card brand chips and filter tabs with counts."
+}

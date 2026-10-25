@@ -1,0 +1,116 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Deployment</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#000;color:#ededed;font:14px/1.45 Geist,Inter,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+svg{display:block;flex:none}
+.mono{font-family:"Geist Mono",ui-monospace,Menlo,monospace}
+header{border-bottom:1px solid #242424;background:#0a0a0a}
+.bar{height:56px;display:flex;align-items:center;padding:0 24px;gap:10px}
+.mark{width:22px;height:22px}
+.slash{color:#3a3a3a;font-size:22px;font-weight:300;margin:0 2px}
+.sw{display:flex;align-items:center;gap:8px;font-weight:500;font-size:14px}
+.sw .av{width:20px;height:20px;border-radius:50%;background:conic-gradient(from 200deg,#ff4d8d,#ffb84d,#4dd2ff,#9d4dff,#ff4d8d)}
+.sw .hobby{font-size:12px;color:#a1a1a1;border:1px solid #333;border-radius:10px;padding:0 7px;height:20px;display:flex;align-items:center}
+.updown{color:#666}
+.bar .r{margin-left:auto;display:flex;align-items:center;gap:14px;color:#a1a1a1;font-size:14px}
+.fb{height:32px;border:1px solid #2e2e2e;border-radius:6px;padding:0 10px;display:flex;align-items:center}
+.uav{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#a855f7)}
+nav{display:flex;gap:4px;padding:0 14px;height:46px;align-items:flex-end}
+nav a{color:#a1a1a1;font-size:14px;padding:0 10px 12px;position:relative}
+nav a.on{color:#ededed}
+nav a.on:after{content:"";position:absolute;left:10px;right:10px;bottom:-1px;height:2px;background:#ededed}
+.wrap{max-width:1200px;margin:0 auto;padding:26px 40px 0}
+.ph{display:flex;align-items:center;margin-bottom:22px}
+.ph h1{font-size:30px;font-weight:600;letter-spacing:-.04em;margin:0}
+.ph .r{margin-left:auto;display:flex;gap:8px}
+.btn{height:36px;border:1px solid #2e2e2e;background:#0a0a0a;border-radius:6px;padding:0 13px;display:flex;align-items:center;gap:7px;font-weight:500;font-size:14px;color:#ededed}
+.btn.w{background:#ededed;color:#0a0a0a;border-color:#ededed}
+.card{border:1px solid #242424;border-radius:10px;background:#0a0a0a;display:flex;padding:24px;gap:28px}
+.prev{width:430px;height:254px;border:1px solid #242424;border-radius:6px;overflow:hidden;background:#f6f3ee;flex:none;position:relative}
+.prev .n{height:30px;display:flex;align-items:center;padding:0 16px;gap:16px;font-size:8px;color:#5a5047;font-weight:600}
+.prev .n b{font-size:10px;letter-spacing:.06em;margin-right:auto;color:#2b241d}
+.prev .hero{display:flex;padding:14px 16px;gap:14px}
+.prev .hero .t{flex:1}
+.prev .hero h4{font-size:21px;line-height:1.05;margin:4px 0 8px;font-weight:700;letter-spacing:-.03em;color:#2b241d}
+.prev .hero p{font-size:7.5px;color:#7a6e62;margin:0 0 10px;line-height:1.5}
+.prev .hero .cta{display:inline-block;background:#2b241d;color:#f6f3ee;font-size:7.5px;padding:5px 10px;border-radius:12px}
+.prev .img{width:170px;height:130px;border-radius:8px;background:radial-gradient(circle at 60% 40%,#f0c9a0 0 22%,transparent 23%),radial-gradient(circle at 35% 70%,#c98b5a 0 16%,transparent 17%),linear-gradient(160deg,#e4d3bf,#cdb497)}
+.prev .grid{display:flex;gap:8px;padding:0 16px}
+.prev .grid i{flex:1;height:62px;border-radius:6px;background:linear-gradient(180deg,#e9dfd2,#ddcfbd)}
+.meta{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;align-content:start}
+.lb{font-size:13px;color:#a1a1a1;margin-bottom:5px}
+.vl{font-size:14px;color:#ededed;display:flex;align-items:center;gap:8px;font-weight:500}
+.dot{width:10px;height:10px;border-radius:50%;background:#50e3c2;box-shadow:0 0 0 3px rgba(80,227,194,.15)}
+.cur{font-size:12px;color:#52a8ff;background:#0a1f3a;border-radius:10px;padding:1px 8px;font-weight:500}
+.full{grid-column:1 / -1}
+.dom{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:#ededed;margin-bottom:3px}
+.dom em{font-style:normal;color:#666;font-size:13px;font-weight:400}
+.src{display:flex;flex-direction:column;gap:5px}
+.src .vl{font-weight:400;font-size:13.5px}
+.small-av{width:20px;height:20px;border-radius:50%;background:#e1a33b;color:#000;font-size:9px;font-weight:700;display:grid;place-items:center}
+.det{border:1px solid #242424;border-radius:10px;margin-top:18px;background:#0a0a0a;overflow:hidden}
+.acc{height:50px;display:flex;align-items:center;gap:10px;padding:0 18px;font-weight:600;font-size:15px;border-bottom:1px solid #242424}
+.acc .r{margin-left:auto;display:flex;gap:16px;align-items:center;color:#a1a1a1;font-weight:400;font-size:13px}
+.ok{width:16px;height:16px;border-radius:50%;background:#0a6d4d;display:grid;place-items:center}
+.logs{padding:10px 0;font-size:12.5px;line-height:21px;height:196px;overflow:hidden}
+.ll{display:flex;padding:0 18px;gap:16px}
+.ll .ts{color:#666;width:84px;flex:none}
+.ll .tx{color:#d4d4d4;white-space:pre}
+.ll .g{color:#50e3c2}.ll .y{color:#f5a623}.ll .d{color:#888}
+.ll.hl{background:#0b1e17}
+</style></head><body>
+<header>
+  <div class="bar">
+    <svg class="mark" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ededed"/><path d="M7 12h10" stroke="#000" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <span class="slash">/</span>
+    <div class="sw"><span class="av"></span>Fernwood Labs<span class="hobby">Pro</span><svg class="updown" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m5 6 3-3 3 3M5 10l3 3 3-3"/></svg></div>
+    <span class="slash">/</span>
+    <div class="sw"><svg width="18" height="18" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="4" fill="#2b241d"/><path d="M5 11V5h3.5a2 2 0 0 1 0 4H5" stroke="#f6f3ee" stroke-width="1.4" fill="none"/></svg>storefront<svg class="updown" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m5 6 3-3 3 3M5 10l3 3 3-3"/></svg></div>
+    <div class="r"><span class="fb">Feedback</span><span>Changelog</span><span>Help</span><span>Docs</span><span class="uav"></span></div>
+  </div>
+  <nav><a>Overview</a><a class="on">Deployments</a><a>Analytics</a><a>Speed Insights</a><a>Logs</a><a>Observability</a><a>Firewall</a><a>Storage</a><a>Flags</a><a>Settings</a></nav>
+</header>
+<div class="wrap">
+  <div class="ph"><h1>Deployment</h1>
+    <div class="r"><span class="btn">Build Logs</span><span class="btn">Runtime Logs</span><span class="btn"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8a5 5 0 1 0 1.5-3.5L3 6"/><path d="M3 2.5V6h3.5"/></svg>Instant Rollback</span><span class="btn w">Visit</span></div>
+  </div>
+  <div class="card">
+    <div class="prev">
+      <div class="n"><b>OAK &amp; EMBER</b><span>Shop</span><span>Journal</span><span>About</span><span>Cart (2)</span></div>
+      <div class="hero"><div class="t"><p style="margin:0;font-size:7px;letter-spacing:.12em;color:#9a8b7b">AUTUMN COLLECTION</p><h4>Hand-thrown stoneware for slow mornings.</h4><p>Small-batch mugs, bowls and pour-over sets, fired in our Portland studio.</p><span class="cta">Shop the collection →</span></div><div class="img"></div></div>
+      <div class="grid"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="meta">
+      <div><div class="lb">Created</div><div class="vl"><span class="small-av">RM</span>rmendes <span style="color:#a1a1a1;font-weight:400">12m ago</span></div></div>
+      <div><div class="lb">Status</div><div class="vl"><span class="dot"></span>Ready</div></div>
+      <div><div class="lb">Duration</div><div class="vl">48s <span style="color:#a1a1a1;font-weight:400">(12m ago)</span></div></div>
+      <div><div class="lb">Environment</div><div class="vl">Production <span class="cur">Current</span></div></div>
+      <div class="full"><div class="lb">Domains</div>
+        <div class="dom">oakandember.com<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#a1a1a1" stroke-width="1.5"><path d="M6 3h7v7M13 3 5 11"/></svg></div>
+        <div class="dom">www.oakandember.com <em>+2</em></div>
+      </div>
+      <div class="full src"><div class="lb" style="margin:0">Source</div>
+        <div class="vl"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#a1a1a1" stroke-width="1.4"><circle cx="5" cy="4" r="1.6"/><circle cx="5" cy="12" r="1.6"/><circle cx="11" cy="6" r="1.6"/><path d="M5 5.6v4.8M11 7.6c0 2-2 2.4-6 2.8"/></svg><span class="mono" style="font-size:13px">main</span></div>
+        <div class="vl"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#a1a1a1" stroke-width="1.4"><circle cx="8" cy="8" r="2.6"/><path d="M1 8h4.4M10.6 8H15"/></svg><span class="mono" style="font-size:13px;color:#a1a1a1">a3f9c21</span>fix: hydrate cart drawer before checkout redirect</div>
+      </div>
+    </div>
+  </div>
+  <div class="det">
+    <div class="acc"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#a1a1a1" stroke-width="1.6"><path d="m4 6 4 4 4-4"/></svg>Build Logs<div class="r"><span>48s</span><span class="mono">87 lines</span><span class="ok"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="#50e3c2" stroke-width="2.4"><path d="m3.5 8.5 3 3 6-7"/></svg></span></div></div>
+    <div class="logs mono">
+      <div class="ll"><span class="ts">14:02:11.204</span><span class="tx">Running build in Washington, D.C., USA (East) – iad1</span></div>
+      <div class="ll"><span class="ts">14:02:11.890</span><span class="tx">Cloning github.com/fernwood/storefront (Branch: main, Commit: a3f9c21)</span></div>
+      <div class="ll"><span class="ts">14:02:13.517</span><span class="tx"><span class="d">Restored build cache from previous deployment (</span>8xQh2Lk<span class="d">)</span></span></div>
+      <div class="ll"><span class="ts">14:02:19.032</span><span class="tx">  ▲ Next.js 15.4.2</span></div>
+      <div class="ll"><span class="ts">14:02:41.660</span><span class="tx"><span class="g">✓</span> Compiled successfully in 21.8s</span></div>
+      <div class="ll"><span class="ts">14:02:47.118</span><span class="tx"><span class="g">✓</span> Generating static pages (38/38)</span></div>
+      <div class="ll"><span class="ts">14:02:52.773</span><span class="tx"><span class="d">Route (app)                     Size     First Load JS</span></span></div>
+      <div class="ll"><span class="ts">14:02:56.090</span><span class="tx">Build Completed in /output [38s]</span></div>
+      <div class="ll hl"><span class="ts">14:02:58.401</span><span class="tx"><span class="g">Deployment completed</span></span></div>
+    </div>
+  </div>
+</div>
+</body></html>

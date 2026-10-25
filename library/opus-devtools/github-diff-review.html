@@ -1,0 +1,68 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Diff review</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#0d1117;color:#f0f6fc;font:13px/1.5 Inter,-apple-system,"Segoe UI","Noto Sans",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;padding:12px}
+svg{display:block;flex:none}
+.f{border:1px solid #3d444d;border-radius:6px;overflow:hidden}
+.fh{height:42px;background:#151b23;border-bottom:1px solid #3d444d;display:flex;align-items:center;gap:8px;padding:0 10px 0 8px;font-size:12px}
+.fh .path{font:12px "JetBrains Mono",monospace;color:#f0f6fc}
+.fh .st{display:flex;gap:2px;align-items:center;font-weight:600;font-size:12px}
+.fh .st i{width:7px;height:7px;display:block;border-radius:1px}
+.fh .r{margin-left:auto;display:flex;align-items:center;gap:8px;color:#9198a1}
+.vw{display:flex;align-items:center;gap:6px;height:26px;border:1px solid #3d444d;border-radius:6px;padding:0 8px;color:#d1d7e0}
+.vw i{width:13px;height:13px;border:1px solid #6e7681;border-radius:3px;display:block}
+table{width:100%;border-collapse:collapse;font:12px/20px "JetBrains Mono",ui-monospace,monospace}
+td{padding:0;white-space:pre;vertical-align:top}
+td.n{width:38px;text-align:right;padding-right:8px;color:#6e7681;user-select:none}
+td.c{padding-left:6px;color:#e6edf3}
+tr.hunk td{background:#121d2f;color:#9198a1;height:28px;line-height:28px}
+tr.add td{background:rgba(46,160,67,.15)}
+tr.add td.n{background:rgba(63,185,80,.3);color:#c9d1d9}
+tr.del td{background:rgba(248,81,73,.1)}
+tr.del td.n{background:rgba(248,81,73,.3);color:#c9d1d9}
+.hl-a{background:rgba(46,160,67,.4);border-radius:2px}
+.k{color:#ff7b72}.s{color:#a5d6ff}.fn{color:#d2a8ff}.nm{color:#79c0ff}.cm{color:#8b949e}
+.thread>td{background:#0d1117;padding:8px 10px 10px;white-space:normal;font-family:Inter,sans-serif;border-top:1px solid #3d444d;border-bottom:1px solid #3d444d}
+.cmt{border:1px solid #3d444d;border-radius:6px;overflow:hidden;max-width:520px}
+.ch{display:flex;align-items:center;gap:8px;padding:8px 10px;font-size:12.5px;color:#9198a1}
+.ch b{color:#f0f6fc;font-weight:600}
+.av{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:8.5px;font-weight:700;color:#fff;flex:none}
+.pend{margin-left:auto;font-size:11px;border:1px solid #9e6a03;color:#d29922;border-radius:10px;padding:0 7px;font-weight:500}
+.cb{padding:0 10px 10px;font-size:13px;color:#d1d7e0}
+.sg{border:1px solid #3d444d;border-radius:6px;margin-top:8px;overflow:hidden}
+.sgh{background:#151b23;padding:5px 10px;font-size:12px;color:#9198a1;border-bottom:1px solid #3d444d}
+.sg table{font-size:11.5px}
+.sgb{display:flex;gap:8px;padding:8px 10px;border-top:1px solid #3d444d;background:#151b23}
+.btn{height:28px;border-radius:6px;border:1px solid #3d444d;background:#212830;display:flex;align-items:center;padding:0 10px;font-size:12px;font-weight:500;color:#f0f6fc}
+.btn.g{background:#238636;border-color:rgba(240,246,252,.1)}
+</style></head><body>
+<div class="f">
+  <div class="fh"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.6"><path d="m4 6 4 4 4-4"/></svg><span class="st"><span style="color:#3fb950">+24</span>&nbsp;<span style="color:#f85149">−3</span>&nbsp;<i style="background:#3fb950"></i><i style="background:#3fb950"></i><i style="background:#3fb950"></i><i style="background:#3fb950"></i><i style="background:#f85149"></i></span><span class="path">src/lib/auth/jwks.ts</span><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#9198a1" stroke-width="1.4"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>
+    <div class="r"><span>1 comment</span><span class="vw"><i></i>Viewed</span></div></div>
+  <table>
+    <tr class="hunk"><td class="n"></td><td class="n"></td><td class="c">@@ -8,9 +8,26 @@ import { env } from "../env";</td></tr>
+    <tr><td class="n">8</td><td class="n">8</td><td class="c"><span class="k">const</span> JWKS_URL = <span class="s">`${env.ISSUER}/.well-known/jwks.json`</span>;</td></tr>
+    <tr class="del"><td class="n">9</td><td class="n"></td><td class="c">- <span class="k">export async function</span> <span class="fn">getKeys</span>() {</td></tr>
+    <tr class="del"><td class="n">10</td><td class="n"></td><td class="c">-   <span class="k">return</span> (<span class="k">await</span> <span class="fn">fetch</span>(JWKS_URL)).<span class="fn">json</span>();</td></tr>
+    <tr class="add"><td class="n"></td><td class="n">9</td><td class="c">+ <span class="k">const</span> TTL_MS = <span class="hl-a"><span class="nm">10</span> * <span class="nm">60</span> * <span class="nm">1000</span></span>;</td></tr>
+    <tr class="add"><td class="n"></td><td class="n">10</td><td class="c">+ <span class="k">let</span> cache: { keys: JWK[]; at: <span class="nm">number</span> } | <span class="k">null</span> = <span class="k">null</span>;</td></tr>
+    <tr class="add"><td class="n"></td><td class="n">11</td><td class="c">+ <span class="k">export async function</span> <span class="fn">getKeys</span>(kid?: <span class="nm">string</span>) {</td></tr>
+    <tr class="add"><td class="n"></td><td class="n">12</td><td class="c">+   <span class="k">if</span> (cache &amp;&amp; Date.<span class="fn">now</span>() - cache.at &lt; TTL_MS) {</td></tr>
+    <tr class="thread"><td colspan="3"><div class="cmt">
+      <div class="ch"><span class="av" style="background:#e1a33b">DK</span><b>dkowalski</b>now<span class="pend">Pending</span></div>
+      <div class="cb">Should we skip the cache when the <code style="font:11.5px 'JetBrains Mono';background:#656c7633;padding:1px 4px;border-radius:4px">kid</code> isn't in it? Otherwise a key rotation fails for up to 10 min.
+        <div class="sg"><div class="sgh">Suggested change</div>
+          <table>
+            <tr class="del"><td class="n">12</td><td class="c">-   <span class="k">if</span> (cache &amp;&amp; Date.<span class="fn">now</span>() - cache.at &lt; TTL_MS) {</td></tr>
+            <tr class="add"><td class="n">12</td><td class="c">+   <span class="k">const</span> hit = !kid || cache?.keys.<span class="fn">some</span>(k =&gt; k.kid === kid);</td></tr>
+            <tr class="add"><td class="n">13</td><td class="c">+   <span class="k">if</span> (cache &amp;&amp; hit &amp;&amp; Date.<span class="fn">now</span>() - cache.at &lt; TTL_MS) {</td></tr>
+          </table>
+          <div class="sgb"><span class="btn g">Commit suggestion</span><span class="btn">Add suggestion to batch</span></div>
+        </div>
+      </div></div></td></tr>
+  </table>
+</div>
+</body></html>

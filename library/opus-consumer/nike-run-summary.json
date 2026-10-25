@@ -1,0 +1,28 @@
+{
+  "id": "nike-run-summary",
+  "kind": "component",
+  "subtype": "activity summary",
+  "title": "Run summary",
+  "inspiredBy": "Nike",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "yellow",
+    "typeStyle": "display",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "serious"
+  },
+  "notes": "Run-club stat sheet: enormous condensed distance number on black, volt route map and split bars, terse gray labels."
+}

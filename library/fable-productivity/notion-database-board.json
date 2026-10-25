@@ -1,0 +1,25 @@
+{
+  "id": "notion-database-board",
+  "kind": "screen",
+  "subtype": "kanban database",
+  "title": "Database board",
+  "inspiredBy": "Notion",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Warm off-white sidebar with emoji page icons, a big emoji-led title, database view tabs and board columns of white cards wearing pastel property tags."
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Run summary</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#111;font-family:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#fff;overflow:hidden;-webkit-font-smoothing:antialiased;width:480px;height:600px;padding:22px 24px 0}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#9e9ea0}
+.top b{color:#fff;font-weight:600;font-size:16px;display:block}
+.big{font-family:Anton,Impact,sans-serif;font-size:132px;line-height:124px;margin-top:14px;letter-spacing:-.01em;color:#fff}
+.unit{font-size:16px;font-weight:600;color:#9e9ea0;margin-top:2px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:22px;gap:18px 0}
+.stats b{display:block;font-family:Anton,Impact,sans-serif;font-weight:400;font-size:30px;line-height:34px;letter-spacing:.01em}
+.stats span{font-size:13px;color:#9e9ea0;font-weight:500}
+.map{margin-top:22px;height:150px;border-radius:12px;overflow:hidden;position:relative;background:#1d1d1f}
+.pill{position:absolute;right:12px;top:12px;background:#e9ff70;color:#111;font-weight:700;font-size:12px;border-radius:14px;padding:5px 10px;display:flex;align-items:center;gap:5px}
+.splits{display:flex;align-items:flex-end;gap:5px;height:44px;margin-top:16px}
+.splits i{flex:1;background:#3a3a3c;border-radius:2px}
+.splits i.f{background:#e9ff70}
+.sl{display:flex;justify-content:space-between;font-size:12px;color:#9e9ea0;margin-top:6px}
+</style></head><body>
+<div class="top"><div><b>Saturday Morning Run</b>Oct 24 · 7:12 AM · Golden Gate Park</div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6M12 3v13M7 8l5-5 5 5"/></svg></div>
+<div class="big">10.24</div>
+<div class="unit">Kilometers</div>
+<div class="stats">
+  <div><b>5'08"</b><span>Avg. Pace</span></div>
+  <div><b>52:41</b><span>Time</span></div>
+  <div><b>684</b><span>Calories</span></div>
+</div>
+<div class="map">
+  <svg width="432" height="150" viewBox="0 0 432 150">
+    <g stroke="#2a2a2c" stroke-width="1"><path d="M0 30h432M0 70h432M0 110h432M60 0v150M150 0v150M240 0v150M330 0v150"/></g>
+    <path d="M0 120c40-6 70 10 100-4" stroke="#252b2a" stroke-width="18" fill="none"/>
+    <path d="M40 112c20-40 60-70 110-62s70 30 110 20 60-50 100-40 40 50 20 70-80 20-120 16-100 10-150 8-60 0-70-12z" fill="none" stroke="#e9ff70" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="40" cy="112" r="6" fill="#111" stroke="#e9ff70" stroke-width="3"/>
+    <path d="M370 72l8-10" stroke="#e9ff70" stroke-width="0"/>
+  </svg>
+  <div class="pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="#111"><path d="M12 2l2.9 6.9L22 9.3l-5.5 4.7 1.7 7.3L12 17.5 5.8 21.3l1.7-7.3L2 9.3l7.1-.4z"/></svg>Fastest 10K</div>
+</div>
+<div class="splits"><i style="height:62%"></i><i style="height:70%"></i><i style="height:66%"></i><i style="height:74%"></i><i style="height:80%"></i><i style="height:72%"></i><i style="height:78%"></i><i style="height:84%"></i><i style="height:88%"></i><i class="f" style="height:100%"></i></div>
+<div class="sl"><span>KM 1</span><span>Splits</span><span>KM 10 · 4'41"</span></div>
+</body></html>

@@ -1,0 +1,25 @@
+{
+  "id": "headspace-course-card",
+  "kind": "component",
+  "subtype": "content card",
+  "title": "Course card",
+  "inspiredBy": "Headspace",
+  "platform": "mobile",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "medium",
+    "accentHue": "orange",
+    "typeStyle": "geometric",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "calm"
+  },
+  "notes": "Big-radius card with a flat illustrated header (blob friends under a yellow sun), friendly copy, icon meta row, orange progress bar and a pill-shaped dark CTA."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "cron-week-view",
+  "kind": "screen",
+  "subtype": "calendar week",
+  "title": "Week view",
+  "inspiredBy": "Notion Calendar (Cron)",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "True-black week grid with a second time-zone gutter, left-bordered tinted events, a dashed ghost event mid-creation and keyboard hints on every button."
+}

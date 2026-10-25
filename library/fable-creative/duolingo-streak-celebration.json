@@ -1,0 +1,25 @@
+{
+  "id": "duolingo-streak-celebration",
+  "kind": "screen",
+  "subtype": "celebration",
+  "title": "Streak celebration",
+  "inspiredBy": "Duolingo",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "orange",
+    "typeStyle": "humanist",
+    "typeScale": "dramatic",
+    "density": "airy",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Full-bleed orange takeover with a giant friendly flame, 124px streak number, week tracker and a chunky white 3D button."
+}

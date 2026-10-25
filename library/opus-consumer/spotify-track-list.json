@@ -1,0 +1,28 @@
+{
+  "id": "spotify-track-list",
+  "kind": "component",
+  "subtype": "playlist track list",
+  "title": "Playlist track list",
+  "inspiredBy": "Spotify",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "geometric",
+    "typeScale": "moderate",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Color-washed playlist header, oversized green play button and dense track rows with green now-playing equalizer and download dots."
+}

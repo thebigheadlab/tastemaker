@@ -1,0 +1,25 @@
+{
+  "id": "craft-document",
+  "kind": "screen",
+  "subtype": "document editor",
+  "title": "Document",
+  "inspiredBy": "Craft",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "dramatic",
+    "density": "airy",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "A white 'paper' floating on a grey canvas, heavy rounded headings, a tinted focus block, subpages rendered as gradient-cover cards and round checkboxes in the indigo accent."
+}

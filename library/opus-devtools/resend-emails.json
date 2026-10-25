@@ -1,0 +1,28 @@
+{
+  "id": "resend-emails",
+  "kind": "screen",
+  "subtype": "email log",
+  "title": "Emails",
+  "inspiredBy": "Resend",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "mono",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Pitch-black email log with delivery status badges, recipients and relative timestamps."
+}

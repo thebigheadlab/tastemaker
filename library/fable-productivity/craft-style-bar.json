@@ -1,0 +1,25 @@
+{
+  "id": "craft-style-bar",
+  "kind": "component",
+  "subtype": "block style popover",
+  "title": "Block style",
+  "inspiredBy": "Craft",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "A selected block outlined in indigo, a black floating formatting bar, and a rounded Style popover with Plain / Focus / Card / Quote previews, pastel colour dots and segmented font and width controls."
+}

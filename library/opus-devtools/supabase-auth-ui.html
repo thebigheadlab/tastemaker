@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Auth form</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#121212;color:#ededed;font:14px/1.4 Inter,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative}
+body:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(62,207,142,.12),transparent 70%)}
+svg{display:block;flex:none}
+.c{position:relative;width:392px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px;margin-bottom:18px}
+.brand i{width:28px;height:28px;border-radius:8px;background:#1c1c1c;border:1px solid #2e2e2e;display:grid;place-items:center}
+h1{font-size:24px;font-weight:500;margin:0 0 4px;letter-spacing:-.01em}
+.sub{color:#8f8f8f;font-size:14px;margin:0 0 18px}
+.oa{height:40px;border-radius:6px;border:1px solid #363636;background:#232323;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;color:#ededed;margin-bottom:10px;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.or{display:flex;align-items:center;gap:12px;color:#707070;font-size:13px;margin:12px 0}
+.or:before,.or:after{content:"";flex:1;height:1px;background:#2e2e2e}
+.lb{font-size:13px;color:#a0a0a0;margin-bottom:6px;display:flex;justify-content:space-between}
+.lb a{color:#8f8f8f;font-size:12.5px}
+.in{height:40px;border-radius:6px;border:1px solid #363636;background:#1c1c1c;display:flex;align-items:center;gap:10px;padding:0 12px;font-size:14px;margin-bottom:12px;color:#ededed}
+.in svg{color:#707070}
+.in.foc{border-color:#3ecf8e;box-shadow:0 0 0 3px rgba(62,207,142,.18)}
+.in .ph{color:#5c5c5c}
+.go{height:40px;border-radius:6px;background:#006239;border:1px solid #3ecf8e80;display:flex;align-items:center;justify-content:center;font-weight:500;font-size:14px;color:#fff;margin-top:4px}
+.links{margin-top:18px;display:flex;flex-direction:column;gap:8px;align-items:center;font-size:13px;color:#8f8f8f}
+.links a{color:#ededed;text-decoration:underline;text-decoration-color:#4d4d4d;text-underline-offset:3px}
+.magic{display:flex;align-items:center;gap:6px}
+.fine{margin-top:16px;text-align:center;font-size:12px;color:#5c5c5c;line-height:1.5}
+.fine span{color:#8f8f8f}
+</style></head><body>
+<div class="c">
+  <div class="brand"><i><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#3ecf8e" stroke-width="1.6"><path d="M4 2.5h6L12.5 5v8.5H4z"/><path d="M6.5 7.5h3.5M6.5 10h2.5"/></svg></i>Fieldnotes</div>
+  <h1>Welcome back</h1>
+  <p class="sub">Sign in to your account</p>
+  <div class="oa"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="#ededed" stroke-width="1.5"><path d="M5 4 2 8l3 4M11 4l3 4-3 4M9.5 3l-3 10"/></svg>Continue with GitHub</div>
+  <div class="oa"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="#ededed" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="2"/><path d="m2.5 4 5.5 4.5L13.5 4"/></svg>Continue with SSO</div>
+  <div class="or">or</div>
+  <div class="lb">Email</div>
+  <div class="in foc"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10" rx="2"/><path d="m2.5 4 5.5 4.5L13.5 4"/></svg>dana@fieldnotes.studio<span style="width:1.5px;height:17px;background:#3ecf8e;margin-left:-8px"></span></div>
+  <div class="lb">Password <a>Forgot password?</a></div>
+  <div class="in"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg><span class="ph">••••••••••••</span><svg style="margin-left:auto" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8Z"/><circle cx="8" cy="8" r="2"/></svg></div>
+  <div class="go">Sign in</div>
+  <div class="links"><span class="magic"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2 4 9h4l-1 5 5-7H8z"/></svg><a>Send a magic link instead</a></span><span>Don't have an account? <a>Sign up</a></span></div>
+  <div class="fine">By continuing, you agree to Fieldnotes' <span>Terms of Service</span> and <span>Privacy Policy</span>.</div>
+</div>
+</body></html>

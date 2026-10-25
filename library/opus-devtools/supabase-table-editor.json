@@ -1,0 +1,28 @@
+{
+  "id": "supabase-table-editor",
+  "kind": "screen",
+  "subtype": "table editor",
+  "title": "Table editor",
+  "inspiredBy": "Supabase",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Spreadsheet-like Postgres table editor with schema sidebar, typed column headers and emerald accents."
+}

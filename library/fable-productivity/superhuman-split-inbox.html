@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Split inbox</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:1280px;height:800px;overflow:hidden;background:#111322;font-family:Inter,-apple-system,system-ui,sans-serif;color:#e7e8ef;-webkit-font-smoothing:antialiased;font-size:13px;position:relative}
+.bg{position:absolute;inset:0;background:radial-gradient(1200px 700px at 85% -10%,rgba(93,78,190,.35),transparent 60%),radial-gradient(900px 600px at -10% 110%,rgba(32,120,170,.25),transparent 60%),linear-gradient(160deg,#171a2d 0%,#11131f 60%,#0e1019 100%)}
+.app{position:absolute;inset:0;display:flex}
+.list{width:520px;display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.07)}
+.top{height:50px;display:flex;align-items:center;padding:0 22px;gap:18px;font-size:13px;color:#9a9db3}
+.top .acct{display:flex;align-items:center;gap:8px;color:#e7e8ef;font-weight:500}
+.top .acct i{width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block}
+.top .right{margin-left:auto;display:flex;gap:16px;align-items:center}
+.tabs{display:flex;gap:26px;padding:4px 22px 0;height:40px;align-items:flex-end;border-bottom:1px solid rgba(255,255,255,.07)}
+.tab{padding-bottom:10px;font-size:13px;color:#8b8ea3;display:flex;align-items:center;gap:7px;position:relative}
+.tab b{font-weight:400;color:#6c6f86;font-size:12px}
+.tab.on{color:#fff;font-weight:500}
+.tab.on:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#fff;border-radius:1px}
+.rows{flex:1;overflow:hidden}
+.row{display:flex;align-items:center;height:56px;padding:0 22px 0 18px;gap:12px;border-bottom:1px solid rgba(255,255,255,.045);position:relative}
+.row .dot{width:6px;height:6px;border-radius:50%;background:#7c8cff;flex:none;opacity:0}
+.row.unread .dot{opacity:1}
+.row .av{width:30px;height:30px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff}
+.row .c{flex:1;min-width:0}
+.row .l1{display:flex;align-items:center;gap:8px;font-size:13px;color:#c9cbd8}
+.row.unread .l1{color:#fff;font-weight:600}
+.row .l1 .n{white-space:nowrap}
+.row .l1 .cnt{color:#6c6f86;font-weight:400;font-size:11px}
+.row .l2{font-size:12px;color:#8b8ea3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.row.unread .l2 .s{color:#e7e8ef}
+.row .time{font-size:11px;color:#6c6f86;flex:none;width:52px;text-align:right}
+.row.sel{background:rgba(255,255,255,.06)}
+.row.sel:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#7c8cff}
+.lab{font-size:10px;padding:1px 6px;border-radius:3px;font-weight:500;letter-spacing:.2px}
+.lab.a{background:rgba(124,140,255,.18);color:#aab4ff}
+.lab.b{background:rgba(74,222,128,.14);color:#86efac}
+.lab.cu{background:rgba(251,191,36,.14);color:#fcd34d}
+.read{flex:1;display:flex;flex-direction:column;min-width:0}
+.rtop{height:50px;display:flex;align-items:center;padding:0 28px;gap:14px;color:#8b8ea3;font-size:12px}
+.rtop .kbd{margin-left:auto;display:flex;gap:10px}
+.kbd span{border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:1px 6px;font-size:11px;color:#9a9db3;background:rgba(255,255,255,.03)}
+.thread{padding:18px 44px 0 44px;flex:1;overflow:hidden}
+.thread h1{font-size:20px;font-weight:600;letter-spacing:-.2px;margin:0 0 6px 0;color:#fff}
+.meta{display:flex;align-items:center;gap:10px;color:#8b8ea3;font-size:12px;margin-bottom:22px}
+.msg{display:flex;gap:14px;margin-bottom:24px}
+.msg .av{width:34px;height:34px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff}
+.msg .hd{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.msg .hd b{font-weight:600;color:#fff;font-size:13px}
+.msg .hd span{color:#6c6f86;font-size:12px}
+.msg p{margin:0 0 10px;color:#c9cbd8;line-height:1.55;font-size:13.5px;max-width:560px}
+.msg.collapsed{opacity:.6}
+.msg.collapsed p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.reply{margin:6px 0 0 48px;display:flex;gap:8px}
+.reply span{border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:6px 12px;font-size:12px;color:#c9cbd8;background:rgba(255,255,255,.03)}
+.reply span.ai{border-color:rgba(124,140,255,.4);color:#aab4ff;display:inline-flex;align-items:center;gap:6px}
+.status{position:absolute;left:0;right:0;bottom:0;height:30px;display:flex;align-items:center;gap:20px;padding:0 22px;font-size:11px;color:#6c6f86;border-top:1px solid rgba(255,255,255,.06);background:rgba(10,12,22,.5)}
+.status .k{border:1px solid rgba(255,255,255,.12);border-radius:3px;padding:0 4px;color:#9a9db3;margin-right:5px;font-size:10px}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="app">
+  <div class="list">
+    <div class="top"><span class="acct"><i></i>maya@northwind.co</span><span class="right"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.3" stroke="#8b8ea3" stroke-width="1.4"/><path d="m9.3 9.3 3 3" stroke="#8b8ea3" stroke-width="1.4" stroke-linecap="round"/></svg><span>Inbox 14</span></span></div>
+    <div class="tabs"><span class="tab on">Important <b>8</b></span><span class="tab">Other <b>31</b></span><span class="tab">Team <b>2</b></span><span class="tab">Calendar <b>3</b></span><span class="tab">News <b>12</b></span></div>
+    <div class="rows">
+      <div class="row unread sel"><span class="dot"></span><span class="av" style="background:#d9775f">JL</span><div class="c"><div class="l1"><span class="n">Jonas Lindqvist</span><span class="cnt">3</span><span class="lab a">Design</span></div><div class="l2"><span class="s">Updated mocks for the billing flow</span> — I went through Priya's notes and reworked the plan picker so that…</div></div><span class="time">10:42</span></div>
+      <div class="row unread"><span class="dot"></span><span class="av" style="background:#5b8def">PR</span><div class="c"><div class="l1"><span class="n">Priya Raman</span><span class="lab b">Hiring</span></div><div class="l2"><span class="s">Re: Senior designer loop — Thursday?</span> — Works for me. Can we add a 30 min portfolio walkthrough before the…</div></div><span class="time">10:11</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#8a63d2">SW</span><div class="c"><div class="l1"><span class="n">Sam Whitaker</span><span class="cnt">2</span></div><div class="l2">Contract redlines — Attached the version with legal's changes. Only clause 7 is still open…</div></div><span class="time">09:38</span></div>
+      <div class="row unread"><span class="dot"></span><span class="av" style="background:#2fa58a">AC</span><div class="c"><div class="l1"><span class="n">Ana Costa</span><span class="lab cu">Customer</span></div><div class="l2"><span class="s">Loving the new export, one request</span> — Would it be possible to keep column widths when exporting to…</div></div><span class="time">09:05</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#c0607f">LB</span><div class="c"><div class="l1"><span class="n">Lena Baumann</span></div><div class="l2">Offsite agenda v2 — Moved the roadmap session to the morning and added a slot for the…</div></div><span class="time">Yesterday</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#4f6f8f">TN</span><div class="c"><div class="l1"><span class="n">Tom Nakamura</span><span class="cnt">5</span></div><div class="l2">Re: API rate limits for enterprise — Agreed on 10k/min as the default, with the override behind…</div></div><span class="time">Yesterday</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#b7893d">RK</span><div class="c"><div class="l1"><span class="n">Rahul Kapoor</span><span class="lab a">Design</span></div><div class="l2">Icon audit results — 212 icons, 41 duplicates, 9 with inconsistent stroke weight. Spreadsheet…</div></div><span class="time">Tue</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#6b7280">HS</span><div class="c"><div class="l1"><span class="n">Halden Studio</span></div><div class="l2">Invoice #2041 paid — Thanks Maya, the transfer went out this morning. Receipt attached…</div></div><span class="time">Tue</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#3e9fcf">ME</span><div class="c"><div class="l1"><span class="n">Marcus Ellery</span><span class="cnt">2</span></div><div class="l2">Intro: Marcus ↔ Maya — Maya, meet Marcus, who runs design at Fieldnote. I think you'd both…</div></div><span class="time">Mon</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#9a6b4f">EV</span><div class="c"><div class="l1"><span class="n">Elena Vasquez</span></div><div class="l2">Q4 planning doc — Added the design headcount scenarios to the sheet, take a look before…</div></div><span class="time">Mon</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#5c7a4a">DO</span><div class="c"><div class="l1"><span class="n">Daniel Okafor</span></div><div class="l2">Figma seats renewal — We're at 38 of 40 editor seats; renewal is 1 Dec. Want me to bump…</div></div><span class="time">Sun</span></div>
+      <div class="row"><span class="dot"></span><span class="av" style="background:#7c8cff">KM</span><div class="c"><div class="l1"><span class="n">Kate Morgan</span></div><div class="l2">Podcast invite — We'd love to have you on in January to talk about design systems at…</div></div><span class="time">Sat</span></div>
+    </div>
+  </div>
+  <div class="read">
+    <div class="rtop"><span>1 of 8</span><span class="kbd"><span>E</span>Done <span>H</span>Remind <span>R</span>Reply <span>⌘K</span></span></div>
+    <div class="thread">
+      <h1>Updated mocks for the billing flow</h1>
+      <div class="meta"><span>Jonas, Priya, you</span><span>·</span><span>3 messages</span><span>·</span><span class="lab a">Design</span></div>
+      <div class="msg collapsed"><span class="av" style="background:#5b8def">PR</span><div><div class="hd"><b>Priya Raman</b><span>Yesterday, 16:20</span></div><p>Left comments on the plan picker. Main thing: the annual toggle gets lost under the price…</p></div></div>
+      <div class="msg collapsed"><span class="av" style="background:#7c8cff">MA</span><div><div class="hd"><b>Maya Andersen</b><span>Yesterday, 17:02</span></div><p>Agree with Priya. Also wondering whether we need the comparison table at all on this step.</p></div></div>
+      <div class="msg"><span class="av" style="background:#d9775f">JL</span><div><div class="hd"><b>Jonas Lindqvist</b><span>Today, 10:42</span><span>to Maya, Priya</span></div>
+        <p>I went through Priya's notes and reworked the plan picker so the annual toggle sits above the cards, with the saving called out in green next to each price. Felt much clearer in the hallway test.</p>
+        <p>On the comparison table: I moved it behind a "Compare plans" link. Of 6 people, 5 never opened it, and the one who did was looking for seat limits, which are now on the cards anyway.</p>
+        <p>Open question: do we show the enterprise tier here or route to sales? Sam thinks pricing it publicly helps, Lena wants it gated. I lean public.</p>
+        <p>Prototype is in the usual file, page "Billing v4". Would love eyes before Thursday's review.</p>
+        <p style="color:#8b8ea3">— J</p>
+      </div></div>
+      <div class="reply"><span class="ai"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1l1.2 3.3L10.5 5.5 7.2 6.7 6 10 4.8 6.7 1.5 5.5l3.3-1.2z" fill="#aab4ff"/></svg>Write with AI</span><span>Reply</span><span>Reply all</span><span>Forward</span></div>
+    </div>
+  </div>
+</div>
+<div class="status"><span><span class="k">⌘K</span>Command</span><span><span class="k">J</span><span class="k">K</span>Navigate</span><span><span class="k">C</span>Compose</span><span style="margin-left:auto">Inbox Zero in 8 · Snoozed 4 · Drafts 2</span></div>
+</body>
+</html>

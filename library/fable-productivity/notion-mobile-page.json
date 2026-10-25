@@ -1,0 +1,25 @@
+{
+  "id": "notion-mobile-page",
+  "kind": "screen",
+  "subtype": "document page",
+  "title": "Mobile page",
+  "inspiredBy": "Notion",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "orange",
+    "typeStyle": "serif",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "sharp",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "editorial"
+  },
+  "notes": "Gradient cover with an overlapping emoji icon, a serif-styled title, inline page properties, a grey callout, square to-dos and toggle blocks, plus the block-insert keyboard toolbar."
+}

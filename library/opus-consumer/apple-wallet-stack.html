@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Wallet stack</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#000;font-family:Inter,-apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif;color:#fff;overflow:hidden;-webkit-font-smoothing:antialiased;width:480px;height:600px;padding:22px 24px 0;letter-spacing:-.01em}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+h1{font-size:34px;font-weight:700;margin:0;letter-spacing:-.02em}
+.btns{display:flex;gap:10px}
+.cb{width:34px;height:34px;border-radius:50%;background:#1c1c1e;display:grid;place-items:center}
+.stack{position:relative;height:500px}
+.c{position:absolute;left:0;right:0;height:270px;border-radius:14px;padding:16px 18px;box-shadow:0 -1px 0 rgba(255,255,255,.08) inset,0 -6px 18px rgba(0,0,0,.35)}
+.c .h{display:flex;justify-content:space-between;align-items:flex-start;font-size:15px;font-weight:600}
+.lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;opacity:.75;text-align:right}
+.big{font-size:20px;font-weight:600;text-align:right}
+.chip{width:40px;height:30px;border-radius:6px;background:linear-gradient(135deg,#e8d5a4,#b49650);position:relative}
+.chip:after{content:"";position:absolute;inset:7px 9px;border:1px solid rgba(0,0,0,.25);border-radius:3px}
+.pass .row{display:flex;justify-content:space-between;margin-top:12px}
+.pass .row div{font-size:11px;font-weight:600;letter-spacing:.04em;opacity:.8;text-transform:uppercase}
+.pass .row b{display:block;font-size:30px;font-weight:600;letter-spacing:-.01em;text-transform:none;opacity:1}
+.pass .meta{display:flex;justify-content:space-between;margin-top:12px}
+.pass .meta div{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;opacity:.8}
+.pass .meta b{display:block;font-size:17px;font-weight:600;letter-spacing:0;text-transform:none;opacity:1;margin-top:2px}
+.qr{position:absolute;left:50%;bottom:16px;margin-left:-38px;width:76px;height:76px;background:#fff;border-radius:6px;padding:6px}
+</style></head><body>
+<div class="top"><h1>Wallet</h1><div class="btns"><div class="cb"><svg width="14" height="14" viewBox="0 0 14 14" stroke="#0a84ff" stroke-width="2"><path d="M7 1v12M1 7h12"/></svg></div><div class="cb"><svg width="16" height="4" viewBox="0 0 16 4" fill="#0a84ff"><circle cx="2" cy="2" r="2"/><circle cx="8" cy="2" r="2"/><circle cx="14" cy="2" r="2"/></svg></div></div></div>
+<div class="stack">
+  <div class="c" style="top:0;background:linear-gradient(135deg,#f5f5f7 0%,#d9d9de 100%);color:#1d1d1f">
+    <div class="h"><span style="display:flex;align-items:center;gap:6px;font-size:17px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1d1d1f" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M8 1.8v12.4M3 5.5c3 1.6 7 1.6 10 0"/></svg>Lumen Card</span><span style="opacity:.6;font-size:13px">Titanium</span></div>
+  </div>
+  <div class="c" style="top:54px;background:linear-gradient(120deg,#0e3b2e 0%,#1f6a50 60%,#2e8a68 100%)">
+    <div class="h"><span>Northwind Bank</span><span style="font-style:italic;font-weight:800;font-size:18px;letter-spacing:-.02em">VISA</span></div>
+  </div>
+  <div class="c" style="top:108px;background:linear-gradient(135deg,#ff9f0a 0%,#ff6b00 100%)">
+    <div class="h"><span style="display:flex;align-items:center;gap:8px"><svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10.5" fill="#fff"/><path d="M7 8h8l-1 7a2 2 0 0 1-2 1.6h-2A2 2 0 0 1 8 15z" fill="#ff7a00"/><path d="M15 9.5h1.3a1.6 1.6 0 0 1 0 3.2H14.6" fill="none" stroke="#ff7a00" stroke-width="1.3"/></svg>Bean &amp; Barley</span><span><div class="lbl">Stars</div><div class="big">142</div></span></div>
+  </div>
+  <div class="c pass" style="top:162px;height:340px;background:linear-gradient(180deg,#1b3a6b 0%,#0f2650 100%)">
+    <div class="h"><span style="display:flex;align-items:center;gap:8px;font-size:16px"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Meridian Air</span><span><div class="lbl">Gate</div><div class="big">B34</div></span></div>
+    <div class="row"><div>San Francisco<b>SFO</b></div><svg style="margin-top:22px" width="40" height="16" viewBox="0 0 40 16" fill="#fff" opacity=".8"><path d="M0 8h34M30 3l6 5-6 5" stroke="#fff" stroke-width="1.6" fill="none"/></svg><div style="text-align:right">Tokyo<b>HND</b></div></div>
+    <div class="meta"><div>Passenger<b>J. LEE</b></div><div>Boards<b>11:05</b></div><div>Seat<b>32K</b></div><div style="text-align:right">Group<b>3</b></div></div>
+    <div class="qr"><svg width="64" height="64" viewBox="0 0 21 21" shape-rendering="crispEdges"><path fill="#000" d="M0 0h7v7H0zM1 1v5h5V1zM2 2h3v3H2zM14 0h7v7h-7zm1 1v5h5V1zm1 1h3v3h-3zM0 14h7v7H0zm1 1v5h5v-5zm1 1h3v3H2zM8 0h1v2H8zM10 1h2v1h-2zM9 3h2v2H9zM12 4h1v3h-1zM8 6h1v2H8zM10 7h2v1h-2zM0 8h2v1H0zM3 8h3v1H3zM7 9h3v1H7zM11 9h2v2h-2zM14 8h2v1h-2zM17 8h4v1h-4zM1 10h3v1H1zM5 11h2v1H5zM8 11h2v2H8zM14 10h1v3h-1zM16 10h3v1h-3zM20 10h1v2h-1zM0 12h1v1H0zM2 12h2v1H2zM11 12h2v1h-2zM16 12h2v2h-2zM19 13h2v1h-2zM8 14h3v1H8zM12 14h1v2h-1zM14 15h2v1h-2zM17 15h1v3h-1zM19 15h2v2h-2zM9 16h2v2H9zM13 17h3v1h-3zM8 19h2v2H8zM11 19h1v2h-1zM13 19h3v1h-3zM18 19h3v2h-3zM14 20h2v1h-2z"/></svg></div>
+  </div>
+</div>
+</body></html>

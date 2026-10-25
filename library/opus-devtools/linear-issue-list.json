@@ -1,0 +1,28 @@
+{
+  "id": "linear-issue-list",
+  "kind": "screen",
+  "subtype": "issue list",
+  "title": "Issue list",
+  "inspiredBy": "Linear",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Grouped-by-status rows with priority bars, status pie icons, label pills and an inset main panel on a near-black shell."
+}

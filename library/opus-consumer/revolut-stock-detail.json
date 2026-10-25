@@ -1,0 +1,28 @@
+{
+  "id": "revolut-stock-detail",
+  "kind": "screen",
+  "subtype": "stock detail",
+  "title": "Stock detail",
+  "inspiredBy": "Revolut",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "green",
+    "typeStyle": "grotesk",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "pill",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Price-as-headline stock page with a green area chart and scrub tooltip, black range pill, white rounded stats card and Sell/Buy pill pair."
+}

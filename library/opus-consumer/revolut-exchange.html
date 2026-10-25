@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Currency exchange</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:#f7f7f9;font-family:Inter,"Aeonik Pro",-apple-system,"Helvetica Neue",Arial,sans-serif;color:#191c1f;overflow:hidden;-webkit-font-smoothing:antialiased;width:480px;height:600px;padding:26px 20px 0;letter-spacing:-.01em}
+h2{margin:0;font-size:28px;font-weight:700;letter-spacing:-.03em}
+.rate{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:14px;color:#0666eb;font-weight:600}
+.box{position:relative;margin-top:20px}
+.f{background:#fff;border-radius:20px;padding:18px 18px 16px;display:flex;justify-content:space-between;align-items:flex-start}
+.f+.f{margin-top:6px}
+.cur{display:flex;align-items:center;gap:10px}
+.flag{width:34px;height:34px;border-radius:50%;overflow:hidden;flex:none}
+.cur b{font-size:20px;font-weight:600;display:flex;align-items:center;gap:6px}
+.cur small{display:block;font-size:13px;color:#717173;font-weight:500;margin-top:2px}
+.amt{text-align:right;font-size:28px;font-weight:600;letter-spacing:-.02em}
+.amt small{display:block;font-size:13px;color:#717173;font-weight:500;letter-spacing:0;margin-top:4px}
+.amt.neg{color:#191c1f}
+.amt.pos{color:#00a35b}
+.sw{position:absolute;left:50%;top:50%;margin:-20px 0 0 -20px;width:40px;height:40px;border-radius:50%;background:#fff;border:4px solid #f7f7f9;display:grid;place-items:center}
+.cursor{display:inline-block;width:2px;height:28px;background:#0666eb;vertical-align:-5px;margin-left:2px;animation:b 1s steps(1) infinite}
+@keyframes b{50%{opacity:0}}
+.info{margin-top:14px;background:#fff;border-radius:20px;padding:4px 18px}
+.kv{display:flex;justify-content:space-between;height:44px;align-items:center;font-size:14px}
+.kv span{color:#717173}
+.kv b{font-weight:600}
+.kv+.kv{border-top:1px solid #f0f0f2}
+.btn{margin-top:20px;height:52px;border-radius:26px;background:#0666eb;color:#fff;display:grid;place-items:center;font-weight:600;font-size:16px}
+</style></head><body>
+<h2>Sell GBP</h2>
+<div class="rate"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0666eb" stroke-width="2.4"><path d="M3 17l6-6 4 4 8-8"/></svg>£1 = €1.1642</div>
+<div style="display:flex;background:#e8eaf0;border-radius:12px;padding:3px;margin-top:18px;font-size:14px;font-weight:600"><span style="flex:1;text-align:center;padding:8px 0;background:#fff;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.08)">Market</span><span style="flex:1;text-align:center;padding:8px 0;color:#717173">Limit</span><span style="flex:1;text-align:center;padding:8px 0;color:#717173">Auto-exchange</span></div>
+<div class="box" style="margin-top:14px">
+  <div class="f"><div class="cur"><div class="flag"><svg width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#1d3f8f"/><path d="M0 0l34 34M34 0 0 34" stroke="#fff" stroke-width="6"/><path d="M0 0l34 34M34 0 0 34" stroke="#c8102e" stroke-width="2"/><path d="M17 0v34M0 17h34" stroke="#fff" stroke-width="9"/><path d="M17 0v34M0 17h34" stroke="#c8102e" stroke-width="5"/></svg></div><div><b>GBP <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#191c1f" stroke-width="3"><path d="m5 9 7 7 7-7"/></svg></b><small>Balance: £2,481.30</small></div></div>
+  <div class="amt neg">-500<span class="cursor"></span><small>&nbsp;</small></div></div>
+  <div class="f"><div class="cur"><div class="flag"><svg width="34" height="34" viewBox="0 0 34 34"><rect width="34" height="34" fill="#003399"/><g fill="#ffcc00"><circle cx="17" cy="7" r="1.6"/><circle cx="17" cy="27" r="1.6"/><circle cx="7" cy="17" r="1.6"/><circle cx="27" cy="17" r="1.6"/><circle cx="12" cy="8.3" r="1.6"/><circle cx="22" cy="8.3" r="1.6"/><circle cx="12" cy="25.7" r="1.6"/><circle cx="22" cy="25.7" r="1.6"/><circle cx="8.3" cy="12" r="1.6"/><circle cx="25.7" cy="12" r="1.6"/><circle cx="8.3" cy="22" r="1.6"/><circle cx="25.7" cy="22" r="1.6"/></g></svg></div><div><b>EUR <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#191c1f" stroke-width="3"><path d="m5 9 7 7 7-7"/></svg></b><small>Balance: €318.04</small></div></div>
+  <div class="amt pos">+582.10<small>No fees</small></div></div>
+  <div class="sw"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0666eb" stroke-width="2.6"><path d="M12 4v16M6 14l6 6 6-6"/></svg></div>
+</div>
+<div class="info">
+  <div class="kv"><span>Exchange rate</span><b>£1 = €1.1642</b></div>
+  <div class="kv"><span>Fair-usage limit left</span><b>£724.10 of £1,000</b></div>
+  <div class="kv"><span>Arrives</span><b>Instantly</b></div>
+</div>
+<div class="btn">Sell GBP for EUR</div>
+</body></html>

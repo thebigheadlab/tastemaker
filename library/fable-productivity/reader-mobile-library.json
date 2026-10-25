@@ -1,0 +1,25 @@
+{
+  "id": "reader-mobile-library",
+  "kind": "screen",
+  "subtype": "reading list",
+  "title": "Mobile library",
+  "inspiredBy": "Readwise Reader",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Inbox / Later / Archive segmented control, type filter chips, and a mixed-media list where every item shows its source badge, reading-time remaining bar and highlight count."
+}

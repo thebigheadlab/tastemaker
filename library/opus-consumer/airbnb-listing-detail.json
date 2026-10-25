@@ -1,0 +1,28 @@
+{
+  "id": "airbnb-listing-detail",
+  "kind": "screen",
+  "subtype": "listing detail",
+  "title": "Listing detail",
+  "inspiredBy": "Airbnb",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "pink",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Photo hero with a rounded sheet overlapping it, centered title, laurel Guest-favorite strip and a sticky gradient Reserve bar."
+}

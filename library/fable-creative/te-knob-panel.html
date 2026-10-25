@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mixer channel strip</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  html,body{margin:0;height:100%}
+  body{width:480px;height:600px;overflow:hidden;background:#1a1a1a;font-family:"IBM Plex Mono",Menlo,monospace;font-size:10px;color:#e6e6e6;position:relative;-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center}
+  *{box-sizing:border-box}
+  .panel{width:420px;height:540px;background:#e6e6e6;color:#1a1a1a;position:relative;padding:18px 18px 0}
+  .panel:before{content:"";position:absolute;inset:6px;border:1px solid #1a1a1a;pointer-events:none}
+  .hd{display:flex;justify-content:space-between;font-size:9px;letter-spacing:.6px;padding:0 4px}
+  .hd b{font-weight:600}
+  .strips{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px;padding:0 4px}
+  .strip{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .strip .n{font-size:9px;font-weight:600;letter-spacing:.6px;width:100%;text-align:center;border-bottom:1px solid #1a1a1a;padding-bottom:4px}
+  .knob{width:48px;height:48px;border-radius:50%;background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a;position:relative}
+  .knob:after{content:"";position:absolute;left:50%;top:4px;width:2px;height:12px;background:#1a1a1a;margin-left:-1px;transform-origin:50% 20px;transform:rotate(var(--r,0deg))}
+  .knob.sm{width:34px;height:34px}
+  .knob.sm:after{height:9px;top:3px;transform-origin:50% 14px}
+  .knob i{position:absolute;left:50%;top:50%;width:12px;height:12px;border-radius:50%;transform:translate(-50%,-50%);display:block}
+  .lbl{font-size:8px;letter-spacing:.5px;text-transform:uppercase;color:#555;margin-top:-4px}
+  .fader{width:26px;height:150px;position:relative;margin-top:4px}
+  .fader:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:4px;margin-left:-2px;background:#1a1a1a}
+  .fader .ticks{position:absolute;left:-10px;top:0;bottom:0;width:6px;background-image:repeating-linear-gradient(#1a1a1a 0 1px,transparent 1px 15px)}
+  .fader .cap{position:absolute;left:-2px;width:30px;height:16px;background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a;top:var(--p,50%)}
+  .fader .cap:after{content:"";position:absolute;left:0;right:0;top:7px;height:2px;background:#1a1a1a}
+  .meter{width:6px;height:150px;background:#2b2b2b;position:relative;margin-top:4px}
+  .meter i{position:absolute;left:0;right:0;bottom:0;height:var(--h,50%);background:linear-gradient(180deg,#ff5b1f 0 12%,#ffd23f 12% 30%,#2bb673 30%)}
+  .fm{display:flex;gap:8px;align-items:flex-start}
+  .btn{width:100%;height:22px;background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a;display:flex;align-items:center;justify-content:center;font-size:8px;letter-spacing:.6px}
+  .btn.on{background:#1a1a1a;color:#fff}
+  .btn.mute{background:#ff5b1f;color:#fff;box-shadow:none}
+  .master{position:absolute;left:22px;right:22px;bottom:40px;border-top:1px solid #1a1a1a;padding-top:12px;display:flex;align-items:center;gap:12px;font-size:8px;letter-spacing:.6px}
+  .master .tr{flex:1;height:4px;background:#1a1a1a;position:relative}
+  .master .tr:after{content:"";position:absolute;left:62%;top:-7px;width:16px;height:18px;background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a}
+  .master .sq{width:46px;height:22px;background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a;display:flex;align-items:center;justify-content:center}
+  .master .sq.on{background:#2f6bff;color:#fff;box-shadow:none}
+  .foot{position:absolute;left:22px;right:22px;bottom:14px;display:flex;justify-content:space-between;font-size:8px;color:#555;letter-spacing:.5px}
+</style>
+</head>
+<body>
+  <div class="panel">
+    <div class="hd"><span><b>MIX</b> · 4 ch</span><span>scene 02 · <b>LIVE</b></span></div>
+    <div class="strips">
+      <div class="strip"><div class="n">CH 1 · KICK</div><div class="knob" style="--r:-40deg"><i style="background:#2f6bff"></i></div><span class="lbl">pan</span><div class="knob sm" style="--r:60deg"></div><span class="lbl">send</span><div class="fm"><div class="fader"><div class="ticks"></div><div class="cap" style="--p:38%"></div></div><div class="meter"><i style="--h:62%"></i></div></div><div class="btn on">SOLO</div><div class="btn">MUTE</div></div>
+      <div class="strip"><div class="n">CH 2 · SNARE</div><div class="knob" style="--r:10deg"><i style="background:#2bb673"></i></div><span class="lbl">pan</span><div class="knob sm" style="--r:-20deg"></div><span class="lbl">send</span><div class="fm"><div class="fader"><div class="ticks"></div><div class="cap" style="--p:52%"></div></div><div class="meter"><i style="--h:44%"></i></div></div><div class="btn">SOLO</div><div class="btn">MUTE</div></div>
+      <div class="strip"><div class="n">CH 3 · BASS</div><div class="knob" style="--r:0deg"><i style="background:#f4f4f4;box-shadow:inset 0 0 0 1px #1a1a1a"></i></div><span class="lbl">pan</span><div class="knob sm" style="--r:120deg"></div><span class="lbl">send</span><div class="fm"><div class="fader"><div class="ticks"></div><div class="cap" style="--p:30%"></div></div><div class="meter"><i style="--h:80%"></i></div></div><div class="btn">SOLO</div><div class="btn">MUTE</div></div>
+      <div class="strip"><div class="n">CH 4 · LEAD</div><div class="knob" style="--r:70deg"><i style="background:#ff5b1f"></i></div><span class="lbl">pan</span><div class="knob sm" style="--r:-90deg"></div><span class="lbl">send</span><div class="fm"><div class="fader"><div class="ticks"></div><div class="cap" style="--p:74%"></div></div><div class="meter"><i style="--h:8%"></i></div></div><div class="btn">SOLO</div><div class="btn mute">MUTE</div></div>
+    </div>
+    <div class="master"><b>MASTER</b><div class="tr"></div><span class="sq">MONO</span><span class="sq on">LIMIT</span><span class="sq">DIM</span></div>
+    <div class="foot"><span>master −3.0 dB</span><span>48 kHz · 24 bit</span><span>peak hold ● 2 s</span></div>
+  </div>
+</body>
+</html>

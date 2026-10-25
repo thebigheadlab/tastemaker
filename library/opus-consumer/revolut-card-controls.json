@@ -1,0 +1,28 @@
+{
+  "id": "revolut-card-controls",
+  "kind": "component",
+  "subtype": "card controls",
+  "title": "Virtual card controls",
+  "inspiredBy": "Revolut",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "purple",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Carousel of vivid gradient virtual cards with circular freeze/details/limits actions and a charcoal security toggle list."
+}

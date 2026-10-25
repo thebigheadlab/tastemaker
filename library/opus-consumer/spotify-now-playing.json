@@ -1,0 +1,28 @@
+{
+  "id": "spotify-now-playing",
+  "kind": "screen",
+  "subtype": "now playing",
+  "title": "Now playing",
+  "inspiredBy": "Spotify",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "geometric",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Full-bleed gradient pulled from the album art, big square cover, left-aligned title with green saved check, and a lyrics card peeking from the bottom."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "things-project",
+  "kind": "screen",
+  "subtype": "project list",
+  "title": "Project view",
+  "inspiredBy": "Things 3",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "blue",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "calm"
+  },
+  "notes": "Mac sidebar with coloured list icons and progress-pie projects, a centred document column with blue headings, and a sparse grey toolbar along the bottom."
+}

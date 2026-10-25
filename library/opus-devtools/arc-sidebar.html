@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Sidebar</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+*{box-sizing:border-box}
+body{background:linear-gradient(160deg,#f6b8c9 0%,#e9a6d8 38%,#c7a4f0 72%,#b3b8f5 100%);color:#2a1730;font:13px/1.35 "Plus Jakarta Sans",-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;display:flex;padding:8px 0 8px 8px}
+svg{display:block;flex:none}
+.sb{width:262px;display:flex;flex-direction:column;padding:6px 8px 4px 6px}
+.chrome{display:flex;align-items:center;gap:8px;height:30px;padding:0 4px}
+.chrome i{width:12px;height:12px;border-radius:50%;display:block}
+.chrome .r{margin-left:auto;display:flex;gap:12px;color:rgba(42,23,48,.55)}
+.url{margin:8px 0 12px;height:36px;border-radius:10px;background:rgba(255,255,255,.32);display:flex;align-items:center;padding:0 12px;gap:8px;font-size:13px;color:rgba(42,23,48,.85);box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.url svg{color:rgba(42,23,48,.45)}
+.fav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.fav div{height:50px;border-radius:12px;background:rgba(255,255,255,.3);display:grid;place-items:center;position:relative}
+.fav div.on{background:rgba(255,255,255,.7);box-shadow:0 1px 3px rgba(80,30,90,.15)}
+.fav div.on:after{content:"";position:absolute;bottom:5px;width:5px;height:5px;border-radius:50%;background:#2a1730;opacity:.5}
+.ap{width:22px;height:22px;border-radius:6px;display:grid;place-items:center}
+.sp{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;padding:0 6px 8px;color:#2a1730}
+.sp span{margin-left:auto;color:rgba(42,23,48,.4);font-weight:500}
+.t{height:34px;border-radius:9px;display:flex;align-items:center;gap:10px;padding:0 10px;font-size:13px;font-weight:500;color:rgba(42,23,48,.86);white-space:nowrap;overflow:hidden}
+.t span{overflow:hidden;text-overflow:ellipsis}
+.t.on{background:rgba(255,255,255,.88);color:#2a1730;box-shadow:0 1px 2px rgba(80,30,90,.12),0 2px 8px rgba(80,30,90,.08)}
+.t.on .x{margin-left:auto;color:rgba(42,23,48,.45)}
+.t .fi{width:16px;height:16px;border-radius:4px;flex:none;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff}
+.fold{padding-left:20px}
+.div{display:flex;align-items:center;gap:8px;margin:10px 6px 6px;font-size:11.5px;color:rgba(42,23,48,.5);font-weight:600}
+.div:before{content:"";flex:1;height:1px;background:rgba(42,23,48,.13)}
+.div span{order:-1;flex:none}
+.div em{font-style:normal;flex:none;display:flex;align-items:center;gap:4px}
+.new{color:rgba(42,23,48,.55)}
+.fill{flex:1}
+.bot{display:flex;align-items:center;justify-content:space-between;height:38px;padding:0 6px;color:rgba(42,23,48,.55)}
+.dots{display:flex;gap:12px;align-items:center}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(42,23,48,.25);display:block}
+.dots i.on{width:18px;height:18px;border-radius:5px;background:none;display:grid;place-items:center}
+.page{flex:1;background:#fff;border-radius:10px 0 0 10px;box-shadow:0 0 0 1px rgba(60,20,70,.08),0 4px 18px rgba(60,20,70,.12);padding:22px 22px;overflow:hidden}
+.page .bar{height:10px;width:70px;border-radius:5px;background:#f0edf3;margin-bottom:18px}
+.page h5{font-size:17px;margin:0 0 8px;color:#1b1520;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+.page p{font-size:11px;color:#8a8090;margin:0 0 12px;line-height:1.5}
+.page .b{height:8px;border-radius:4px;background:#f2eff5;margin-bottom:8px}
+</style></head><body>
+<div class="sb">
+  <div class="chrome"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+    <div class="r"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2.5" width="12" height="11" rx="2.5"/><path d="M6 2.5v11"/></svg><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 3 5 8l5 5"/></svg><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" style="opacity:.45"><path d="m6 3 5 5-5 5"/></svg><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 8a5 5 0 1 1-1.5-3.5L13 6"/><path d="M13 2.5V6H9.5"/></svg></div></div>
+  <div class="url"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>fieldnotes.studio/q4-planning</div>
+  <div class="fav">
+    <div class="on"><span class="ap" style="background:#ea4335"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.5 4.5 5.5 4 5.5-4"/></svg></span></div>
+    <div><span class="ap" style="background:#3f2a56"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.7"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg></span></div>
+    <div><span class="ap" style="background:#5e6ad2"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><circle cx="8" cy="8" r="5"/><path d="M8 3v10"/></svg></span></div>
+    <div><span class="ap" style="background:#ff7a45"><svg width="13" height="13" viewBox="0 0 16 16" fill="#fff"><path d="M6 11.5V4l7-1.5V10" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="4.5" cy="11.5" r="1.8"/><circle cx="11.5" cy="10" r="1.8"/></svg></span></div>
+  </div>
+  <div class="sp"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2a1730" stroke-width="1.6"><rect x="2.5" y="4.5" width="11" height="8.5" rx="2"/><path d="M5.5 4.5V3h5v1.5"/></svg>Work<span>···</span></div>
+  <div class="t"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" style="opacity:.6"><path d="m4 6 4 4 4-4"/></svg><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2a1730" stroke-width="1.5" style="opacity:.7"><path d="M2 4.5h4.5l1.5 1.5h6v6.5H2z"/></svg><span>Q4 Launch</span></div>
+  <div class="fold">
+    <div class="t on"><span class="fi" style="background:#2f4a3a">F</span><span>Q4 planning · Fieldnotes</span><svg class="x" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4.5 4.5 7 7m0-7-7 7"/></svg></div>
+    <div class="t"><span class="fi" style="background:#24292f">G</span><span>Pull requests · fieldnotes/app</span></div>
+    <div class="t"><span class="fi" style="background:#f24e1e">✦</span><span>Launch page — v3 mocks</span></div>
+  </div>
+  <div class="t"><span class="fi" style="background:#0f766e">D</span><span>Design Systems Weekly</span></div>
+  <div class="div"><span>Today</span><em>Clear <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M4 9l4 4 4-4"/></svg></em></div>
+  <div class="t new"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v10M3 8h10"/></svg>New Tab</div>
+  <div class="t"><span class="fi" style="background:#ff6b35">Y</span><span>Show HN: A tiny SQLite sync engine</span></div>
+  <div class="t"><span class="fi" style="background:#3b82f6">M</span><span>MDN · CSS anchor positioning</span></div>
+  <div class="t"><span class="fi" style="background:#c026d3">P</span><span>Pantone 2026 color trends</span></div>
+  <div class="fill"></div>
+  <div class="bot"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v8m-3-3 3 3 3-3M3 13h10"/></svg>
+    <div class="dots"><i></i><span class="on" style="display:grid;place-items:center;width:18px;height:18px"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#2a1730" stroke-width="1.7"><rect x="2.5" y="4.5" width="11" height="8.5" rx="2"/><path d="M5.5 4.5V3h5v1.5"/></svg></span><i></i><i></i></div>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v10M3 8h10"/></svg></div>
+</div>
+<div class="page"><div class="bar"></div><h5>Q4 planning</h5><p>Owner: Dana K. · Updated 2h ago</p><div class="b" style="width:90%"></div><div class="b" style="width:76%"></div><div class="b" style="width:84%"></div><div class="b" style="width:52%"></div><div style="height:90px;border-radius:8px;background:linear-gradient(135deg,#f6eefa,#eef0fd);margin:16px 0"></div><div class="b" style="width:88%"></div><div class="b" style="width:70%"></div></div>
+</body></html>

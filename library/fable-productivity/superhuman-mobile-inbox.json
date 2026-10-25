@@ -1,0 +1,25 @@
+{
+  "id": "superhuman-mobile-inbox",
+  "kind": "screen",
+  "subtype": "email inbox",
+  "title": "Mobile triage",
+  "inspiredBy": "Superhuman",
+  "platform": "mobile",
+  "viewport": { "w": 390, "h": 844 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "compact",
+    "radius": "pill",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Pill split-inbox tabs over a dark gradient, three-line message rows and a mid-swipe row revealing green Done and amber Remind actions."
+}

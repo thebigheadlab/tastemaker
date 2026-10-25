@@ -1,0 +1,25 @@
+{
+  "id": "obsidian-backlinks",
+  "kind": "component",
+  "subtype": "backlinks panel",
+  "title": "Backlinks panel",
+  "inspiredBy": "Obsidian",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "purple",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "The right-sidebar Backlinks pane: collapsible files under Linked mentions with the [[wikilink]] highlighted in context, plus Unlinked mentions offering a one-click Link."
+}

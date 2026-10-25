@@ -1,0 +1,25 @@
+{
+  "id": "superhuman-command-bar",
+  "kind": "component",
+  "subtype": "command palette",
+  "title": "Command bar",
+  "inspiredBy": "Superhuman",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Cmd+K over a dimmed inbox: fuzzy matches highlighted in the label, every command paired with its single-letter shortcut, sections for commands, navigation and contacts."
+}

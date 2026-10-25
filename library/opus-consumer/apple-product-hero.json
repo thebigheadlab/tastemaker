@@ -1,0 +1,28 @@
+{
+  "id": "apple-product-hero",
+  "kind": "screen",
+  "subtype": "product landing hero",
+  "title": "Product page hero",
+  "inspiredBy": "Apple",
+  "platform": "web",
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "warm",
+    "saturation": "muted",
+    "contrast": "high",
+    "accentHue": "blue",
+    "typeStyle": "grotesk",
+    "typeScale": "dramatic",
+    "density": "airy",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "luxurious"
+  },
+  "notes": "Thin translucent global nav, sticky product sub-nav with a blue Buy pill, one gradient-filled headline and the product itself lit on black."
+}

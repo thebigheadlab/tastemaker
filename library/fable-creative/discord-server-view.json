@@ -1,0 +1,25 @@
+{
+  "id": "discord-server-view",
+  "kind": "screen",
+  "subtype": "chat",
+  "title": "Server chat",
+  "inspiredBy": "Discord",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Four-column layout in layered greys: round-to-squircle server rail with red badges, hash-channel list with unread pills, message groups with role tags, a blurple-bordered embed and reaction chips, plus a status-dot member list."
+}

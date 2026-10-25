@@ -1,0 +1,25 @@
+{
+  "id": "discord-user-popout",
+  "kind": "component",
+  "subtype": "profile popover",
+  "title": "User profile popout",
+  "inspiredBy": "Discord",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "humanist",
+    "typeScale": "moderate",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Near-black popout with a gradient banner, avatar punched through the banner edge with a thick status ring, badge tray, inner card for bio, colored-dot role chips, a rich-presence block and a 'Message' field at the bottom."
+}

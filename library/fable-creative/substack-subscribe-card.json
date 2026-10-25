@@ -1,0 +1,25 @@
+{
+  "id": "substack-subscribe-card",
+  "kind": "component",
+  "subtype": "subscribe form",
+  "title": "Subscribe embed",
+  "inspiredBy": "Substack",
+  "platform": "web",
+  "viewport": { "w": 480, "h": 600 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "warm",
+    "saturation": "balanced",
+    "contrast": "high",
+    "accentHue": "orange",
+    "typeStyle": "serif",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "flat",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "editorial"
+  },
+  "notes": "Centered publication card with orange square logo, serif title, joined email-plus-button field, legal fine print, social-proof avatars and a free-vs-paid radio tier pair."
+}

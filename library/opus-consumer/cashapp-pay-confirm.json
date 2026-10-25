@@ -1,0 +1,28 @@
+{
+  "id": "cashapp-pay-confirm",
+  "kind": "component",
+  "subtype": "payment confirmation",
+  "title": "Payment sent",
+  "inspiredBy": "Cash App",
+  "platform": "mobile",
+  "viewport": {
+    "w": 480,
+    "h": 600
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "neutral",
+    "saturation": "vivid",
+    "contrast": "high",
+    "accentHue": "green",
+    "typeStyle": "geometric",
+    "typeScale": "dramatic",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "minimal",
+    "mood": "playful"
+  },
+  "notes": "Green success header with a big sent amount, a floating white recipient card showing cashtag, verified badge and the payment note."
+}

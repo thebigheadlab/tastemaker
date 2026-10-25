@@ -1,0 +1,28 @@
+{
+  "id": "stripe-mobile-dashboard",
+  "kind": "screen",
+  "subtype": "metrics dashboard",
+  "title": "Dashboard app",
+  "inspiredBy": "Stripe",
+  "platform": "mobile",
+  "viewport": {
+    "w": 390,
+    "h": 844
+  },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "balanced",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "serious"
+  },
+  "notes": "Stripe's iOS dashboard: today's gross volume line chart with yesterday comparison and recent payments."
+}

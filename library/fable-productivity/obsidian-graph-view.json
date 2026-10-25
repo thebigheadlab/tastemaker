@@ -1,0 +1,25 @@
+{
+  "id": "obsidian-graph-view",
+  "kind": "screen",
+  "subtype": "knowledge graph",
+  "title": "Graph view",
+  "inspiredBy": "Obsidian",
+  "platform": "web",
+  "viewport": { "w": 1280, "h": 800 },
+  "tags": {
+    "colorMode": "dark",
+    "temperature": "neutral",
+    "saturation": "muted",
+    "contrast": "medium",
+    "accentHue": "purple",
+    "typeStyle": "grotesk",
+    "typeScale": "restrained",
+    "density": "compact",
+    "radius": "soft",
+    "elevation": "subtle",
+    "border": "hairline",
+    "ornament": "minimal",
+    "mood": "technical"
+  },
+  "notes": "Charcoal workspace with an icon ribbon, file-tree pane and tab bar; a force-directed note graph with purple and green group colouring and a collapsible Filters / Groups / Display control panel."
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Block style</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%}
+body{width:480px;height:600px;overflow:hidden;background:#fff;font-family:Inter,-apple-system,"SF Pro Text",system-ui,sans-serif;color:#1c1c1e;-webkit-font-smoothing:antialiased;font-size:14px;position:relative}
+.doc{padding:30px 36px 0}
+h2{font-size:22px;font-weight:800;letter-spacing:-.4px;margin:0 0 10px}
+p{margin:0 0 10px;font-size:14.5px;line-height:1.55;color:#2c2c2e}
+.block{position:relative;border-radius:12px;padding:12px 16px;margin:6px -6px 10px;background:#eef0ff;color:#2d2a8c;font-size:14.5px;line-height:1.55;box-shadow:0 0 0 2px #5b57f5}
+.block .handle{position:absolute;left:-26px;top:12px;width:18px;height:18px;border-radius:5px;background:#f2f2f6;display:flex;align-items:center;justify-content:center;color:#8a8a8f;font-size:10px;letter-spacing:-1px}
+.bar{position:absolute;left:36px;top:208px;background:#1c1c1e;border-radius:12px;padding:5px;display:flex;align-items:center;gap:1px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.bar .b{height:30px;min-width:30px;padding:0 8px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#f2f2f6;font-size:13px;font-weight:600;gap:4px}
+.bar .b.on{background:#3a3a3c}
+.bar .sep{width:1px;height:18px;background:#48484a;margin:0 4px}
+.bar .b.ser{font-family:Lora,Georgia,serif;font-weight:600}
+.pop{position:absolute;left:36px;top:252px;width:320px;background:#fff;border-radius:16px;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 20px 50px rgba(0,0,0,.18);padding:12px;box-sizing:border-box}
+.seg{display:flex;background:#f2f2f6;border-radius:9px;padding:3px;margin-bottom:12px}
+.seg span{flex:1;text-align:center;font-size:12px;font-weight:600;padding:5px 0;border-radius:7px;color:#8a8a8f}
+.seg span.on{background:#fff;color:#1c1c1e;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.lab{font-size:10.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:#aeaeb2;margin:4px 2px 8px}
+.styles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.st{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:10.5px;font-weight:500;color:#3a3a3c}
+.st .pv{width:64px;height:42px;border-radius:9px;background:#f2f2f6;border:1px solid #e5e5ea;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-size:11px;color:#8a8a8f;position:relative;overflow:hidden}
+.st.on .pv{border:2px solid #5b57f5}
+.pv .ln{width:36px;height:3px;border-radius:2px;background:#c7c7cc;display:block;box-shadow:0 7px 0 #c7c7cc,0 -7px 0 #c7c7cc}
+.pv.focus{background:#eef0ff}.pv.focus .ln{background:#8b87f7;box-shadow:0 7px 0 #8b87f7,0 -7px 0 #8b87f7}
+.pv.card{background:#fff;box-shadow:inset 0 0 0 1px #e5e5ea,0 2px 6px rgba(0,0,0,.08)}
+.pv.quote:before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:3px;border-radius:2px;background:#5b57f5}
+.pv.quote .ln{margin-left:10px}
+.colors{display:flex;gap:8px;margin-bottom:12px;padding:0 2px}
+.sw{width:22px;height:22px;border-radius:50%;box-sizing:border-box;border:1px solid rgba(0,0,0,.06)}
+.sw.on{box-shadow:0 0 0 2px #fff,0 0 0 3.5px #5b57f5}
+.rowo{display:flex;align-items:center;justify-content:space-between;padding:8px 2px;border-top:1px solid #f0f0f3;font-size:13px;color:#1c1c1e}
+.rowo .v{color:#8a8a8f;display:flex;align-items:center;gap:6px}
+.pill{display:inline-flex;background:#f2f2f6;border-radius:7px;padding:3px 3px;gap:2px}
+.pill span{padding:2px 8px;border-radius:5px;font-size:12px;color:#8a8a8f;font-weight:500}
+.pill span.on{background:#fff;color:#1c1c1e;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+</style>
+</head>
+<body>
+<div class="doc">
+  <h2>Design principles</h2>
+  <p>We write these down so that decisions survive the people who made them. Three principles carry most of the weight.</p>
+  <div class="block"><span class="handle">⋮⋮</span><b>Clarity over cleverness.</b> If a screen needs a tooltip to explain its primary action, the screen is not finished yet.</div>
+  <p>Every principle below comes with a counter-example from our own product, because that is the only kind of example anyone remembers.</p>
+</div>
+<div class="bar">
+  <span class="b">B</span><span class="b" style="font-style:italic;font-weight:500">I</span><span class="b" style="text-decoration:underline;font-weight:500">U</span>
+  <span class="sep"></span>
+  <span class="b ser">Aa</span>
+  <span class="b on"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2.5" width="10" height="9" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 6h5M4.5 8.5h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Style</span>
+  <span class="sep"></span>
+  <span class="b"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5.5 8.5l3-3M4 10l-1 1a2 2 0 0 1-2.8-2.8l2-2A2 2 0 0 1 5 6M10 4l1-1a2 2 0 0 1 2.8 2.8l-2 2A2 2 0 0 1 9 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+  <span class="b"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="3" cy="7" r="1.2" fill="currentColor"/><circle cx="7" cy="7" r="1.2" fill="currentColor"/><circle cx="11" cy="7" r="1.2" fill="currentColor"/></svg></span>
+</div>
+<div class="pop">
+  <div class="seg"><span>Text</span><span class="on">Block</span><span>Decoration</span></div>
+  <div class="lab">Block style</div>
+  <div class="styles">
+    <div class="st"><span class="pv"><span class="ln"></span></span>Plain</div>
+    <div class="st on"><span class="pv focus"><span class="ln"></span></span>Focus</div>
+    <div class="st"><span class="pv card"><span class="ln"></span></span>Card</div>
+    <div class="st"><span class="pv quote"><span class="ln"></span></span>Quote</div>
+  </div>
+  <div class="lab">Color</div>
+  <div class="colors">
+    <span class="sw" style="background:#f2f2f6"></span>
+    <span class="sw on" style="background:#eef0ff"></span>
+    <span class="sw" style="background:#e0f7f7"></span>
+    <span class="sw" style="background:#eaf7ee"></span>
+    <span class="sw" style="background:#fff6dc"></span>
+    <span class="sw" style="background:#fff1e6"></span>
+    <span class="sw" style="background:#fde8f1"></span>
+    <span class="sw" style="background:#1c1c1e"></span>
+    <span class="sw" style="background:conic-gradient(#f59e0b,#fb7185,#7c6cff,#22c1c3,#f59e0b)"></span>
+  </div>
+  <div class="rowo"><span>Font</span><span class="pill"><span class="on">System</span><span style="font-family:Lora,Georgia,serif">Serif</span><span style="font-family:ui-monospace,Menlo,monospace">Mono</span></span></div>
+  <div class="rowo"><span>Width</span><span class="pill"><span>Narrow</span><span class="on">Normal</span><span>Wide</span></span></div>
+  <div class="rowo"><span>Apply to all blocks like this</span><span class="v"><svg width="34" height="20" viewBox="0 0 34 20"><rect x="0" y="0" width="34" height="20" rx="10" fill="#5b57f5"/><circle cx="24" cy="10" r="8" fill="#fff"/></svg></span></div>
+</div>
+</body>
+</html>

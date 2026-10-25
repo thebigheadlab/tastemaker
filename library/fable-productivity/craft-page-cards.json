@@ -1,0 +1,25 @@
+{
+  "id": "craft-page-cards",
+  "kind": "component",
+  "subtype": "page card styles",
+  "title": "Page cards",
+  "inspiredBy": "Craft",
+  "platform": "web",
+  "viewport": { "w": 600, "h": 480 },
+  "tags": {
+    "colorMode": "light",
+    "temperature": "cool",
+    "saturation": "vivid",
+    "contrast": "medium",
+    "accentHue": "indigo",
+    "typeStyle": "grotesk",
+    "typeScale": "moderate",
+    "density": "comfortable",
+    "radius": "round",
+    "elevation": "layered",
+    "border": "none",
+    "ornament": "expressive",
+    "mood": "playful"
+  },
+  "notes": "Subpages as cards in three sizes (large cover, square gradient tile, small row) with a page-style picker offering thumbnail previews and gradient cover swatches."
+}
