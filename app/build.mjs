@@ -12,7 +12,7 @@ const safe = (v) => JSON.stringify(v).replace(/</g, "\\u003c");
 
 // Browser modules are plain ES modules that Node can import for tests. For the single-file page they are
 // wrapped in functions: `import { a } from "./x.mjs"` becomes a destructure from an earlier module,
-// and `export const|function name` becomes a property of the module's result.
+// and `export const|function|async function name` becomes a property of the module's result.
 // Modules may only use those two export forms and named imports of the form `import { a, b } from "./x.mjs";`.
 export const MODULES = ["generator", "storage", "io"];
 export function bundleModules(names = MODULES) {
@@ -21,10 +21,10 @@ export function bundleModules(names = MODULES) {
     const file = `app/${name}.mjs`;
     if (!existsSync(join(ROOT, file))) continue;
     const src = read(file);
-    const exported = [...src.matchAll(/^export (?:const|function) (\w+)/gm)].map((m) => m[1]);
+    const exported = [...src.matchAll(/^export (?:const|function|async function) (\w+)/gm)].map((m) => m[1]);
     const body = src
       .replace(/^import \{([^}]*)\} from "\.\/(\w+)\.mjs";$/gm, (_, list, from) => `const {${list}} = mods.${from};`)
-      .replace(/^export (const|function) /gm, "$1 ");
+      .replace(/^export (const|function|async function) /gm, "$1 ");
     if (/^\s*(import|export)\b/m.test(body)) throw new Error(`${file}: unsupported import or export form`);
     out += `mods.${name} = (function () {\n${body}\nreturn { ${exported.join(", ")} };\n})();\n`;
   }
