@@ -1,0 +1,316 @@
+{
+  "generator": {
+    "name": "tastemaker-generator",
+    "version": "1.0.0"
+  },
+  "deck": {
+    "version": 2,
+    "hash": "0123456789abcdef",
+    "cardCount": 8
+  },
+  "counts": {
+    "valid": 8,
+    "rated": 8,
+    "loved": 0,
+    "liked": 0,
+    "noped": 8,
+    "sum": -8,
+    "skipped": 0,
+    "ignored": 0
+  },
+  "weights": {
+    "love": 2,
+    "like": 1,
+    "nope": -1,
+    "skip": 0
+  },
+  "votes": [
+    {
+      "id": "a-dark-round",
+      "verdict": "nope",
+      "weight": -1,
+      "title": "Dark round",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "b-dark-round",
+      "verdict": "nope",
+      "weight": -1,
+      "title": "Dark round two",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "c-dark-sharp",
+      "verdict": "nope",
+      "weight": -1,
+      "title": "Dark sharp",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "d-light-sharp",
+      "verdict": "nope",
+      "weight": -1,
+      "title": "Light sharp",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "e-light-pill",
+      "verdict": "nope",
+      "weight": -1,
+      "title": "Light pill",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "f-light-pill",
+      "verdict": "nope",
+      "weight": -1,
+      "title": "Light pill two",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "g-odd-tags",
+      "verdict": "nope",
+      "weight": -1,
+      "title": "Odd tags",
+      "kind": "component",
+      "inspiredBy": "Example"
+    },
+    {
+      "id": "h-plain",
+      "verdict": "nope",
+      "weight": -1,
+      "title": "Plain",
+      "kind": "component",
+      "inspiredBy": "Example"
+    }
+  ],
+  "ignored": {
+    "total": 0,
+    "truncated": 0,
+    "listed": []
+  },
+  "traits": [
+    {
+      "dimension": "colorMode",
+      "value": "light",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "light",
+        "dark"
+      ],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 0,
+        "noped": 4
+      }
+    },
+    {
+      "dimension": "temperature",
+      "value": "neutral",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "neutral"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "saturation",
+      "value": "balanced",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "balanced"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "contrast",
+      "value": "medium",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "medium"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "accentHue",
+      "value": "blue",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "red",
+        "green",
+        "blue",
+        "indigo"
+      ],
+      "counts": {
+        "rated": 2,
+        "loved": 0,
+        "liked": 0,
+        "noped": 2
+      }
+    },
+    {
+      "dimension": "typeStyle",
+      "value": "grotesk",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "grotesk"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "typeScale",
+      "value": "moderate",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "moderate"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "density",
+      "value": "comfortable",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "comfortable"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "radius",
+      "value": "soft",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "sharp",
+        "round",
+        "pill"
+      ],
+      "counts": {
+        "rated": 1,
+        "loved": 0,
+        "liked": 0,
+        "noped": 1
+      }
+    },
+    {
+      "dimension": "elevation",
+      "value": "subtle",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "subtle"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "border",
+      "value": "hairline",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "hairline"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "ornament",
+      "value": "minimal",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "minimal"
+      ],
+      "counts": {
+        "rated": 8,
+        "loved": 0,
+        "liked": 0,
+        "noped": 8
+      }
+    },
+    {
+      "dimension": "mood",
+      "value": "calm",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [
+        "calm",
+        "playful",
+        "brutalist"
+      ],
+      "counts": {
+        "rated": 4,
+        "loved": 0,
+        "liked": 0,
+        "noped": 4
+      }
+    }
+  ]
+}

@@ -1,14 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Swipe through design cards and export your taste as DESIGN.md, STYLE.md, tokens.json and swipes.json. Runs in your browser.">
 <title>Tastemaker</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: a light-table. Quiet chrome, the card is the only loud thing on screen. */
 :root{
   --bg:#efeee9; --panel:#fbfbf8; --ink:#17171a; --soft:#6d6c72; --rule:#dcdad3;
   --like:#1f9d55; --nope:#d6453d; --love:#6c4bf4; --focus:#6c4bf4;
-  --ui:"Schibsted Grotesk",ui-sans-serif,system-ui,sans-serif;
-  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  --ui:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#141416; --panel:#1d1d20; --ink:#ececef; --soft:#9a99a1; --rule:#2d2d32;
@@ -118,7 +121,8 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
 @media (max-width:520px){.ctl{width:50px;height:50px}.ctl.big{width:58px;height:58px}.stage{height:56vh}.row{grid-template-columns:76px 1fr 36px}}
 @media (prefers-reduced-motion:reduce){.card,.meter .bar b{transition:none}}
 </style>
-
+</head>
+<body>
 <div class="wrap">
   <header>
     <div class="brand"><i></i>Tastemaker</div>
@@ -148,18 +152,15 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
     <section class="view" id="view-taste" hidden>
       <div class="section-h"><h2>Your taste so far</h2><p id="taste-sub"></p></div>
       <div class="dims" id="dims"></div>
-      <div class="section-h" style="margin-top:28px"><h2>Products you gravitate to</h2><p>Share of cards you liked, per product style.</p></div>
+      <div class="section-h" style="margin-top:28px"><h2>Products you gravitate to</h2><p>Loved and liked cards out of all rated cards, per product style.</p></div>
       <div class="dims" id="products"></div>
       <div class="section-h" style="margin-top:28px"><h2>Loved and liked</h2><p id="liked-sub"></p></div>
       <div class="liked" id="liked"></div>
     </section>
 
     <section class="view" id="view-export" hidden>
-      <div class="section-h"><h2>Design artifacts</h2><p>Built from your swipes. Copy them into any project.</p></div>
-      <div class="gen">
-        <button class="btn" id="generate">Generate with Claude</button>
-        <span class="status" id="genstatus"></span>
-      </div>
+      <div class="section-h"><h2>Design files</h2><p>Built from your swipes by fixed rules in this page. The same swipes always give the same files.</p></div>
+      <p class="note" id="genstatus"></p>
       <div class="docs" role="tablist" id="doctabs"></div>
       <div class="docbox">
         <div class="docbar"><span class="status" id="docmeta"></span><button class="btn ghost" id="copy">Copy</button><button class="btn ghost" id="save">Save file</button><button class="btn ghost" id="saveall">Save all</button></div>
@@ -174,12 +175,14 @@ pre.doc{margin:0;padding:16px;font:12.5px/1.6 var(--mono);white-space:pre-wrap;w
   <div class="zoomscroll" id="zoomscroll"></div>
 </div>
 
+<script id="tastemaker-modules">/*MODULES*/</script>
 <script type="application/json" id="deck-data">/*DECK*/</script>
 <script type="application/json" id="taxonomy-data">/*TAXONOMY*/</script>
 <script>
 (() => {
 const DECK = JSON.parse(document.getElementById("deck-data").textContent);
 const TAX = JSON.parse(document.getElementById("taxonomy-data").textContent);
+const { generate, traitStats, decideTraits, normalizeVotes, GENERATOR_VERSION } = TM.generator;
 const CARDS = DECK.cards;
 const BY_ID = Object.fromEntries(CARDS.map((c) => [c.id, c]));
 const WEIGHT = { like: 1, love: 2, nope: -1, skip: 0 };
@@ -201,13 +204,12 @@ const persistLocal = () => { try { localStorage.setItem(LS_KEY, JSON.stringify(s
 async function connectDb() {
   try { db = await window.claude?.use?.("db"); } catch (e) { db = null; }
   if (!db) return;
-  loadDocs();
   db.collection("swipes").onSnapshot((snap) => {
     const remote = {};
     snap.docs.forEach((d) => { const v = d.data(); if (v && v.verdict) remote[d.id] = { verdict: v.verdict, at: v.at }; });
     // Push anything only this browser knows (swiped before the db answered).
     for (const [id, v] of Object.entries(swipes)) if (!remote[id]) writeRemote(id, v);
-    swipes = { ...swipes, ...remote };
+    swipes = { ...swipes, ...remote }; outputs = null;
     persistLocal(); refresh();
   }, () => {});
 }
@@ -218,10 +220,10 @@ function writeRemote(id, v) {
 }
 function record(id, verdict) {
   const v = { verdict, at: new Date().toISOString() };
-  swipes[id] = v; history.push(id); persistLocal(); writeRemote(id, v);
+  swipes[id] = v; history.push(id); outputs = null; persistLocal(); writeRemote(id, v);
 }
 function unrecord(id) {
-  delete swipes[id]; persistLocal();
+  delete swipes[id]; outputs = null; persistLocal();
   if (db) db.collection("swipes").doc(id).delete().catch(() => {});
 }
 
@@ -274,7 +276,7 @@ function renderStack(rebuild) {
   renderFilters();
   if (rebuild) st.innerHTML = "";
   if (!q.length) {
-    st.innerHTML = `<div class="empty"><h2>${filter === "all" ? "You've swiped the whole deck" : "Nothing left in this pile"}</h2><p>Check what your swipes say on the Your taste tab, then generate your design docs from Export.</p><button class="btn" data-go="taste">See your taste</button></div>`;
+    st.innerHTML = `<div class="empty"><h2>${filter === "all" ? "You've swiped the whole deck" : "Nothing left in this pile"}</h2><p>Check what your swipes say on the Your taste tab, then copy or save your design files from Export.</p><button class="btn" data-go="taste">See your taste</button></div>`;
     current = null; $("meta").innerHTML = ""; updateButtons(); return;
   }
   // Keep the current card if it is still first, add the next one beneath it.
@@ -379,42 +381,34 @@ $("zoomclose").onclick = closeZoom;
 $("zoom").addEventListener("click", (e) => { if (e.target.id === "zoom" || e.target.id === "zoomscroll") closeZoom(); });
 
 // ---------- Taste profile ----------
-// Per dimension value: net score = sum(weights) / times seen. Range -1..2, shown clamped to -1..1.
+// Per dimension value counts, and which value the votes pick. Same rules as the exported files (app/generator.mjs).
+const voteList = () => Object.entries(swipes).map(([id, v]) => ({ id, verdict: v.verdict }));
 function profile() {
   const out = {};
-  for (const [dim] of Object.entries(TAX.dimensions)) out[dim] = {};
-  for (const [id, v] of Object.entries(swipes)) {
-    const c = BY_ID[id]; if (!c || v.verdict === "skip") continue;
-    for (const [dim, val] of Object.entries(c.tags || {})) {
-      if (!out[dim]) continue;
-      const o = (out[dim][val] ||= { seen: 0, sum: 0, likes: 0, nopes: 0 });
-      o.seen++; o.sum += WEIGHT[v.verdict]; if (WEIGHT[v.verdict] > 0) o.likes++; else o.nopes++;
-    }
+  for (const d of traitStats(normalizeVotes(voteList(), DECK).valid, DECK, TAX)) {
+    out[d.dimension] = {};
+    for (const v of d.values) if (v.rated) out[d.dimension][v.value] = { seen: v.rated, sum: v.sum, likes: v.loved + v.liked, nopes: v.noped, score: v.sum / v.rated };
   }
-  for (const dim in out) for (const val in out[dim]) out[dim][val].score = +(out[dim][val].sum / out[dim][val].seen).toFixed(2);
   return out;
 }
-function leaning(p) {
+function leaning() {
   const res = {};
-  for (const [dim, vals] of Object.entries(p)) {
-    const ranked = Object.entries(vals).filter(([, o]) => o.seen >= 2).sort((a, b) => b[1].score - a[1].score);
-    if (ranked.length && ranked[0][1].score > 0) res[dim] = { prefer: ranked[0][0], score: ranked[0][1].score, seen: ranked[0][1].seen, avoid: ranked.filter(([, o]) => o.score < 0).map(([v]) => v) };
-  }
+  for (const t of decideTraits(traitStats(normalizeVotes(voteList(), DECK).valid, DECK, TAX))) if (t.status === "votes") res[t.dimension] = { prefer: t.value };
   return res;
 }
 function renderTaste() {
-  const p = profile(), lean = leaning(p);
+  const p = profile(), lean = leaning();
   const rated = Object.values(swipes).filter((v) => v.verdict !== "skip").length;
-  $("taste-sub").textContent = rated ? `${rated} rated cards. Green means you tend to like a trait, red means you tend to pass. Faded rows were seen only once.` : "Swipe a few cards and your preferences show up here.";
+  $("taste-sub").textContent = rated ? `${rated} rated cards. Green is a trait you liked or loved, red is one you noped. Faded rows were rated on one card only, which is too little to count.` : "Swipe a few cards and your preferences show up here.";
   $("dims").innerHTML = Object.entries(TAX.dimensions).map(([dim, d]) => {
     const vals = d.values.filter((v) => p[dim][v]);
     const rows = vals.sort((a, b) => (p[dim][b].seen >= 2) - (p[dim][a].seen >= 2) || p[dim][b].score - p[dim][a].score).map((v) => {
       const o = p[dim][v], sc = Math.max(-1, Math.min(1, o.score));
       const w = Math.abs(sc) * 50, left = sc >= 0 ? 50 : 50 - w;
       const col = sc >= 0 ? "var(--like)" : "var(--nope)";
-      return `<div class="row ${lean[dim]?.prefer === v ? "top" : ""} ${o.seen < 2 ? "thin" : ""}" title="Seen ${o.seen}×: ${o.likes} liked, ${o.nopes} noped"><span class="v">${v}</span><span class="track"><b style="left:${left}%;width:${w}%;background:${col}"></b></span><span class="s">${o.score > 0 ? "+" : ""}${o.score.toFixed(1)}</span></div>`;
+      return `<div class="row ${lean[dim]?.prefer === v ? "top" : ""} ${o.seen < 2 ? "thin" : ""}" title="Rated on ${o.seen} cards: ${o.likes} liked or loved, ${o.nopes} noped"><span class="v">${v}</span><span class="track"><b style="left:${left}%;width:${w}%;background:${col}"></b></span><span class="s">${o.sum > 0 ? "+" : ""}${o.sum}</span></div>`;
     }).join("");
-    return `<div class="dim"><h3>${d.label}<span>${lean[dim] ? "leaning " + lean[dim].prefer : "no lean yet"}</span></h3>${rows || `<div class="note">Not seen yet.</div>`}</div>`;
+    return `<div class="dim"><h3>${d.label}<span>${lean[dim] ? "votes pick " + lean[dim].prefer : "no pick yet"}</span></h3>${rows || `<div class="note">Not seen yet.</div>`}</div>`;
   }).join("");
   const liked = Object.entries(swipes).filter(([id, v]) => BY_ID[id] && (v.verdict === "love" || v.verdict === "like"))
     .sort((a, b) => (b[1].verdict === "love") - (a[1].verdict === "love") || (b[1].at > a[1].at ? 1 : -1));
@@ -457,7 +451,7 @@ function renderProducts() {
     const row = document.createElement("div");
     row.className = "row" + (p.seen < 2 ? " thin" : "");
     row.title = `${p.seen} seen: ${p.loved} loved, ${p.liked} liked`;
-    row.innerHTML = `<span class="v"></span><span class="track"><b style="left:${left}%;width:${w}%;background:${sc >= 0 ? "var(--like)" : "var(--nope)"}"></b></span><span class="s">${Math.round(p.rate * 100)}%</span>`;
+    row.innerHTML = `<span class="v"></span><span class="track"><b style="left:${left}%;width:${w}%;background:${sc >= 0 ? "var(--like)" : "var(--nope)"}"></b></span><span class="s">${p.liked + p.loved}/${p.seen}</span>`;
     row.querySelector(".v").textContent = p.name;
     box.firstChild.appendChild(row);
   });
@@ -471,81 +465,27 @@ const DOCS = [
   { key: "tokens.json", note: "W3C design tokens." },
   { key: "swipes.json", note: "Raw swipe data and profile." },
 ];
-const docText = {};
 let activeDoc = "DESIGN.md";
-let sample = null, downloads = null;
+let downloads = null;
+let outputs = null; // { files, plan } for the current swipes
+const getOutputs = () => (outputs ||= generate(voteList(), DECK, TAX));
+const docText = new Proxy({}, { get: (_, k) => getOutputs().files[k] });
 
-function evidence() {
-  const p = profile(), lean = leaning(p);
-  const pick = (verdicts, n) => Object.entries(swipes).filter(([id, v]) => BY_ID[id] && verdicts.includes(v.verdict)).slice(-n)
-    .map(([id, v]) => ({ verdict: v.verdict, kind: BY_ID[id].kind, subtype: BY_ID[id].subtype, title: BY_ID[id].title, inspiredBy: BY_ID[id].inspiredBy, platform: BY_ID[id].platform, notes: BY_ID[id].notes, tags: BY_ID[id].tags, tokens: BY_ID[id].tokens }));
-  return { profile: p, leaning: lean, products: productStats().slice(0, 12), loved: pick(["love"], 20), liked: pick(["like"], 30), disliked: pick(["nope"], 20).map(({ tokens, ...r }) => r) };
-}
-function swipesJson() {
-  return JSON.stringify({ deck: "library-v2", exported: new Date().toISOString(), swipes: Object.entries(swipes).filter(([id]) => BY_ID[id]).map(([id, v]) => ({ id, ...v, kind: BY_ID[id].kind, subtype: BY_ID[id].subtype, inspiredBy: BY_ID[id].inspiredBy, tags: BY_ID[id].tags })), leaning: leaning(profile()) }, null, 2);
-}
-
-const BRIEF = {
-  "DESIGN.md": `Write DESIGN.md: the design guide a designer or coding agent follows to build new products in this person's taste. Sections: Taste summary (3-5 sentences naming the overall direction and what to avoid), Principles (5-7, each one line plus a why), Layout and density, Components (buttons, inputs, cards, navigation, toggles, badges, modals, tables: how each should look and behave), Screens (patterns for landing, dashboard, auth, pricing, settings, article), Do and don't (two columns as a table). Be concrete: quote token values from the evidence, and name which loved products each choice borrows from. Tool agnostic: no framework names.`,
-  "STYLE.md": `Write STYLE.md: the visual style reference. Sections: Color (light and dark palettes as a table of role, hex, usage; pick values from the loved and liked cards' tokens and product styles, harmonized), Typography (primary and display fonts with Google Fonts names and fallbacks, type scale ratio and sizes in px for 6 steps, weights, letter-spacing), Spacing (4px-based scale, control heights), Shape (radius scale in px), Depth (shadow values, borders), Ornament and texture, Motion (durations and easing that fit the mood), Imagery and iconography, Voice (3 lines on UI copy tone). Use exact values.`,
-  "tokens.json": `Write tokens.json in W3C Design Tokens Community Group format ($type and $value on every token). Groups: color.light, color.dark (bg, surface, text, muted, line, accent, on-accent, success, warning, danger), font.family (body, display, mono), font.size (xs..3xl in px), font.weight, line-height, space (0..10), radius (none, sm, md, lg, full), shadow (sm, md, lg), border.width, motion.duration, motion.easing. Values must match what the evidence shows the person prefers. Output only the JSON.`,
-};
-
-async function generate() {
-  const rated = Object.values(swipes).filter((v) => v.verdict !== "skip").length;
-  if (rated < 15) { $("genstatus").textContent = `Swipe at least 15 cards first (${rated} so far).`; return; }
-  if (!sample) { $("genstatus").textContent = "Claude isn't available in this view. Use swipes.json instead."; return; }
-  $("generate").disabled = true;
-  const ev = JSON.stringify(evidence());
-  try {
-    for (const key of ["DESIGN.md", "STYLE.md", "tokens.json"]) {
-      $("genstatus").textContent = `Writing ${key}…`;
-      showDoc(key);
-      const prompt = `You turn a person's design swipes into reusable design documentation. Evidence (JSON): cards they loved (strongest signal), liked, and disliked, each modeled on a real product (inspiredBy) with taste tags and tokens extracted from the card (fonts, dominant colors, radii), plus a per-product preference list and a per-dimension profile where score = average weight when seen (love 2, like 1, nope -1) and "leaning" = their preferred value per dimension.\n\n${ev}\n\n${BRIEF[key]}\nWhere evidence is thin, pick what fits the strongest preferences and say so briefly. Reply with only the file contents${key.endsWith(".md") ? " in Markdown" : ""}.`;
-      const r = await sample(prompt, { modelTier: "default", cache: false, onText: ({ text }) => { docText[key] = text; if (activeDoc === key) $("doc").textContent = text; } });
-      docText[key] = key === "tokens.json" ? r.text.replace(/^```(json)?\s*|\s*```$/g, "") : r.text;
-      persistDoc(key);
-      showDoc(key);
-    }
-    $("genstatus").textContent = "Done. Swipe more and regenerate any time.";
-  } catch (e) {
-    $("genstatus").textContent = e?.code === "rate_limited" ? "Claude is busy right now. Try again in a minute." : e?.code === "not_granted" ? "Claude access was declined for this page." : "Generation stopped: " + (e?.message || "unknown error");
-  }
-  $("generate").disabled = false;
-}
 function showDoc(key) {
   activeDoc = key;
   $("doctabs").innerHTML = DOCS.map((d) => `<button role="tab" aria-selected="${d.key === key}" data-k="${d.key}" title="${d.note}">${d.key}</button>`).join("");
-  const text = key === "swipes.json" ? swipesJson() : docText[key];
-  $("doc").textContent = text || (key === "swipes.json" ? "" : `Not generated yet. ${DOCS.find((d) => d.key === key).note}`);
-  $("docmeta").textContent = docAt[key] ? "Saved to your account · " + new Date(docAt[key]).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }) : "";
+  $("doc").textContent = getOutputs().files[key];
+  const plan = getOutputs().plan;
+  $("docmeta").textContent = `generator ${GENERATOR_VERSION} · deck ${plan.deck.hash}`;
+  $("genstatus").textContent = plan.mode === "empty" ? "No cards rated yet, so every value is a curated default." : `${plan.counts.rated} cards rated. Values marked "from votes" came from your swipes, the rest are curated defaults.`;
 }
 $("doctabs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) showDoc(b.dataset.k); });
-$("generate").onclick = generate;
-const currentText = () => (activeDoc === "swipes.json" ? swipesJson() : docText[activeDoc] || "");
+const currentText = () => getOutputs().files[activeDoc];
 $("copy").onclick = async () => {
   const t = currentText(); if (!t) return;
   try { await navigator.clipboard.writeText(t); toast(`Copied ${activeDoc}`); }
   catch (e) { const r = document.createRange(); r.selectNodeContents($("doc")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast("Selected. Press Ctrl+C or ⌘C to copy."); }
 };
-// Generated docs are kept in the db (and this browser) so they survive reloads and Claude can read them later.
-const DOCS_LS = "taste-deck-docs-v1";
-try { Object.assign(docText, JSON.parse(localStorage.getItem(DOCS_LS) || "{}").text || {}); } catch (e) {}
-const docAt = {};
-function persistDoc(key) {
-  docAt[key] = new Date().toISOString();
-  try { localStorage.setItem(DOCS_LS, JSON.stringify({ text: docText })); } catch (e) {}
-  if (db) db.collection("docs").doc(key.replace(".", "_")).set({ name: key, text: docText[key], at: docAt[key] }).catch(() => {});
-}
-async function loadDocs() {
-  if (!db) return;
-  try {
-    const snap = await db.collection("docs").get();
-    snap.docs.forEach((d) => { const v = d.data(); if (v?.name && v.text && (!docAt[v.name] || v.at > docAt[v.name])) { docText[v.name] = v.text; docAt[v.name] = v.at; } });
-    if (!$("view-export").hidden) showDoc(activeDoc);
-  } catch (e) {}
-}
-
 const SAVE_ERR = {
   declined: "Save cancelled.",
   rate_limited: "A save prompt is already open. Finish that one first.",
@@ -562,12 +502,11 @@ async function saveOne(name, text) {
     return false;
   }
 }
-$("save").onclick = () => { const t = currentText(); if (t) saveOne(activeDoc, t); else toast(`Generate ${activeDoc} first.`); };
+$("save").onclick = () => saveOne(activeDoc, currentText());
 // One file holding every doc, so a phone only needs one save prompt.
 $("saveall").onclick = () => {
-  const parts = ["DESIGN.md", "STYLE.md", "tokens.json"].filter((k) => docText[k]);
-  if (!parts.length) { toast("Generate your docs first."); return; }
-  const body = parts.map((k) => `<!-- ===== ${k} ===== -->\n\n${k.endsWith(".json") ? "```json\n" + docText[k] + "\n```" : docText[k]}`).join("\n\n");
+  const parts = ["DESIGN.md", "STYLE.md", "tokens.json", "swipes.json"];
+  const body = parts.map((k) => `<!-- ===== ${k} ===== -->\n\n${k.endsWith(".json") ? "```json\n" + docText[k] + "```" : docText[k]}`).join("\n\n");
   saveOne("tastemaker-docs.md", body);
 };
 
@@ -591,7 +530,8 @@ function refresh() {
 const start = location.hash.slice(1);
 showView(["taste", "export"].includes(start) ? start : "swipe");
 connectDb();
-(async () => { try { sample = await window.claude?.use?.("sample"); } catch (e) {} if (!sample) $("generate").title = "Claude isn't available in this view"; })();
 (async () => { try { downloads = await window.claude?.use?.("downloads"); } catch (e) {} })();
 })();
 </script>
+</body>
+</html>

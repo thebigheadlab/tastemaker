@@ -1,6 +1,6 @@
 # Tastemaker card brief
 
-Tastemaker is a personal "Tinder for design" app. The user swipes on cards (like / love / nope) and their swipes become a taste profile that generates DESIGN.md and STYLE.md. The current deck feels repetitive: the same few templates recolored. Your job is to replace it with a rich, diverse library of **components and screens modeled on real, well-designed shipped products**.
+Tastemaker is a personal "Tinder for design" app. The user swipes on cards (like / love / nope) and their swipes become a taste profile that generates DESIGN.md, STYLE.md and tokens.json. The current deck feels repetitive: the same few templates recolored. Your job is to replace it with a rich, diverse library of **components and screens modeled on real, well-designed shipped products**.
 
 ## What a card is
 
@@ -64,7 +64,7 @@ Use only these values. Tag what the card actually expresses.
 After writing cards run:
 
 ```
-node /home/claude/design-tinder/library/check.cjs <your folder>
+node library/check.cjs library/<your folder>
 ```
 
 It validates the JSON, flags scripts/external URLs, overflow and clipped text, and renders PNGs to `<your folder>/_renders/`. **Look at the PNGs** (Read tool shows images) and fix anything that looks off: overflow, cramped spacing, broken icons, fonts not loading, empty areas, unrealistic content. Iterate until every card passes and looks like the real product. Fix, don't delete, unless a card can't be saved.

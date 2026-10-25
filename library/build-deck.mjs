@@ -1,7 +1,9 @@
 // Collects every card in library/<folder>/ into library/cards.json (+ html map) for the app build.
+// Output (cards.json, html.json) is build output and is not committed.
 // Cards listed in library/cut.txt (one id per line) are left out.
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const LIB = dirname(fileURLToPath(import.meta.url));
@@ -36,7 +38,10 @@ for (const folder of readdirSync(LIB).sort()) {
   }
 }
 
-writeFileSync(join(LIB, "cards.json"), JSON.stringify({ version: 2, generated: new Date().toISOString().slice(0, 10), count: cards.length, cards }, null, 2));
+cards.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+// Hash of every card's metadata and markup, in id order. The generator records it so output can be traced to an exact deck.
+const hash = createHash("sha256").update(JSON.stringify(cards.map((c) => [c, html[c.id]]))).digest("hex").slice(0, 16);
+writeFileSync(join(LIB, "cards.json"), JSON.stringify({ version: 2, hash, count: cards.length, cards }, null, 2));
 writeFileSync(join(LIB, "html.json"), JSON.stringify(html));
 const by = (k) => cards.reduce((m, c) => ((m[c[k]] = (m[c[k]] || 0) + 1), m), {});
-console.log(`${cards.length} cards`, by("kind"), by("platform"), `${Object.keys(by("inspiredBy")).length} products`);
+console.log(`${cards.length} cards, deck hash ${hash}`, by("kind"), by("platform"), `${Object.keys(by("inspiredBy")).length} products`);

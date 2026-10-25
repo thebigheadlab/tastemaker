@@ -1,0 +1,217 @@
+{
+  "generator": {
+    "name": "tastemaker-generator",
+    "version": "1.0.0"
+  },
+  "deck": {
+    "version": 2,
+    "hash": "0123456789abcdef",
+    "cardCount": 8
+  },
+  "counts": {
+    "valid": 0,
+    "rated": 0,
+    "loved": 0,
+    "liked": 0,
+    "noped": 0,
+    "sum": 0,
+    "skipped": 0,
+    "ignored": 0
+  },
+  "weights": {
+    "love": 2,
+    "like": 1,
+    "nope": -1,
+    "skip": 0
+  },
+  "votes": [],
+  "ignored": {
+    "total": 0,
+    "truncated": 0,
+    "listed": []
+  },
+  "traits": [
+    {
+      "dimension": "colorMode",
+      "value": "light",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "temperature",
+      "value": "neutral",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "saturation",
+      "value": "balanced",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "contrast",
+      "value": "medium",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "accentHue",
+      "value": "blue",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "typeStyle",
+      "value": "grotesk",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "typeScale",
+      "value": "moderate",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "density",
+      "value": "comfortable",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "radius",
+      "value": "soft",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "elevation",
+      "value": "subtle",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "border",
+      "value": "hairline",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "ornament",
+      "value": "minimal",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    },
+    {
+      "dimension": "mood",
+      "value": "calm",
+      "source": "default",
+      "status": "insufficient",
+      "tied": [],
+      "avoid": [],
+      "counts": {
+        "rated": 0,
+        "loved": 0,
+        "liked": 0,
+        "noped": 0
+      }
+    }
+  ]
+}

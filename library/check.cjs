@@ -1,7 +1,8 @@
 // Renders every card in a folder to PNG and flags common problems.
-// Usage: node library/check.cjs library/<folder>
+// Usage: [CHROMIUM_PATH=/path/to/chromium] node library/check.cjs library/<folder>
 // Writes <folder>/_renders/<id>.png. Prints one line per card.
-const { chromium } = require("/opt/node-tools/node_modules/playwright");
+// Needs the playwright-core dev dependency (bun install). Set CHROMIUM_PATH to use a system Chromium.
+const { chromium } = require("playwright-core");
 const fs = require("fs");
 const path = require("path");
 
@@ -10,7 +11,7 @@ const out = path.join(dir, "_renders");
 fs.mkdirSync(out, { recursive: true });
 
 (async () => {
-  const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" }).catch(() => chromium.launch());
+  const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
   const metas = fs.readdirSync(dir).filter((f) => f.endsWith(".json")).sort();
   let bad = 0;
   for (const f of metas) {
@@ -29,7 +30,7 @@ fs.mkdirSync(out, { recursive: true });
     const page = await browser.newPage({ viewport: { width: meta.viewport.w, height: meta.viewport.h } });
     const errors = [];
     page.on("pageerror", (e) => errors.push(e.message));
-    await page.goto("file://" + html, { waitUntil: "networkidle" });
+    await page.goto(require("url").pathToFileURL(html).href, { waitUntil: "networkidle" });
     await page.waitForTimeout(150);
     const m = await page.evaluate(() => ({
       sw: document.documentElement.scrollWidth, sh: document.documentElement.scrollHeight,
