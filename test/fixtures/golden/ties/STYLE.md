@@ -40,7 +40,7 @@ Contrast ratios (WCAG 2.x, AA needs 4.5 for text):
 ## Typography
 
 - Body: `"Inter", "Helvetica Neue", Arial, system-ui, -apple-system, "Segoe UI", sans-serif` (from votes)
-- Display: `"Alpha Sans", "Inter", "Helvetica Neue", Arial, system-ui, -apple-system, "Segoe UI", sans-serif` (from votes: font Alpha Sans in 2 loved or liked cards)
+- Display: `"Alpha Sans", "Inter", "Helvetica Neue", Arial, system-ui, -apple-system, "Segoe UI", sans-serif` (from votes: intended font Alpha Sans in 2 loved or liked cards)
 - Mono: `ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace` (curated default)
 - Scale ratio 1.2 (from votes): xs 11px, sm 13px, md 16px, lg 19px, xl 23px, 2xl 28px, 3xl 33px
 - Weights: regular 400, medium 500, bold 700 (curated default)

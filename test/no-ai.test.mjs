@@ -58,7 +58,7 @@ test("no personal profile, host paths, or emails ship in the repo", () => {
   assert.deepEqual(bad, []);
 });
 
-test("page copy does not claim that nothing is sent anywhere (card fonts are fetched)", () => {
+test("page copy states that swipes stay on this device", () => {
   const html = ensureDist();
   assert.doesNotMatch(html, /Nothing is sent anywhere/);
   assert.match(html, /Your swipes never leave this device/);
