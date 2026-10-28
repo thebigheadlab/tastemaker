@@ -10,9 +10,9 @@ const LIB = dirname(fileURLToPath(import.meta.url));
 const cut = new Set(existsSync(join(LIB, "cut.txt")) ? readFileSync(join(LIB, "cut.txt"), "utf8").split(/\s+/).filter(Boolean) : []);
 const cards = [], html = {};
 
-// Rough tokens pulled from the card's CSS so generated docs can quote real values.
+// Font intent comes from card metadata; colors and radii come from CSS.
 function extractTokens(src) {
-  const fonts = [...src.matchAll(/family=([^:&"']+)/g)].map((m) => decodeURIComponent(m[1]).replace(/\+/g, " "));
+  const fonts = [...src.matchAll(/<meta name="tastemaker-font-intent" content="([^"]+)">/g)].map((m) => m[1]);
   const count = (re, norm = (x) => x) => {
     const m = {};
     for (const x of src.matchAll(re)) { const k = norm(x[1]); m[k] = (m[k] || 0) + 1; }
@@ -33,7 +33,10 @@ for (const folder of readdirSync(LIB).sort()) {
     const meta = JSON.parse(readFileSync(join(dir, f), "utf8"));
     if (cut.has(meta.id) || !existsSync(join(dir, meta.id + ".html"))) continue;
     if (html[meta.id]) throw new Error(`duplicate id ${meta.id}`);
-    html[meta.id] = readFileSync(join(dir, meta.id + ".html"), "utf8");
+    html[meta.id] = readFileSync(join(dir, meta.id + ".html"), "utf8").replace(
+      /url\("\.\.\/fonts\/([A-Za-z0-9-]+\.woff2)"\)/g,
+      (_, file) => `url("data:font/woff2;base64,${readFileSync(join(LIB, "fonts", file)).toString("base64")}") /*\n${readFileSync(join(LIB, "fonts", file.replace("-latin.woff2", "-OFL.txt")), "utf8")}*/`,
+    );
     cards.push({ ...meta, author: folder, tokens: extractTokens(html[meta.id]), source: { type: "generated", inspiredBy: meta.inspiredBy } });
   }
 }

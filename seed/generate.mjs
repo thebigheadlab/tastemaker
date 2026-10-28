@@ -40,18 +40,18 @@ const PALETTES = [
 ];
 
 const FONTS = [
-  { name: "Inter",              family: "'Inter', sans-serif",              google: "Inter:wght@400;500;600;700",                  style: "grotesk" },
-  { name: "Space Grotesk",      family: "'Space Grotesk', sans-serif",      google: "Space+Grotesk:wght@400;500;700",              style: "grotesk" },
-  { name: "Poppins",            family: "'Poppins', sans-serif",            google: "Poppins:wght@400;500;600;700",                style: "geometric" },
-  { name: "Outfit",             family: "'Outfit', sans-serif",             google: "Outfit:wght@400;500;600;700",                 style: "geometric" },
-  { name: "Nunito",             family: "'Nunito', sans-serif",             google: "Nunito:wght@400;600;700;800",                 style: "humanist" },
-  { name: "Source Sans 3",      family: "'Source Sans 3', sans-serif",      google: "Source+Sans+3:wght@400;600;700",              style: "humanist" },
-  { name: "Fraunces",           family: "'Fraunces', serif",                google: "Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700", style: "serif" },
-  { name: "Playfair Display",   family: "'Playfair Display', serif",        google: "Playfair+Display:wght@400;600;700",           style: "serif" },
-  { name: "JetBrains Mono",     family: "'JetBrains Mono', monospace",      google: "JetBrains+Mono:wght@400;500;700",             style: "mono" },
-  { name: "IBM Plex Mono",      family: "'IBM Plex Mono', monospace",       google: "IBM+Plex+Mono:wght@400;500;600",              style: "mono" },
-  { name: "Syne",               family: "'Syne', sans-serif",               google: "Syne:wght@400;600;700;800",                   style: "display" },
-  { name: "Bricolage Grotesque",family: "'Bricolage Grotesque', sans-serif",google: "Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800", style: "display" },
+  { name: "Inter",              family: "'Inter', sans-serif", style: "grotesk" },
+  { name: "Space Grotesk",      family: "'Space Grotesk', sans-serif", style: "grotesk" },
+  { name: "Poppins",            family: "'Poppins', sans-serif", style: "geometric" },
+  { name: "Outfit",             family: "'Outfit', sans-serif", style: "geometric" },
+  { name: "Nunito",             family: "'Nunito', sans-serif", style: "humanist" },
+  { name: "Source Sans 3",      family: "'Source Sans 3', sans-serif", style: "humanist" },
+  { name: "Fraunces",           family: "'Fraunces', serif", style: "serif" },
+  { name: "Playfair Display",   family: "'Playfair Display', serif", style: "serif" },
+  { name: "JetBrains Mono",     family: "'JetBrains Mono', monospace", style: "mono" },
+  { name: "IBM Plex Mono",      family: "'IBM Plex Mono', monospace", style: "mono" },
+  { name: "Syne",               family: "'Syne', sans-serif", style: "display" },
+  { name: "Bricolage Grotesque", family: "'Bricolage Grotesque', sans-serif", style: "display" },
 ];
 
 const RADII = {
@@ -124,9 +124,9 @@ function ornamentCss(t) {
 const ORNAMENT_TAG = { none: "minimal", grain: "textured", grid: "textured", gradient: "expressive", glass: "expressive", brutal: "expressive" };
 
 function page(t, body, viewport) {
-  const fonts = [t.font, t.displayFont].filter(Boolean).map((f) => `family=${f.google}`).join("&");
+  const fonts = [t.font, t.displayFont].filter(Boolean).map((f) => `<meta name="tastemaker-font-intent" content="${f.name}">`).join("");
   return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=${viewport.w}">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${fonts}&display=swap">
+${fonts}
 <style>${themeCss(t)}</style></head><body>${body}</body></html>`;
 }
 

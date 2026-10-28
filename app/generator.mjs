@@ -241,7 +241,7 @@ export function decideTraits(stats) {
   });
 }
 
-// Fonts named in card CSS. Only used for the display font, only when exactly one font has the best
+// Fonts named as card design intent. Only used for the display font, only when exactly one font has the best
 // net weight over at least two positive votes. Monospace-looking names are left to the mono role.
 export function fontEvidence(valid, deck) {
   const byId = deckIndex(deck);
@@ -308,7 +308,7 @@ export function buildPlan(rawVotes, deck, taxonomy) {
     font: {
       body: { value: FONT_STACKS[style], source: src("typeStyle"), basis: basis("typeStyle") },
       display: fe.font
-        ? { value: `"${fe.font}", ${FONT_STACKS[style]}`, source: "votes", basis: `font ${fe.font} in ${fe.counts.loved + fe.counts.liked} loved or liked cards` }
+        ? { value: `"${fe.font}", ${FONT_STACKS[style]}`, source: "votes", basis: `intended font ${fe.font} in ${fe.counts.loved + fe.counts.liked} loved or liked cards` }
         : { value: FONT_STACKS[style], source: src("typeStyle"), basis: basis("typeStyle") },
       mono: { value: style === "mono" ? FONT_STACKS.mono : MONO_STACK, source: style === "mono" ? src("typeStyle") : "default", basis: style === "mono" ? basis("typeStyle") : "curated" },
     },
@@ -408,7 +408,7 @@ export function renderStyle(plan) {
   lines.push(table(["Pair", "Light", "Dark"], Object.keys(plan.contrast.light).map((k) => [k, plan.contrast.light[k].toFixed(2), plan.contrast.dark[k].toFixed(2)])), "");
   lines.push("## Typography", "");
   lines.push(`- Body: \`${tk.font.body.value}\` (${label(tk.font.body.source)})`);
-  lines.push(`- Display: \`${tk.font.display.value}\` (${label(tk.font.display.source)}${tk.font.display.source === "votes" && tk.font.display.basis.startsWith("font ") ? `: ${mdText(tk.font.display.basis, 120)}` : ""})`);
+  lines.push(`- Display: \`${tk.font.display.value}\` (${label(tk.font.display.source)}${tk.font.display.source === "votes" && tk.font.display.basis.startsWith("intended font ") ? `: ${mdText(tk.font.display.basis, 120)}` : ""})`);
   lines.push(`- Mono: \`${tk.font.mono.value}\` (${label(tk.font.mono.source)})`);
   if (plan.fontTie.length) lines.push(`- Several fonts tied for the best vote weight (${plan.fontTie.map((f) => mdText(f)).join(", ")}), so no font was taken from votes.`);
   lines.push(`- Scale ratio ${tk.typeRatio.value} (${label(tk.typeRatio.source)}): ${Object.entries(tk.fontSize).map(([k, e]) => `${k} ${px(e.value)}`).join(", ")}`);
