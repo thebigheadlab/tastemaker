@@ -43,7 +43,8 @@ Browser tests run when `playwright-core` is installed and a Chromium is on `PATH
 
 ## Known limits
 
-- The app and cards load no external fonts. Cards use fonts available on your device and their local fallback stacks, so appearance varies by device.
+- The app and cards load no external fonts. Anton and Doto are bundled for their condensed and dotted lettering. Other fonts use your device's local fallback stacks, so appearance varies by device.
+- Bundled fonts use the SIL Open Font License 1.1. Their licenses are included in `library/fonts/` and embedded in the built page.
 - Font choices in exports describe the cards' intended fonts. An intended font may not be installed on your device.
 - Votes saved in one browser are not visible in another. Use a backup to move them.
 

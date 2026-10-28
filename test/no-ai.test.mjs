@@ -34,7 +34,7 @@ test("cards and seed generator do not reference external font services", () => {
   ensureDeck();
   const html = JSON.parse(readFileSync(join(ROOT, "library/html.json"), "utf8"));
   const hosts = new Set();
-  for (const src of Object.values(html)) for (const m of src.matchAll(/https?:\/\/([\w.-]+)/g)) hosts.add(m[1]);
+  for (const src of Object.values(html)) for (const m of src.replace(/\/\*[\s\S]*?\*\//g, "").matchAll(/https?:\/\/([\w.-]+)/g)) hosts.add(m[1]);
   assert.deepEqual([...hosts].filter((h) => h !== "www.w3.org"), []);
   assert.doesNotMatch(readFileSync(join(ROOT, "seed/generate.mjs"), "utf8"), /fonts\.(googleapis|gstatic)\.com/);
 });

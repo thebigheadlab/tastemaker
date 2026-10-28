@@ -33,7 +33,10 @@ for (const folder of readdirSync(LIB).sort()) {
     const meta = JSON.parse(readFileSync(join(dir, f), "utf8"));
     if (cut.has(meta.id) || !existsSync(join(dir, meta.id + ".html"))) continue;
     if (html[meta.id]) throw new Error(`duplicate id ${meta.id}`);
-    html[meta.id] = readFileSync(join(dir, meta.id + ".html"), "utf8");
+    html[meta.id] = readFileSync(join(dir, meta.id + ".html"), "utf8").replace(
+      /url\("\.\.\/fonts\/([A-Za-z0-9-]+\.woff2)"\)/g,
+      (_, file) => `url("data:font/woff2;base64,${readFileSync(join(LIB, "fonts", file)).toString("base64")}") /*\n${readFileSync(join(LIB, "fonts", file.replace("-latin.woff2", "-OFL.txt")), "utf8")}*/`,
+    );
     cards.push({ ...meta, author: folder, tokens: extractTokens(html[meta.id]), source: { type: "generated", inspiredBy: meta.inspiredBy } });
   }
 }

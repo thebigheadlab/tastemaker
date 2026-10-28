@@ -34,6 +34,16 @@ test("dist/index.html embeds the same deck hash the generator will record", () =
   assert.equal(JSON.parse(m[1]).hash, deck.hash);
 });
 
+test("distinctive card fonts and their licenses are embedded for offline use", () => {
+  const html = ensureDist();
+  const deck = JSON.parse(html.match(/<script type="application\/json" id="deck-data">([\s\S]*?)<\/script>/)[1]);
+  for (const id of ["nike-app-home", "nothing-lock-screen"]) {
+    assert.ok(/data:font\/woff2;base64,d09GMg/.test(deck.html[id]), `${id} embeds a WOFF2 font`);
+    assert.ok(/SIL OPEN FONT LICENSE/.test(deck.html[id]), `${id} embeds the font license`);
+    assert.doesNotMatch(deck.html[id], /\.\.\/fonts\//);
+  }
+});
+
 test("inlined storage and io modules behave like the Node imports", async () => {
   const S = await import("../app/storage.mjs");
   const IO = await import("../app/io.mjs");
