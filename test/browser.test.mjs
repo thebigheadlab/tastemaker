@@ -24,7 +24,6 @@ const SKIP = !chromium || !exe ? "playwright-core or Chromium not available (set
 
 const W = 390, H = 844;
 let browser, server, base, html;
-const EXTERNAL_OK = /^https:\/\/fonts\.(googleapis|gstatic)\.com\//;
 
 before(async () => {
   if (SKIP) return;
@@ -63,7 +62,7 @@ test("loads at 390px with no errors, no window.claude, no outside requests from 
     assert.ok((await overflow(page)) <= W, `${tab} scrollWidth ${await overflow(page)}`);
   }
   assert.deepEqual(seen.errors, []);
-  assert.deepEqual(seen.external.filter((u) => !EXTERNAL_OK.test(u)), []);
+  assert.deepEqual(seen.external, []);
   await ctx.close();
 });
 

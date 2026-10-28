@@ -30,12 +30,19 @@ test("the page itself loads nothing from outside", () => {
   assert.doesNotMatch(code, /<script[^>]+\bsrc=/i);
 });
 
-test("card markup only reaches out to Google Fonts (known, listed in the README)", () => {
+test("cards and seed generator do not reference external font services", () => {
   ensureDeck();
   const html = JSON.parse(readFileSync(join(ROOT, "library/html.json"), "utf8"));
   const hosts = new Set();
   for (const src of Object.values(html)) for (const m of src.matchAll(/https?:\/\/([\w.-]+)/g)) hosts.add(m[1]);
-  assert.deepEqual([...hosts].filter((h) => !["fonts.googleapis.com", "fonts.gstatic.com", "www.w3.org"].includes(h)), []);
+  assert.deepEqual([...hosts].filter((h) => h !== "www.w3.org"), []);
+  assert.doesNotMatch(readFileSync(join(ROOT, "seed/generate.mjs"), "utf8"), /fonts\.(googleapis|gstatic)\.com/);
+});
+
+test("deck retains the cards' intended font families", () => {
+  const { cards } = ensureDeck();
+  assert.deepEqual(cards.find((c) => c.id === "vercel-projects").tokens.fonts, ["Geist", "Geist Mono"]);
+  assert.deepEqual(cards.find((c) => c.id === "airbnb-listing-card").tokens.fonts, ["Nunito Sans"]);
 });
 
 test("no personal profile, host paths, or emails ship in the repo", () => {
